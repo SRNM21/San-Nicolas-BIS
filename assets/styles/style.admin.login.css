@@ -1,0 +1,194 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.admin-container
+{
+    height: 100dvh;
+    width: 100dvw;
+    position: relative;
+}
+
+.modal
+{
+    height: fit-content;
+    max-width: 800px;
+    gap: var(--ws-6);
+    border-radius: var(--ws-2);
+    background-color: var(--white);
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.svg-wrapper
+{
+    padding: var(--ws-8);
+}
+
+.svg-content
+{
+    height: fit-content;
+    width: fit-content;
+}
+
+.svg-content svg
+{
+    height: 100%;
+    width: 100%;
+}
+
+.icon
+{
+    height: 80px;
+    width: 80px;
+    background-color: gray;
+}
+
+.login-content-wrapper
+{
+    flex: 1;
+    padding: var(--ws-8);
+    background-color: var(--plt-red-2);
+}
+
+.login-content
+{
+    gap: var(--ws-2);
+    min-width: 300px;
+}
+
+.brgy-container
+{
+    gap: var(--ws-2);
+    color: var(--white);
+}
+
+.login-input-wrapper
+{
+    gap: var(--ws-3);
+    margin-bottom: var(--ws-4);
+}
+
+.password-wrapper
+{
+    position: relative;
+}
+
+.toggle-pass-wrapper
+{
+    position: absolute;
+    right: 10px;
+    padding: var(--ws-1);
+    cursor: pointer;
+}
+
+.login-input
+{
+    width: 100%;
+    padding: var(--ws-3);
+    outline: none;
+    border: none;
+    border-radius: var(--ws-1);
+    color: var(--black);
+    background-color: var(--error-light-5);
+    font-size: var(--body-large);
+}
+
+.pass-toggle-on, .pass-toggle-off
+{
+    height: 100%;
+    width: 100%;
+    fill: var(--dark-gr-6);
+}
+
+.login_btn
+{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: var(--ws-3);
+    border-radius: var(--ws-1);
+    background-color: var(--white);
+    color: var(--plt-red-2);
+    font-weight: bold;
+    font-size: var(--body-medium);
+    cursor: pointer;
+}
+
+.login_btn:hover
+{
+    background-color: var(--error-light-5);
+}
+
+.otp-modal
+{    
+    height: 100dvh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.15s ease-in-out;
+}
+
+.otp-modal-content
+{
+    max-width: 500px;
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-6);
+    gap: var(--ws-4);
+}
+
+.otp-form
+{
+    gap: var(--ws-2);
+}
+
+.otp-input-wrapper
+{
+    gap: var(--ws-2);
+}
+
+.otp-input
+{
+    height: var(--ws-8);
+    padding: var(--ws-2);
+    outline: none;
+    flex: 1;
+    line-height: var(--ws-8);
+    border-radius: var(--ws-1);
+    border: 1px solid var(--black);
+}
+
+.verify-otp-btn
+{
+    height: var(--ws-8);
+    width: fit-content;
+    border: none;
+    border-radius: var(--ws-1);
+    outline: none;
+    padding: var(--ws-4);
+    color: var(--white);
+    background-color: var(--plt-red-2);
+}
+
+.resend-wrapper
+{
+    gap: var(--ws-1);
+}
+
+.hint-otp
+{
+    color: var(--dark-gr-4);
+    font-size: var(--body-medium);
+}
+
+.resend-otp-btn
+{
+    background-color: transparent;
+    color: var(--plt-red-2);
+    text-decoration: underline;
+    outline: none;
+    border: none;
+    font-size: var(--body-medium);
+}

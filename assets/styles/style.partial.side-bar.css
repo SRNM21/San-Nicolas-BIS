@@ -1,0 +1,155 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.side-menu-wrapper
+{    
+    height: 100dvh;
+    width: 320px;
+    min-width: 300px;
+    padding: var(--ws-4);
+    color: var(--white);
+    overflow-x: hidden;
+    background-color: var(--plt-red-2);
+}
+
+.upper-container
+{
+    margin-bottom: var(--ws-4);
+}
+
+.brgy-container
+{
+    gap: var(--ws-2);
+}
+
+.admin-nav-link-wrapper
+{
+    flex: 1;
+    margin-top: var(--ws-4);
+    margin-bottom: var(--ws-4);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.admin-nav-link-wrapper::-webkit-scrollbar 
+{
+    width: 5px;
+}
+  
+.admin-nav-link-wrapper::-webkit-scrollbar-track
+{
+    background-color: var(--plt-red-2);
+}
+   
+.admin-nav-link-wrapper::-webkit-scrollbar-thumb 
+{
+    background: var(--white); 
+    border-radius: var(--ws-2);
+}
+
+.admin-nav-link
+{
+    padding: var(--ws-3);
+    align-items: center;
+    gap: var(--ws-2);
+    border-radius: var(--ws-1);
+    text-decoration: none;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.admin-nav-link.active, .admin-nav-link.active:hover
+{
+    background-color: var(--white);
+    color: var(--plt-red-2);
+    font-weight: bold;
+
+    & svg
+    {
+        fill: var(--plt-red-2);
+    }
+}
+
+.admin-nav-link:hover
+{
+    background-color: var(--plt-red-2-d-tint);
+}
+
+.admin-nav-link span svg
+{
+    min-height: 25px;
+    min-width: 25px;    
+    height: 25px;
+    width: 25px;
+    fill: var(--white);
+}
+
+.group-nav
+{
+    flex: 1;
+    align-items: center;
+    gap: var(--ws-2);
+}
+
+.lower-container
+{
+    margin-top: var(--ws-4);
+}
+
+.acc-info-wrapper
+{
+    gap: var(--ws-2);
+}
+
+.icon
+{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: gray;
+}
+
+.acc-icon
+{
+    height: 50px;
+    width: 50px;
+    fill: var(--white);
+}
+
+.acc-icon svg
+{
+    height: 100%;
+    width: 100%;
+}
+
+.acc-info
+{
+    justify-content: center;
+}
+
+.acc-name
+{
+    font-size: var(--body-medium);
+}
+
+.acc-email
+{
+    font-size: var(--body-small);
+}
+
+.logout-wrapper
+{
+    flex: 1;
+    border-radius: var(--ws-1);
+}
+
+.logout-wrapper:hover
+{
+    background-color: var(--plt-red-2-d-tint);
+    cursor: pointer;
+}
+
+.logout-wrapper svg
+{
+    height: 70%;
+    width: 70%;
+}
