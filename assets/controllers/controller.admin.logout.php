@@ -1,6 +1,6 @@
 <?php
 
-require getView('admin', 'admin.logout');
+require getAuthView('logout');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {

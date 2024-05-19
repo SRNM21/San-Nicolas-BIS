@@ -13,7 +13,6 @@ $route = getRoute($uri);
 
 if ($route == '404')
 {
-    echo 'NOT FOUND';
     exit;
 }
 

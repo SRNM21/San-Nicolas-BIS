@@ -6,7 +6,7 @@ if (isset($_SESSION['LOGGED_IN']))
     return;
 }
 
-require getView('admin', 'admin.login');
+require getAuthView('login');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {

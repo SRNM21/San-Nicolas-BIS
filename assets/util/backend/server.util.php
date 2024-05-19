@@ -52,13 +52,25 @@ function getRoute(String $uri)
         
         "/$folder/administrator/barangay-officials" => 
         adminController('admin.brgy-officials'),
+
+        "/$folder/administrator/barangay-officials/profile" => 
+        adminController('admin.official-details'),
         
         "/$folder/administrator/barangay-officials/new-official" => 
         adminController('admin.new-official'),
         
-        "/$folder/administrator/residence" => 
-        adminController('admin.residence'),
+        "/$folder/administrator/family-head" => 
+        adminController('admin.family-head'),
         
+        "/$folder/administrator/family-head/info" => 
+        adminController('admin.fam-head-details'),
+
+        "/$folder/administrator/family-member" => 
+        adminController('admin.family-member'),
+
+        "/$folder/administrator/spouse" => 
+        adminController('admin.spouse'),
+
         "/$folder/administrator/blotter" => 
         adminController('admin.blotter'),
         
@@ -224,4 +236,20 @@ function getImage($image)
 function getIllustration($svg)
 {
     require '.'.VECTOR_PATH."$svg.svg";
+}
+
+
+/* SERVER FUNCTIONS */
+function generateID($start)
+{
+    $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+
+    $id = $start . '-';
+
+    for ($i = 0; $i < 5; $i++) 
+    {
+        $id .= $chars[rand(0, strlen($chars) - 1)];
+    }
+
+    return $id;
 }

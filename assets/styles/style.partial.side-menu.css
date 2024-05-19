@@ -53,6 +53,7 @@
     gap: var(--ws-2);
     border-radius: var(--ws-1);
     text-decoration: none;
+    font-size: var(--body-medium);
     color: var(--white);
     cursor: pointer;
 }
@@ -88,6 +89,27 @@
     flex: 1;
     align-items: center;
     gap: var(--ws-2);
+}
+
+.residence-accordion
+{
+    border-radius: 5px 5px 0px 0px;
+}
+
+.residence-accordion-wrapper
+{
+    display: none;
+    border-radius: 0px 0px 5px 5px;
+    background-color: var(--error);
+    padding-left: var(--ws-8);
+    flex: 1;
+}
+
+.accordion-nav-group
+{
+    padding: var(--ws-3);
+    text-decoration: none;
+    color: var(--white);
 }
 
 .lower-container

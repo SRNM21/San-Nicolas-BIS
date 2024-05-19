@@ -1,8 +1,6 @@
 @import url('/sannicolasbis/assets/styles/style.root.css');
 
-/** MAIN LAYOUT */
-
-.brgy-off-content
+.fam-head-content
 {
     flex: 1;
     padding: var(--ws-4);
@@ -56,7 +54,7 @@
 {
     outline: transparent;
     background-color: var(--white);
-    border: 3px solid var(--black);
+    border: 2px solid var(--black);
 
     & + .search-icon-wrapper svg
     {
@@ -64,7 +62,7 @@
     }
 }
 
-.new-official-btn
+.new-family-head-btn
 {
     text-decoration: none;
     background-color: var(--success);
@@ -74,17 +72,17 @@
     gap: var(--ws-2);
 }
 
-.new-official-btn:hover
+.new-family-head-btn:hover
 {
     background-color: var(--success-dark);
 }
 
-.new-official-btn svg, .new-official-btn svg path
+.new-family-head-btn svg, .new-family-head-btn svg path
 {
     fill: var(--white);
 }
 
-.brgy-officials-tbl
+.family-head-tbl
 {
     border-collapse: collapse;
     border-spacing: 0;
@@ -92,20 +90,20 @@
     border: 1px solid gray;
 }
 
-.brgy-officials-tbl thead
+.family-head-tbl thead
 {
     background-color: var(--dark-gr-1);
     color: var(--white);
     padding: var(--ws-2);
 }
 
-.brgy-officials-tbl td, .brgy-officials-tbl th
+.family-head-tbl td, .family-head-tbl th
 {
     padding: var(--ws-3);
     text-align: left;
 }
 
-.brgy-officials-tbl tr:nth-child(even)
+.family-head-tbl tr:nth-child(even)
 {
     background-color: var(--gray-gr-3);
 }
@@ -122,6 +120,7 @@
     color: var(--white);
     border-radius: var(--ws-1);
     padding: var(--ws-2);
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -138,80 +137,4 @@
 .delete-details-btn
 {
     background-color: var(--error-dark);
-}
-
-/** SUCCESS MODAL */
-
-.success-modal-container
-{
-    height: 100dvh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.success-modal
-{
-    max-width: 500px;
-    padding: var(--ws-4);
-    border-radius: var(--ws-1);
-    background-color: var(--white);
-}
-
-.icon-wrapper
-{
-    height: 60px;
-    width: 60px;
-}
-
-.icon-wrapper svg
-{
-    height: 100%;
-    width: 100%;
-    fill: var(--success);
-}
-
-.btn-wrapper
-{
-    margin-top: var(--ws-2);
-    gap: var(--ws-2);
-}
-
-.modal-btn
-{
-    height: var(--ws-8);
-    width: 130px;
-    border-radius: var(--ws-1);
-    padding: var(--ws-4);
-    border: none;
-    outline: none;
-    font-size: var(--body-medium);
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.continue-btn
-{
-    background-color: var(--success);
-    color: var(--white);
-}
-
-.continue-btn:hover
-{
-    background-color: var(--success-dark);
-}
-
-.back-btn
-{
-    background-color: transparent;
-    color: var(--success);
-}
-
-.back-btn:hover
-{
-    background-color: var(--gray-gr-2);
 }

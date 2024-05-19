@@ -100,7 +100,6 @@
     font-size: var(--body-large);
 }
 
-
 .login_btn
 {
     width: 100%;
@@ -129,7 +128,6 @@
     left: 0;
     z-index: 3;
     background-color: rgba(0, 0, 0, 0.4);
-    transition: all 0.15s ease-in-out;
 }
 
 .otp-modal-content
