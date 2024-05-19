@@ -1,0 +1,74 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.logout-wrapper
+{    
+    height: 100dvh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    transition: all 0.15s ease-in-out;
+}
+
+.logout-content
+{
+    max-width: 500px;
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-6);
+    gap: var(--ws-4);
+}
+
+.warning-wrapper svg
+{
+    height: 80px;
+    width: 80px;
+    fill: var(--error);
+}
+
+.logout-form
+{
+    gap: var(--ws-2);
+}
+
+.btn-wrapper
+{
+    max-width: 300px;
+    width: 40dvw;
+    gap: var(--ws-2);
+}
+
+.logout-btn
+{
+    height: var(--ws-8);
+    border: none;
+    border-radius: var(--ws-1);
+    outline: none;
+    padding: var(--ws-4);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.prm
+{
+    color: var(--white);
+    background-color: var(--plt-red-2);
+}
+
+.prm:hover
+{
+    background-color: var(--plt-red-2-d-tint);
+}
+
+.scn
+{
+    border: 2px solid var(--plt-red-2);
+    color: var(--plt-red-2);
+    background-color: transparent;
+}
+
+.scn:hover
+{
+    background-color: var(--gray-gr-2);
+}

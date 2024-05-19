@@ -1,12 +1,12 @@
 <?php
 
-if ($_SESSION['LOGGED_IN'] == 1)
+if (isset($_SESSION['LOGGED_IN']))
 {
     header('Location: administrator/dashboard');
     return;
 }
 
-require getView('admin', 'admin');
+require getView('admin', 'admin.login');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {

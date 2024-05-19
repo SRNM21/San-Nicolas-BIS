@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | Barangay San Nicolas</title>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Login | Barangay San Nicolas</title>
     <link rel='stylesheet' href=<?= getStyle('admin.login'); ?>>
 </head>
 <body>
@@ -21,14 +21,18 @@
                         <p class='login-mess'>Login as administrator</p>
                     </header>
                     <main class='login-form-wrapper'>
-                        <form action="administrator" method="POST" class='f-col login-form'>
+                        <form action='administrator' method='POST' class='f-col login-form'>
                             <div class='f-col login-input-wrapper'>
-                                <input class='login-input username' placeholder='Username' type='text' id='username' name='username'>
-                                <input class='login-input password' placeholder='Password' type='password' id='password' name='password'>
+                                <input value="Gengar" class='login-input username' placeholder='Username' type='text' id='username' name='username'>
+                                <input value="659_Gengar_$$" class='login-input password' placeholder='Password' type='password' id='password' name='password'>
+                                <div class='f-center f-row toggle-pass-wrapper'>
+                                    <input type='checkbox' name='toggle-pass' id='toggle-pass' class='toggle-pass'>
+                                    <p class='toggle-pass-hint'>Show password</p>
+                                </div>                                
                             </div>
                             <button type='submit' id='login_btn' class='login_btn'>Log in</button>
                             <div class='f-center error_info_wrapper'>
-                                <div class="error_info hide"></div>
+                                <div class='error_info hide'></div>
                             </div>
                         </form>
                     </main>

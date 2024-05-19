@@ -5,7 +5,6 @@
  */
 $env = parse_ini_file('.env');
 
-
 /*
 * For Path Configurations.
 */
@@ -28,29 +27,68 @@ const VECTOR_PATH           = '/assets/src/svg/';
  * 
  * @param String $uri The uri of link.
  */
-function getRoute(String $uri) : String
+function getRoute(String $uri) 
 {
     $folder = strtolower(getProjectFolder());
     
     $routes = [
-        "/$folder/"                                     => getController('redirect'),
-        "/$folder/community"                            => getController('home-page'),
-        "/$folder/administrator"                        => getController('admin.login'),
-        "/$folder/administrator/verification"           => getController('admin.verify-otp'),
-        "/$folder/administrator/dashboard"              => getController('admin.dashboard'),
-        "/$folder/administrator/barangay-officials"     => getController('admin.brgy-officials'),
-        "/$folder/administrator/residence"              => getController('admin.residence'),
-        "/$folder/administrator/blotter"                => getController('admin.blotter'),
-        "/$folder/administrator/settings"               => getController('admin.settings'),
-        "/$folder/administrator/add"                    => getController('admin.add-residence'),
-        "/$folder/administrator/update"                 => getController('admin.update'),
-        "/$folder/administrator/delete"                 => getController('admin.delete'),
-        "/$folder/null"                                 => getController('home-page'),
+        "/$folder/" =>
+        getController('redirect'),
+        
+        "/$folder/community" => 
+        getController('home-page'),
+
+        "/$folder/administrator" => 
+        getController('admin.login'),
+
+        "/$folder/administrator/logout" => 
+        adminController('admin.logout'),
+
+        "/$folder/administrator/verification" => 
+        adminController('admin.verify-otp'),
+
+        "/$folder/administrator/dashboard" => 
+        adminController('admin.dashboard'),
+        
+        "/$folder/administrator/barangay-officials" => 
+        adminController('admin.brgy-officials'),
+        
+        "/$folder/administrator/barangay-officials/new-official" => 
+        adminController('admin.new-official'),
+        
+        "/$folder/administrator/residence" => 
+        adminController('admin.residence'),
+        
+        "/$folder/administrator/blotter" => 
+        adminController('admin.blotter'),
+        
+        "/$folder/administrator/settings" => 
+        adminController('admin.settings'),
+        
+        "/$folder/null" => 
+        getController('home-page'),
     ];
     
     return array_key_exists($uri, $routes) 
         ? $routes[$uri] 
         : "404";
+}
+
+/** 
+ * System helper that checks if the admin/user is logged in. 
+ * Redirect to login view if not logged in
+ * 
+ * @param String $api The api file name.
+ */
+function adminController($controller)
+{
+    if (!isset($_SESSION['LOGGED_IN']) || empty($_SESSION['LOGGED_IN']))
+    {
+        require getController('admin.redirect');
+        exit;
+    }
+
+    return getController($controller);
 }
 
 /** 
@@ -64,18 +102,47 @@ function getAPI($api)
 }
 
 /** 
- * View helper that returns directory of the the php view file.
+ * View helper that returns directory of the the php view directory.
  * 
  * @param String $type The type of php view.
- * @param String $view The php view file name.
  */
-function getView($type, $view)
+function getView($type)
 {
     return '../' . getProjectFolder() . [
         'admin'     => VIEW_ADMIN_PATH,
         'auth'      => VIEW_AUTH_PATH,
         'public'    => VIEW_PUBLIC_PATH
-    ][$type] . "view.$view.php";
+    ][$type];
+}
+
+/** 
+ * View helper that returns directory of the the admin php view directory.
+ * 
+ * @param String $view The admin view.
+ */
+function getAdminView($view)
+{
+    return getView('admin') . "admin.$view.php";
+}
+
+/** 
+ * View helper that returns directory of the the authentication php view directory.
+ * 
+ * @param String $view The authentication view.
+ */
+function getAuthView($view)
+{
+    return getView('auth') . "auth.$view.php";
+}
+
+/** 
+ * View helper that returns directory of the the public php view directory.
+ * 
+ * @param String $view The public view.
+ */
+function getPublic($view)
+{
+    return getView('public') . "public.$view.php";
 }
 
 /** 
@@ -86,24 +153,14 @@ function getView($type, $view)
  */
 function getPartial($partial)
 {
-    return '.'.PARTIALS_PATH."$partial.php";
-}
-
-/** 
- * View helper that returns directory of the the php admin view file.
- * 
- * @param String $view The php view file name.
- */
-function getLayout($view)
-{
-    return '../' . getProjectFolder() . VIEW_ADMIN_LAYOUTS . "admin.layout.$view.php";
+    return '.'.PARTIALS_PATH."partial.$partial.php";
 }
 
 /** 
  * System helper that returns project's folder.
  * 
  */
-function getProjectFolder() : String
+function getProjectFolder() 
 {
     global $env;
     return $env['PROJECT_FOLDER'];
@@ -124,7 +181,7 @@ function getController($controller)
  * 
  * @param String $css The css file name.
  */
-function getStyle(String $css) : String
+function getStyle(String $css) 
 {
     return '/' . getProjectFolder() . STYLE_PATH . "style.$css.css";
 }
@@ -134,7 +191,7 @@ function getStyle(String $css) : String
  * 
  * @param String $js The javascript file name.
  */
-function getScript(String $js) : String
+function getScript(String $js) 
 {
     return '/' . getProjectFolder() . SCRIPT_PATH . "script.$js.js";
 }

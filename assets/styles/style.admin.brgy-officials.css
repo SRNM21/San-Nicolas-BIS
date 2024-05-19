@@ -1,0 +1,12 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.brgy-off-content
+{
+    flex: 1;
+    padding: var(--ws-4);
+}
+
+.utility
+{
+    justify-content: space-between;
+}

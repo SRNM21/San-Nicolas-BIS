@@ -67,17 +67,25 @@
     margin-bottom: var(--ws-4);
 }
 
-.password-wrapper
-{
-    position: relative;
-}
-
 .toggle-pass-wrapper
 {
-    position: absolute;
-    right: 10px;
     padding: var(--ws-1);
-    cursor: pointer;
+    width: fit-content;
+    gap: var(--ws-2);
+}
+
+.toggle-pass
+{
+    height: 15px;
+    width: 15px;
+    outline: none;
+    border: 1px solid var(--white);
+}
+
+.toggle-pass-hint
+{
+    color: var(--white);
+    font-size: var(--body-medium);
 }
 
 .login-input
@@ -92,12 +100,6 @@
     font-size: var(--body-large);
 }
 
-.pass-toggle-on, .pass-toggle-off
-{
-    height: 100%;
-    width: 100%;
-    fill: var(--dark-gr-6);
-}
 
 .login_btn
 {
@@ -170,6 +172,12 @@
     padding: var(--ws-4);
     color: var(--white);
     background-color: var(--plt-red-2);
+    cursor: pointer;
+}
+
+.verify-otp-btn:hover
+{
+    background-color: var(--plt-red-2-d-tint);
 }
 
 .resend-wrapper

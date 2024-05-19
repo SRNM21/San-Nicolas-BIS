@@ -1,3 +1,3 @@
 <?php 
 
-require getView('public', 'home-page');
+require getPublic('home-page');

@@ -9,7 +9,7 @@
 <body>
 
     <main class='f-row'>
-        <?php require getPartial('admin.side-menu'); ?>
+        <?php include getPartial('admin.side-menu'); ?>
         <h3>DASHBOARD</h3>
     </main>
 </body>

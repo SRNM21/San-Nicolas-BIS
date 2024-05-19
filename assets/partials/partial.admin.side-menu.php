@@ -1,4 +1,14 @@
-<?php $admin_uri = substr($uri, 29); ?>
+<?php 
+
+$origin = '/'. strtolower(getProjectFolder()) . '/administrator/';
+$admin_uri = substr($uri, 29); 
+$onDashboard =      str_starts_with($admin_uri, 'dashboard');
+$onBrgyOfficials =  str_starts_with($admin_uri, 'barangay-officials');
+$onResidence =      str_starts_with($admin_uri, 'residence');
+$onBlotter =        str_starts_with($admin_uri, 'blotter');
+$onSettings =       str_starts_with($admin_uri, 'settings');
+
+?>
 
 <link rel='stylesheet' href=<?= getStyle('partial.side-bar'); ?>>
 <aside class='f-col side-menu-wrapper'>
@@ -10,26 +20,26 @@
     </header>
     <hr>
     <div class='f-col admin-nav-link-wrapper'>
-        <a href='dashboard' class='f-row admin-nav-link <?= $admin_uri == 'dashboard' ? 'active' : '' ?>' data-nav='dashboard'>
+        <a href='<?php echo $origin; ?>dashboard' class='f-row admin-nav-link <?= $onDashboard ? 'active' : '' ?>' data-nav='dashboard'>
             <span><?= getSVG('dashboard'); ?></span>
             <p>Dashboard</p>
         </a>
-        <a href='barangay-officials' class='f-row admin-nav-link <?= $admin_uri == 'barangay-officials' ? 'active' : '' ?>' data-nav='brgy-officials'>
-            <span><?= getSVG('brgy-officials'); ?></span>
+        <a href='<?php echo $origin; ?>barangay-officials' class='f-row admin-nav-link <?= $onBrgyOfficials ? 'active' : '' ?>' data-nav='brgy-officials'>
+            <span><?= getSVG('brgy_officials'); ?></span>
             <p>Barangay Officials</p>
         </a>
-        <a href='residence' class='f-row admin-nav-link <?= $admin_uri == 'residence' ? 'active' : '' ?>' data-nav='residence'>
+        <a href='<?php echo $origin; ?>residence' class='f-row admin-nav-link <?= $onResidence ? 'active' : '' ?>' data-nav='residence'>
             <div class='f-row group-nav'>
                 <span><?= getSVG('residence'); ?></span>
                 <p>Residence</p>
             </div>
             <span><?= getSVG('markdown'); ?></span>
         </a>
-        <a href='blotter' class='f-row admin-nav-link  <?= $admin_uri == 'blotter' ? 'active' : '' ?>' data-nav='blotter'>
-            <span><?= getSVG('blotter'); ?></span>
+        <a href='<?php echo $origin; ?>blotter' class='f-row admin-nav-link  <?= $onBlotter ? 'active' : '' ?>' data-nav='blotter'>
+            <span><?= getSVG('blotter1'); ?></span>
             <p>Blotter</p>
         </a>
-        <a href='settings' class='f-row admin-nav-link  <?= $admin_uri == 'settings' ? 'active' : '' ?>' data-nav='settings'>
+        <a href='<?php echo $origin; ?>settings' class='f-row admin-nav-link  <?= $onSettings ? 'active' : '' ?>' data-nav='settings'>
             <span><?= getSVG('settings'); ?></span>
             <p>Settings</p>
         </a>
@@ -42,7 +52,7 @@
                 <p class='acc-name'><?php echo $_SESSION['USERNAME']; ?></p>
                 <p class='acc-email'><?php echo $_SESSION['EMAIL']; ?></p>
             </div>
-            <div class='f-center logout-wrapper'><?= getSVG('logout'); ?></div>
+            <a href='logout' class='f-center logout-wrapper'><?= getSVG('logout'); ?></a>
         </div>
     </footer>
 </aside>

@@ -10,8 +10,3 @@ navs.click(function(event)
         ? $(this).removeClass('active')
         : $(this).addClass('active')
 })
-
-logoutBtn.click(function () 
-{  
-    
-})
