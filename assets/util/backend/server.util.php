@@ -30,77 +30,74 @@ const VECTOR_PATH           = '/assets/src/svg/';
 function getRoute(String $uri) 
 {
     $folder = strtolower(getProjectFolder());
-    
+    $origin = '/'. $folder;
+    $admin_uri = substr($uri, strlen($origin) + 1); 
+    $onAdmin = str_starts_with($admin_uri, 'administrator');
+    $exception = ['administrator', 'administrator/verification'];
+    $exempted = in_array($admin_uri, $exception);
+
+    if ($onAdmin && !isset($_SESSION['LOGGED_IN']))
+    {
+        if (!$exempted)
+        {
+            var_dump('hello');
+            return 'NOT LOGGED IN'; 
+        }
+    }
+
     $routes = [
         "/$folder/" =>
         getController('redirect'),
         
         "/$folder/community" => 
         getController('home-page'),
-
-        "/$folder/administrator" => 
-        getController('admin.login'),
-
-        "/$folder/administrator/logout" => 
-        adminController('admin.logout'),
-
-        "/$folder/administrator/verification" => 
-        adminController('admin.verify-otp'),
-
-        "/$folder/administrator/dashboard" => 
-        adminController('admin.dashboard'),
-        
-        "/$folder/administrator/barangay-officials" => 
-        adminController('admin.brgy-officials'),
-
-        "/$folder/administrator/barangay-officials/profile" => 
-        adminController('admin.official-details'),
-        
-        "/$folder/administrator/barangay-officials/new-official" => 
-        adminController('admin.new-official'),
-        
-        "/$folder/administrator/family-head" => 
-        adminController('admin.family-head'),
-        
-        "/$folder/administrator/family-head/info" => 
-        adminController('admin.fam-head-details'),
-
-        "/$folder/administrator/family-member" => 
-        adminController('admin.family-member'),
-
-        "/$folder/administrator/spouse" => 
-        adminController('admin.spouse'),
-
-        "/$folder/administrator/blotter" => 
-        adminController('admin.blotter'),
-        
-        "/$folder/administrator/settings" => 
-        adminController('admin.settings'),
         
         "/$folder/null" => 
         getController('home-page'),
+
+        "/$folder/administrator" => 
+        getController('admin.login'),
+        
+        "/$folder/administrator/logout" => 
+        getController('admin.logout'),
+
+        "/$folder/administrator/verification" => 
+        getController('admin.verify-otp'),
+
+        "/$folder/administrator/dashboard" => 
+        getController('admin.dashboard'),
+        
+        "/$folder/administrator/barangay-officials" => 
+        getController('admin.brgy-officials'),
+
+        "/$folder/administrator/barangay-officials/profile" => 
+        getController('admin.official-details'),
+        
+        "/$folder/administrator/barangay-officials/new-official" => 
+        getController('admin.new-official'),
+        
+        "/$folder/administrator/family-head" => 
+        getController('admin.family-head'),
+        
+        "/$folder/administrator/family-head/info" => 
+        getController('admin.fam-head-details'),
+
+        "/$folder/administrator/family-member" => 
+        getController('admin.family-member'),
+
+        "/$folder/administrator/spouse" => 
+        getController('admin.spouse'),
+
+        "/$folder/administrator/blotter" => 
+        getController('admin.blotter'),
+        
+        "/$folder/administrator/settings" => 
+        getController('admin.settings'),
     ];
-    
+
     return array_key_exists($uri, $routes) 
-        ? $routes[$uri] 
-        : "404";
-}
-
-/** 
- * System helper that checks if the admin/user is logged in. 
- * Redirect to login view if not logged in
- * 
- * @param String $api The api file name.
- */
-function adminController($controller)
-{
-    if (!isset($_SESSION['LOGGED_IN']) || empty($_SESSION['LOGGED_IN']))
-    {
-        require getController('admin.redirect');
-        exit;
-    }
-
-    return getController($controller);
+    ? $routes[$uri] 
+    : "404";
 }
 
 /** 

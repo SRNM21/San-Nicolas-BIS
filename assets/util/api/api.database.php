@@ -160,6 +160,11 @@ function queryFamilyHead($q)
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+    if (!isset($_POST['func']))
+    {
+        return;
+    }
+    
     if($_POST['func'] == 'POPULATE_TABLE_BRGY_OFFICIALS')
     {
         $query = $_POST['q'];

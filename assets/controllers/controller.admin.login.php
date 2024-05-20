@@ -3,7 +3,7 @@
 if (isset($_SESSION['LOGGED_IN']))
 {
     header('Location: administrator/dashboard');
-    return;
+    exit;
 }
 
 require getAuthView('login');
@@ -17,9 +17,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     if ($creds != null)
     {
         $email = $creds['email'];
-        $censored_email = $email[0] . str_repeat('*', strlen($email) - 11) . '@gmail.com';
+        $atPos = strpos($email, '@');
+        $censored_email = substr($email, 0, 3);
+        $censored_email .= str_repeat('*', ($atPos - 3)); 
+        $censored_email .= preg_replace('/[^@]+@([^\s]+)/', '@$1', $email);
 
-        $otp = rand(100000,999999); 
+        $otp = rand(100000, 999999); 
         $otp_message = strval($otp); 
 
         $_SESSION['OTP'] = $otp;

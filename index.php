@@ -15,5 +15,12 @@ if ($route == '404')
 {
     exit;
 }
+else if ($route == 'NOT LOGGED IN')
+{
+    header('Location: /sannicolasbis/administrator');
+}
+else
+{
+    require $route;
+}
 
-require $route;

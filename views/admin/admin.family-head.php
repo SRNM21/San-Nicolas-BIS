@@ -24,7 +24,7 @@
                         </span>
                     </div>
                     <div class='util-btn-wrapper'>
-                        <a href='barangay-officials/new-family-head' class='f-center f-row new-family-head-btn'><?= getSVG('add-person'); ?><p>New Family Head</p></a>
+                        <a href='family-head/new-family-head' class='f-center f-row new-family-head-btn'><?= getSVG('add-person'); ?><p>New Family Head</p></a>
                     </div>
                 </div>
                 <table class='family-head-tbl'>

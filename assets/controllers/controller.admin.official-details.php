@@ -1,5 +1,11 @@
 <?php
 
+if (!isset($_SESSION['LOGGED_IN']))
+{
+    return getController('admin.redirect');
+    exit;
+}
+
 $id = $_GET['id'];
 $official = getOfficial($id);
 
