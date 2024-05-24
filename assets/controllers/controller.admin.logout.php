@@ -1,11 +1,5 @@
 <?php
 
-if (!isset($_SESSION['LOGGED_IN']))
-{
-    return getController('admin.redirect');
-    exit;
-}
-
 require getAuthView('logout');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

@@ -1,0 +1,128 @@
+.modal-container
+{
+    height: 100dvh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal
+{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 400px;
+    gap: var(--ws-2);
+    padding: var(--ws-6);
+    border-radius: var(--ws-1);
+    background-color: var(--white);
+}
+
+.chip
+{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--white);
+    padding: var(--ws-2);
+    border-radius: 100px;
+}
+
+.chip-active
+{
+    background-color: var(--success);
+}
+
+.chip-dismissed
+{
+    background-color: var(--error);
+}
+
+.close-btn-wrapper
+{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.close-btn-wrapper svg
+{
+    height: 100%;
+    width: 100%;
+    fill: var(--dark-gr-7);
+}
+
+.image-wrapper
+{
+    height: 200px;
+    width: 200px;
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.image-wrapper img 
+{
+    height: 100%;
+    width: 100%;
+    border: 5px solid var(--plt-red-2);
+    padding: var(--ws-1);
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.info-wrapper
+{
+    width: 100%;
+}
+
+.info-container
+{
+    width: 100%;
+    gap: var(--ws-4);
+}
+
+.card-hint
+{
+    font-size: var(--body-medium);
+    color: var(--dark-gr-5);
+}
+
+.contact-container
+{
+    gap: var(--ws-2);
+}
+
+.contact-wrapper
+{
+    gap: var(--ws-4);
+    text-decoration: none;
+    color: var(--black);
+    font-size: var(--body-small);
+}
+
+.handle-container span
+{
+    flex: 1;
+}
+
+.svg-wrapper
+{
+    height: 20px;
+    width: 20px;
+}
+
+.svg-wrapper svg
+{
+    height: 100%;
+    width: 100%;
+}
+
+.svg-wrapper svg, .svg-wrapper path
+{
+    fill: var(--black);
+}

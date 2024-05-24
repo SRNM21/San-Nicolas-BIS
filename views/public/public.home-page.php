@@ -127,15 +127,15 @@
                 <div class='f-col about-txt'>
                     <div class='f-col about-title-wrapper'>
                         <p>About us</p>
-                        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum </h1>
+                        <h1><?= $about_main ?></h1>
                     </div>
                     <div class='f-col about-info-wrapper'>
-                        <h3>LOREM IPSUM</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non eros sit amet felis fermentum fringilla. Pellentesque habitant morbi tristique senectus </p>
+                        <h3><?= $about_title_1 ?></h3>
+                        <p><?= $about_details_1 ?></p>
                     </div>
                     <div class='f-col about-info-wrapper'>
-                        <h3>LOREM IPSUM</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non eros sit amet felis fermentum fringilla. Pellentesque habitant morbi tristique senectus </p>
+                        <h3><?= $about_title_2 ?></h3>
+                        <p><?= $about_details_2 ?></p>
                     </div>
                 </div>
                 <div class='flex about-image-wrapper'>
@@ -157,7 +157,7 @@
             <div class='f-col section-content officials-section-content'>
                 <div class='officials-txt'>
                     <h3>BARANGGAY OFFICIALS</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum laoreet nisl </p>
+                    <p><?= $brgy_off_into ?></p>
                 </div>
                 <div class='f-row officials-profile'>
                     <div class='brgy-cap-wrapper'>
@@ -209,22 +209,22 @@
                         <h3 class='mivis-lang'>English</h3>
                         <div>
                             <h3>MISSION</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum laoreet nisl id vulputate. Nulla nibh odio, rhoncus sed arcu nec, vehicula faucibus lectus. Etiam tincidunt aliquam elementum. </p>
+                            <p><?= $mission_en ?></p>
                         </div>
                         <div>
                             <h3>VISION</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum laoreet nisl id vulputate. Nulla nibh odio, rhoncus sed arcu nec, vehicula faucibus lectus. Etiam tincidunt aliquam elementum. </p>
+                            <p><?= $vision_en ?></p>
                         </div>
                     </div>
                     <div class='f-col mivis-eng'>
                         <h3 class='mivis-lang'>Tagalog</h3>
                         <div>
                             <h3>MISYON</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum laoreet nisl id vulputate. Nulla nibh odio, rhoncus sed arcu nec, vehicula faucibus lectus. Etiam tincidunt aliquam elementum. </p>
+                            <p><?= $mission_ta ?></p>
                         </div>
                         <div>
                             <h3>BISYON</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fermentum laoreet nisl id vulputate. Nulla nibh odio, rhoncus sed arcu nec, vehicula faucibus lectus. Etiam tincidunt aliquam elementum. </p>
+                            <p><?= $vision_ta ?></p>
                         </div>
                     </div>
                 </div>

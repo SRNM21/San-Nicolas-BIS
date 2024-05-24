@@ -1,0 +1,29 @@
+.header-wrapper
+{
+    background-color: var(--plt-red-2);
+    justify-content: space-between;
+    padding: var(--ws-4);
+}
+
+.header-name-wrapper
+{
+   margin-left: var(--ws-2); 
+}
+
+.header-name
+{
+    font-weight: normal;
+    color: var(--white);
+    font-size: var(--body-large);
+}
+
+.dat-wrapper
+{
+    gap: var(--ws-2);
+}
+
+.dat-wrapper p 
+{
+    color: var(--white);
+    font-size: var(--body-medium);
+}

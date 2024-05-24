@@ -1,0 +1,147 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.brgy-off-container
+{
+    height: 100dvh;
+    flex: 1;
+}
+
+.brgy-off-content
+{
+    flex: 1;
+    width: 100%;
+    padding: var(--ws-4);
+}
+
+.back-btn-wrapper
+{
+    justify-content: start;
+}
+
+.back-btn
+{
+    height: 20px;
+    width: 20px;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: var(--ws-1);
+    text-decoration: none;
+}
+
+.back-btn svg
+{
+    height: 100%;
+    width: 100%;
+    fill: var(--white);
+}
+
+.new-off-content
+{
+    flex: 1;
+    padding: var(--ws-4);
+    gap: var(--ws-4);
+    justify-content: start !important;
+}
+
+.new-official-form-wrapper
+{
+    margin-top: var(--ws-4);
+    max-width: var(--bp-laptop-l);
+    border-radius: var(--ws-1);
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form-header
+{
+    padding: var(--ws-4);
+    background-color: var(--black);
+    color: var(--white);
+    justify-content: space-between;
+}
+
+.form-header p
+{
+    font-size: var(--body-small);
+}
+
+.form-content-wrapper
+{
+    padding: var(--ws-4);
+    gap: var(--ws-4);
+}
+
+.personal-info-container, .barangay-position-container
+{
+    gap: var(--ws-4);
+}
+
+.personal-info-container > .f-row
+{
+    gap: var(--ws-2);
+}
+
+.no-form-input
+{
+    outline: none;
+    border: 2px solid var(--dark-gr-7);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    font-size: var(--body-large);
+}
+
+.invalid, .invalid:focus
+{
+    border: 2px solid var(--error) !important;
+}
+
+.no-form-input:focus
+{
+    border: 2px solid var(--dark-gr-1);
+}
+
+.no-form-label
+{
+    font-size: var(--body-large);
+    margin-bottom: var(--ws-2);
+    width: 200px;
+}
+
+.req::after
+{
+    content: '*';
+    color: var(--error);
+    font-size: var(--body-large);
+    margin-left: var(--ws-1);
+}
+
+.error-info
+{
+    color: var(--error);
+    line-height: 1.5;
+    font-size: var(--body-medium);
+    width: 200px;
+}
+
+.submit-btn-wrapper
+{
+    flex: 1;
+    justify-content: end;
+}
+
+.submit-new-official-btn
+{
+    height: 50px;
+    width: 100%;
+    padding: var(--ws-2);
+    background-color: var(--dark-gr-1);
+    color: var(--white);
+    font-size: var(--body-large);
+    border-radius: var(--ws-1);
+    cursor: pointer;
+}
+
+.submit-new-official-btn:hover
+{
+    background-color: var(--dark-gr-2);
+}

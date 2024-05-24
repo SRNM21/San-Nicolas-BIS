@@ -1,0 +1,165 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.residence-container
+{
+    height: 100dvh;
+    gap: var(--ws-4);
+    flex: 1;
+}
+
+.residence-container > div
+{
+    padding-inline: var(--ws-4);
+}
+
+.residence-header
+{
+    height: 60px;
+    background-color: var(--plt-red-2);
+    justify-content: space-between !important;
+}
+
+.utility
+{
+    justify-content: space-between !important; 
+}
+
+.query-wrapper
+{
+    height: 40px;
+    max-width: 300px;
+    flex: 1;
+    gap: var(--ws-2);
+    position: relative;
+}
+
+.search-icon-wrapper
+{
+    position: absolute;
+    left: 10px;
+}
+
+.search-icon-wrapper svg
+{
+    fill: var(--dark-gr-5);
+}
+
+.search-bar
+{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: var(--dark-gr-8);
+    font-size: var(--body-large);
+    outline: none;
+    border-radius: 50px;
+    padding: var(--ws-2);
+    padding-left: var(--ws-8);
+}
+
+.search-bar::placeholder
+{
+    color: var(--dark-gr-5);
+}
+
+.search-bar:focus
+{
+    outline: transparent;
+    background-color: var(--white);
+    border: 2px solid var(--black);
+
+    & + .search-icon-wrapper svg
+    {
+        fill: var(--black);
+    }
+}
+
+.new-residence-btn
+{
+    text-decoration: none;
+    background-color: var(--success);
+    color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    gap: var(--ws-2);
+}
+
+.new-residence-btn:hover
+{
+    background-color: var(--success-dark);
+}
+
+.new-residence-btn svg, .new-residence-btn svg path
+{
+    fill: var(--white);
+}
+
+.table-limiter
+{
+    overflow-y: scroll;
+    flex: 1;
+}
+
+.table-wrapper
+{
+    flex: 1;
+}
+
+.residence-tbl
+{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.residence-tbl thead
+{    
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--dark-gr-1);
+    color: var(--white);
+    padding: var(--ws-2);
+}
+
+.residence-tbl td, .residence-tbl th
+{
+    padding: var(--ws-3);
+    text-align: left;
+}
+
+.residence-tbl tr:nth-child(even)
+{
+    background-color: var(--gray-gr-3);
+}
+
+.data-btn-wrapper
+{
+    gap: var(--ws-2);
+}
+
+.data-util-btn
+{
+    border: none;
+    outline: none;
+    color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.more-details-btn
+{
+    background-color: var(--dark-gr-1);
+}
+
+.update-details-btn
+{
+    background-color: var(--info-dark);
+}
+
+.delete-details-btn
+{
+    background-color: var(--error-dark);
+}

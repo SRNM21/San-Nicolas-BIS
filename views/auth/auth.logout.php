@@ -10,7 +10,7 @@
     <main class='f-center logout-wrapper'>
         <div class='logout-content'>
             <form class='f-center f-col logout-form' action="" method="POST">
-                <div class='warning-wrapper'><?= getSVG('warning'); ?></div>
+                <div class='warning-wrapper'><?= getSVG('error'); ?></div>
                 <h3>Logout</h3>
                 <p>You will returned to the login screen</p>
                 <div class='f-col btn-wrapper'>

@@ -3,99 +3,111 @@
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Document</title>
-    <link rel='stylesheet' href=<?= getStyle('admin.brgy-officials'); ?>>
+    <title>New Official</title>
+    <link rel='stylesheet' href=<?= getStyle('admin.new-official'); ?>>
 </head>
 <body>
     <div class='f-row brgy-off-wrapper'>
         <?php include getPartial('admin.side-menu'); ?>
-        <main class='brgy-off-content'>
-            <header class='f-col'>
-                <h3>New Barangay officials</h3>
-                <div class='f-row breadcrumbs-wrapper'>
-                    <a class='breadcrumb' href='<?= $origin ?>barangay-officials'>Barangay Officials</a> <p>/</p>
-                    <a class='breadcrumb' href=''>New Official</a>
-                </div>
-            </header>
-            <div class='new-official-form-wrapper'>
-                <form action='' method='POST'>
-                    <div class='f-row'>
-                        <div class='f-col'>
+        <div class='f-col brgy-off-container'>
+            <?php include getPartial('admin.header'); ?>
+            <main class='f-center f-col new-off-content'>
+                <div class='f-col new-official-form-wrapper'> 
+                    <header class='f-row form-header'>
+                        <div class='f-center f-row'>
+                            <div class='f-row back-btn-wrapper'>
+                                <a href='<?= $origin ?>barangay-officials' class='back-btn'><?= getSVG('back'); ?></a>
+                            </div>
+                            <h4>New Official Form</h4>
+                        </div>
+                        <p><?= date('Y') ?></p>
+                    </header>
+                    <form id='new-off-from' action='' method='POST' enctype='multipart/form-data'>
+                        <div class='f-row form-content-wrapper'>
                             <div class='f-col personal-info-container'>
-                                <h3>Personal Information</h3>
-                                <div class='f-row'>
+                                <h2>Personal Information</h2>
+                                <div class='f-row name-wrapper'>
                                     <div class='f-col'>
-                                        <label for='prefix'>Prefix</label>
-                                        <input required type='text' name='prefix' id='prefix'>
+                                        <label class='no-form-label req' for='lastname'>Lastname</label>
+                                        <input class='no-form-input' type='text' data-input='Lastname' name='lastname' id='lastname' placeholder='Enter Lastname'>
+                                        <p class='error-info ln-err'></p>
                                     </div>
-
                                     <div class='f-col'>
-                                        <label for='lastname'>Lastname</label>
-                                        <input required type='text' name='lastname' id='lastname'>
+                                        <label class='no-form-label req' for='firstname'>Firstname</label>
+                                        <input class='no-form-input' type='text' data-input='Firstname' name='firstname' id='firstname' placeholder='Enter Firstname'>
+                                        <p class='error-info fn-err'></p>
                                     </div>
-
                                     <div class='f-col'>
-                                        <label for='firstname'>Firstname</label>
-                                        <input required type='text' name='firstname' id='firstname'>
-                                    </div>
-
-                                    <div class='f-col'>
-                                        <label for='middlename'>Middlename</label>
-                                        <input required type='text' name='middlename' id='middlename'>
+                                        <label class='no-form-label' for='middlename'>Middlename</label>
+                                        <input class='no-form-input' type='text' data-input='Middlename' name='middlename' id='middlename' placeholder='Enter Middlename'>
+                                        <p class='error-info mn-err'></p>
                                     </div>
                                 </div>
                                 <div class='f-row'>
                                     <div class='f-col'>
-                                        <label for='birthdate'>Birthdate</label>
-                                        <input required type='date' name='birthdate' id='birthdate'>
+                                        <label class='no-form-label req' for='phonenum'>Phone number</label>
+                                        <input class='no-form-input' type='tel' name='phonenum' id='phonenum' placeholder='Enter Phone number'>
+                                        <p class='error-info pn-err'></p>
                                     </div>
                                     <div class='f-col'>
-                                        <label for='gender'>Gender</label>
-                                        <select name='gender' id='gender'>
-                                            <option value='male'>Male</option>
-                                            <option value='female'>Female</option>
+                                        <label class='no-form-label req' for='gender'>Gender</label>
+                                        <select class='no-form-input' name='gender' id='gender'>
+                                            <option value='Male'>Male</option>
+                                            <option value='Female'>Female</option>
                                         </select>
+                                        <p class='error-info gen-err'></p>
                                     </div>
                                 </div>
                                 <div class='f-col'>
-                                    <label for='address'>Address</label>
-                                    <input required type='text' name='address' id='address'>
+                                    <label class='no-form-label req' for='email'>Email</label>
+                                    <input class='no-form-input'  type='text' name='email' id='email' placeholder='Enter Email'>
+                                        <p class='error-info em-err'></p>
+                                </div>
+                                <div class='f-col'>
+                                    <label class='no-form-label req' for='email'>Profile</label>
+                                    <input class='no-form-input' type='file' name='profile' id='profile' value='' />
+                                        <p class='error-info pro-err'></p>
                                 </div>
                             </div>
-                            <div class='f-col contact-info-container'>
-                                <h3>Contact Information</h3>
+                            <div class='f-col barangay-position-container'>
+                                <h2>Barangay Position</h2>
                                 <div class='f-col'>
-                                    <label for='phonenum'>Phone number</label>
-                                    <input required type='text' name='phonenum' id='phonenum'>
+                                    <label class='no-form-label req' for='position'>Position</label>
+                                    <select class='no-form-input' name='position' id='position'>
+                                        <option value='Barangay Captain'>Barangay Captain</option>
+                                        <option value='Barangay Kagawad'>Barangay Kagawad</option>
+                                        <option value='SK Chairperson'>SK Chairperson</option>
+                                        <option value='Barangay Secretary'>Barangay Secretary</option>
+                                        <option value='Barangay Tresurer'>Barangay Tresurer</option>
+                                    </select>
+                                    <p class='error-info pos-err'></p>
                                 </div>
                                 <div class='f-col'>
-                                    <label for='email'>Email</label>
-                                    <input required type='text' name='email' id='email'>
+                                    <label class='no-form-label req' for='handle'>Handle</label>
+                                    <input class='no-form-input'  type='text' name='handle' id='handle' placeholder='Enter Handle'>
+                                        <p class='error-info han-err'></p>
+                                </div>
+                                <div class='f-col'>
+                                    <label class='no-form-label req' for='status'>Status</label>
+                                    <select class='no-form-input' name='status' id='status'>
+                                        <option value='Active'>Active</option>
+                                        <option value='Dismissed'>Dismissed</option>
+                                    </select>
+                                    <p class='error-info sta-err'></p>
+                                </div>
+                                <div class='f-col submit-btn-wrapper'>
+                                    <button class='submit-new-official-btn'>Submit</button>
                                 </div>
                             </div>
                         </div>
-                        <div class=' barangay-position-container'>
-                            <h3>Barangay Position</h3>
-                            <div class='f-col'>
-                                <label for='position'>Position</label>
-                                <select name='position' id='position'>
-                                    <option value='Barangay Captain'>Barangay Captain</option>
-                                    <option value='Barangay Kagawad'>Barangay Kagawad</option>
-                                    <option value='SK Chairperson'>SK Chairperson</option>
-                                    <option value='Barangay Secretary'>Barangay Secretary</option>
-                                    <option value='Barangay Tresurer'>Barangay Tresurer</option>
-                                </select>
-                            </div>
-                            <div class='f-col'>
-                                <label for='description'>Description</label>
-                                <textarea class='description' name='description' id='description' placeholder='description'></textarea>
-                            </div>
-                            <button class='submit-new-official-btn' type='submit'>Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </main>
+                    </form>
+                </div>
+            </main>
+        </div>
     </div>
+    
+    <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
+    <script type='module' src=<?=  getScript('partial.side-menu'); ?>></script>
+    <script type='module' src=<?=  getScript('admin.new-official'); ?>></script>
 </body>
 </html>

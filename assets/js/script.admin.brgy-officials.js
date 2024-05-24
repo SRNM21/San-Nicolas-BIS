@@ -21,7 +21,6 @@ searchBar.on('propertychange input', function ()
 
 function getOfficials(query)
 {  
-    console.log(query)
     $.ajax({
         type: 'post',
         url: URI_FOLDER_NAME + PATHS['API_PATH'] + 'api.database.php',
@@ -48,23 +47,23 @@ function populateTable(data)
     return
 
     data.forEach(item => {
-        const fullname      = item['lastname'] + ', ' + item['firstname'] + ' ' + item['middlename'] + ' ' + item['prefix']
-        const id            = item['brgy_official_id']
+        const id                = item['brgy_official_id']
     
-        const tableRow      = $('<tr>')
-        const fullnameCell  = $('<td>').text(fullname)
-        const positionCell  = $('<td>').text(item['position'])
-        const birthdateCell = $('<td>').text(item['birthdate']) 
-        const genderCell    = $('<td>').text(item['gender'])
-        const dateAddedCell = $('<td>').text(item['date_added'])
+        const tableRow          = $('<tr>')
+        const lastnameCell      = $('<td>').text(item['last_name'])
+        const firstnameCell     = $('<td>').text(item['first_name'])
+        const middlenameCell    = $('<td>').text(item['middle_name'])
+        const positionCell      = $('<td>').text(item['position'])
+        const statusCell        = $('<td>').text(item['status']) 
+        const dateAddedCell     = $('<td>').text(item['date_added'])
     
-        const detailsBtn    = $('<a href="barangay-officials/profile?id=' + id + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
-        const updateBtn     = $('<a class="data-util-btn update-details-btn">Edit</a>').data('id', id)
-        const deleteBtn     = $('<a class="data-util-btn delete-details-btn">Delete</a>').data('id', id)
+        const detailsBtn        = $('<a href="barangay-officials?details=' + id + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
+        const updateBtn         = $('<a href="barangay-officials/update-official?id=' + id + '" class="data-util-btn update-details-btn">Edit</a>').data('id', id)
+        const deleteBtn         = $('<a href="barangay-officials?delete=' + id + '"class="data-util-btn delete-details-btn">Delete</a>').data('id', id)
     
-        const buttonCell    = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn, updateBtn, deleteBtn)
+        const buttonCell        = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn, updateBtn, deleteBtn)
     
-        tableRow.append(fullnameCell, positionCell, birthdateCell, genderCell, dateAddedCell, buttonCell)
+        tableRow.append(lastnameCell, firstnameCell, middlenameCell, positionCell, statusCell, dateAddedCell, buttonCell)
         officialsTable.append(tableRow);
     })
 }

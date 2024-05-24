@@ -4,7 +4,7 @@
 
 .initial-header
 {
-    min-height: 140px;
+    min-height: 100px;
     width: 100%;
     padding: var(--ws-4);
     position: fixed;
@@ -27,8 +27,8 @@
 
 .icon
 {
-    height: 100px;
-    width: 100px;
+    height: 60px;
+    width: 60px;
     background-color: gray;
 }
 
@@ -46,7 +46,7 @@
 
 .brgy-loc
 {
-    font-size: var(--body-large);
+    font-size: var(--body-small);
     color: var(--white);
 }
 
@@ -269,7 +269,7 @@
 
 section
 {
-    scroll-margin-top: 70px;
+    scroll-margin-top: 50px;
     background-color: var(--white);
     box-sizing: border-box;
     padding-top: var(--ws-20);
@@ -282,9 +282,8 @@ section
 .landing-section
 {
     height: 100dvh;
-
     padding: 0;
-    padding-top: 140px;
+    padding-top: 100px;
 }
 
 .landing-text
@@ -301,7 +300,8 @@ section
     padding: var(--ws-8);
     text-align: center;
     margin: auto;
-    background: url('/sannicolasbis/assets/src/images/sannics_home_ef.png') no-repeat center center scroll;
+    background-size: cover;
+    background-image: url('/sannicolasbis/assets/src/images/sannics_home.png');
     animation: updown 20s ease-in-out infinite alternate;
 }
 

@@ -37,10 +37,18 @@
     scroll-behavior: smooth;
 }
 
+html 
+{
+	width: 100%; 
+	height: 100%;
+}
+
 body
 {
-    background-color: var(--white);
+    height: 100%;
+    width: 100%;
     font-size: 100%;
+    background-color: var(--white);
 }
 
 p
@@ -142,6 +150,11 @@ p
     --plt-red-1:            #b10808;
     --plt-red-2:            #d41616;
     --plt-red-3:            #9c0101;
+    --plt-red-4:            #960000;
+    --plt-red-5:            #ae0000;
+    --plt-red-6:            #c70000;
+    --plt-red-7:            #e10000;
+    --plt-red-8:            #ff0000;
     
     --plt-red-2-d-tint:     #C21515;
 

@@ -1,24 +1,53 @@
-@import url('/sannicolasbis/assets/styles/style.root.css');
-
-.side-menu-wrapper
+.side-menu-content
 {    
+    z-index: 3;
     height: 100dvh;
-    width: 320px;
-    min-width: 300px;
+    width: 350px;
     padding: var(--ws-4);
     color: var(--white);
     overflow-x: hidden;
     background-color: var(--plt-red-2);
 }
 
-.upper-container
+.side-menu-content-hide
 {
-    margin-bottom: var(--ws-4);
+    background-color: var(--plt-red-2);
+    width: fit-content;
+
+    & .admin-nav-link p, .acc-info-wrapper div, .brgy-info
+    {
+        display: none;
+    }
 }
 
-.brgy-container
+.overlay-menu-wrapper
+{
+    flex: 1;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.container
 {
     gap: var(--ws-2);
+}
+
+.brgy-info p 
+{
+    font-size: var(--body-small);
+}
+
+.menu
+{
+    padding: var(--ws-3);
+    cursor: pointer;
+    border-radius: var(--ws-1);
+}
+
+.menu-wrapper
+{
+    height: var(--ws-5);
+    width: var(--ws-5);
 }
 
 .admin-nav-link-wrapper
@@ -70,12 +99,12 @@
     }
 }
 
-.admin-nav-link:hover
+.admin-nav-link:hover, .menu:hover
 {
     background-color: var(--plt-red-2-d-tint);
 }
 
-.admin-nav-link span svg
+.admin-nav-link span svg, .menu-wrapper svg
 {
     min-height: 25px;
     min-width: 25px;    
@@ -89,27 +118,6 @@
     flex: 1;
     align-items: center;
     gap: var(--ws-2);
-}
-
-.residence-accordion
-{
-    border-radius: 5px 5px 0px 0px;
-}
-
-.residence-accordion-wrapper
-{
-    display: none;
-    border-radius: 0px 0px 5px 5px;
-    background-color: var(--error);
-    padding-left: var(--ws-8);
-    flex: 1;
-}
-
-.accordion-nav-group
-{
-    padding: var(--ws-3);
-    text-decoration: none;
-    color: var(--white);
 }
 
 .lower-container
@@ -126,8 +134,7 @@
 {
     height: 50px;
     width: 50px;
-    border-radius: 50%;
-    background-color: gray;
+    background-color: gray; 
 }
 
 .acc-icon
@@ -137,15 +144,12 @@
     fill: var(--white);
 }
 
-.acc-icon svg
-{
-    height: 100%;
-    width: 100%;
-}
-
 .acc-info
 {
     justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .acc-name
@@ -160,18 +164,51 @@
 
 .logout-wrapper
 {
-    flex: 1;
+    padding: var(--ws-3);
     border-radius: var(--ws-1);
+    cursor: pointer;
+}
+
+.logout
+{
+    height: var(--ws-5);
+    width: var(--ws-5);
 }
 
 .logout-wrapper:hover
 {
     background-color: var(--plt-red-2-d-tint);
-    cursor: pointer;
 }
 
-.logout-wrapper svg
+.menu-wrapper svg, .acc-icon svg, .logout svg
 {
-    min-height: 70%;
-    min-width: 70%;
+    height: 100%;
+    width: 100%;
 }
+
+/* @media screen and (max-width: 1025px) 
+{
+    .overlay-menu-wrapper
+    {
+        display: flex;
+    }
+
+    .side-menu-wrapper
+    {
+        position: absolute;
+    }
+
+    .menu-wrapper
+    {
+        position: absolute;
+        height: 70px;
+    }
+
+    .overlay-wrapper
+    {
+        height: 100dvh;
+        width: 100dvw; 
+        position: fixed;
+        z-index: 2;
+    }
+} */

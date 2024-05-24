@@ -1,12 +1,23 @@
 @import url('/sannicolasbis/assets/styles/style.root.css');
 
-/** MAIN LAYOUT */
+.brgy-off-container
+{
+    height: 100dvh;
+    gap: var(--ws-4);
+    flex: 1;
+}
+
+.brgy-off-container > div
+{
+    padding-inline: var(--ws-4);
+}
 
 .brgy-off-content
 {
+    width: 100%;
     flex: 1;
+    gap: var(--ws-4);
     padding: var(--ws-4);
-    gap: var(--ws-6);
 }
 
 .utility
@@ -56,7 +67,7 @@
 {
     outline: transparent;
     background-color: var(--white);
-    border: 3px solid var(--black);
+    border: 2px solid var(--black);
 
     & + .search-icon-wrapper svg
     {
@@ -84,19 +95,38 @@
     fill: var(--white);
 }
 
+.table-limiter
+{
+    overflow-y: scroll;
+    flex: 1;
+}
+
+.table-wrapper
+{
+    flex: 1;
+}
+
 .brgy-officials-tbl
 {
+    width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    margin-top: var(--ws-2);
-    border: 1px solid gray;
 }
 
 .brgy-officials-tbl thead
 {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     background-color: var(--dark-gr-1);
     color: var(--white);
     padding: var(--ws-2);
+}
+
+.brgy-officials-tbl tbody
+{
+    height: max-content;
+    overflow: auto;
 }
 
 .brgy-officials-tbl td, .brgy-officials-tbl th
@@ -123,6 +153,7 @@
     border-radius: var(--ws-1);
     padding: var(--ws-2);
     cursor: pointer;
+    text-decoration: none;
 }
 
 .more-details-btn
@@ -140,78 +171,3 @@
     background-color: var(--error-dark);
 }
 
-/** SUCCESS MODAL */
-
-.success-modal-container
-{
-    height: 100dvh;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.success-modal
-{
-    max-width: 500px;
-    padding: var(--ws-4);
-    border-radius: var(--ws-1);
-    background-color: var(--white);
-}
-
-.icon-wrapper
-{
-    height: 60px;
-    width: 60px;
-}
-
-.icon-wrapper svg
-{
-    height: 100%;
-    width: 100%;
-    fill: var(--success);
-}
-
-.btn-wrapper
-{
-    margin-top: var(--ws-2);
-    gap: var(--ws-2);
-}
-
-.modal-btn
-{
-    height: var(--ws-8);
-    width: 130px;
-    border-radius: var(--ws-1);
-    padding: var(--ws-4);
-    border: none;
-    outline: none;
-    font-size: var(--body-medium);
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.continue-btn
-{
-    background-color: var(--success);
-    color: var(--white);
-}
-
-.continue-btn:hover
-{
-    background-color: var(--success-dark);
-}
-
-.back-btn
-{
-    background-color: transparent;
-    color: var(--success);
-}
-
-.back-btn:hover
-{
-    background-color: var(--gray-gr-2);
-}

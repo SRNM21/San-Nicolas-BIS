@@ -40,10 +40,9 @@ function queryOfficials($q)
     if (!empty($q) || $q != null)
     {
         $sql .= " 
-        WHERE prefix LIKE '$q%'
-        OR lastname LIKE '$q%'
-        OR firstname LIKE '$q%'
-        OR middlename LIKE '$q%'";
+        WHERE last_name LIKE '$q%'
+        OR first_name LIKE '$q%'
+        OR middle_name LIKE '$q%'";
     }
 
     $stmt = $cursor->prepare($sql);
@@ -90,53 +89,127 @@ function getOfficial($id)
 function addOfficials($data)
 {
     global $cursor;
-    $inp = str_repeat('s', 13);
+    $inp = str_repeat('s', 12);
 
-    $sql = 'INSERT INTO barangay_officials VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)';
+    $sql = 'INSERT INTO barangay_officials VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
                         
     try 
     {
         $stmt = $cursor->prepare($sql);
-    
+        
         $stmt->bind_param(
             $inp, 
             $data['id'],
-            $data['prefix'],     
-            $data['lastname'],   
-            $data['firstname'],  
-            $data['middlename'], 
-            $data['birthdate'],  
-            $data['gender'],     
-            $data['address'],    
+            $data['lastname'],    
+            $data['firstname'],   
+            $data['middlename'],    
+            $data['gender'],  
             $data['phonenum'],   
             $data['email'],      
             $data['position'],   
-            $data['description'],
-            $data['date_added']
+            $data['handle'],
+            $data['status'],
+            $data['date_added'],
+            $data['profile']
         );
 
-        echo $cursor->error;
-
-        return $stmt->execute() ? 1 : 0;
+        if ($stmt->execute() && move_uploaded_file($data['temp_prof'], $data['folder']))
+        {
+            return 1;
+        }
+        else 
+        {
+            return 0;
+        }
     } 
     catch(Error $e) 
     {
         return -1;
-
-        echo $e;
     }
 }
 
-function queryFamilyHead($q)
+function updateOfficials($data)
+{
+    global $cursor;
+    $inp = str_repeat('s', 10);
+    $id = $data['id'];
+
+    $sql = 'UPDATE barangay_officials SET 
+            last_name = ?,
+            first_name = ?,
+            middle_name = ?,
+            gender = ?,
+            phone_number = ?,
+            email = ?,
+            position = ?,
+            handle = ?,
+            status = ?
+        WHERE brgy_official_id = ?
+    ';
+                        
+    try 
+    {
+        $stmt = $cursor->prepare($sql);
+        
+        $stmt->bind_param(
+            $inp, 
+            $data['lastname'],    
+            $data['firstname'],   
+            $data['middlename'],    
+            $data['gender'],  
+            $data['phonenum'],   
+            $data['email'],      
+            $data['position'],   
+            $data['handle'],
+            $data['status'],
+            $id,
+        );
+
+        echo $cursor->error;
+
+        if ($stmt->execute())
+        {   
+            if ($data['temp_prof'] != null && $data['folder'] != null)
+            {
+                if (!move_uploaded_file($data['temp_prof'], $data['folder'])) return 0;
+            }
+
+            return 1;
+        }
+        else 
+        {
+            return 0;
+        }
+    } 
+    catch(Error $e) 
+    {
+        echo $e;
+        return -1;
+    }
+}
+
+function deleteOfficials($id)
 {
     global $cursor;
 
-    $sql = 'SELECT * FROM familyhead';
+    $sql = 'DELETE FROM barangay_officials WHERE brgy_official_id=?';
+
+    $stmt = $cursor->prepare($sql);
+    $stmt->bind_param('s', $id);
+    
+    return $stmt->execute();
+}
+
+function queryResidence($q)
+{
+    global $cursor;
+
+    $sql = 'SELECT * FROM residence';
 
     if (!empty($q) || $q != null)
     {
         $sql .= " 
-        WHERE last_name LIKE '$q%'
+        WHERE last_name LIKE '$ q%'
         OR first_name LIKE '$q%'
         OR middle_name LIKE '$q%'";
     }
@@ -158,6 +231,30 @@ function queryFamilyHead($q)
     return $arr;
 }
 
+function getFamilyHead($id)
+{
+    global $cursor;
+
+    $sql = 'SELECT * FROM familyhead WHERE family_head_id=?';
+
+    $stmt = $cursor->prepare($sql);
+    $stmt->bind_param('s', $id);
+    $stmt->execute();
+
+    $result = mysqli_stmt_get_result($stmt);
+    $official = null;
+
+    if ($row = mysqli_fetch_assoc($result)) 
+    {
+        $official = $row;
+    }
+    
+    $stmt->close();
+    mysqli_free_result($result);
+
+    return $official;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     if (!isset($_POST['func']))
@@ -177,7 +274,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $query = $_POST['q'];
 
-        $fam_head = json_encode(queryFamilyHead($query));
+        $fam_head = json_encode(queryResidence($query));
         header('Content-Type: application/json');
         echo $fam_head;
     }

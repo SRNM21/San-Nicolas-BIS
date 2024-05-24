@@ -70,23 +70,17 @@ function getRoute(String $uri)
         "/$folder/administrator/barangay-officials" => 
         getController('admin.brgy-officials'),
 
-        "/$folder/administrator/barangay-officials/profile" => 
-        getController('admin.official-details'),
-        
         "/$folder/administrator/barangay-officials/new-official" => 
         getController('admin.new-official'),
         
-        "/$folder/administrator/family-head" => 
-        getController('admin.family-head'),
+        "/$folder/administrator/barangay-officials/update-official" => 
+        getController('admin.update-official'),
         
-        "/$folder/administrator/family-head/info" => 
-        getController('admin.fam-head-details'),
-
-        "/$folder/administrator/family-member" => 
-        getController('admin.family-member'),
-
-        "/$folder/administrator/spouse" => 
-        getController('admin.spouse'),
+        "/$folder/administrator/residence" => 
+        getController('admin.residence'),
+        
+        "/$folder/administrator/residence/info" => 
+        getController('admin.residence-details'),
 
         "/$folder/administrator/blotter" => 
         getController('admin.blotter'),
@@ -237,6 +231,12 @@ function getIllustration($svg)
 
 
 /* SERVER FUNCTIONS */
+
+/** 
+ * View helper that returns illustration path of the passed illustration name.
+ * 
+ * @param String $svg The Illustration's name.
+ */
 function generateID($start)
 {
     $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -249,4 +249,20 @@ function generateID($start)
     }
 
     return $id;
+}
+
+function handleEmptyValue($null_val, $value_to_check)
+{
+    return ($value_to_check == null || empty($value_to_check)) 
+        ? $null_val
+        : $value_to_check;
+}
+
+function isValidImage($file)
+{
+    $allowed_mimes          = ['image/jpeg', 'image/png'];
+    $allowed_extensions     = ['jpg', 'png'];
+    $ext                    = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+
+    return in_array($file['type'], $allowed_mimes) && in_array($ext, $allowed_extensions);
 }

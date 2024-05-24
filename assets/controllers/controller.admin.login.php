@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_SESSION['EMAIL'] = $email;
         $_SESSION['USERNAME'] = $username;
         $_SESSION['PASSWORD'] = $password;
+        $_SESSION['PRIVILEGE'] = 'ADMIN';
         
         require getAPI('mailer');
     }
