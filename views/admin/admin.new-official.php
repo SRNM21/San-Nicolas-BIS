@@ -7,10 +7,10 @@
     <link rel='stylesheet' href=<?= getStyle('admin.new-official'); ?>>
 </head>
 <body>
-    <div class='f-row brgy-off-wrapper'>
-        <?php include getPartial('admin.side-menu'); ?>
-        <div class='f-col brgy-off-container'>
-            <?php include getPartial('admin.header'); ?>
+    <div class='f-col brgy-off-wrapper'>
+        <?php include getPartial('admin.header'); ?>
+        <div class='f-row brgy-off-container'>
+            <?php include getPartial('admin.side-menu'); ?>
             <main class='f-center f-col new-off-content'>
                 <div class='f-col new-official-form-wrapper'> 
                     <header class='f-row form-header'>

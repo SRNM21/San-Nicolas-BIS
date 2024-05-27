@@ -1,11 +1,11 @@
 import {
     PATHS,
     FOLDER_NAME,
-    URI_FOLDER_NAME
+    URI_FOLDER_NAME,
+    PRIVILEGE
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
 const doc = $(document)
-const win = $(window)
 const famHeadTable = $('.residence-tbl-body')
 const searchBar = $('.search-bar')
 
@@ -25,7 +25,7 @@ function getFamilyHead(query)
         type: 'post',
         url: URI_FOLDER_NAME + PATHS['API_PATH'] + 'api.database.php',
         data: {
-            func: 'POPULATE_TABLE_FAMILY_HEAD',
+            func: 'POPULATE_TABLE_RESIDENCE',
             q: query 
         },
         success: function (response) 
@@ -57,10 +57,14 @@ function populateTable(data)
         const dateOfInterviewCell   = $('<td>').text(item['role'])
     
         const detailsBtn            = $('<a href="residence/info?id=' + id + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
-        const updateBtn             = $('<a class="data-util-btn update-details-btn">Edit</a>')
-        const deleteBtn             = $('<a class="data-util-btn delete-details-btn">Delete</a>')
-    
-        const buttonCell            = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn, updateBtn, deleteBtn)
+        const buttonCell            = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn)
+
+        if (PRIVILEGE == 'ADMIN')
+        {
+            const updateBtn             = $('<a class="data-util-btn update-details-btn">Edit</a>')
+            const deleteBtn             = $('<a class="data-util-btn delete-details-btn">Delete</a>')
+            buttonCell.append(updateBtn, deleteBtn)
+        }
     
         tableRow.append(lastNameCell, firstNameCell, middleNameCell, purokCell, buttonCell, dateOfInterviewCell, buttonCell)
         famHeadTable.append(tableRow);

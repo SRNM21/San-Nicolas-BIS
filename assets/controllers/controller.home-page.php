@@ -13,4 +13,54 @@ $about_details_1    = 'Residents work together with the government to achieve sh
 $about_details_2    = 'The barangay prioritizes economic growth that creates opportunities for all, while maintaining a clean and healthy environment for future generations.';
 
 $brgy_off_into      = 'Introducing the team behind Barangay San Nicolas';
+
+$officials = queryTable('barangay_officials', '');
+$brgy_cap_img = 'default.jpg';
+$brgy_cap_name = ' ';
+$brgy_cap_position = ' ';
+$brgy_cap_desc = ' ';
+
+foreach ($officials as $official) 
+{
+    if ($official['position'] == 'Barangay Captain')
+    {
+        $fullname = $official['first_name'] . ' ' . $official['middle_name']. ' ' . $official['last_name'];
+        $brgy_cap_img = $official['profile'];
+        $brgy_cap_name = $fullname;
+        $brgy_cap_position = 'Barangay Captain';
+        $brgy_cap_desc = "Barangay San Nicolas is led by Kapitan $brgy_cap_name, a man as warm as the community itself. Known for his kindness, helpfulness, and a smile that lights up the room, Kapitan $brgy_cap_name is always there to lend a hand and ensure everyone feels welcome.";
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    
+    $id         = generateID('FED');
+    $fb         = $_POST['feedback'];
+    $is_anon    = isset($_POST['anonymous']);
+    $name       = $is_anon ? 'Anonymous' : $_POST['name'];
+
+    $barangayOfficialData = [
+        'id'            => $id,
+        'name'          => $name,
+        'feedback'      => $_POST['feedback'],
+    ];
+
+    $add = addFeedback($barangayOfficialData);
+
+    if ($add == 1)
+    {
+        $modal_icon     = 'success';
+        $modal_title    = 'Feedback Sent';
+        $modal_success  = 'Your feedback has been sent to our office';
+        $modal_pos      = '-';
+
+        require getPartial('admin.confirm-modal');
+    }
+    else 
+    {
+        echo $add;
+    }
+}
+
 require getPublic('home-page');

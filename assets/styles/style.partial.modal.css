@@ -5,7 +5,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 10;
     background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -15,6 +15,17 @@
     padding: var(--ws-4);
     border-radius: var(--ws-1);
     background-color: var(--white);
+    gap: var(--ws-2);
+}
+
+.modal header
+{
+    gap: var(--ws-2);
+}
+
+.message-holder
+{
+    text-align: center;
 }
 
 .icon-wrapper-success, .icon-wrapper-error
@@ -57,24 +68,24 @@
     cursor: pointer;
 }
 
-.continue-btn
+.modal-continue-btn
 {
     background-color: var(--dark-gr-2);
     color: var(--white);
 }
 
-.continue-btn:hover
+.modal-continue-btn:hover
 {
     background-color: var(--dark-gr-1);
 }
 
-.back-btn
+.modal-back-btn
 {
     background-color: transparent;
     color: var(--dark-gr-2);
 }
 
-.back-btn:hover
+.modal-back-btn:hover
 {
     background-color: var(--gray-gr-2);
 }

@@ -1,23 +1,25 @@
 @import url('/sannicolasbis/assets/styles/style.root.css');
 
-.brgy-off-container
+.brgy-off-wrapper
 {
     height: 100dvh;
-    gap: var(--ws-4);
-    flex: 1;
+    width: 100dvw;
 }
 
-.brgy-off-container > div
+.brgy-off-container
 {
-    padding-inline: var(--ws-4);
+    height: 100%;
+    width: 100%;
 }
 
 .brgy-off-content
 {
-    width: 100%;
-    flex: 1;
-    gap: var(--ws-4);
+    height: calc(100dvh - 90px);
+    width: calc(100dvw - 90px);
     padding: var(--ws-4);
+    overflow: hidden;
+    gap: var(--ws-4);
+    flex: 1;
 }
 
 .utility

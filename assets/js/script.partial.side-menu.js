@@ -4,8 +4,7 @@ const logoutBtn = $('.logout-wrapper')
 const menu = $('.menu')
 const sidebar = $('.side-menu-content-hide')
 
-console.log(menu);
-console.log(sidebar);
+
 navs.click(function(event)
 {
     event.stopPropagation()
@@ -18,13 +17,19 @@ navs.click(function(event)
 
 function toggleSidebar()
 {
+    console.log(sidebar.hasClass('side-menu-content-hide'));
+
     if (sidebar.hasClass('side-menu-content-hide'))
     {
+        
         sidebar.removeClass('side-menu-content-hide')
+        console.log("has hide");
     }
     else  
     {
+      
         sidebar.addClass('side-menu-content-hide')
+        console.log("not hide");
     }
 }
 

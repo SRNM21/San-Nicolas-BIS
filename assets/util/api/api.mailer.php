@@ -31,7 +31,6 @@ try
 
     // $mail->send();
 
-    require getPartial('admin.otp-modal');
 } 
 catch (Exception $e) 
 {

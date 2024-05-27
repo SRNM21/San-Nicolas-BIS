@@ -7,18 +7,16 @@
     <link rel='stylesheet' href=<?= getStyle('admin.login'); ?>>
 </head>
 <body>
-    <main class='f-center admin-container'>
-        <div class='f-row modal'>
+    <main class='f-center f-col admin-container'>
+        <div class='f-row adm-modal'>
             <div class='f-center svg-wrapper'>
-                <div class='f-center svg-content'>
-                    <?= getIllustration('admin.login'); ?>
-                </div>
+                <?= getIllustration('admin.login'); ?>
             </div>
             <aside class='f-center login-content-wrapper'>
                 <div class='f-col login-content'>
                     <header class='f-col brgy-container'>
                         <h2 class='welcome-mess'>Welcome</h2>
-                        <p class='login-mess'>Login as administrator</p>
+                        <p class='login-mess'>Login as administrator / staff</p>
                     </header>
                     <main class='login-form-wrapper'>
                         <form action='administrator' method='POST' class='f-col login-form'>
@@ -30,7 +28,7 @@
                                     <p class='toggle-pass-hint'>Show password</p>
                                 </div>                                
                             </div>
-                            <button type='submit' id='login_btn' class='login_btn'>Log in</button>
+                            <button type='submmit' id='login_btn' class='login_btn'>Log in</button>
                             <div class='f-center error_info_wrapper'>
                                 <div class='error_info hide'></div>
                             </div>

@@ -5,9 +5,10 @@
     height: 100dvh;
     width: 100dvw;
     position: relative;
+    gap: var(--ws-4);
 }
 
-.modal
+.adm-modal
 {
     height: fit-content;
     max-width: 800px;
@@ -20,6 +21,7 @@
 
 .svg-wrapper
 {
+    width: 500px;
     padding: var(--ws-8);
 }
 
@@ -132,7 +134,8 @@
 
 .otp-modal-content
 {
-    max-width: 500px;
+    height: fit-content;
+    width: fit-content;
     background-color: var(--white);
     border-radius: var(--ws-1);
     padding: var(--ws-6);

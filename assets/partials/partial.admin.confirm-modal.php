@@ -11,8 +11,11 @@
             <p><?= $modal_success ?></p>
         </div>
         <div class='f-col btn-wrapper'>
-            <a href='<?= $origin?><?= $modal_pos?>' class='f-center modal-btn modal-continue-btn'>Continue</a>
-            <a href='<?= $origin?><?= $modal_neg?>' class='f-center modal-btn modal-back-btn'>Back</a>
+            <?php if ($modal_pos == '-') { ?>
+                <a href='' class='f-center modal-btn modal-continue-btn'>OK</a>
+            <?php } else {  ?>
+                <a href='<?= $origin?><?= $modal_pos?>' class='f-center modal-btn modal-continue-btn'>OK</a>
+            <?php } ?>
         </div>
     </main>
 </div>

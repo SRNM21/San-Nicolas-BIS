@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href=<?= getStyle('admin.spouse'); ?>>
+    <title>Join Community</title>
 </head>
 <body>
-    <main class='f-row'>
-        <?php include getPartial('admin.side-menu'); ?>
-        <h3>Spouse</h3>
+    <main class='join-community-content-wrapper'>
+        
     </main>
 </body>
 </html>

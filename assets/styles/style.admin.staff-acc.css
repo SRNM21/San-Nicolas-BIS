@@ -1,18 +1,18 @@
 @import url('/sannicolasbis/assets/styles/style.root.css');
 
-.residence-wrapper
+.staff-acc-wrapper
 {
     height: 100dvh;
     width: 100dvw;
 }
 
-.residence-container
+.staff-acc-container
 {
     height: 100%;
     width: 100%;
 }
 
-.residence-content
+.staff-acc-content
 {
     height: calc(100dvh - 90px);
     width: calc(100dvw - 90px);
@@ -77,7 +77,7 @@
     }
 }
 
-.new-residence-btn
+.new-staff-acc-btn
 {
     text-decoration: none;
     background-color: var(--success);
@@ -87,12 +87,12 @@
     gap: var(--ws-2);
 }
 
-.new-residence-btn:hover
+.new-staff-acc-btn:hover
 {
     background-color: var(--success-dark);
 }
 
-.new-residence-btn svg, .new-residence-btn svg path
+.new-staff-acc-btn svg, .staff-acc-btn svg path
 {
     fill: var(--white);
 }
@@ -108,15 +108,15 @@
     flex: 1;
 }
 
-.residence-tbl
+.staff-acc-tbl
 {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
 }
 
-.residence-tbl thead
-{    
+.staff-acc-tbl thead
+{
     position: sticky;
     top: 0;
     z-index: 1;
@@ -125,13 +125,19 @@
     padding: var(--ws-2);
 }
 
-.residence-tbl td, .residence-tbl th
+.staff-acc-tbl tbody
+{
+    height: max-content;
+    overflow: auto;
+}
+
+.staff-acc-tbl td, .staff-acc-tbl th
 {
     padding: var(--ws-3);
     text-align: left;
 }
 
-.residence-tbl tr:nth-child(even)
+.staff-acc-tbl tr:nth-child(even)
 {
     background-color: var(--gray-gr-3);
 }
@@ -148,8 +154,8 @@
     color: var(--white);
     border-radius: var(--ws-1);
     padding: var(--ws-2);
-    text-decoration: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .more-details-btn
@@ -166,3 +172,4 @@
 {
     background-color: var(--error-dark);
 }
+

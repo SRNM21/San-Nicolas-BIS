@@ -87,13 +87,13 @@
             <footer class='f-center f-col lower-container'>
                 <div class='f-row on-contacts-wrapper'>
                     <span class='f-center on-contacts'>
-                        <a href='' class='out-nav' title="Barangay San Nicolas' Facebook Group" class='f-center'><?= getSVG('facebook'); ?></a>
+                        <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('facebook'); ?></a>
                     </span>
                     <span class='f-center on-contacts'>
-                        <a href='' class='out-nav' title="Barangay San Nicolas' Facebook Group" class='f-center'><?= getSVG('mail'); ?></a>
+                        <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('mail'); ?></a>
                     </span> 
                     <span class='f-center on-contacts'>
-                        <a href='' class='out-nav' title="Barangay San Nicolas' Facebook Group" class='f-center'><?= getSVG('phone'); ?></a>
+                        <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('phone'); ?></a>
                     </span>
                 </div>
                 <div>
@@ -117,7 +117,7 @@
                     <h1 class='landing-title'>BARANGAY SAN NICOLAS</h1>
                     <p class='landing-text'>Barangay San Nicolas beckons with friendly faces and helping hands. Feel welcome to this active community where neighbors become friends. </p>
                 </div>
-                <a href='#about' class='f-center f-row goto-about-btn scale-anim' title='Go to about section'><?= getSVG('down'); ?>About us</a>
+                <a href='community/join-community' class='f-center f-row goto-about-btn scale-anim' title='Go to about section'><?= getSVG('down'); ?>Join our community</a>
             </div>
         </section>
         
@@ -159,39 +159,37 @@
                     <h3>BARANGGAY OFFICIALS</h3>
                     <p><?= $brgy_off_into ?></p>
                 </div>
-                <div class='f-row officials-profile'>
-                    <div class='brgy-cap-wrapper'>
-                        <div class='official-image brgy-cap'></div>
-                    </div>
-                    <div class='flex brgy-sang-wrapper'>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
+                <div class='f-center f-col officials-profile'>
+                    <div class='f-row brgy-cap-content'>
+                        <div class='f-col brgy-cap-desc'>
+                            <div>
+                                <h1><?= $fullname ?></h1>
+                                <p><?= $brgy_cap_position ?></p>
+                            </div>
+
+                            <p><?= $brgy_cap_desc ?></p>
                         </div>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
-                        </div>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
-                        </div>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
-                        </div>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
-                        </div>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
-                        </div>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
-                        </div>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
-                        </div>
-                        <div class='brgy-card'>
-                            <div class='official-image'></div>
+                        <div class='brgy-cap-wrapper'>
+                            <img src='./assets/uploads/<?= $brgy_cap_img ?>' alt='Barangay Captain Image'>
                         </div>
                     </div>
+                </div>
+                <h1 class='sb-title'>Sangguniang Barangay</h1>
+                <div class='f-center f-row barangays-wrapper'>
+                    <?php  
+                        foreach ($officials as $official) 
+                        { 
+                            if ($official['position'] != 'Barangay Captain')
+                            {  
+                    ?>
+                            <div class='brgy-card-wrapper'>
+                                <img src='./assets/uploads/<?= $official['profile'] ?>' alt="">
+                            </div>
+
+                    <?php 
+                            }
+                        } 
+                    ?>
                 </div>
             </div>
         </section>
@@ -199,11 +197,6 @@
         <!-- MISSION AND VISION -->
         <section id='mission-vision' class='f-center f-col mivis-section'>
             <div class='f-row section-content mivis-section-content'>
-                <div class='f-center mivis-image-wrapper'>
-                    <div class='f-center mivis-image'>
-                        Image
-                    </div>
-                </div>
                 <div class='f-col mivis-row'>
                     <div class='f-col mivis-eng'>
                         <h3 class='mivis-lang'>English</h3>
@@ -243,15 +236,15 @@
                         <div class='f-col contact-link-wrapper'>
                             <span class='f-row'>
                                 <?= getSVG('facebook'); ?>
-                                <a href='' title="Barangay San Nicolas' Facebook Group">Brgy. San Nicolas Pasig (Official)</a>
+                                <a href='' title='Barangay San Nicolas' Facebook Group'>Brgy. San Nicolas Pasig (Official)</a>
                             </span>
                             <span class='f-row'>
                                 <?= getSVG('mail'); ?>
-                                <a href='' title="Barangay San Nicolas' Email">Brgy. San Nics Email</a>
+                                <a href='' title='Barangay San Nicolas' Email'>Brgy. San Nics Email</a>
                             </span>    
                             <span class='f-row'>
                                 <?= getSVG('phone'); ?>
-                                <a href='' title="Barangay San Nicolas' Phone number">09123456789</a>
+                                <a href='' title='Barangay San Nicolas' Phone number'>09123456789</a>
                             </span>
                         </div>  
                     </div>
@@ -264,7 +257,7 @@
                             <h3>Location</h3>
                             <div class='map-wrapper'>
                                 <div class='map'>
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4495.231016206686!2d121.07847422573091!3d14.56057053592111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c7d67276b1ad%3A0xd350006aa40d5928!2sSan%20Nicolas%2C%20Pasig%2C%20Metro%20Manila!5e1!3m2!1sen!2sph!4v1715532323134!5m2!1sen!2sph" width="250" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <iframe src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4495.231016206686!2d121.07847422573091!3d14.56057053592111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c7d67276b1ad%3A0xd350006aa40d5928!2sSan%20Nicolas%2C%20Pasig%2C%20Metro%20Manila!5e1!3m2!1sen!2sph!4v1715532323134!5m2!1sen!2sph' width='250' height='250' style='border:0;' allowfullscreen='' loading='lazy' referrerpolicy='no-referrer-when-downgrade'></iframe>
                                 </div>
                             </div>
                         </div>
@@ -273,9 +266,9 @@
                         <div class='f-col txt-wrapper'>
                             <h4>We value your suggestions</h4>
                             <div class='feedback-form-wrapper'>
-                                <form class='f-col fb-form' action=''>
-                                    <input class='fb-input name' type='text' name='name' id='name' placeholder='Name'>
-                                    <textarea class='fb-input feedback' name='feedback' id='feedback' placeholder='Feedback'></textarea>
+                                <form class='f-col fb-form' action='' method='post'>
+                                    <input class='fb-input name' type='text' name='name' id='name' placeholder='Name' required>
+                                    <textarea class='fb-input feedback' name='feedback' id='feedback' placeholder='Feedback' required></textarea>
                                     <div class='f-row send-as-div'>
                                         <input type='checkbox' name='anonymous' id='anonymous'>
                                         <label for=''>Send as anonymous</label>

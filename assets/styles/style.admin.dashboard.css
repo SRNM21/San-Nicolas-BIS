@@ -1,0 +1,159 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.dashboard-wrapper
+{
+    height: 100dvh;
+    width: 100dvw;
+}
+
+.dashboard-container
+{
+    height: 100%;
+    width: 100%;
+}
+
+.dashboard-content
+{
+    height: calc(100dvh - 90px);
+    width: calc(100dvw - 90px);
+    padding: var(--ws-4);
+    overflow: hidden;
+    overflow-y: scroll;
+    gap: var(--ws-4);
+    flex: 1;
+}
+
+.dashboard-cards-wrapper
+{
+    gap: var(--ws-4);
+    flex-wrap: wrap;
+}
+
+.card
+{
+    min-width: 400px;
+    height: 180px;
+    gap: var(--ws-4);
+    flex: 1;
+    align-items: center;
+    border-radius: var(--ws-1);
+    padding: var(--ws-4);
+    text-decoration: none;
+    box-shadow: 0  2px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover
+{
+    box-shadow: none;
+}
+
+.card-svg-wrapper
+{
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.card-svg-wrapper svg
+{
+    height: 100%;
+    width: 100%;
+    fill: var(--white);
+}
+
+.info-holder
+{
+    flex: 1;
+    color: var(--white);
+}
+
+.population-card
+{
+    background-color: var(--error);
+}
+
+.officials-card
+{
+    background-color: var(--success);
+}
+
+.blotter-card
+{
+    background-color: var(--info);
+}
+
+.population-card:hover
+{
+    background-color: var(--error-dark);
+}
+
+.officials-card:hover
+{
+    background-color: var(--success-dark);
+}
+
+.blotter-card:hover
+{
+    background-color: var(--info-dark);
+}
+
+.dashboard-statistics-wrapper
+{
+    gap: var(--ws-4);
+}
+
+.stat
+{
+    gap: var(--ws-4);
+    border-radius: var(--ws-1);
+    padding: var(--ws-4);
+    box-shadow: 0  2px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+.gender-chart-holder
+{
+    flex: 1;
+}
+
+.purok-pop-chart-holder
+{
+    flex: 2;
+}
+
+.gender-chart-wrapper, .purok-pop-chart-wrapper
+{
+    width: 100%;
+}
+
+.gender-chart canvas
+{
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 1024px)
+{
+    .dashboard-statistics-wrapper
+    {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px)
+{
+    .dashboard-cards-wrapper
+    {
+        height: fit-content;
+        width: 100%;
+    }
+
+    .card
+    {
+        height: 100px;
+    }
+
+    .info-holder h1
+    {
+        font-size: var(--header-h6);
+    }
+
+}

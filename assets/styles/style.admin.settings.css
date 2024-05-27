@@ -1,0 +1,9 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.settings-container
+{
+    height: 100dvh;
+    width: 100%;
+    gap: var(--ws-4);
+    flex: 1;
+}

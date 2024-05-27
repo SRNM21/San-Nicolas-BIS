@@ -1,24 +1,23 @@
 @import url('/sannicolasbis/assets/styles/style.root.css');
 
-.brgy-off-wrapper
+.new-staff-wrapper
 {
     height: 100dvh;
     width: 100dvw;
 }
 
-.brgy-off-container
+.new-staff-container
 {
     height: 100%;
     width: 100%;
 }
 
-.new-off-content
+.new-staff-acc-content
 {
     height: calc(100dvh - 90px);
     width: calc(100dvw - 90px);
     padding: var(--ws-4);
     overflow: scroll;
-    overflow-x: scroll;
     gap: var(--ws-4);
     flex: 1;
 }
@@ -45,16 +44,9 @@
     fill: var(--white);
 }
 
-.new-off-content
+.new-staff-acc-form-wrapper
 {
-    flex: 1;
-    padding: var(--ws-4);
-    gap: var(--ws-4);
-    justify-content: start !important;
-}
-
-.new-official-form-wrapper
-{
+    min-width: 500px;
     margin-top: var(--ws-4);
     max-width: var(--bp-laptop-l);
     border-radius: var(--ws-1);
@@ -80,7 +72,7 @@
     gap: var(--ws-4);
 }
 
-.personal-info-container, .barangay-position-container
+.personal-info-container, .account-info-container
 {
     gap: var(--ws-4);
 }
@@ -129,19 +121,19 @@
     color: var(--error);
     line-height: 1.5;
     font-size: var(--body-medium);
-    width: 200px;
+    width: 100%;
 }
 
 .submit-btn-wrapper
 {
     flex: 1;
-    justify-content: end;
+    justify-content: space-between;
 }
 
 .submit-new-official-btn
 {
     height: 50px;
-    width: 100%;
+    width: 100px;
     padding: var(--ws-2);
     background-color: var(--dark-gr-1);
     color: var(--white);
@@ -153,6 +145,78 @@
 .submit-new-official-btn:hover
 {
     background-color: var(--dark-gr-2);
+}
+
+.form-content-wrapper section
+{
+    display: none;
+}
+
+.form-content-wrapper section.active
+{
+    display: flex;
+}
+
+.btn-wrapper
+{
+    justify-content: space-between;
+    align-items: flex-end;
+    color: var(--dark-gr-6);
+}
+
+.btn-wrapper div
+{
+    margin-top: var(--ws-4);
+    gap: var(--ws-2);
+}
+
+.util-btn
+{
+    width: 100px;
+
+    padding: var(--ws-2);
+    background-color: var(--black);
+    color: var(--white);
+    font-size: var(--body-large);
+    border-radius: var(--ws-1);
+    cursor: pointer;
+}
+
+.toggle-pass-wrapper
+{
+    justify-content: end;
+    gap: var(--ws-2);
+}
+
+.pass-req::before
+{
+    content: '✖';
+    color: var(--error);
+    margin-right: var(--ws-2);
+}
+
+.pass-req.true::before
+{
+    content: '✔';
+    color: var(--success);
+    margin-right: var(--ws-2);
+}
+
+.reset-pass-btn
+{
+    background: none;
+    border: 1px solid var(--black);
+    padding: var(--ws-2);
+    border-radius: var(--ws-1);
+    outline: none;
+    font-size: var(--body-large);
+    cursor: pointer;
+}
+
+.reset-pass-wrapper
+{
+    display: none;
+    gap: var(--ws-4);
 }
 
 @media screen and (max-width: 1200px)

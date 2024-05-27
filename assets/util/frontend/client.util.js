@@ -1,5 +1,5 @@
 export const FOLDER_NAME = 'SanNicolasBIS'
-export const URI_FOLDER_NAME= FOLDER_NAME.toLowerCase()
+export const URI_FOLDER_NAME = FOLDER_NAME.toLowerCase()
 
 var PATHS = {}
 PATHS['STYLE_PATH']             = '/assets/styles/'
@@ -16,6 +16,30 @@ PATHS['IMAGES_PATH']            = '/assets/src/images/'
 PATHS['VECTOR_PATH']            = '/assets/src/svg/'
 
 export var PATHS
+
+getPrivilege() 
+
+export var PRIVILEGE
+
+function getPrivilege() 
+{  
+    $.ajax({
+        type: 'post',
+        url: URI_FOLDER_NAME + PATHS['API_PATH'] + 'api.database.php',
+        data: {
+            func: 'GET_PRIVILEGE',
+        },
+        success: function (response) 
+        {
+            console.log(response)
+            PRIVILEGE = response
+        },
+        error: function (error) 
+        {  
+            console.log(error)
+        }
+    })
+}
 
 export function validateName(input, errorProvider)
 {
@@ -145,7 +169,7 @@ export function validateEmail(input, errorProvider)
     return setNormal(input, errorProvider)
 }
 
-export function validateUsername(input)
+export function validateUsername(input, errorProvider)
 {
     let value = input.val().trim()
 
@@ -153,37 +177,37 @@ export function validateUsername(input)
     
     if (value == '') 
     {
-        return setInvalid(input, 'Username must not be empty')
+        return setInvalid(input, errorProvider, 'Username must not be empty')
     }
     else if (!alphaRegex.test(value))
     {
-        return setInvalid(input, 'Username must contain alphabetic and numeric characters only')
+        return setInvalid(input, errorProvider, 'Username must contain alphabetic and numeric characters only')
     }
     else if (value.length < 4)
     {
-        return setInvalid(input, 'Username is too short')
+        return setInvalid(input, errorProvider, 'Username is too short')
     }
     else if (value.length > 20)
     {
-        return setInvalid(input, 'Username is too long')
+        return setInvalid(input, errorProvider, 'Username is too long')
     }
 
-    return setInputState(input, '')
+    return setNormal(input, errorProvider)
 }
 
-export function validatePassword(input, confirm) 
+export function validatePassword(input, errorProvider, confirm) 
 {
     let val = input.val().trim()
     let symRegex = /[^\w\s]/
 
     if (val == '')
     {
-        return setInvalid(input, 'Password must not be empty')
+        return setInvalid(input, errorProvider, 'Password must not be empty')
     }
 
     if (val.length < 8) 
     {
-        return setInvalid(input, 'Please follow the password requirements')
+        return setInvalid(input, errorProvider, 'Please follow the password requirements')
     }
     
     let lower = false
@@ -204,12 +228,15 @@ export function validatePassword(input, confirm)
     }
 
     if (!(lower && upper && num && sym))
-        return setInvalid(input, 'Please follow the password requirements')
+        return setInvalid(input, errorProvider, 'Please follow the password requirements')
 
     if (val !== confirm.val().trim())
-        return setInvalid(input, 'Password does not match')
+    {
+        setInvalid(confirm, errorProvider, 'Password does not match')
+        return setInvalid(input, errorProvider, 'Password does not match')
+    }
 
-    return setInputState(input, '')
+    return setNormal(input, errorProvider)
 }
 
 function setNormal(input, errorProvider) 

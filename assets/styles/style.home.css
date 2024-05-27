@@ -301,6 +301,7 @@ section
     text-align: center;
     margin: auto;
     background-size: cover;
+    background-position: center;
     background-image: url('/sannicolasbis/assets/src/images/sannics_home.png');
     animation: updown 20s ease-in-out infinite alternate;
 }
@@ -435,30 +436,62 @@ section
     background-color: gray;
 }
 
+.brgy-cap-content
+{
+    height: 700px;
+    width: 100%;
+    background-color: var(--plt-red-2);
+}
+
 .brgy-cap-wrapper
 {
     height: 100%;
+    width: 50%;
+    aspect-ratio: 1/2;
+    background-size: cover;
+    flex: 1;
 }
 
-.brgy-cap
+.brgy-cap-wrapper img
 {
-    height: 600px;
-    width: 500px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
-.brgy-sang-wrapper
+.brgy-cap-desc
 {
-    height: 600px;
+    flex: 1;
+    justify-content: center;
+    padding: var(--ws-8);
+    color: var(--white);
     gap: var(--ws-4);
-    flex-wrap: wrap;
-    overflow-y: scroll;
-    justify-content: flex-end;
 }
 
-.brgy-card
+.sb-title
 {
-    min-height: 300px;
-    min-width: 250px;
+    margin-top: var(--ws-4);
+    font-size: var(--header-h3);
+    text-align: center;
+}
+
+.barangays-wrapper
+{
+    flex-wrap: wrap;
+    gap: var(--ws-6);
+}
+
+.brgy-card-wrapper
+{
+    width: 400px;
+    aspect-ratio: 1/1.3;
+}
+
+.brgy-card-wrapper img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 /** MISSION VISION */
@@ -469,6 +502,8 @@ section
     padding-inline: var(--ws-4);
     color: black;
     gap: var(--ws-8);
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .mivis-row
@@ -493,17 +528,6 @@ section
     gap: var(--ws-4);
 }
 
-.mivis-image-wrapper
-{
-    flex: 1;
-}
-
-.mivis-image
-{
-    height: 100%;
-    width: 100%;
-    background-color: gray;
-}
 
 /** OVERLAY */
 
@@ -720,34 +744,25 @@ section
         flex-direction: column-reverse;
     }
 
-    .mivis-image
-    {
-        display: none;
-    }
-
     .content div
     {
         align-content: center;
     }
 
-    .officials-profile
+    .brgy-cap-content
     {
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
-
+    
     .brgy-cap-wrapper
     {
-        display: flex;
-        justify-content: center;
+        width: 100%;
+        height: fit-content;
     }
 
-    .brgy-sang-wrapper
+    .brgy-cap-wrapper img
     {
-        height: 320px;
-        flex-wrap: nowrap;
-        overflow-y: hidden;
-        overflow-x: scroll;
-        justify-content: flex-start;
+        width: 100%;
     }
 }
 

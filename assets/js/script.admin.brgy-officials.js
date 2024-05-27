@@ -1,7 +1,8 @@
 import {
     PATHS,
     FOLDER_NAME,
-    URI_FOLDER_NAME
+    URI_FOLDER_NAME,
+    PRIVILEGE
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
 const doc = $(document)
@@ -37,7 +38,7 @@ function getOfficials(query)
         {  
             console.log(error)
         }
-    });
+    })
 }
 
 function populateTable(data)
@@ -58,11 +59,16 @@ function populateTable(data)
         const dateAddedCell     = $('<td>').text(item['date_added'])
     
         const detailsBtn        = $('<a href="barangay-officials?details=' + id + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
-        const updateBtn         = $('<a href="barangay-officials/update-official?id=' + id + '" class="data-util-btn update-details-btn">Edit</a>').data('id', id)
-        const deleteBtn         = $('<a href="barangay-officials?delete=' + id + '"class="data-util-btn delete-details-btn">Delete</a>').data('id', id)
-    
-        const buttonCell        = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn, updateBtn, deleteBtn)
-    
+        const buttonCell        = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn)
+
+        console.log(PRIVILEGE);
+        if (PRIVILEGE == 'ADMIN')
+        {
+            const updateBtn         = $('<a href="barangay-officials/update-official?id=' + id + '" class="data-util-btn update-details-btn">Edit</a>').data('id', id)
+            const deleteBtn         = $('<a href="barangay-officials?delete=' + id + '"class="data-util-btn delete-details-btn">Delete</a>').data('id', id)
+            buttonCell.append(updateBtn, deleteBtn)
+        }
+
         tableRow.append(lastnameCell, firstnameCell, middlenameCell, positionCell, statusCell, dateAddedCell, buttonCell)
         officialsTable.append(tableRow);
     })

@@ -1,6 +1,6 @@
 <div class='f-center otp-modal'>
     <div class='f-col otp-modal-content'>
-        <form class='f-col otp-form' action='administrator/verification' method='POST'>
+        <form class='f-col otp-form' action='administrator' method='POST'>
             <h3>Verify your account</h3>
             <p>The OTP password was sent to <?= $censored_email ?></p>
             <div class='f-row otp-input-wrapper'>

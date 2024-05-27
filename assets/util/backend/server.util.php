@@ -52,8 +52,8 @@ function getRoute(String $uri)
         "/$folder/community" => 
         getController('home-page'),
         
-        "/$folder/null" => 
-        getController('home-page'),
+        "/$folder/community/join-community" => 
+        getController('join-community'),
 
         "/$folder/administrator" => 
         getController('admin.login'),
@@ -84,6 +84,15 @@ function getRoute(String $uri)
 
         "/$folder/administrator/blotter" => 
         getController('admin.blotter'),
+
+        "/$folder/administrator/staff-accounts" => 
+        getController('admin.staff-acc'),
+
+        "/$folder/administrator/staff-accounts/new-staff-account" => 
+        getController('admin.new-staff-acc'),
+
+        "/$folder/administrator/staff-accounts/update-staff-account" => 
+        getController('admin.update-staff-acc'),
         
         "/$folder/administrator/settings" => 
         getController('admin.settings'),

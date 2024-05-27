@@ -1,9 +1,9 @@
 .side-menu-content
 {    
     z-index: 3;
-    height: 100dvh;
+    height: calc(100dvh - 90px);
     width: 350px;
-    padding: var(--ws-4);
+    padding: var(--ws-3);
     color: var(--white);
     overflow-x: hidden;
     background-color: var(--plt-red-2);
@@ -37,13 +37,6 @@
     font-size: var(--body-small);
 }
 
-.menu
-{
-    padding: var(--ws-3);
-    cursor: pointer;
-    border-radius: var(--ws-1);
-}
-
 .menu-wrapper
 {
     height: var(--ws-5);
@@ -53,7 +46,6 @@
 .admin-nav-link-wrapper
 {
     flex: 1;
-    margin-top: var(--ws-4);
     margin-bottom: var(--ws-4);
     overflow-y: scroll;
     overflow-x: hidden;
@@ -127,7 +119,7 @@
 
 .acc-info-wrapper
 {
-    gap: var(--ws-2);
+    justify-content: space-between;
 }
 
 .icon
@@ -146,6 +138,7 @@
 
 .acc-info
 {
+    margin-left: var(--ws-2);
     justify-content: center;
     white-space: nowrap;
     overflow: hidden;
@@ -186,7 +179,7 @@
     width: 100%;
 }
 
-/* @media screen and (max-width: 1025px) 
+@media screen and (max-width: 768px) 
 {
     .overlay-menu-wrapper
     {
@@ -195,20 +188,7 @@
 
     .side-menu-wrapper
     {
-        position: absolute;
-    }
-
-    .menu-wrapper
-    {
-        position: absolute;
-        height: 70px;
-    }
-
-    .overlay-wrapper
-    {
-        height: 100dvh;
-        width: 100dvw; 
         position: fixed;
         z-index: 2;
     }
-} */
+}

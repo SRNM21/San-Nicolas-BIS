@@ -1,6 +1,6 @@
 <?php
 
-$header_name = 'New Official';
+$header_name = 'New Barangay Official';
 
 require getAdminView('new-official');
 
