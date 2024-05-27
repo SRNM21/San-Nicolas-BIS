@@ -2,7 +2,7 @@
 
 $header_name = 'Update Barangay Staff Account';
 $id             = $_GET['id'];
-$staff          = getStaff($id);
+$staff          = getRecord($id, 'barangay_staff', 'staff_id');
 $lastname       = $staff['last_name'];
 $firstname      = $staff['first_name'];
 $middlename     = $staff['middle_name'];
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $modal_icon     = 'success';
         $modal_title    = 'Updated Successfully!';
-        $modal_success  = $_POST['username'] . ' has been updated';
+        $modal_message  = $_POST['username'] . ' has been updated';
         $modal_neg      = 'staff-accounts';
         $modal_pos      = 'staff-accounts/new-staff-acc';
         require getPartial('admin.modal');

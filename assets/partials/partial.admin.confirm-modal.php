@@ -8,13 +8,13 @@
             <h3><?= $modal_title ?></h3>
         </header>
         <div class='f-center message-holder'>
-            <p><?= $modal_success ?></p>
+            <p><?= $modal_message ?></p>
         </div>
         <div class='f-col btn-wrapper'>
             <?php if ($modal_pos == '-') { ?>
-                <a href='' class='f-center modal-btn modal-continue-btn'>OK</a>
+                <a href='<?= $path ?>' class='f-center modal-btn modal-prm-btn'>OK</a>
             <?php } else {  ?>
-                <a href='<?= $origin?><?= $modal_pos?>' class='f-center modal-btn modal-continue-btn'>OK</a>
+                <a href='<?= $origin ?><?= $modal_pos?>' class='f-center modal-btn modal-prm-btn'>OK</a>
             <?php } ?>
         </div>
     </main>

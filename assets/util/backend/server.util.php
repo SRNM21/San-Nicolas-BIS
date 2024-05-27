@@ -55,6 +55,9 @@ function getRoute(String $uri)
         "/$folder/community/join-community" => 
         getController('join-community'),
 
+        "/$folder/community/join-community/join-as-family-head" => 
+        getController('join-community-fam-head'),
+
         "/$folder/administrator" => 
         getController('admin.login'),
         
@@ -81,6 +84,9 @@ function getRoute(String $uri)
         
         "/$folder/administrator/residence/info" => 
         getController('admin.residence-details'),
+
+        "/$folder/administrator/pendings" => 
+        getController('admin.pendings'),
 
         "/$folder/administrator/blotter" => 
         getController('admin.blotter'),

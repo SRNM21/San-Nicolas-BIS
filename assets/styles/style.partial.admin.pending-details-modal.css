@@ -1,0 +1,65 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.modal-container
+{
+    height: 100dvh;
+    width: 100dvw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal
+{
+    height: fit-content;
+    width: fit-content;
+    padding: var(--ws-4);
+    border-radius: var(--ws-1);
+    background-color: var(--white);
+    gap: var(--ws-4);
+}
+
+.info-row
+{
+    gap: var(--ws-4);
+}
+
+.info-col
+{
+    gap: var(--ws-4);
+}
+
+.info-grp
+{
+    flex: 1;
+    gap: var(--ws-1);
+}
+
+.info-lbl
+{
+    font-size: var(--body-medium);
+    color: var(--dark-gr-5);
+}
+
+.info-val
+{
+    font-size: var(--body-large);
+}
+
+.pending-util-btn-wrapper
+{
+    justify-content: flex-end;
+}
+
+.pending-close-btn
+{
+    padding: var(--ws-2);
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: var(--ws-1);
+    font-size: var(--body-medium);
+    text-decoration: none;
+    cursor: pointer;
+}

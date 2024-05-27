@@ -1,12 +1,10 @@
 import {
     PATHS,
-    FOLDER_NAME,
     URI_FOLDER_NAME,
     PRIVILEGE
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
 const doc = $(document)
-const win = $(window)
 const officialsTable = $('.brgy-officials-tbl-body')
 const searchBar = $('.search-bar')
 
@@ -31,7 +29,6 @@ function getOfficials(query)
         },
         success: function (response) 
         {
-            console.log(response)
             populateTable(response)
         },
         error: function (error) 
@@ -61,7 +58,6 @@ function populateTable(data)
         const detailsBtn        = $('<a href="barangay-officials?details=' + id + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
         const buttonCell        = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn)
 
-        console.log(PRIVILEGE);
         if (PRIVILEGE == 'ADMIN')
         {
             const updateBtn         = $('<a href="barangay-officials/update-official?id=' + id + '" class="data-util-btn update-details-btn">Edit</a>').data('id', id)

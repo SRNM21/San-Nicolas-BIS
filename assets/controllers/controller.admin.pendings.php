@@ -1,13 +1,13 @@
-<?php
+<?php 
 
-$header_name = 'Residence';
+$header_name = 'Pendings';
 
 if (isset($_GET['details']))
 {
     $id     = $_GET['details'];
-    $role   = substr($id, 0, 3);
-
-    require getPartial('admin.residence-details-modal');
+    $role   = $_GET['role'];
+    
+    require getPartial('admin.pending-details-modal');
 }
 
 if (isset($_GET['confirm']))
@@ -55,22 +55,8 @@ if (isset($_GET['confirm-request']))
 
 if (isset($_GET['delete']))
 {
-    $id     = $_GET['delete'];
-    $role   = substr($id, 0, 3);
-
-    if ($role == 'FMH')
-    {
-        $pending_rec    = getRecord($id, 'familyhead', 'family_head_id');
-    }
-    else if ($role == 'FMM')
-    {
-        $pending_rec    = getRecord($id, 'familymember', 'family_member_id');
-    }
-    else if ($role == 'SPS')
-    {
-        $pending_rec    = getRecord($id, 'spouse', 'spouse_ID');
-    }
-
+    $id             = $_GET['delete'];
+    $pending_rec    = getRecord($id, 'v_pending_residence', 'pending_id');
     $fullname       = $pending_rec['last_name'] . ', ' . $pending_rec['first_name'] . ' ' . $pending_rec['middle_name'];
 
     $modal_icon     = 'error';
@@ -79,8 +65,8 @@ if (isset($_GET['delete']))
 
     $prm_txt        = 'Delete';
     $scn_txt        = 'Cancel';
-    $prm_href       = "residence?confirm-delete=$id";
-    $scn_hred       = 'residence';
+    $prm_href       = "pendings?confirm-delete=$id";
+    $scn_hred       = 'pendings';
 
     require getPartial('admin.modal');
 }
@@ -88,38 +74,23 @@ if (isset($_GET['delete']))
 if (isset($_GET['confirm-delete']))
 {
     $id             = $_GET['confirm-delete'];
-    $role           = substr($id, 0, 3);
-    $delete;
 
-    if ($role == 'FMH')
-    {
-        $delete    = deletRecord($id, 'familyhead', 'family_head_id');
-    }
-    else if ($role == 'FMM')
-    {
-        $delete    = deletRecord($id, 'familymember', 'family_member_id');
-    }
-    else if ($role == 'SPS')
-    {
-        $delete    = deletRecord($id, 'spouse', 'spouse_ID');
-    }
-
-    if ($delete)
+    if (deletRecord($id, 'pending_familyhead', 'pending_id'))
     {
         $modal_icon = 'success';
-        $modal_title = 'Resident Deleted Successfully!';
-        $modal_message = 'Resident has been deleted.';
+        $modal_title = 'Request Deleted Successfully!';
+        $modal_message = 'Request has been deleted.';
     }
     else 
     {
         $modal_icon = 'error';
-        $modal_title = 'Delete Resident Failed!';
-        $modal_message = 'An error occured while deleting resident.';
+        $modal_title = 'Delete Request Failed!';
+        $modal_message = 'An error occured while deleting request.';
     }
 
     $modal_pos = '-';
-    $path = 'residence';
+    $path = 'pendings';
     require getPartial('admin.confirm-modal');
 }
 
-require getAdminView('residence');
+require getAdminView('pendings');

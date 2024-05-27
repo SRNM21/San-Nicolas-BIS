@@ -5,7 +5,7 @@ $header_name = 'Update Official';
 if (isset($_GET['id']))
 {
     $id = $_GET['id'];
-    $official = getOfficial($id);
+    $official = getRecord($id, 'barangay_officials', 'brgy_official_id');
 
     $firstname      = handleEmptyValue('', $official['first_name']);
     $middlename     = handleEmptyValue('', $official['middle_name']);

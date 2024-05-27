@@ -2,17 +2,19 @@
 
 <link rel='stylesheet' href=<?= getStyle('partial.modal'); ?>>
 <div class='f-center modal-container'>
-    <main class='f-center f-col modal'>
-        <header class='f-center f-col'>
+    <main class='f-row modal'>
+        <div>
             <div class='f-center icon-wrapper-<?= $modal_icon ?>'><?= getSVG($modal_icon); ?></div>
-            <h3><?= $modal_title ?></h3>
-        </header>
-        <div class='f-center message-holder'>
-            <p><?= $modal_success ?></p>
         </div>
-        <div class='f-col btn-wrapper'>
-            <a href='<?= $origin?><?= $modal_pos?>' class='f-center modal-btn modal-continue-btn'>Continue</a>
-            <a href='<?= $origin?><?= $modal_neg?>' class='f-center modal-btn modal-back-btn'>Back</a>
+        <div class='f-col'>
+            <div class='f-col message-holder'>
+                <h3><?= $modal_title ?></h3>
+                <p><?= $modal_message ?></p>
+            </div>
+            <div class='f-row btn-wrapper'>
+                <a href='<?= $origin?><?= $scn_hred?>' class='f-center modal-btn modal-scn-btn'><?= $scn_txt ?></a>
+                <a href='<?= $origin?><?= $prm_href?>' class='f-center modal-btn modal-prm-btn'><?= $prm_txt ?></a>
+            </div>
         </div>
     </main>
 </div>

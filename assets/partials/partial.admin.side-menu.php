@@ -5,6 +5,7 @@ $admin_uri          = substr($uri, 29);
 $onDashboard        = str_starts_with($admin_uri, 'dashboard');
 $onBrgyOfficials    = str_starts_with($admin_uri, 'barangay-officials');
 $onResidence        = str_starts_with($admin_uri, 'residence');
+$onPendings         = str_starts_with($admin_uri, 'pendings');
 $onBlotter          = str_starts_with($admin_uri, 'blotter');
 $onStaffAccs        = str_starts_with($admin_uri, 'staff-accounts');
 $onSettings         = str_starts_with($admin_uri, 'settings');
@@ -28,6 +29,10 @@ $acc_email          = $_SESSION['EMAIL'];
             <a href='<?php echo $origin; ?>residence' class='f-row admin-nav-link <?= $onResidence ? 'active' : '' ?>' data-nav='residence'>
                 <span class='f-center'><?= getSVG('residence'); ?></span>
                 <p>Residence</p>
+            </a>
+            <a href='<?php echo $origin; ?>pendings' class='f-row admin-nav-link <?= $onPendings ? 'active' : '' ?>' data-nav='pendings'>
+                <span class='f-center'><?= getSVG('pending'); ?></span>
+                <p>Pendings</p>
             </a>
             <a href='<?php echo $origin; ?>blotter' class='f-row admin-nav-link  <?= $onBlotter ? 'active' : '' ?>' data-nav='blotter'>
                 <span class='f-center'><?= getSVG('blotter1'); ?></span>

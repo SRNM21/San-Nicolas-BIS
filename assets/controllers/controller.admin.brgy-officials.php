@@ -17,7 +17,7 @@ $date_added     = 'NOT FOUND';
 if (isset($_GET['details']))
 {
     $id = $_GET['details'];
-    $official = getOfficial($id);
+    $official = getRecord($id, 'barangay_officials', 'brgy_official_id');
 
     if ($official != null)
     {
@@ -42,7 +42,7 @@ if (isset($_GET['details']))
 if (isset($_GET['delete']))
 {
     $id = $_GET['delete'];
-    $official = getOfficial($id);
+    $official = getRecord($id, 'barangay_officials', 'brgy_official_id');
 
     if ($official != null)
     {
@@ -63,7 +63,7 @@ if (isset($_GET['delete-confirm']))
 {
     $id = $_GET['delete-confirm'];
 
-    if (deleteOfficials($id))
+    if (deletRecord($id, 'barangay_officials', 'brgy_official_id'))
     {
         $modal_icon     = 'success';
         $modal_title    = 'Deleted Successfully!';

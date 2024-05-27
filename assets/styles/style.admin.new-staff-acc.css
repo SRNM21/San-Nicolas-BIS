@@ -108,22 +108,6 @@
     width: 200px;
 }
 
-.req::after
-{
-    content: '*';
-    color: var(--error);
-    font-size: var(--body-large);
-    margin-left: var(--ws-1);
-}
-
-.error-info
-{
-    color: var(--error);
-    line-height: 1.5;
-    font-size: var(--body-medium);
-    width: 100%;
-}
-
 .submit-btn-wrapper
 {
     flex: 1;

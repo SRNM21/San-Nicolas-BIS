@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $admin = isAdmin($username, $password);
-        $staff = isStaff($username, $password);
+        $admin = getAccount($username, $password, 'barangay_admin');
+        $staff = getAccount($username, $password, 'barangay_staff');
 
         if ($admin != null)
         {

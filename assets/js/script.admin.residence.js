@@ -1,6 +1,5 @@
 import {
     PATHS,
-    FOLDER_NAME,
     URI_FOLDER_NAME,
     PRIVILEGE
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
@@ -30,7 +29,6 @@ function getFamilyHead(query)
         },
         success: function (response) 
         {
-            console.log(response)
             populateTable(response)
         },
         error: function (error) 
@@ -47,7 +45,7 @@ function populateTable(data)
     return
 
     data.forEach(item => {
-        const id                    = item['family_head_id']
+        const id                    = item['residence_id']
     
         const tableRow              = $('<tr>')
         const lastNameCell          = $('<td>').text(item['last_name'])
@@ -56,13 +54,13 @@ function populateTable(data)
         const purokCell             = $('<td>').text(item['purok'])
         const dateOfInterviewCell   = $('<td>').text(item['role'])
     
-        const detailsBtn            = $('<a href="residence/info?id=' + id + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
+        const detailsBtn            = $('<a href="residence?details=' + id + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
         const buttonCell            = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn)
 
-        if (PRIVILEGE == 'ADMIN')
+        if (PRIVILEGE === 'ADMIN')
         {
-            const updateBtn             = $('<a class="data-util-btn update-details-btn">Edit</a>')
-            const deleteBtn             = $('<a class="data-util-btn delete-details-btn">Delete</a>')
+            const updateBtn             = $('<a href="residence?update=' + id + '" class="data-util-btn update-details-btn">Edit</a>')
+            const deleteBtn             = $('<a href="residence?delete=' + id + '" class="data-util-btn delete-details-btn">Delete</a>')
             buttonCell.append(updateBtn, deleteBtn)
         }
     

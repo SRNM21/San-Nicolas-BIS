@@ -31,12 +31,11 @@ function getPrivilege()
         },
         success: function (response) 
         {
-            console.log(response)
             PRIVILEGE = response
         },
         error: function (error) 
         {  
-            console.log(error)
+            PRIVILEGE = 'NOT FOUND'
         }
     })
 }
@@ -95,14 +94,13 @@ export function validatePhonenum(input, errorProvider)
     return setNormal(input, errorProvider)
 }
 
-export function validateBirthdate(input) 
+export function validateBirthdate(input, errorProvider) 
 {
     let value = input.val().trim()
     
     let birthDate = new Date(value)
     let currentDate = new Date()
 
-    let minYearOld = new Date(currentDate.getFullYear() - 21, currentDate.getMonth(), currentDate.getDate())
     let maxYearOld = new Date(currentDate.getFullYear() - 150, currentDate.getMonth(), currentDate.getDate())
 
     if (value == '') 
@@ -112,10 +110,6 @@ export function validateBirthdate(input)
     else if (birthDate <= maxYearOld || birthDate >= currentDate)
     {
         return setInvalid(input, errorProvider, 'Invalid Birthdate')
-    }
-    else if (birthDate >= minYearOld)
-    {
-        return setInvalid(input, errorProvider, 'A Pharmacist must be 21 Years old and above')
     }
 
     return setNormal(input, errorProvider)

@@ -22,11 +22,6 @@
                                 <?= getSVG('search'); ?>
                             </span>
                         </div>
-                        <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') {?>
-                            <div class='util-btn-wrapper'>
-                                <a href='residence/new-residence' class='f-center f-row new-residence-btn'><?= getSVG('add-person'); ?><p>New Resident</p></a>
-                            </div>
-                        <?php } ?>
                     </div>
                 </div>
                 <div class='f-col table-limiter'>

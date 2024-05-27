@@ -1,13 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Join Community</title>
+    <link rel='stylesheet' href=<?= getStyle('join-community'); ?>>
 </head>
 <body>
-    <main class='join-community-content-wrapper'>
-        
+    <main class='f-center join-community-content-wrapper'>
+        <div class='f-col form-modal'>
+            <header class='f-row'>
+                <div class='f-row brgy-info-wrapper'>
+                    <div class='logo'></div>
+                    <div class='f-col'>
+                        <h2>Barangay San Nicolas</h2>
+                        <p>Pasig City, Metro Manila, Philippines</p>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- SELECTION FORM -->
+
+            <div class='form-wrapper'>
+                <?php if ($form == 0) { ?>
+                    <form action='' method='post' class='f-col'>
+                        <section class='f-col selection-page'>
+                            <div class='f-col role-selection-wrapper'>
+                                <div class='f-row menu-wrapper'>
+                                    <a href='/sannicolasbis/community'><?= getSVG('back') ?></a>
+                                    <h3>Back</h3>
+                                </div>
+                                <label for='role'>Register in Community as</label>
+                                <select name='role' id='role-selection' class='role-selection'>
+                                    <option value='family-head'>Family Head</option>
+                                    <option value='family-member'>Family Member</option>
+                                    <option value='spouse'>Spouse</option>
+                                </select>
+                            </div>
+                            <div class='btn-wrapper f-row'>
+                                <a id='select-link' href='join-community?role=family-head'>Next</a>
+                            </div>
+                        </section>
+                    </form>
+                <?php } ?>
+
+                <!-- FAMILY HEAD REGISTRAION FORM -->
+
+                <?php if ($form == 1) { ?>
+                    <form action='' method='post' id='fam-head-form'>
+                        <section class='f-col fam-head-page'>
+                            <div class='f-row menu-wrapper'>
+                                <a href='join-community'><?= getSVG('back') ?></a>
+                                <h3>Register as Family Head</h3>
+                            </div>
+                            <div class='f-row info-wrapper'>
+                                <div class='f-col'>
+                                    <div class='f-col personal-info-wrapper'>
+                                        <div class='inp-row f-row name-wrapper'>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-lastname' class='req'>Lastname</label>
+                                                <input type='text' name='fam-head-lastname' id='fam-head-lastname' class='info-inp fam-head-lastname' placeholder='Enter Lastname' data-input='Lastname'>
+                                                <p class='error-info fh-ln-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-firstname' class='req'>Firstname</label>
+                                                <input type='text' name='fam-head-firstname' id='fam-head-firstname' class='info-inp fam-head-firstname' placeholder='Enter Firstname' data-input='Firstname'>
+                                                <p class='error-info fh-fn-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-middlename'>Middlename</label>
+                                                <input type='text' name='fam-head-middlename' id='fam-head-middlename' class='info-inp fam-head-middlename' placeholder='Enter Middlename' data-input='Middlename'>
+                                                <p class='error-info fh-mn-err'></p>
+                                            </div>
+                                        </div>
+                                        <div class='inp-row f-row'>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-birthdate' class='req'>Birthdate</label>
+                                                <input type='date' name='fam-head-birthdate' id='fam-head-birthdate' class='info-inp fam-head-birthdate'>
+                                                <p class='error-info fh-bd-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-civil-status' class='req'>Civil Status</label>
+                                                <select name='fam-head-civil-status' id='fam-head-civil-status' class='fam-head-civil-status info-inp'>
+                                                    <option value='single'>Single</option>
+                                                    <option value='married'>Married</option>
+                                                    <option value='divorced'>Divorced</option>
+                                                    <option value='widowed'>Widowed</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class='inp-row f-row'>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-educ-stat'>Educational Status</label>
+                                                <input type='text' name='fam-head-educ-stat' id='fam-head-educ-stat' class='info-inp fam-head-educ-stat' placeholder='Enter Educational Status'>
+                                                <p class='error-info fh-es-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-occupation'>Occupation</label>
+                                                <input type='text' name='fam-head-occupation' id='fam-head-occupation' class='info-inp fam-head-occupation' placeholder='Enter Occupation'>
+                                                <p class='error-info fh-oc-err'></p>
+                                            </div>
+                                        </div>
+                                        <div class='inp-row f-row'>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-contact-num' class='req'>Contact number</label>
+                                                <input type='text' name='fam-head-contact-num' id='fam-head-contact-num' class='info-inp fam-head-contact-num' placeholder='Enter Contact Number'>
+                                                <p class='error-info fh-cn-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-email'>Email</label>
+                                                <input type='fam-head-email' name='fam-head-email' id='fam-head-email' class='info-inp email' placeholder='Enter Email'>
+                                                <p class='error-info fh-em-err'></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='f-col'>
+                                    <div class='f-col aside'>
+                                        <div class='f-col other-info-wrapper'>
+                                            <div class='inp-row f-row'>
+                                                <div class='inp-group f-col'>
+                                                    <label for='fam-head-purok' class='req'>Purok</label>
+                                                    <select class='info-inp' name='fam-head-purok' id='fam-head-purok'>
+                                                        <option value='Purok 1'>Purok 1</option>
+                                                        <option value='Purok 2'>Purok 2</option>
+                                                        <option value='Purok 3'>Purok 3</option>
+                                                        <option value='Purok 4'>Purok 4</option>
+                                                        <option value='Purok 5'>Purok 5</option>
+                                                        <option value='Purok 6'>Purok 6</option>
+                                                        <option value='Purok 7'>Purok 7</option>
+                                                    </select>
+                                                    <p class='error-info fh-ad-err'></p>
+                                                </div>
+                                            </div>
+                                            <div class='inp-row f-row'>
+                                                <div class='inp-group f-col'>
+                                                    <label for='fam-head-address' class='req'>Address</label>
+                                                    <input type='text' name='fam-head-address' id='fam-head-address' class='info-inp fam-head-address' placeholder='Enter Address'>
+                                                    <p class='error-info fh-ad-err'></p>
+                                                </div>
+                                            </div>
+                                            <div class='inp-row f-row'>
+                                                <div class='inp-group f-col'>
+                                                    <label for='fam-head-fam-plan-method'>Family Planning Method</label>
+                                                    <input type='text' name='fam-head-fam-plan-method' id='fam-head-fam-plan-method' class='info-inp fam-head-fam-plan-method' placeholder='Enter Family plan method'>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='inp-row f-row sbm-btn-wrapper'>
+                                            <div class='f-col'>
+                                                <button id='fam-head-submit'>Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </form>
+                <?php } ?>
+                
+                <!-- FAMILY MEMBER REGISTRAION FORM -->
+
+                <?php if ($form == 2) { ?>
+                    <form action='' method='post' id='fam-head-form'>
+                        <section class='f-col fam-head-page'>
+                            <div class='f-row menu-wrapper'>
+                                <a href='join-community'><?= getSVG('back') ?></a>
+                                <h3>Register as Family Member</h3>
+                            </div>
+                            <div class='f-row info-wrapper'>
+                                <div class='f-col'>
+                                    <div class='f-col personal-info-wrapper'>
+                                        <div class='inp-row f-row name-wrapper'>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-lastname' class='req'>Lastname</label>
+                                                <input type='text' name='fam-head-lastname' id='fam-head-lastname' class='info-inp fam-head-lastname' placeholder='Enter Lastname' data-input='Lastname'>
+                                                <p class='error-info fh-ln-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-firstname' class='req'>Firstname</label>
+                                                <input type='text' name='fam-head-firstname' id='fam-head-firstname' class='info-inp fam-head-firstname' placeholder='Enter Firstname' data-input='Firstname'>
+                                                <p class='error-info fh-fn-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-middlename'>Middlename</label>
+                                                <input type='text' name='fam-head-middlename' id='fam-head-middlename' class='info-inp fam-head-middlename' placeholder='Enter Middlename' data-input='Middlename'>
+                                                <p class='error-info fh-mn-err'></p>
+                                            </div>
+                                        </div>
+                                        <div class='inp-row f-row'>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-birthdate' class='req'>Birthdate</label>
+                                                <input type='date' name='fam-head-birthdate' id='fam-head-birthdate' class='info-inp fam-head-birthdate'>
+                                                <p class='error-info fh-bd-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-civil-status' class='req'>Civil Status</label>
+                                                <select name='fam-head-civil-status' id='fam-head-civil-status' class='fam-head-civil-status info-inp'>
+                                                    <option value='single'>Single</option>
+                                                    <option value='married'>Married</option>
+                                                    <option value='divorced'>Divorced</option>
+                                                    <option value='widowed'>Widowed</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class='inp-row f-row'>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-educ-stat'>Educational Status</label>
+                                                <input type='text' name='fam-head-educ-stat' id='fam-head-educ-stat' class='info-inp fam-head-educ-stat' placeholder='Enter Educational Status'>
+                                                <p class='error-info fh-es-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-occupation'>Occupation</label>
+                                                <input type='text' name='fam-head-occupation' id='fam-head-occupation' class='info-inp fam-head-occupation' placeholder='Enter Occupation'>
+                                                <p class='error-info fh-oc-err'></p>
+                                            </div>
+                                        </div>
+                                        <div class='inp-row f-row'>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-contact-num' class='req'>Contact number</label>
+                                                <input type='text' name='fam-head-contact-num' id='fam-head-contact-num' class='info-inp fam-head-contact-num' placeholder='Enter Contact Number'>
+                                                <p class='error-info fh-cn-err'></p>
+                                            </div>
+                                            <div class='inp-group f-col'>
+                                                <label for='fam-head-email'>Email</label>
+                                                <input type='fam-head-email' name='fam-head-email' id='fam-head-email' class='info-inp email' placeholder='Enter Email'>
+                                                <p class='error-info fh-em-err'></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class='f-col'>
+                                    <div class='f-col aside'>
+                                        <div class='f-col other-info-wrapper'>
+                                            <div class='inp-row f-row'>
+                                                <div class='inp-group f-col'>
+                                                    <label for='fam-head-purok' class='req'>Purok</label>
+                                                    <select class='info-inp' name='fam-head-purok' id='fam-head-purok'>
+                                                        <option value='Purok 1'>Purok 1</option>
+                                                        <option value='Purok 2'>Purok 2</option>
+                                                        <option value='Purok 3'>Purok 3</option>
+                                                        <option value='Purok 4'>Purok 4</option>
+                                                        <option value='Purok 5'>Purok 5</option>
+                                                        <option value='Purok 6'>Purok 6</option>
+                                                        <option value='Purok 7'>Purok 7</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class='inp-row f-row'>
+                                                <div class='inp-group f-col'>
+                                                    <label for='fam-head-address' class='req'>Address</label>
+                                                    <input type='text' name='fam-head-address' id='fam-head-address' class='info-inp fam-head-address' placeholder='Enter Address'>
+                                                    <p class='error-info fh-ad-err'></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='inp-row f-row sbm-btn-wrapper'>
+                                            <div class='f-col'>
+                                                <button id='fam-head-submit'>Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </form>
+                <?php } ?>
+            </div>
+        </div>
     </main>
+    
+    <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
+    <script type='module' src=<?=  getScript('join-community'); ?>></script>
 </body>
 </html>

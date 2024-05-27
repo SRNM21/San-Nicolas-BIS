@@ -23,11 +23,6 @@ submitBtn.click(function(e)
         validateUpload($('#profile'), $('.pro-err')) 
     )
     {
-        console.log('asd');
         $('#new-off-from').submit()
-    }
-    else
-    {
-        console.log('tes');
     }
 })

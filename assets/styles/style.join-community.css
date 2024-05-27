@@ -1,0 +1,221 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.join-community-content-wrapper
+{
+    height: 100dvh;
+    width: 100dvw;
+    padding: var(--ws-4);
+    background-size: cover;
+    background-position: center;
+    background-image: url('/sannicolasbis/assets/src/images/sannics_home.png');
+    animation: updown 20s ease-in-out infinite alternate;
+}
+
+@keyframes updown {
+    from 
+    {
+      background-position-y: 0;
+    }
+    to 
+    {
+      background-position-y:100%;
+    }
+}
+
+.form-modal
+{
+    gap: var(--ws-8);
+    padding: var(--ws-4);
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.logo
+{
+    height: 80px;
+    width: 80px;
+    background-color: gray;
+}
+
+.brgy-info-wrapper
+{
+    align-items: center;
+    gap: var(--ws-4);
+}
+
+.brgy-info-wrapper > div > p
+{
+    font-size: var(--body-medium);
+}
+
+form section
+{
+    gap: var(--ws-4);
+}
+
+.menu-wrapper svg
+{
+    fill: var(--black);
+}
+
+/** SELECTION PAGE */
+
+.btn-wrapper
+{
+    width: 100%;
+}
+
+.btn-wrapper a 
+{
+    width: 100%;
+    height: 50px;
+    padding: var(--ws-3);
+    background-color: var(--black);
+    border-radius: var(--ws-1);
+    color: var(--white);
+    font-size: var(--body-large);
+    text-decoration: none;
+    text-align: center;
+}
+
+.role-selection-wrapper
+{
+    gap: var(--ws-2);
+}
+
+.role-selection-wrapper label
+{
+    font-size: var(--body-large);
+}
+
+.role-selection
+{
+    font-size: var(--body-large);
+}
+
+/** FAMILY HEAD FORM */
+
+.info-wrapper
+{
+    gap: var(--ws-4);
+}
+
+.personal-info-wrapper, .other-info-wrapper
+{
+    gap: var(--ws-4);
+}
+
+.inp-row 
+{
+    gap: var(--ws-2);
+}
+
+.inp-group
+{
+    flex: 1;
+    gap: var(--ws-1);
+}
+
+.info-inp
+{
+    max-height: 45px;
+    line-height: 50px;
+    padding: var(--ws-2);
+    font-size: var(--body-large);
+    flex: 1;
+}
+
+.aside
+{
+    height: 100%;
+    gap: var(--ws-4);
+    justify-content: space-between;
+}
+
+.sbm-btn-wrapper > div 
+{
+    width: 100%;
+}
+
+.sbm-btn-wrapper > div > button
+{
+    padding: var(--ws-2);
+    background-color: var(--black);
+    margin-bottom: var(--ws-1);
+    color: var(--white);
+    font-size: var(--body-large);
+    border-radius: var(--ws-1);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1100px)
+{
+    .info-wrapper
+    {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 850px)
+{
+    .name-wrapper
+    {
+        flex-direction: column;
+    }
+
+    .form-modal
+    {
+        height: fit-content;
+        width: 100dvw;
+        box-shadow: none;
+    }
+
+    .join-community-content-wrapper
+    {
+        height: fit-content;
+        background: none;
+    }
+}
+
+@media screen and (max-width: 700px)
+{
+    .inp-row
+    {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+    header
+    {
+        justify-content: center;
+    }
+
+    .menu-wrapper > h3
+    {
+        font-size: var(--body-medium);
+    }
+
+    .menu-wrapper > a, .menu-wrapper > a > svg
+    {
+        height: 20px;
+    }
+
+    .logo
+    {
+        height: 60px;
+        width: 60px;
+    }
+
+    .brgy-info-wrapper > div > h2
+    {
+        font-size: var(--body-large);
+    }
+
+    .brgy-info-wrapper > div > p
+    {
+        font-size: var(--body-small);
+    }
+}

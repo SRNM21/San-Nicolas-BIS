@@ -15,7 +15,12 @@
     padding: var(--ws-4);
     border-radius: var(--ws-1);
     background-color: var(--white);
-    gap: var(--ws-2);
+    gap: var(--ws-4);
+}
+
+.modal > div
+{
+    gap: var(--ws-4);
 }
 
 .modal header
@@ -25,10 +30,11 @@
 
 .message-holder
 {
-    text-align: center;
+    text-align: left;
+    gap: var(--ws-2);
 }
 
-.icon-wrapper-success, .icon-wrapper-error
+.icon-wrapper-success, .icon-wrapper-error, .icon-wrapper-question
 {
     height: 60px;
     width: 60px;
@@ -48,10 +54,18 @@
     fill: var(--error);
 }
 
+.icon-wrapper-question svg
+{
+    height: 100%;
+    width: 100%;
+    fill: var(--info);
+}
+
 .btn-wrapper
 {
     margin-top: var(--ws-2);
     gap: var(--ws-2);
+    justify-content: flex-end;
 }
 
 .modal-btn
@@ -68,24 +82,24 @@
     cursor: pointer;
 }
 
-.modal-continue-btn
+.modal-prm-btn
 {
     background-color: var(--dark-gr-2);
     color: var(--white);
 }
 
-.modal-continue-btn:hover
+.modal-prm-btn:hover
 {
     background-color: var(--dark-gr-1);
 }
 
-.modal-back-btn
+.modal-scn-btn
 {
     background-color: transparent;
     color: var(--dark-gr-2);
 }
 
-.modal-back-btn:hover
+.modal-scn-btn:hover
 {
     background-color: var(--gray-gr-2);
 }

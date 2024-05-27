@@ -1,0 +1,160 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.pendings-wrapper
+{
+    height: 100dvh;
+    width: 100dvw;
+}
+
+.pendings-container
+{
+    height: 100%;
+    width: 100%;
+}
+
+.pendings-content
+{
+    height: calc(100dvh - 90px);
+    width: calc(100dvw - 90px);
+    padding: var(--ws-4);
+    overflow: hidden;
+    gap: var(--ws-4);
+    flex: 1;
+}
+
+.utility
+{
+    justify-content: space-between !important; 
+}
+
+.query-wrapper
+{
+    height: 40px;
+    max-width: 300px;
+    flex: 1;
+    gap: var(--ws-2);
+    position: relative;
+}
+
+.search-icon-wrapper
+{
+    position: absolute;
+    left: 10px;
+}
+
+.search-icon-wrapper svg
+{
+    fill: var(--dark-gr-5);
+}
+
+.search-bar
+{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: var(--dark-gr-8);
+    font-size: var(--body-large);
+    outline: none;
+    border-radius: 50px;
+    padding: var(--ws-2);
+    padding-left: var(--ws-8);
+}
+
+.search-bar::placeholder
+{
+    color: var(--dark-gr-5);
+}
+
+.search-bar:focus
+{
+    outline: transparent;
+    background-color: var(--white);
+    border: 2px solid var(--black);
+
+    & + .search-icon-wrapper svg
+    {
+        fill: var(--black);
+    }
+}
+
+
+.table-limiter
+{
+    overflow-y: scroll;
+    flex: 1;
+}
+
+.table-wrapper
+{
+    flex: 1;
+}
+
+.pendings-tbl
+{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.pendings-tbl thead
+{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--dark-gr-1);
+    color: var(--white);
+    padding: var(--ws-2);
+}
+
+.pendings-tbl tbody
+{
+    height: max-content;
+    overflow: auto;
+}
+
+.pendings-tbl td, .pendings-tbl th
+{
+    padding: var(--ws-3);
+    text-align: left;
+}
+
+.pendings-tbl tr:nth-child(even)
+{
+    background-color: var(--gray-gr-3);
+}
+
+.data-btn-wrapper
+{
+    gap: var(--ws-2);
+}
+
+.data-util-btn
+{
+    border: none;
+    outline: none;
+    color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.more-details-btn
+{
+    background-color: var(--dark-gr-1);
+}
+
+.update-details-btn
+{
+    background-color: var(--info-dark);
+}
+
+.delete-details-btn
+{
+    background-color: var(--error-dark);
+}
+
+.confirm-details-btn
+{
+    background-color: var(--success-dark);
+}

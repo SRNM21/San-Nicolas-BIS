@@ -9,33 +9,11 @@ $cursor = mysqli_connect(
     $env['DB_DATABASE']
 );
 
-function isAdmin($username, $password)
+function getAccount($username, $password, $table)
 {
     global $cursor;
 
-    $sql = "SELECT * FROM barangay_admin";
-                        
-    $stmt = $cursor->prepare($sql);
-    $stmt->execute();
-
-    $result = mysqli_stmt_get_result($stmt);
-
-    while ($row = mysqli_fetch_assoc($result)) 
-    {
-        if ($row['username'] == $username &&  password_verify($password, $row['password']))
-        {
-            return $row;
-        }
-    }
-    
-    mysqli_free_result($result);
-}
-
-function isStaff($username, $password)
-{
-    global $cursor;
-
-    $sql = "SELECT * FROM barangay_staff";
+    $sql = "SELECT * FROM $table";
                         
     $stmt = $cursor->prepare($sql);
     $stmt->execute();
@@ -86,11 +64,11 @@ function queryTable($table, $q)
     return $arr;
 }
 
-function getOfficial($id)
+function getRecord($id, $table, $column)
 {
     global $cursor;
 
-    $sql = 'SELECT * FROM barangay_officials WHERE brgy_official_id=?';
+    $sql = "SELECT * FROM $table WHERE $column=?";
 
     $stmt = $cursor->prepare($sql);
     $stmt->bind_param('s', $id);
@@ -108,6 +86,67 @@ function getOfficial($id)
     mysqli_free_result($result);
 
     return $official;
+}
+
+function deletRecord($id, $table, $column)
+{
+    global $cursor;
+
+    $sql = "DELETE FROM $table WHERE $column=?";
+
+    $stmt = $cursor->prepare($sql);
+    $stmt->bind_param('s', $id);
+    
+    return $stmt->execute();
+}
+
+function addPendingFamilyhead($data)
+{
+    global $cursor;
+    $inp = str_repeat('s', 14);
+
+    $sql = "INSERT INTO pending_familyhead 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                        
+    try 
+    {
+        date_default_timezone_set('Asia/Manila');
+        $stmt   = $cursor->prepare($sql);
+        $id     = generateID('PEN');
+        $date   = date('Y-m-d h:i:s A');
+
+        $stmt->bind_param(
+            $inp, 
+            $id,                   
+            $data['purok'],       
+            $data['last_name'],              
+            $data['first_name'],             
+            $data['middle_name'],                 
+            $data['address'],               
+            $data['occupation'],          
+            $data['educational'],           
+            $data['contact_number'],         
+            $data['email'],               
+            $data['birthdate'],              
+            $data['civil_status'],               
+            $data['family_planning_method'],
+            $date
+        );
+
+        if ($stmt->execute())
+        {
+            return 1;
+        }
+        else 
+        {
+            return 0;
+        }
+    } 
+    catch(Error $e) 
+    {
+        echo $e;
+        return -1;
+    }
 }
 
 function addOfficials($data)
@@ -212,40 +251,41 @@ function updateOfficials($data)
     }
 }
 
-function deleteOfficials($id)
+function addFamilyHead($data)
 {
     global $cursor;
+    $inp = str_repeat('s', 13);
+    $id = generateID('FMH');
 
-    $sql = 'DELETE FROM barangay_officials WHERE brgy_official_id=?';
-
-    $stmt = $cursor->prepare($sql);
-    $stmt->bind_param('s', $id);
-    
-    return $stmt->execute();
-}
-
-function getStaff($id)
-{
-    global $cursor;
-
-    $sql = 'SELECT * FROM barangay_staff WHERE staff_id=?';
-
-    $stmt = $cursor->prepare($sql);
-    $stmt->bind_param('s', $id);
-    $stmt->execute();
-
-    $result = mysqli_stmt_get_result($stmt);
-    $official = null;
-
-    if ($row = mysqli_fetch_assoc($result)) 
+    $sql = 'INSERT INTO familyhead VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)';
+                        
+    try 
     {
-        $official = $row;
-    }
-    
-    $stmt->close();
-    mysqli_free_result($result);
+        $stmt = $cursor->prepare($sql);
+        
+        $stmt->bind_param(
+            $inp, 
+            $id,
+            $data['purok'],    
+            $data['last_name'],   
+            $data['first_name'],    
+            $data['middle_name'],  
+            $data['address'],   
+            $data['occupation'],      
+            $data['educational'],   
+            $data['contact_number'],
+            $data['email'],
+            $data['birthdate'],
+            $data['civil_status'],
+            $data['family_planning_method']
+        );
 
-    return $official;
+        return $stmt->execute() ? 1 : 0;
+    } 
+    catch(Error $e) 
+    {
+        return -1;
+    }
 }
 
 function addStaff($data)
@@ -283,18 +323,6 @@ function addStaff($data)
     {
         return -1;
     }
-}
-
-function deleteStaff($id)
-{
-    global $cursor;
-
-    $sql = 'DELETE FROM barangay_staff WHERE staff_id=?';
-
-    $stmt = $cursor->prepare($sql);
-    $stmt->bind_param('s', $id);
-    
-    return $stmt->execute();
 }
 
 function updateStaff($data)
@@ -369,30 +397,6 @@ function updateStaff($data)
         echo $e;
         return -1;
     }
-}
-
-function getFamilyHead($id)
-{
-    global $cursor;
-
-    $sql = 'SELECT * FROM familyhead WHERE family_head_id=?';
-
-    $stmt = $cursor->prepare($sql);
-    $stmt->bind_param('s', $id);
-    $stmt->execute();
-
-    $result = mysqli_stmt_get_result($stmt);
-    $official = null;
-
-    if ($row = mysqli_fetch_assoc($result)) 
-    {
-        $official = $row;
-    }
-    
-    $stmt->close();
-    mysqli_free_result($result);
-
-    return $official;
 }
 
 function queryGender($table, $col_name)
@@ -499,7 +503,7 @@ function addFeedback($data)
     {
         $stmt = $cursor->prepare($sql);
         date_default_timezone_set('Asia/Manila');
-        $date_time = date('Y-m-d H:i:s');
+        $date_time = date('Y-m-d h:i:s A');
         
         $stmt->bind_param(
             $inp, 
@@ -532,46 +536,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         return;
     }
+
+    $result;
     
     if($_POST['func'] == 'POPULATE_TABLE_BRGY_OFFICIALS')
     {
         $query = $_POST['q'];
 
-        $officials = json_encode(queryTable('barangay_officials', $query));
-        header('Content-Type: application/json');
-        echo $officials;
+        $result = json_encode(queryTable('barangay_officials', $query));
     }
     else if($_POST['func'] == 'POPULATE_TABLE_RESIDENCE')
     {
         $query = $_POST['q'];
 
-        $fam_head = json_encode(queryTable('v_residence', $query));
-        header('Content-Type: application/json');
-        echo $fam_head;
+        $result = json_encode(queryTable('v_residence', $query));
     }
     else if($_POST['func'] == 'POPULATE_TABLE_BRGY_STAFFS')
     {
         $query = $_POST['q'];
 
-        $fam_head = json_encode(queryTable('barangay_staff', $query));
-        header('Content-Type: application/json');
-        echo $fam_head;
+        $result = json_encode(queryTable('barangay_staff', $query));
+    }
+    else if($_POST['func'] == 'POPULATE_TABLE_PENDINGS')
+    {
+        $query = $_POST['q'];
+
+        $result = json_encode(queryTable('v_pending_residence', $query));
     }
     else if($_POST['func'] == 'GET_STATISTIC_GENDER')
     {
-        $gender_stat = json_encode(getGenderStatistic());
-        header('Content-Type: application/json');
-        echo $gender_stat;
+        $result = json_encode(getGenderStatistic());
     }
     else if($_POST['func'] == 'GET_STATISTIC_PUROK_POPULATION')
     {
-        $purok_pop_stat = json_encode(getPurokPopulationStatistic());
-        header('Content-Type: application/json');
-        echo $purok_pop_stat;
+        $result = json_encode(getPurokPopulationStatistic());
     }
     else if($_POST['func'] == 'GET_PRIVILEGE')
     {
-        $priv = $_SESSION['PRIVILEGE'];
+        $priv = isset($_SESSION['PRIVILEGE'])
+            ? $_SESSION['PRIVILEGE']
+            : 'NOT FOUND';
+
         echo $priv;
+        exit;
     }
+    
+    header('Content-Type: application/json');
+    echo $result;
 }
