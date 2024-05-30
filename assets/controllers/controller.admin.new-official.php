@@ -2,14 +2,44 @@
 
 $header_name = 'New Barangay Official';
 
-require getAdminView('new-official');
+$data = queryTable('barangay_officials', null);
+$position_choices = [];
+$has_brgy_cap = false;
+$has_brgy_sec = false;
+$has_brgy_tre = false;
+$has_sk_chair = false;
+
+foreach ($data as $d)
+{
+    if ($d['position'] == 'Barangay Captain')
+    {
+        $has_brgy_cap = true;
+    } 
+    else if ($d['position'] == 'Barangay Secretary')
+    {
+        $has_brgy_sec = true;
+    } 
+    else if ($d['position'] == 'Barangay Tresurer')
+    {
+        $has_brgy_tre = true;
+    } 
+    else if ($d['position'] == 'SK Chairperson')
+    {
+        $has_sk_chair = true;
+    } 
+}
+
+if (!$has_brgy_cap) $position_choices[] = 'Barangay Captain';
+if (!$has_brgy_sec) $position_choices[] = 'Barangay Secretary';
+if (!$has_brgy_tre) $position_choices[] = 'Barangay Tresurer';
+if (!$has_sk_chair) $position_choices[] = 'SK Chairperson';
+$position_choices[] = 'Barangay Kagawad';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $id             = generateID('BRG');
     $date_now       = date('Y-m-d');
     
-    /* HANDLE FILE UPLOAD */
     $up_file        = $_FILES['profile'];
 
     if (!isValidImage($up_file))
@@ -67,3 +97,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $prm_href       = 'barangay-officials/new-official';
     require getPartial('admin.modal');
 }
+
+require getAdminView('new-official');

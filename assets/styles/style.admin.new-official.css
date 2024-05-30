@@ -63,6 +63,7 @@
 
 .form-header
 {
+    border-radius: var(--ws-1) var(--ws-1) 0 0;
     padding: var(--ws-4);
     background-color: var(--black);
     color: var(--white);
@@ -114,14 +115,6 @@
     font-size: var(--body-large);
     margin-bottom: var(--ws-2);
     width: 200px;
-}
-
-.req::after
-{
-    content: '*';
-    color: var(--error);
-    font-size: var(--body-large);
-    margin-left: var(--ws-1);
 }
 
 .error-info
@@ -191,4 +184,23 @@
         font-size: var(--header-h6);
     }
 
+}
+
+@media screen and (max-width: 500px) 
+{
+    .form-header
+    {
+        display: none;
+    }
+
+    .new-official-form-wrapper
+    {
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .gndr-row
+    {
+        flex-direction: column;
+    }
 }

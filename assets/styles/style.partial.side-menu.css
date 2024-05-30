@@ -191,4 +191,31 @@
         position: fixed;
         z-index: 2;
     }
+
+    .side-menu-content-hide
+    {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width: 500px) 
+{
+    .side-menu-content
+    {
+        width: 100dvw;
+    }
+
+    .side-menu-content-hide
+    {
+        width: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .header-content h4
+    {
+        display: none;
+    }
 }

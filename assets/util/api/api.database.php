@@ -52,9 +52,9 @@ function queryTable($table, $q)
     if (!empty($q) || $q != null)
     {
         $sql .= " 
-        WHERE last_name LIKE '$q%'
-        OR first_name LIKE '$q%'
-        OR middle_name LIKE '$q%'";
+        WHERE last_name LIKE '%$q%'
+        OR first_name LIKE '%$q%'
+        OR middle_name LIKE '%$q%'";
     }
 
     $sql .= " ORDER BY last_name ASC";

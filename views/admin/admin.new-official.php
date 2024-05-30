@@ -43,7 +43,7 @@
                                         <p class='error-info mn-err'></p>
                                     </div>
                                 </div>
-                                <div class='f-row'>
+                                <div class='f-row gndr-row'>
                                     <div class='f-col'>
                                         <label class='no-form-label req' for='phonenum'>Phone number</label>
                                         <input class='no-form-input' type='tel' name='phonenum' id='phonenum' placeholder='Enter Phone number'>
@@ -74,21 +74,23 @@
                                 <div class='f-col'>
                                     <label class='no-form-label req' for='position'>Position</label>
                                     <select class='no-form-input' name='position' id='position'>
-                                        <option value='Barangay Captain'>Barangay Captain</option>
-                                        <option value='Barangay Kagawad'>Barangay Kagawad</option>
-                                        <option value='SK Chairperson'>SK Chairperson</option>
-                                        <option value='Barangay Secretary'>Barangay Secretary</option>
-                                        <option value='Barangay Tresurer'>Barangay Tresurer</option>
+                                        
+                                        <?php foreach ($position_choices as $pos) { ?>
+
+                                            <option value='<?= $pos ?>'><?= $pos ?></option>
+
+                                        <?php } ?>
+
                                     </select>
                                     <p class='error-info pos-err'></p>
                                 </div>
                                 <div class='f-col'>
-                                    <label class='no-form-label req' for='handle'>Handle</label>
+                                    <label class='no-form-label' for='handle'>Handle</label>
                                     <input class='no-form-input'  type='text' name='handle' id='handle' placeholder='Enter Handle'>
                                         <p class='error-info han-err'></p>
                                 </div>
                                 <div class='f-col'>
-                                    <label class='no-form-label req' for='status'>Status</label>
+                                    <label class='no-form-label' for='status'>Status</label>
                                     <select class='no-form-input' name='status' id='status'>
                                         <option value='Active'>Active</option>
                                         <option value='Dismissed'>Dismissed</option>

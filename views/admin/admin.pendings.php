@@ -15,16 +15,13 @@
                 <div class='f-col'>
                     <div class='f-center f-row utility'>   
                         <div class='f-center f-row query-wrapper'>
-                            <input class='f-center search-bar' type='text' name='pendings-name' id='pendings-name' placeholder='Search'>
-                            <span class='f-center search-icon-wrapper'>
-                                <?= getSVG('search'); ?>
-                            </span>
+                            <?php require getPartial('search-bar'); ?>
                         </div>
                     </div>
                 </div>
                 <div class='f-col table-limiter'>
                     <div class='table-wrapper'>
-                        <table class='pendings-tbl'>
+                        <table class='table'>
                             <thead>
                                 <tr>
                                     <th>Lastname</th>
@@ -36,6 +33,24 @@
                                 </tr>
                             </thead>
                             <tbody class='pendings-tbl-body'>
+
+                            <?php foreach ($data as $row) { ?>
+
+                                <tr>
+                                    <td><?= $row['last_name'] ?></td>
+                                    <td><?= $row['first_name'] ?></td>
+                                    <td><?= $row['middle_name'] ?></td>
+                                    <td><?= $row['role'] ?></td>
+                                    <td><?= $row['date_of_registration'] ?></td>
+                                    <td class='action-cell'>
+                                        <a href="pendings?details=<?= $row['pending_id'] ?>&<?= $row['role'] ?>" class='data-util-btn black-details-btn'>Details</a>
+                                        <a href="pendings?confirm=<?= $row['pending_id'] ?>&<?= $row['role'] ?>" class='data-util-btn blue-details-btn'>Edit</a>
+                                        <a href="pendings?delete=<?= $row['pending_id'] ?>&<?= $row['role'] ?>" class='data-util-btn red-details-btn'>Delete</a>
+                                    </td>
+                                </tr>
+
+                            <?php } ?>
+
                             </tbody>
                         </table>
                     </div>

@@ -16,12 +16,7 @@
             <main class='f-col pend-doc-content'>
                 <div class='f-col'>
                     <div class='f-center f-row utility'>   
-                        <div class='f-center f-row query-wrapper'>
-                            <input class='f-center search-bar' type='text' name='brgy-name' id='brgy-name' placeholder='Search'>
-                            <span class='f-center search-icon-wrapper'>
-                                <?= getSVG('search'); ?>
-                            </span>
-                        </div>
+                        <?php require getPartial('search-bar'); ?>
                     </div>
                 </div>
                 <div class='f-row query-filter-wrapper'>
@@ -31,7 +26,7 @@
                 </div>
                 <div class='f-col table-limiter'>
                     <div class='table-wrapper'>
-                        <table class='pend-doc-tbl'>
+                        <table class='table'>
 
                             <?php if ($filter == 'request') { ?>
 
@@ -56,10 +51,10 @@
                                         <td><?= $row['contact_number'] ?></td>
                                         <td><?= $row['email'] ?></td>
                                         <td><?= $row['request_date_time'] ?></td>
-                                        <td>
-                                            <a href="requested-documents?details=<?= $row['docs_id'] ?>" class="data-util-btn more-details-btn" data-id='<?= $row['docs_id'] ?>>'>Details</a>
-                                            <a href="requested-documents?approve=<?= $row['docs_id'] ?>" class="data-util-btn confirm-details-btn" data-id='<?= $row['docs_id'] ?>>'>Approve</a>
-                                            <a href="requested-documents?decline=<?= $row['docs_id'] ?>" class="data-util-btn delete-details-btn" data-id='<?= $row['docs_id'] ?>>'>Decline</a>
+                                        <td class='action-cell'>
+                                            <a href="requested-documents?details=<?= $row['docs_id'] ?>" class="data-util-btn black-details-btn" data-id='<?= $row['docs_id'] ?>>'>Details</a>
+                                            <a href="requested-documents?approve=<?= $row['docs_id'] ?>" class="data-util-btn green-details-btn" data-id='<?= $row['docs_id'] ?>>'>Approve</a>
+                                            <a href="requested-documents?decline=<?= $row['docs_id'] ?>" class="data-util-btn red-details-btn" data-id='<?= $row['docs_id'] ?>>'>Decline</a>
                                         </td>
                                     </tr>
 
@@ -93,8 +88,8 @@
                                         <td><?= $row['request_date_time'] ?></td>
                                         <td><?= $row['status'] ?></td>
                                         <td>
-                                            <a href="requested-documents?print=<?= $row['docs_id'] ?>" class="data-util-btn confirm-details-btn" data-id='<?= $row['docs_id'] ?>>'>Claim</a>
-                                            <a href="requested-documents?filter=pending&remove=<?= $row['docs_id'] ?>" class="data-util-btn delete-details-btn" data-id='<?= $row['docs_id'] ?>>'>Remove</a>
+                                            <a href="requested-documents?print=<?= $row['docs_id'] ?>" class="data-util-btn green-details-btn" data-id='<?= $row['docs_id'] ?>>'>Claim</a>
+                                            <a href="requested-documents?filter=pending&remove=<?= $row['docs_id'] ?>" class="data-util-btn red-details-btn" data-id='<?= $row['docs_id'] ?>>'>Remove</a>
                                         </td>
                                     </tr>
 
@@ -128,7 +123,7 @@
                                         <td><?= $row['request_date_time'] ?></td>
                                         <td><?= $row['status'] ?></td>
                                         <td>
-                                            <a href="requested-documents?filter=archive&restore=<?= $row['docs_id'] ?>" class="data-util-btn confirm-details-btn" data-id='<?= $row['docs_id'] ?>>'>Restore</a>
+                                            <a href="requested-documents?filter=archive&restore=<?= $row['docs_id'] ?>" class="data-util-btn orange-details-btn" data-id='<?= $row['docs_id'] ?>>'>Restore</a>
                                         </td>
                                     </tr>
 

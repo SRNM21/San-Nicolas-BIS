@@ -97,79 +97,10 @@
     fill: var(--white);
 }
 
-.table-limiter
+@media screen and (max-width: 600px) 
 {
-    overflow-y: scroll;
-    flex: 1;
+    .new-staff-acc-btn p
+    {
+        display: none;
+    }
 }
-
-.table-wrapper
-{
-    flex: 1;
-}
-
-.staff-acc-tbl
-{
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-.staff-acc-tbl thead
-{
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    background-color: var(--dark-gr-1);
-    color: var(--white);
-    padding: var(--ws-2);
-}
-
-.staff-acc-tbl tbody
-{
-    height: max-content;
-    overflow: auto;
-}
-
-.staff-acc-tbl td, .staff-acc-tbl th
-{
-    padding: var(--ws-3);
-    text-align: left;
-}
-
-.staff-acc-tbl tr:nth-child(even)
-{
-    background-color: var(--gray-gr-3);
-}
-
-.data-btn-wrapper
-{
-    gap: var(--ws-2);
-}
-
-.data-util-btn
-{
-    border: none;
-    outline: none;
-    color: var(--white);
-    border-radius: var(--ws-1);
-    padding: var(--ws-2);
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.more-details-btn
-{
-    background-color: var(--dark-gr-1);
-}
-
-.update-details-btn
-{
-    background-color: var(--info-dark);
-}
-
-.delete-details-btn
-{
-    background-color: var(--error-dark);
-}
-

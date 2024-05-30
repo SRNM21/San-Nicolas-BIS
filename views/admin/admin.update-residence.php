@@ -65,7 +65,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class='inp-row f-row'>
+                                                <div class='inp-row f-row flexible'>
                                                     <div class='inp-group f-col'>
                                                         <label for='fam-head-educ-stat'>Educational Status</label>
                                                         <input type='text' name='fam-head-educ-stat' id='fam-head-educ-stat' class='info-inp fam-head-educ-stat' placeholder='Enter Educational Status' value='<?= $resident['educational'] ?>'>
@@ -77,7 +77,7 @@
                                                         <p class='error-info fh-oc-err'></p>
                                                     </div>
                                                 </div>
-                                                <div class='inp-row f-row'>
+                                                <div class='inp-row f-row flexible'>
                                                     <div class='inp-group f-col'>
                                                         <label for='fam-head-contact-num' class='req'>Contact number</label>
                                                         <input type='text' name='fam-head-contact-num' id='fam-head-contact-num' class='info-inp fam-head-contact-num' placeholder='Enter Contact Number' value='<?= $resident['contact_number'] ?>'>

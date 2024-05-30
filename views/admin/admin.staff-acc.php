@@ -14,12 +14,7 @@
             <main class='f-col staff-acc-content'>
                 <div class='f-col'>
                     <div class='f-center f-row utility'>   
-                        <div class='f-center f-row query-wrapper'>
-                            <input class='f-center search-bar' type='text' name='staff-acc-name' id='staff-acc-name' placeholder='Search'>
-                            <span class='f-center search-icon-wrapper'>
-                                <?= getSVG('search'); ?>
-                            </span>
-                        </div>
+                        <?php require getPartial('search-bar'); ?>
                         <div class='util-btn-wrapper'>
                             <a href='staff-accounts/new-staff-account' class='f-center f-row new-staff-acc-btn'><?= getSVG('add-person'); ?><p>New Staff Account</p></a>
                         </div>
@@ -27,7 +22,7 @@
                 </div>
                 <div class='f-col table-limiter'>
                     <div class='table-wrapper'>
-                        <table class='staff-acc-tbl'>
+                        <table class='table'>
                             <thead>
                                 <th>Lastname</th>
                                 <th>Firstname</th>
@@ -37,6 +32,23 @@
                                 <th>Action</th>
                             </thead>
                             <tbody class='staff-acc-tbl-body'>
+
+                            <?php foreach ($data as $row) { ?>
+
+                                <tr>
+                                    <td><?= $row['last_name'] ?></td>
+                                    <td><?= $row['first_name'] ?></td>
+                                    <td><?= $row['middle_name'] ?></td>
+                                    <td><?= $row['email'] ?></td>
+                                    <td><?= $row['username'] ?></td>
+                                    <td class='action-cell'>
+                                        <a href="staff-accounts/update-staff-account?id=<?= $row['staff_id'] ?>" class="data-util-btn black-details-btn">Details</a>
+                                        <a href="staff-accounts?delete-staff-id=<?= $row['staff_id'] ?>&delete-staff-username=<?= $row['username'] ?>" class="data-util-btn red-details-btn">Delete</a>
+                                    </td>
+                                </tr>
+
+                            <?php } ?>
+
                             </tbody>
                         </table>
                     </div>

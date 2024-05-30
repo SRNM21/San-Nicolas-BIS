@@ -2,6 +2,9 @@
 
 $header_name = 'Residence';
 
+$q = '';
+$data = queryTable('v_residence', null);
+
 if (isset($_GET['details']))
 {
     $id     = $_GET['details'];
@@ -77,6 +80,19 @@ if (isset($_GET['confirm-delete']))
     $modal_pos = '-';
     $path = 'residence';
     require getPartial('admin.confirm-modal');
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    if (isset($_POST['refresh']))
+    {
+        $data = queryTable('v_residence', null);
+    }
+    else 
+    {
+        $q = $_POST['query'];
+        $data = queryTable('v_residence', $q);
+    }
 }
 
 require getAdminView('residence');

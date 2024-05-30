@@ -16,12 +16,7 @@
             <main class='f-col brgy-off-content'>
                 <div class='f-col'>
                     <div class='f-center f-row utility'>   
-                        <div class='f-center f-row query-wrapper'>
-                            <input class='f-center search-bar' type='text' name='brgy-name' id='brgy-name' placeholder='Search'>
-                            <span class='f-center search-icon-wrapper'>
-                                <?= getSVG('search'); ?>
-                            </span>
-                        </div>
+                        <?php require getPartial('search-bar'); ?>
                         <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') {?>
                             <div class='util-btn-wrapper'>
                                 <a href='barangay-officials/new-official' class='f-center f-row new-official-btn'><?= getSVG('add-person'); ?><p>New official</p></a>
@@ -31,7 +26,7 @@
                 </div>
                 <div class='f-col table-limiter'>
                     <div class='table-wrapper'>
-                        <table class='brgy-officials-tbl'>
+                        <table class='table'>
                             <thead>
                                 <tr>
                                     <th>Lastname</th>
@@ -43,7 +38,32 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody class='brgy-officials-tbl-body'>
+                            <tbody>
+
+                            <?php foreach ($data as $row) { ?>
+
+                                <tr>
+                                    <td><?= $row['last_name'] ?></td>
+                                    <td><?= $row['first_name'] ?></td>
+                                    <td><?= $row['middle_name'] ?></td>
+                                    <td><?= $row['position'] ?></td>
+                                    <td><?= $row['status'] ?></td>
+                                    <td><?= $row['date_added'] ?></td>
+                                    <td class='action-cell'>
+                                        <a href="barangay-officials?details=<?= $row['brgy_official_id'] ?>" class="data-util-btn black-details-btn">Details</a>
+
+                                        <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') { ?>
+                                            
+                                            <a href="barangay-officials/update-official?id=<?= $row['brgy_official_id'] ?>" class="data-util-btn blue-details-btn">Edit</a>
+                                            <a href="barangay-officials?delete=<?= $row['brgy_official_id'] ?>" class="data-util-btn red-details-btn">Delete</a>
+
+                                        <?php } ?>
+                                    
+                                    </td>
+                                </tr>
+
+                            <?php } ?>
+
                             </tbody>
                         </table>
                     </div>

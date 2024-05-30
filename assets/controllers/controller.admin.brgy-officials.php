@@ -2,17 +2,8 @@
 
 $header_name = 'Barangay Officials';
 
-$fullname       = 'NOT FOUND';
-$birthdate      = 'NOT FOUND';
-$gender         = 'NOT FOUND';
-$address        = 'NOT FOUND';
-$phone_num      = 'NOT FOUND';
-$email          = 'NOT FOUND';
-$position       = 'NOT FOUND';
-$handle         = 'NOT FOUND';
-$status         = 'NOT FOUND';
-$description    = 'NOT FOUND';
-$date_added     = 'NOT FOUND';
+$q = '';
+$data = queryTable('barangay_officials', null);
 
 if (isset($_GET['details']))
 {
@@ -80,6 +71,19 @@ if (isset($_GET['delete-confirm']))
 
     $modal_pos      = 'barangay-officials';
     require getPartial('admin.confirm_modal');
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    if (isset($_POST['refresh']))
+    {
+        $data = queryTable('barangay_officials', null);
+    }
+    else 
+    {
+        $q = $_POST['query'];
+        $data = queryTable('barangay_officials', $q);
+    }
 }
 
 require getAdminView('brgy-officials');

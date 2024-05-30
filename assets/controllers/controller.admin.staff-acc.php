@@ -2,6 +2,9 @@
 
 $header_name = 'Barangay Staff Accounts';
 
+$q = '';
+$data = queryTable('barangay_staff', null);
+
 if (isset($_GET['delete-staff-id']))
 {
     $id             = $_GET['delete-staff-id'];
@@ -26,6 +29,19 @@ if (isset($_GET['confirm-delete-staff']))
         $modal_message  = 'One of the Barangay Staff has been deleted';
         $modal_pos      = "staff-accounts";
         require getPartial('admin.confirm-modal');
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    if (isset($_POST['refresh']))
+    {
+        $data = queryTable('barangay_staff', null);
+    }
+    else 
+    {
+        $q = $_POST['query'];
+        $data = queryTable('barangay_staff', $q);
     }
 }
 

@@ -1,11 +1,11 @@
 <?php
 
 $header_name = 'Document Request';
-$query = '';
 $filter = 'request';
 $req_id;
 
-$data = queryTable('request_document', $query);
+$q = '';
+$data = queryTable('request_document', null);
 
 if (isset($_GET['filter']))
 {
@@ -164,6 +164,19 @@ if (isset($_GET['print']))
 {
     $data = getRecord($_GET['print'], 'request_document', 'docs_id');
     require getAPI('pdf-maker');
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+    if (isset($_POST['refresh']))
+    {
+        $data = queryTable('request_document', null);
+    }
+    else 
+    {
+        $q = $_POST['query'];
+        $data = queryTable('request_document', $q);
+    }
 }
 
 require getAdminView('requested-documents');

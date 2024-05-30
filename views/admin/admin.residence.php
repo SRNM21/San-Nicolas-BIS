@@ -16,17 +16,12 @@
             <main class='f-col residence-content'>
                 <div class='f-col'>
                     <div class='f-center f-row utility'>   
-                        <div class='f-center f-row query-wrapper'>
-                            <input class='f-center search-bar' type='text' name='residence-name' id='residence-name' placeholder='Search'>
-                            <span class='f-center search-icon-wrapper'>
-                                <?= getSVG('search'); ?>
-                            </span>
-                        </div>
+                        <?php require getPartial('search-bar'); ?>
                     </div>
                 </div>
                 <div class='f-col table-limiter'>
                     <div class='table-wrapper'>
-                        <table class='residence-tbl'>
+                        <table class='table'>
                             <thead>
                                 <th>Lastname</th>
                                 <th>Firstname</th>
@@ -36,6 +31,30 @@
                                 <th>Action</th>
                             </thead>
                             <tbody class='residence-tbl-body'>
+                                
+                            <?php foreach ($data as $row) { ?>
+
+                                <tr>
+                                    <td><?= $row['last_name'] ?></td>
+                                    <td><?= $row['first_name'] ?></td>
+                                    <td><?= $row['middle_name'] ?></td>
+                                    <td><?= $row['purok'] ?></td>
+                                    <td><?= $row['role'] ?></td>
+                                    <td class='action-cell'>
+                                        <a href="residence?details=<?= $row['residence_id'] ?>" class='data-util-btn black-details-btn'>Details</a>
+
+                                        <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') { ?>
+                                            
+                                            <a href="residence/update-resident?id=<?= $row['residence_id'] ?>" class='data-util-btn blue-details-btn'>Edit</a>
+                                            <a href="residence?delete=<?= $row['residence_id'] ?>" class='data-util-btn red-details-btn'>Delete</a>
+
+                                        <?php } ?>
+                                    
+                                    </td>
+                                </tr>
+
+                                <?php } ?>
+
                             </tbody>
                         </table>
                     </div>
