@@ -31,14 +31,14 @@
                             <h2 class=''><?= $total_barangay_officials ?></h2>
                         </div>
                     </a>
-                    <a href='blotter' class='f-row card blotter-card'>
+                    <a href='complaints' class='f-row card blotter-card'>
                         <div class='card-svg-wrapper'>
                             <div class='card-svg-wrapper'>
                                 <?= getSVG('blotter1'); ?>
                             </div>
                         </div>
                         <div class='f-col info-holder'>
-                            <h1>Blotters</h1>
+                            <h1>Complaints</h1>
                             <h2 class=''>123123</h2>
                         </div>
                     </a>

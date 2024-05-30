@@ -9,104 +9,7 @@
 </head>
 
 <body>
-    <header class='f-center initial-header'>
-    
-        <!-- HEADER CONTENT -->
-        <div class='f-row header-content'>
-            <div class='f-row f-center sys-info'>
-                <div class='f-center icon'>Icon</div>
-                <div>
-                    <p class='brgy-title'>Barangay San Nicolas</p>
-                    <p class='brgy-loc'>Pasig City, Metro Manila, Philippines</p>
-                </div>
-            </div>
-            
-            <!-- DESKTOP NAVIGATION -->
-            <nav class='desktop-nav'>
-                <ul class='f-row desktop-nav-list'>
-                    <li>
-                        <a href='#about' class='about-dd'>About<?= getSVG('dropdown'); ?></a>
-                        <div class='f-col about-dd-list'>
-                            <a href='#about'>Barangay</a>
-                            <a href='#officials'>Barangay Officials</a>
-                            <a href='#mission-vision'>Mission and Vision</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href=''>Services</a>
-                       
-                    </li>
-                    <li>
-                        <a href=''>Emergency Hotlines</a>
-                    </li>
-                </ul>
-            </nav>
-
-            <!-- TABLET NAVIGATION -->
-            <nav class='tablet-nav'>
-                <div class='hamburger-wrapper'>
-                    <?= getSVG('menu') ?>
-                </div>
-            </nav>
-        </div>
-
-        <!-- TABLET NAVIGATION OVERLAY -->
-        <div class='nav-overlay out-nav'> </div>
-        <aside class='f-col side-menu-container'>
-
-            <header class='f-col upper-container'>
-                <div class='f-row out-nav'><?= getSVG('close'); ?></div>
-                <div class='f-center f-col brgy-container'>
-                    <div class='icon'></div>
-                    <h3>Barangay San Nicolas</h3>
-                </div>
-            </header>
-
-            <hr>
-
-            <div class='nav-link-wrapper'>
-                <ul class='f-col overlay-nav-list'>
-                    <li>
-                        <a href='#about' class='out-nav'>About</a>
-                    </li>
-                    <li>
-                        <a href='#officials' class='out-nav'>Barangay Officials</a>
-                    </li>
-                    <li>
-                        <a href='#mission-vision' class='out-nav'>Mission and Vision</a>
-                    </li>
-                    <li>
-                        <a href='' class='out-nav'>Services</a>
-                    </li>
-                    <li>
-                        <a href='' class='out-nav'>Emergency Hotlines</a>
-                    </li>
-                </ul>
-            </div>
-            <hr>
-            <footer class='f-center f-col lower-container'>
-                <div class='f-row on-contacts-wrapper'>
-                    <span class='f-center on-contacts'>
-                        <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('facebook'); ?></a>
-                    </span>
-                    <span class='f-center on-contacts'>
-                        <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('mail'); ?></a>
-                    </span> 
-                    <span class='f-center on-contacts'>
-                        <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('phone'); ?></a>
-                    </span>
-                </div>
-                <div>
-                    <p>H37H+67G, M.H. del Pilar St, Pasig, 1600 Metro Manila</p>
-                </div>
-            </footer>
-        </aside>
-
-        <!-- MOBILE NAVIGATION -->
-        <div class='mobile-nav'>
-            
-        </div>
-    </header>
+    <?php require getPartial('header') ?>
 
     <main>
         
@@ -117,7 +20,7 @@
                     <h1 class='landing-title'>BARANGAY SAN NICOLAS</h1>
                     <p class='landing-text'>Barangay San Nicolas beckons with friendly faces and helping hands. Feel welcome to this active community where neighbors become friends. </p>
                 </div>
-                <a href='community/join-community' class='f-center f-row goto-about-btn scale-anim' title='Go to about section'><?= getSVG('down'); ?>Join our community</a>
+                <a href='join-community' class='f-center f-row goto-about-btn scale-anim' title='Join our community'><?= getSVG('down'); ?>Join our community</a>
             </div>
         </section>
         
@@ -156,7 +59,7 @@
         <section id='officials' class='f-center officials-section'>
             <div class='f-col section-content officials-section-content'>
                 <div class='officials-txt'>
-                    <h3>BARANGGAY OFFICIALS</h3>
+                    <h3>BARANGAY OFFICIALS</h3>
                     <p><?= $brgy_off_into ?></p>
                 </div>
                 <div class='f-center f-col officials-profile'>
@@ -170,7 +73,7 @@
                             <p><?= $brgy_cap_desc ?></p>
                         </div>
                         <div class='brgy-cap-wrapper'>
-                            <img src='./assets/uploads/<?= $brgy_cap_img ?>' alt='Barangay Captain Image'>
+                            <img src='../assets/uploads/<?= $brgy_cap_img ?>' alt='Barangay Captain Image'>
                         </div>
                     </div>
                 </div>
@@ -183,7 +86,7 @@
                             {  
                     ?>
                             <div class='brgy-card-wrapper'>
-                                <img src='./assets/uploads/<?= $official['profile'] ?>' alt="">
+                                <img src='../assets/uploads/<?= $official['profile'] ?>' alt="">
                             </div>
 
                     <?php 
@@ -236,15 +139,15 @@
                         <div class='f-col contact-link-wrapper'>
                             <span class='f-row'>
                                 <?= getSVG('facebook'); ?>
-                                <a href='' title='Barangay San Nicolas' Facebook Group'>Brgy. San Nicolas Pasig (Official)</a>
+                                <a href='https://www.facebook.com/groups/394605741237735/' title='Barangay San Nicolas Facebook Group'>Brgy. San Nicolas Pasig (Official)</a>
                             </span>
                             <span class='f-row'>
                                 <?= getSVG('mail'); ?>
-                                <a href='' title='Barangay San Nicolas' Email'>Brgy. San Nics Email</a>
+                                <a href='' title='Barangay San Nicolas Email'>Brgy. San Nics Email</a>
                             </span>    
                             <span class='f-row'>
                                 <?= getSVG('phone'); ?>
-                                <a href='' title='Barangay San Nicolas' Phone number'>09123456789</a>
+                                <a href='' title='Barangay San Nicolas Phone number'>09123456789</a>
                             </span>
                         </div>  
                     </div>

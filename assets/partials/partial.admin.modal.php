@@ -11,8 +11,8 @@
                 <h3><?= $modal_title ?></h3>
                 <p><?= $modal_message ?></p>
             </div>
-            <div class='f-row btn-wrapper'>
-                <a href='<?= $origin?><?= $scn_hred?>' class='f-center modal-btn modal-scn-btn'><?= $scn_txt ?></a>
+            <div class='f-row modal-btn-wrapper'>
+                <a href='<?= $origin?><?= $scn_href?>' class='f-center modal-btn modal-scn-btn'><?= $scn_txt ?></a>
                 <a href='<?= $origin?><?= $prm_href?>' class='f-center modal-btn modal-prm-btn'><?= $prm_txt ?></a>
             </div>
         </div>

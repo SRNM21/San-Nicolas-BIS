@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
             $modal_icon     = 'error';
             $modal_title    = 'Invalid OTP';
-            $modal_success  = 'Your provided OTP does not match';
+            $modal_message  = 'Your provided OTP does not match';
             $modal_pos      = '';
 
             require getPartial('admin.confirm-modal');
@@ -50,6 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $_SESSION['PASSWORD'] = $password;
             $_SESSION['PRIVILEGE'] = 'ADMIN';
             
+            $subject    = 'Login Verification';
+            $body       = "your OTP: <h2>$otp_message</h2>";
+            $alt_body   = 'TEST OTP!';
+
             require getAPI('mailer');
             require getPartial('admin.otp-modal');
         }
@@ -77,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
             $modal_icon     = 'error';
             $modal_title    = 'Invalid Account';
-            $modal_success  = 'Your provided account has not been registered for this application';
+            $modal_message  = 'Your provided account has not been registered for this application';
             $modal_pos      = '';
 
             require getPartial('admin.confirm-modal');

@@ -63,24 +63,23 @@ if (isset($_GET['delete-confirm']))
 {
     $id = $_GET['delete-confirm'];
 
-    if (deletRecord($id, 'barangay_officials', 'brgy_official_id'))
+    $delete = deleteRecordWithLog($id, 'barangay_officials', 'brgy_official_id');
+    
+    if ($delete != 0)
     {
         $modal_icon     = 'success';
-        $modal_title    = 'Deleted Successfully!';
-        $modal_success  = 'One of the barangay official is deleted';
-        $modal_neg      = 'barangay-officials';
-        $modal_pos      = 'barangay-officials/new-official';
+        $modal_title    = 'Added Successfully!';
+        $modal_message  = 'Barangay official is successfully added.';
     }
     else 
-    {        
+    {
         $modal_icon     = 'error';
-        $modal_title    = 'An error occured';
-        $modal_success  = 'Update failed';
-        $modal_neg      = 'barangay-officials';
-        $modal_pos      = 'barangay-officials';
+        $modal_title    = 'Add Failed!';
+        $modal_message  = 'An Error occured while deleting Barangay Official.';
     }
 
-    require getPartial('admin.modal');
+    $modal_pos      = 'barangay-officials';
+    require getPartial('admin.confirm_modal');
 }
 
 require getAdminView('brgy-officials');

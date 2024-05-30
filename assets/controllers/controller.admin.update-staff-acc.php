@@ -12,14 +12,20 @@ $email          = $staff['email'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $staffDetails = [
-        'id'            => $id,
-        'lastname'      => $_POST['lastname'],
-        'firstname'     => $_POST['firstname'],
-        'middlename'    => $_POST['middlename'],
-        'email'         => $_POST['email'],
-        'username'      => $_POST['username'],
-        'password'      => $_POST['password']
+        $_POST['lastname'],
+        $_POST['firstname'],
+        $_POST['middlename'],
+        $_POST['username'],
     ];
+
+    if (!empty($_POST['password']))
+    {
+        $hased = password_hash($data['password'], PASSWORD_DEFAULT);
+        $staffDetails[] = $hased;
+    }
+
+    $staffDetails[] = $_POST['email'];
+    $staffDetails[] = $id;
 
     $add = updateStaff($staffDetails);
 
@@ -27,15 +33,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $modal_icon     = 'success';
         $modal_title    = 'Updated Successfully!';
-        $modal_message  = $_POST['username'] . ' has been updated';
-        $modal_neg      = 'staff-accounts';
-        $modal_pos      = 'staff-accounts/new-staff-acc';
-        require getPartial('admin.modal');
+        $modal_message  = '<b>' . $_POST['username'] . '</b> has been updated.';
+        $modal_pos      = 'staff-accounts';
     }
     else 
     {
-        echo $add;
+        $modal_icon     = 'error';
+        $modal_title    = 'Updated Failed!';
+        $modal_message  = 'An error occured while updating <b>' . $_POST['username'] . '</b>.';
+        $modal_pos      = "staff-accounts/update-staff-account?id=$id";
     }
+    
+    require getPartial('admin.confirm-modal');
 }
 
 require getAdminView('update-staff-acc');

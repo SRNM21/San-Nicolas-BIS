@@ -63,4 +63,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
 }
 
-require getPublic('home-page');
+require getPublicView('home-page');

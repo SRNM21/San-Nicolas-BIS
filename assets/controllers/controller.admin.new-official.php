@@ -48,17 +48,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     $add = addOfficials($barangayOfficialData);
 
-    if ($add == 1)
+    if ($add != 0)
     {
         $modal_icon     = 'success';
         $modal_title    = 'Added Successfully!';
-        $modal_success  = 'New barangay official is added';
-        $modal_neg      = 'barangay-officials';
-        $modal_pos      = 'barangay-officials/new-official';
-        require getPartial('admin.modal');
+        $modal_message  = 'New barangay official is added';
     }
     else 
     {
-        echo $add;
+        $modal_icon     = 'error';
+        $modal_title    = 'Add Failed!';
+        $modal_message  = 'An Error occured while adding new Barangay Official.';
     }
+
+    $scn_txt        = 'Back';
+    $prm_txt        = 'Ok';
+    $scn_href       = 'barangay-officials';
+    $prm_href       = 'barangay-officials/new-official';
+    require getPartial('admin.modal');
 }

@@ -1,7 +1,5 @@
 <?php
 
-require getAuthView('logout');
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     if (isset($_POST['logout']))
@@ -14,3 +12,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         header('Location: dashboard');
     }
 }
+
+require getAuthView('logout');

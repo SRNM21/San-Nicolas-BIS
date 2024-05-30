@@ -1,0 +1,111 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.brgy-clearance-wrapper
+{
+    height: 100dvh;
+    width: 100dvw;
+    padding-top: 150px;
+    align-items: flex-start;
+}
+
+.brgy-clearance
+{
+    height: 100%;
+    width: 100%;
+    max-width: var(--bp-laptop-l);
+    gap: var(--ws-8);
+}
+
+.brgy-clearance-content-wrapper, .req-modal
+{
+    flex: 1;
+    height: fit-content;
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.brgy-clearance-content
+{
+    height: 100%;
+    width: 100%;
+}
+
+.brgy-clearance-content-header, .req-modal-header
+{
+    padding: var(--ws-4);
+    background-color: var(--black);
+    color: var(--white);
+    align-items: center;
+}
+
+.brgy-clearance-content-header svg
+{
+    fill: var(--white);
+}
+
+.brgy-clearance-form-wrapper, .req-mmodal-content
+{
+    padding: var(--ws-4);
+}
+
+.brgy-clearance-form
+{
+    gap: var(--ws-4);
+}
+
+.inp-row 
+{
+    gap: var(--ws-2);
+}
+
+.inp-col
+{
+    flex: 1;
+    gap: var(--ws-1);
+}
+
+.info-inp
+{
+    max-height: 45px;
+    line-height: 50px;
+    padding: var(--ws-2);
+    font-size: var(--body-large);
+    flex: 1;
+}
+
+.brgy-clearance-btn-wrapper
+{
+    justify-content: flex-end;
+}
+
+.brgy-clearance-btn
+{
+    width: 100px;
+    background-color: var(--black);
+    color: var(--white);
+    padding: var(--ws-2);
+    border-radius: var(--ws-1);
+    font-size: var(--body-medium);
+    cursor: pointer;
+}
+
+.req-modal
+{
+    max-width: 300px;
+}
+
+.req-modal-list
+{
+    gap: var(--ws-3);
+}
+
+.req-mmodal-content
+{
+    gap: var(--ws-6);
+}
+
+.req-row
+{
+    gap: var(--ws-4);
+}

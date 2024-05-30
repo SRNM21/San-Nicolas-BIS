@@ -1,4 +1,4 @@
 <?php 
 
-header('Location: /sannicolasbis/community'); 
+header('Location: /sannicolasbis/community/home'); 
 die();

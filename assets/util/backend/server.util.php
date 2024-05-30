@@ -50,6 +50,9 @@ function getRoute(String $uri)
         getController('redirect'),
         
         "/$folder/community" => 
+        getController('redirect'),
+
+        "/$folder/community/home" => 
         getController('home-page'),
         
         "/$folder/community/join-community" => 
@@ -57,6 +60,18 @@ function getRoute(String $uri)
 
         "/$folder/community/join-community/join-as-family-head" => 
         getController('join-community-fam-head'),
+
+        "/$folder/community/services" => 
+        getController('services'),
+
+        "/$folder/community/services/barangay-clearance" => 
+        getController('services-document'),
+
+        "/$folder/community/services/barangay-certificate" => 
+        getController('services-document'),
+
+        "/$folder/community/services/indigency-certificate" => 
+        getController('services-document'),
 
         "/$folder/administrator" => 
         getController('admin.login'),
@@ -82,14 +97,17 @@ function getRoute(String $uri)
         "/$folder/administrator/residence" => 
         getController('admin.residence'),
         
-        "/$folder/administrator/residence/info" => 
-        getController('admin.residence-details'),
+        "/$folder/administrator/residence/update-resident" => 
+        getController('admin.update-residence'),
 
         "/$folder/administrator/pendings" => 
         getController('admin.pendings'),
 
-        "/$folder/administrator/blotter" => 
-        getController('admin.blotter'),
+        "/$folder/administrator/complaints" => 
+        getController('admin.complaints'),
+
+        "/$folder/administrator/requested-documents" => 
+        getController('admin.requested-documents'),
 
         "/$folder/administrator/staff-accounts" => 
         getController('admin.staff-acc'),
@@ -158,7 +176,7 @@ function getAuthView($view)
  * 
  * @param String $view The public view.
  */
-function getPublic($view)
+function getPublicView($view)
 {
     return getView('public') . "public.$view.php";
 }
@@ -268,7 +286,7 @@ function generateID($start)
 
 function handleEmptyValue($null_val, $value_to_check)
 {
-    return ($value_to_check == null || empty($value_to_check)) 
+    return ($value_to_check == null || empty(trim($value_to_check)) || $value_to_check == 'N/A') 
         ? $null_val
         : $value_to_check;
 }

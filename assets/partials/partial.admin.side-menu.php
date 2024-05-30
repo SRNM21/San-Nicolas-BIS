@@ -2,13 +2,14 @@
 
 $origin             = '/'. strtolower(getProjectFolder()) . '/administrator/';
 $admin_uri          = substr($uri, 29); 
-$onDashboard        = str_starts_with($admin_uri, 'dashboard');
-$onBrgyOfficials    = str_starts_with($admin_uri, 'barangay-officials');
-$onResidence        = str_starts_with($admin_uri, 'residence');
-$onPendings         = str_starts_with($admin_uri, 'pendings');
-$onBlotter          = str_starts_with($admin_uri, 'blotter');
-$onStaffAccs        = str_starts_with($admin_uri, 'staff-accounts');
-$onSettings         = str_starts_with($admin_uri, 'settings');
+$on_dashboard       = str_starts_with($admin_uri, 'dashboard');
+$on_brgy_officials  = str_starts_with($admin_uri, 'barangay-officials');
+$on_residence       = str_starts_with($admin_uri, 'residence');
+$on_pendings        = str_starts_with($admin_uri, 'pendings');
+$on_complaints      = str_starts_with($admin_uri, 'complaints');
+$on_request         = str_starts_with($admin_uri, 'request-documents');
+$on_staff_accs      = str_starts_with($admin_uri, 'staff-accounts');
+$on_settings        = str_starts_with($admin_uri, 'settings');
 
 $acc_username       = $_SESSION['USERNAME'];
 $acc_email          = $_SESSION['EMAIL'];
@@ -18,35 +19,41 @@ $acc_email          = $_SESSION['EMAIL'];
 <aside class='f-row side-menu-wrapper'>
     <main class='f-col side-menu-content side-menu-content-hide'>
         <div class='f-col admin-nav-link-wrapper'>
-            <a href='<?php echo $origin; ?>dashboard' class='f-row admin-nav-link <?= $onDashboard ? 'active' : '' ?>' data-nav='dashboard'>
+            <a href='<?= $origin; ?>dashboard' class='f-row admin-nav-link <?= $on_dashboard ? 'active' : '' ?>' data-nav='dashboard'>
                 <span class='f-center'><?= getSVG('dashboard'); ?></span>
                 <p>Dashboard</p>
             </a>
-            <a href='<?php echo $origin; ?>barangay-officials' class='f-row admin-nav-link <?= $onBrgyOfficials ? 'active' : '' ?>' data-nav='brgy-officials'>
+            <a href='<?= $origin; ?>barangay-officials' class='f-row admin-nav-link <?= $on_brgy_officials ? 'active' : '' ?>' data-nav='brgy-officials'>
                 <span class='f-center'><?= getSVG('brgy_officials'); ?></span>
                 <p>Barangay Officials</p>
             </a>
-            <a href='<?php echo $origin; ?>residence' class='f-row admin-nav-link <?= $onResidence ? 'active' : '' ?>' data-nav='residence'>
+            <a href='<?= $origin; ?>residence' class='f-row admin-nav-link <?= $on_residence ? 'active' : '' ?>' data-nav='residence'>
                 <span class='f-center'><?= getSVG('residence'); ?></span>
                 <p>Residence</p>
             </a>
-            <a href='<?php echo $origin; ?>pendings' class='f-row admin-nav-link <?= $onPendings ? 'active' : '' ?>' data-nav='pendings'>
+            <a href='<?= $origin; ?>pendings' class='f-row admin-nav-link <?= $on_pendings ? 'active' : '' ?>' data-nav='pendings'>
                 <span class='f-center'><?= getSVG('pending'); ?></span>
                 <p>Pendings</p>
             </a>
-            <a href='<?php echo $origin; ?>blotter' class='f-row admin-nav-link  <?= $onBlotter ? 'active' : '' ?>' data-nav='blotter'>
+            <a href='<?= $origin; ?>complaints' class='f-row admin-nav-link  <?= $on_complaints ? 'active' : '' ?>' data-nav='complaints'>
                 <span class='f-center'><?= getSVG('blotter1'); ?></span>
-                <p>Blotter</p>
+                <p>Complaints</p>
             </a>
+            <a href='<?= $origin; ?>requested-documents' class='f-row admin-nav-link  <?= $on_request ? 'active' : '' ?>' data-nav='requested-documents'>
+                <span class='f-center'><?= getSVG('document'); ?></span>
+                <p>Requested Documents</p>
+            </a>
+
             <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') {?>
 
-            <a href='<?php echo $origin; ?>staff-accounts' class='f-row admin-nav-link  <?= $onStaffAccs ? 'active' : '' ?>' data-nav='staff-accounts'>
+            <a href='<?= $origin; ?>staff-accounts' class='f-row admin-nav-link  <?= $on_staff_accs ? 'active' : '' ?>' data-nav='staff-accounts'>
                 <span class='f-center'><?= getSVG('staff'); ?></span>
                 <p>Staff Accounts</p>
             </a>
             
             <?php } ?>
-            <a href='<?php echo $origin; ?>settings' class='f-row admin-nav-link  <?= $onSettings ? 'active' : '' ?>' data-nav='settings'>
+            
+            <a href='<?= $origin; ?>settings' class='f-row admin-nav-link  <?= $on_settings ? 'active' : '' ?>' data-nav='settings'>
                 <span class='f-center'><?= getSVG('settings'); ?></span>
                 <p>Settings</p>
             </a>

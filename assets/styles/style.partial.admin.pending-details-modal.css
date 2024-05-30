@@ -33,18 +33,19 @@
 
 .info-grp
 {
-    flex: 1;
     gap: var(--ws-1);
 }
 
 .info-lbl
 {
+    text-wrap: nowrap;
     font-size: var(--body-medium);
     color: var(--dark-gr-5);
 }
 
 .info-val
 {
+    text-wrap: nowrap;
     font-size: var(--body-large);
 }
 

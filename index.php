@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+date_default_timezone_set('Asia/Manila');
 
 //! IMPORTANT SERVER UTILITY
 require '../SanNicolasBIS/assets/util/backend/server.util.php';

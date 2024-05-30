@@ -1,0 +1,196 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.pend-doc-wrapper
+{
+    height: 100dvh;
+    width: 100dvw;
+}
+
+.pend-doc-container
+{
+    height: 100%;
+    width: 100%;
+}
+
+.pend-doc-content
+{
+    height: calc(100dvh - 90px);
+    width: calc(100dvw - 90px);
+    padding: var(--ws-4);
+    overflow: hidden;
+    gap: var(--ws-4);
+    flex: 1;
+}
+
+.utility
+{
+    justify-content: space-between !important; 
+}
+
+.query-wrapper
+{
+    height: 40px;
+    max-width: 300px;
+    flex: 1;
+    gap: var(--ws-2);
+    position: relative;
+}
+
+.search-icon-wrapper
+{
+    position: absolute;
+    left: 10px;
+}
+
+.search-icon-wrapper svg
+{
+    fill: var(--dark-gr-5);
+}
+
+.search-bar
+{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: var(--dark-gr-8);
+    font-size: var(--body-large);
+    outline: none;
+    border-radius: 50px;
+    padding: var(--ws-2);
+    padding-left: var(--ws-8);
+}
+
+.search-bar::placeholder
+{
+    color: var(--dark-gr-5);
+}
+
+.search-bar:focus
+{
+    outline: transparent;
+    background-color: var(--white);
+    border: 2px solid var(--black);
+
+    & + .search-icon-wrapper svg
+    {
+        fill: var(--black);
+    }
+}
+
+.new-official-btn
+{
+    text-decoration: none;
+    background-color: var(--success);
+    color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    gap: var(--ws-2);
+}
+
+.new-official-btn:hover
+{
+    background-color: var(--success-dark);
+}
+
+.new-official-btn svg, .new-official-btn svg path
+{
+    fill: var(--white);
+}
+
+.table-limiter
+{
+    overflow-y: scroll;
+    flex: 1;
+}
+
+.table-wrapper
+{
+    flex: 1;
+}
+
+.pend-doc-tbl
+{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.pend-doc-tbl thead
+{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--dark-gr-1);
+    color: var(--white);
+    padding: var(--ws-2);
+}
+
+.pend-doc-tbl tbody
+{
+    height: max-content;
+    overflow: auto;
+}
+
+.pend-doc-tbl td, .pend-doc-tbl th
+{
+    padding: var(--ws-3);
+    text-align: left;
+}
+
+.pend-doc-tbl tr:nth-child(even)
+{
+    background-color: var(--gray-gr-3);
+}
+
+.data-btn-wrapper
+{
+    gap: var(--ws-2);
+}
+
+.data-util-btn, .filter-btn
+{
+    border: none;
+    outline: none;
+    color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.query-filter-wrapper
+{
+    gap: var(--ws-3);
+}
+
+.filter-btn
+{
+    background-color: var(--dark-gr-8);
+    color: var(--dark-gr-1);
+}
+
+.filter-btn.active
+{
+    background-color: var(--dark-gr-1);
+    color: var(--white);
+}
+
+.more-details-btn
+{
+    background-color: var(--dark-gr-1);
+}
+
+.update-details-btn
+{
+    background-color: var(--info-dark);
+}
+
+.delete-details-btn
+{
+    background-color: var(--error-dark);
+}
+
+.confirm-details-btn
+{
+    background-color: var(--success-dark);
+}

@@ -1,0 +1,134 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+main
+{
+    height: fit-content;
+}
+
+section
+{
+    width: 100%;
+    padding: var(--ws-4);
+}
+
+.container
+{
+    height: fit-content;
+    width: fit-content;
+    max-width: var(--bp-laptop-l);
+    padding: var(--ws-4);
+}
+
+.online-docu-req-wrapper
+{
+    height: 100dvh;
+    padding: 0;
+    padding-top: 110px;
+}
+
+.online-docu-req
+{
+    padding: var(--ws-8);
+    gap: var(--ws-6);
+    width: 100%;
+}
+
+.docu-cards-wrapper
+{
+    width: 100%;
+    gap: var(--ws-8);
+}
+
+.docu-cards
+{
+    height: fit-content;
+    width: fit-content;
+    padding: var(--ws-6);
+    gap: var(--ws-6);
+    border-radius: var(--ws-1);
+    background-color: var(--white);
+    box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+.docu-icon
+{
+    height: 200px;
+    width: 200px;
+}
+
+.docu-icon svg
+{
+    height: 100%;
+    width: 100%;
+    fill: var(--black);
+}
+
+.docu-details
+{
+    gap: var(--ws-2);
+}
+
+.proceed-btn
+{
+    background-color: var(--black);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    padding-right: var(--ws-3);
+    color: var(--white);
+    text-decoration: none;
+    gap: var(--ws-2);
+}
+
+.online-docu-req-steps-wrapper
+{
+    height: fit-content;
+    padding: var(--ws-8);
+}
+
+.online-docu-steps
+{
+    gap: var(--ws-6);
+}
+
+.online-docu-steps-title
+{
+    font-size: var(--header-h4);
+}
+
+.online-docu-req-title p
+{
+    color: var(--error);
+    font-size: var(--body-large);
+    font-weight: bold
+}
+
+.steps-wrapper
+{
+    height: fit-content;
+    align-items: flex-start;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--ws-4);
+}
+
+.steps-cont
+{
+    width: 20%;
+    min-width: 200px;
+    max-width: 320px;
+    padding: var(--ws-2);
+    gap: var(--ws-4);
+}
+
+.step-icon
+{
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+}
+
+.details-wrapper
+{
+    text-align: center;
+    gap: var(--ws-1);
+}

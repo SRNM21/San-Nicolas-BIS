@@ -57,9 +57,10 @@ function populateTable(data)
         const roleCell          = $('<td>').text(item['role'])
         const DORCell           = $('<td>').text(item['date_of_registration']) 
     
-        const detailsBtn        = $('<a href="pendings?details=' + id + '&role=' + item['role'].toLowerCase().replace(' ', '-') + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
-        const confirmBtn        = $('<a href="pendings?confirm=' + id + '&role=' + item['role'].toLowerCase().replace(' ', '-') + '" class="data-util-btn confirm-details-btn">Confirm</a>').data('id', id)
-        const deleteBtn         = $('<a href="pendings?delete=' + id + '"class="data-util-btn delete-details-btn">Delete</a>').data('id', id)
+        const role              = item['role'].toLowerCase().replace(' ', '-');
+        const detailsBtn        = $('<a href="pendings?details=' + id + '&role=' + role + '" class="data-util-btn more-details-btn">Details</a>').data('id', id)
+        const confirmBtn        = $('<a href="pendings?confirm=' + id + '&role=' + role + '" class="data-util-btn confirm-details-btn">Confirm</a>').data('id', id)
+        const deleteBtn         = $('<a href="pendings?delete=' + id + '&role=' + role + '" class="data-util-btn delete-details-btn">Delete</a>').data('id', id)
         
         const buttonCell        = $('<td>').addClass('f-row data-btn-wrapper').append(detailsBtn, confirmBtn, deleteBtn)
 

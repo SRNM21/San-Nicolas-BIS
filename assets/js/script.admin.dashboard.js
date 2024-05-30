@@ -34,18 +34,22 @@ function setGenderChart(data)
 {
     var xlabels = ['Male', 'Female' ];
     var yvalues = [data['male'], data['female']];
-    var barColors = [
-        '#1640D6',
-        '#ED5AB3',
-    ];
-    
+
     new Chart('gender-chart', {
         type: 'pie',
         data: {
             labels: xlabels,
             datasets: [{
-                backgroundColor: barColors,
-                data: yvalues
+                data: yvalues,
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgb(255, 118, 206, 0.2)',
+                ],
+                borderColor: [
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 118, 206)',
+                ],
+                borderWidth: 1
             }]
         }
     })

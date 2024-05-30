@@ -56,7 +56,7 @@ function populateTable(data)
         const usernameCell      = $('<td>').text(username) 
     
         const updateBtn         = $('<a href="staff-accounts/update-staff-account?id=' + id + '" class="data-util-btn update-details-btn">Edit</a>').data('id', id)
-        const deleteBtn         = $('<a href="staff-accounts?delete_staff_id=' + id + '&delete_staff_username='+ username+'" class="data-util-btn delete-details-btn">Delete</a>').data('id', id)
+        const deleteBtn         = $('<a href="staff-accounts?delete-staff-id=' + id + '&delete-staff-username='+ username+'" class="data-util-btn delete-details-btn">Delete</a>').data('id', id)
     
         const buttonCell        = $('<td>').addClass('f-row data-btn-wrapper').append(updateBtn, deleteBtn)
     

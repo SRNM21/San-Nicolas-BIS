@@ -61,7 +61,7 @@
     fill: var(--info);
 }
 
-.btn-wrapper
+.modal-btn-wrapper
 {
     margin-top: var(--ws-2);
     gap: var(--ws-2);

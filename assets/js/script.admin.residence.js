@@ -59,7 +59,7 @@ function populateTable(data)
 
         if (PRIVILEGE === 'ADMIN')
         {
-            const updateBtn             = $('<a href="residence?update=' + id + '" class="data-util-btn update-details-btn">Edit</a>')
+            const updateBtn             = $('<a href="residence/update-resident?id=' + id + '" class="data-util-btn update-details-btn">Edit</a>')
             const deleteBtn             = $('<a href="residence?delete=' + id + '" class="data-util-btn delete-details-btn">Delete</a>')
             buttonCell.append(updateBtn, deleteBtn)
         }
