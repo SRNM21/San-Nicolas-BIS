@@ -4,6 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Join Community</title>
+    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
     <link rel='stylesheet' href=<?= getStyle('join-community'); ?>>
 </head>
 <body>
@@ -11,7 +12,9 @@
         <div class='f-col form-modal'>
             <header class='f-row'>
                 <div class='f-row brgy-info-wrapper'>
-                    <div class='logo'></div>
+                    <div class='logo'>
+                        <img src='<?= getImage('logo_sn.jpg') ?>' alt="">
+                    </div>
                     <div class='f-col'>
                         <h2>Barangay San Nicolas</h2>
                         <p>Pasig City, Metro Manila, Philippines</p>
@@ -45,6 +48,7 @@
                 <?php } ?>
 
                 <!-- FAMILY HEAD REGISTRAION FORM -->
+      
                 <?php if ($form == 1) { ?>
 
                     <form action='' method='post' id='fam-head-form'>
@@ -156,8 +160,9 @@
                         </section>
                     </form>
 
-                    <!-- FAMILY MEMBER REGISTRAION FORM -->
-                    <?php } else if ($form == 2) { ?> 
+                <!-- FAMILY MEMBER REGISTRAION FORM -->
+
+                <?php } else if ($form == 2) { ?> 
 
                     <form action='' method='post' id='fam-member-form'>
                         <section class='f-col fam-member-page'>

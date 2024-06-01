@@ -12,6 +12,7 @@ $env = parse_ini_file('.env');
 const STYLE_PATH            = '/assets/styles/';
 const SCRIPT_PATH           = '/assets/js/';
 const API_PATH              = '/assets/util/api/';
+const LIB_PATH              = '/assets/util/lib/';
 const CONTROLLER_PATH       = '/assets/controllers/';
 const PARTIALS_PATH         = '/assets/partials/';
 const VIEW_ADMIN_PATH       = '/views/admin/';
@@ -19,6 +20,7 @@ const VIEW_ADMIN_LAYOUTS    = '/views/admin/layouts/';
 const VIEW_AUTH_PATH        = '/views/auth/';
 const VIEW_PUBLIC_PATH      = '/views/public/';
 const ICONS_PATH            = '/assets/src/icons/';
+const FAVICONS_PATH         = '/assets/src/favicon/';
 const IMAGES_PATH           = '/assets/src/images/';
 const VECTOR_PATH           = '/assets/src/svg/';
 
@@ -103,8 +105,14 @@ function getRoute(String $uri)
         "/$folder/administrator/pendings" => 
         getController('admin.pendings'),
 
-        "/$folder/administrator/complaints" => 
-        getController('admin.complaints'),
+        "/$folder/administrator/blotter" => 
+        getController('admin.blotter'),
+
+        "/$folder/administrator/blotter/new-blotter" => 
+        getController('admin.new-blotter'),
+
+        "/$folder/administrator/blotter/update-blotter" => 
+        getController('admin.update-blotter'),
 
         "/$folder/administrator/requested-documents" => 
         getController('admin.requested-documents'),
@@ -135,6 +143,16 @@ function getRoute(String $uri)
 function getAPI($api)
 {
     return '../' . getProjectFolder() . API_PATH . "api.$api.php";
+}
+
+/** 
+ * System helper that returns directory of the the library file.
+ * 
+ * @param String $library The library file name.
+ */
+function getLibrary($library)
+{
+    return '../' . getProjectFolder() . LIB_PATH . "lib.$library.php";
 }
 
 /** 
@@ -239,7 +257,7 @@ function getScript(String $js)
  */
 function getSVG($svg)
 {
-    require '.'.ICONS_PATH."$svg.svg";
+    require '.' . ICONS_PATH . "$svg.svg";
 }
 
 /** 
@@ -249,7 +267,17 @@ function getSVG($svg)
  */
 function getImage($image)
 {
-    require '.'.IMAGES_PATH."$image";
+    return '/' . getProjectFolder() . IMAGES_PATH . "$image";
+}
+
+/** 
+ * View helper that returns favicon path of the passed favicon name.
+ * 
+ * @param String $ico The Favicon's name.
+ */
+function getFavicon($ico)
+{
+    return '/' . getProjectFolder() . FAVICONS_PATH . "$ico.ico";
 }
 
 /** 
@@ -259,7 +287,7 @@ function getImage($image)
  */
 function getIllustration($svg)
 {
-    require '.'.VECTOR_PATH."$svg.svg";
+    require '.' . VECTOR_PATH . "$svg.svg";
 }
 
 

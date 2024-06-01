@@ -1,9 +1,10 @@
 <?php $origin = '/'. strtolower(getProjectFolder()) . '/administrator/'; ?>
 
+<link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
 <link rel='stylesheet' href=<?= getStyle('partial.modal'); ?>>
 <div class='f-center modal-container'>
     <main class='f-row modal'>
-        <div>
+        <div class='f-row'>
             <div class='f-center icon-wrapper-<?= $modal_icon ?>'><?= getSVG($modal_icon); ?></div>
         </div>
         <div class='f-col'>

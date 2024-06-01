@@ -103,3 +103,16 @@
 {
     background-color: var(--gray-gr-2);
 }
+
+@media screen and (max-width: 500px)
+{
+    .modal
+    {
+        flex-direction: column !important;
+    }
+
+    .modal > div
+    {
+        justify-content: center;
+    }
+}

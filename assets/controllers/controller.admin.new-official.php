@@ -19,7 +19,7 @@ foreach ($data as $d)
     {
         $has_brgy_sec = true;
     } 
-    else if ($d['position'] == 'Barangay Tresurer')
+    else if ($d['position'] == 'Barangay Treasurer')
     {
         $has_brgy_tre = true;
     } 
@@ -31,7 +31,7 @@ foreach ($data as $d)
 
 if (!$has_brgy_cap) $position_choices[] = 'Barangay Captain';
 if (!$has_brgy_sec) $position_choices[] = 'Barangay Secretary';
-if (!$has_brgy_tre) $position_choices[] = 'Barangay Tresurer';
+if (!$has_brgy_tre) $position_choices[] = 'Barangay Treasurer';
 if (!$has_sk_chair) $position_choices[] = 'SK Chairperson';
 $position_choices[] = 'Barangay Kagawad';
 

@@ -22,7 +22,7 @@ if (isset($_GET['delete-staff-id']))
 
 if (isset($_GET['confirm-delete-staff']))
 {
-    if (deleteRecordWithLog($_GET['confirm-delete-staff'], 'barangay_staff', 'staff_id'))
+    if (deletRecord($_GET['confirm-delete-staff'], 'barangay_staff', 'staff_id'))
     {
         $modal_icon     = 'success';
         $modal_title    = 'Deleted Successfully!';

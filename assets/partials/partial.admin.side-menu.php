@@ -6,8 +6,8 @@ $on_dashboard       = str_starts_with($admin_uri, 'dashboard');
 $on_brgy_officials  = str_starts_with($admin_uri, 'barangay-officials');
 $on_residence       = str_starts_with($admin_uri, 'residence');
 $on_pendings        = str_starts_with($admin_uri, 'pendings');
-$on_complaints      = str_starts_with($admin_uri, 'complaints');
-$on_request         = str_starts_with($admin_uri, 'request-documents');
+$on_blotter         = str_starts_with($admin_uri, 'blotter');
+$on_request         = str_starts_with($admin_uri, 'requested-documents');
 $on_staff_accs      = str_starts_with($admin_uri, 'staff-accounts');
 $on_settings        = str_starts_with($admin_uri, 'settings');
 
@@ -35,12 +35,12 @@ $acc_email          = $_SESSION['EMAIL'];
                 <span class='f-center'><?= getSVG('pending'); ?></span>
                 <p>Pendings</p>
             </a>
-            <a href='<?= $origin; ?>complaints' class='f-row admin-nav-link  <?= $on_complaints ? 'active' : '' ?>' data-nav='complaints'>
+            <a href='<?= $origin; ?>blotter' class='f-row admin-nav-link  <?= $on_blotter ? 'active' : '' ?>' data-nav='blotter'>
                 <span class='f-center'><?= getSVG('blotter1'); ?></span>
-                <p>Complaints</p>
+                <p>Blotter</p>
             </a>
             <a href='<?= $origin; ?>requested-documents' class='f-row admin-nav-link  <?= $on_request ? 'active' : '' ?>' data-nav='requested-documents'>
-                <span class='f-center'><?= getSVG('document'); ?></span>
+                <span class='f-center'><?= getSVG('document-fill'); ?></span>
                 <p>Requested Documents</p>
             </a>
 

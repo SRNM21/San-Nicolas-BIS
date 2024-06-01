@@ -10,6 +10,7 @@ doc.ready(function()
 {
     queryGenderStatistic()
     queryPurokPopulationStatistic()
+    queryBlotterStatistics()
 })
 
 function queryGenderStatistic()

@@ -7,7 +7,6 @@ date_default_timezone_set('Asia/Manila');
 require '../SanNicolasBIS/assets/util/backend/server.util.php';
 require getAPI('database');
 
-
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $route = getRoute($uri);
 

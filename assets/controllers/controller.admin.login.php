@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $body       = "your OTP: <h2>$otp_message</h2>";
             $alt_body   = 'TEST OTP!';
 
-            require getAPI('mailer');
+            require getLibrary('mailer');
             require getPartial('admin.otp-modal');
         }
         else if ($staff != null)
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $_SESSION['PASSWORD'] = $password;
             $_SESSION['PRIVILEGE'] = 'STAFF';
             
-            require getAPI('mailer');
+            require getLibrary('mailer');
             require getPartial('admin.otp-modal');
         }
         else 

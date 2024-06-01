@@ -1,9 +1,79 @@
 @import url('/sannicolasbis/assets/styles/style.root.css');
 
-.blotter-container
+.blotter-wrapper
 {
     height: 100dvh;
+    width: 100dvw;
+}
+
+.blotter-container
+{
+    height: 100%;
     width: 100%;
+}
+
+.blotter-content
+{
+    height: calc(100dvh - 90px);
+    width: calc(100dvw - 90px);
+    padding: var(--ws-4);
+    overflow: hidden;
     gap: var(--ws-4);
     flex: 1;
+}
+
+.utility
+{
+    justify-content: space-between !important; 
+}
+
+.new-blotter-btn
+{
+    text-decoration: none;
+    background-color: var(--success);
+    color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    gap: var(--ws-2);
+}
+
+.new-blotter-btn:hover
+{
+    background-color: var(--success-dark);
+}
+
+.new-blotter-btn svg, .new-blotter-btn svg path
+{
+    fill: var(--white);
+}
+
+.filter-btn
+{
+    border: none;
+    outline: none;
+    background-color: var(--dark-gr-8);
+    color: var(--dark-gr-1);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.query-filter-wrapper
+{
+    gap: var(--ws-3);
+}
+
+.filter-btn.active
+{
+    background-color: var(--dark-gr-1);
+    color: var(--white);
+}
+
+@media screen and (max-width: 500px) 
+{
+    .new-blotter-btn p
+    {
+        display: none;
+    }
 }

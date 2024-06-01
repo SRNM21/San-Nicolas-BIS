@@ -5,6 +5,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Home | Barangay San Nicolas</title>
+    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
     <link rel='stylesheet' href=<?= getStyle('home'); ?>>
 </head>
 
@@ -20,7 +21,7 @@
                     <h1 class='landing-title'>BARANGAY SAN NICOLAS</h1>
                     <p class='landing-text'>Barangay San Nicolas beckons with friendly faces and helping hands. Feel welcome to this active community where neighbors become friends. </p>
                 </div>
-                <a href='join-community' class='f-center f-row goto-about-btn scale-anim' title='Join our community'><?= getSVG('down'); ?>Join our community</a>
+                <a href='join-community' class='f-center f-row join-com-btn scale-anim' title='Join our community'><?= getSVG('join'); ?>Join our community</a>
             </div>
         </section>
         
@@ -143,7 +144,7 @@
                             </span>
                             <span class='f-row'>
                                 <?= getSVG('mail'); ?>
-                                <a href='' title='Barangay San Nicolas Email'>Brgy. San Nics Email</a>
+                                <a href='mailto:brgysannicolas.pasig@gmail.com' title='Barangay San Nicolas Email'>Brgy. San Nics Email</a>
                             </span>    
                             <span class='f-row'>
                                 <?= getSVG('phone'); ?>

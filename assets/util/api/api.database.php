@@ -11,14 +11,34 @@ $cursor = mysqli_connect(
 
 function logEvent($table, $id, $event)
 {
-    addRecord([
+    global $cursor;
+
+    $data_set = [
         generateID('LOG'), 
+        $_SESSION['PRIVILEGE'], 
         $_SESSION['USERNAME'], 
         $event, 
         $table, 
         $id, 
         date('Y-m-d h:i:s A')
-    ], 'log');
+    ];
+
+    $count  = count($data_set);
+    $inp    = str_repeat('s', $count);
+
+    $sql    = "INSERT INTO log VALUES (" . generatePlaceholders($count) .")";
+    
+    try 
+    {
+        $stmt = $cursor->prepare($sql);
+        $stmt->bind_param($inp, ...$data_set);
+
+        return $stmt->execute() ? 1 : 0;
+    } 
+    catch(Error $e) 
+    {
+        return 0;
+    }
 }
 
 function getAccount($username, $password, $table)
@@ -57,7 +77,35 @@ function queryTable($table, $q)
         OR middle_name LIKE '%$q%'";
     }
 
-    $sql .= " ORDER BY last_name ASC";
+    $stmt = $cursor->prepare($sql);
+    $stmt->execute();
+
+    $result = mysqli_stmt_get_result($stmt);
+    $arr = [];
+
+    while ($row = mysqli_fetch_assoc($result)) 
+    {
+        $arr[] = $row;
+    }
+    
+    $stmt->close();
+    mysqli_free_result($result);
+
+    return $arr;
+}
+
+function queryBlotter($q)
+{
+    global $cursor;
+
+    $sql = 'SELECT * FROM blotter';
+
+    if (!empty($q) || $q != null)
+    {
+        $sql .= " 
+        WHERE complainant LIKE '%$q%'
+        OR respondent LIKE '%$q%'";
+    }
 
     $stmt = $cursor->prepare($sql);
     $stmt->execute();
@@ -100,18 +148,6 @@ function getRecord($id, $table, $column)
     return $official;
 }
 
-function addRecordWithLog($data, $table)
-{
-    $res = addRecord($data, $table);
-
-    if ($res != 0)
-    {
-        logEvent($table, $data[0], 'CREATE');
-    }
-
-    return $res;
-}
-
 function addRecord($data, $table)
 {
     global $cursor;
@@ -127,6 +163,7 @@ function addRecord($data, $table)
 
         if ($stmt->execute())
         {
+            logEvent($table, $data[0], 'CREATE');
             return $data[0];
         }
         
@@ -138,18 +175,6 @@ function addRecord($data, $table)
     }
 }
 
-function deleteRecordWithLog($id, $table, $column)
-{
-    $res = deletRecord($id, $table, $column);
-
-    if ($res != 0)
-    {
-        logEvent($table, $id, 'DELETE');
-    }
-
-    return $res;
-}
-
 function deletRecord($id, $table, $column)
 {
     global $cursor;
@@ -159,13 +184,19 @@ function deletRecord($id, $table, $column)
     $stmt = $cursor->prepare($sql);
     $stmt->bind_param('s', $id);
     
-    return $stmt->execute();
+    if ($stmt->execute())
+    {
+        logEvent($table, $id, 'DELETE');
+        return true;
+    }
+
+    return false;
 }
 
 function addOfficials($data)
 {
     global $cursor;
-    $count = count($data);
+    $count = count($data) - 2;
     $inp = str_repeat('s', $count);
 
     $sql = 'INSERT INTO barangay_officials VALUES (' . generatePlaceholders($count) .')';
@@ -190,11 +221,18 @@ function addOfficials($data)
             $data['profile']
         );
 
-        return $stmt->execute() && move_uploaded_file($data['temp_prof'], $data['folder']) ? 1 : 0;
+        if ($stmt->execute() && move_uploaded_file($data['temp_prof'], $data['folder']))
+        {
+            logEvent('barangay_officials', $data['id'], 'ADD');
+            return 1;
+        }
+
+        return 0;
     } 
     catch(Error $e) 
     {
-        return -1;
+        echo $e;
+        return 0;
     }
 }
 
@@ -221,7 +259,7 @@ function addBarangayClearance($data)
 function updateOfficials($data)
 {
     global $cursor;
-    $count = count($data);
+    $count = count($data) - 4;
     $inp = str_repeat('s', $count);
     $id = $data['id'];
 
@@ -264,6 +302,7 @@ function updateOfficials($data)
                 if (!move_uploaded_file($data['temp_prof'], $data['folder'])) return 0;
             }
 
+            logEvent('barangay_officials', $id, 'UPDATE');
             return 1;
         }
         else 
@@ -303,7 +342,13 @@ function updateFamilyHead($data)
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 
-        return $stmt->execute() ? 1 : 0;
+        if ($stmt->execute())
+        {
+            logEvent('familyhead', end($data), 'UPDATE');
+            return 1;
+        }
+
+        return 0;
     } 
     catch(Error $e) 
     {
@@ -339,12 +384,16 @@ function updateFamilyMember($data)
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 
-        echo $cursor->error;
-        return $stmt->execute() ? 1 : 0;
+        if ($stmt->execute())
+        {
+            logEvent('familymember', end($data), 'UPDATE');
+            return 1;
+        }
+
+        return 0;
     } 
     catch(Error $e) 
     {
-        echo $e;
         return -1;
     }
 }
@@ -376,13 +425,16 @@ function updateSpouse($data)
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 
-        echo $cursor->error;
-        
-        return $stmt->execute() ? 1 : 0;
+        if ($stmt->execute())
+        {
+            logEvent('spouse', end($data), 'UPDATE');
+            return 1;
+        }
+
+        return 0;
     } 
     catch(Error $e) 
     {
-        echo $e;
         return -1;
     }
 }
@@ -410,7 +462,13 @@ function updateStaff($data)
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 
-        return $stmt->execute() ? 1 : 0;
+        if ($stmt->execute())
+        {
+            logEvent('barangay_staff', end($data), 'UPDATE');
+            return 1;
+        }
+
+        return 0;
     } 
     catch(Error $e) 
     {
@@ -431,10 +489,51 @@ function updateRequestDocumentStatus($id, $status)
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param('ss', $status, $id);
 
-        return $stmt->execute() ? 1 : 0;
+        if ($stmt->execute())
+        {
+            logEvent('request_document', end($data), 'UPDATE');
+            return 1;
+        }
+
+        return 0;
     } 
     catch(Error $e) 
     {
+        return -1;
+    }
+}
+
+function updateBlotter($data)
+{
+    global $cursor;
+    $inp        = str_repeat('s', count($data));
+
+    $sql = "UPDATE blotter SET 
+                complainant = ?,
+                complainant_address = ?, 
+                respondent = ?, 
+                respondent_address = ?, 
+                nature_of_complaint = ?,
+                date_and_time = ?,
+                status = ?
+            WHERE complaint_id = ?";
+                    
+    try 
+    {
+        $stmt = $cursor->prepare($sql);
+        $stmt->bind_param($inp, ...$data);
+
+        if ($stmt->execute())
+        {
+            logEvent('blotter', end($data), 'UPDATE');
+            return 1;
+        }
+
+        return 0;
+    } 
+    catch(Error $e) 
+    {
+        echo $e;
         return -1;
     }
 }
@@ -542,7 +641,6 @@ function addFeedback($data)
     try 
     {
         $stmt = $cursor->prepare($sql);
-        date_default_timezone_set('Asia/Manila');
         $date_time = date('Y-m-d h:i:s A');
         
         $stmt->bind_param(
@@ -553,16 +651,8 @@ function addFeedback($data)
             $date_time 
         );
 
-        echo $cursor->error;
 
-        if ($stmt->execute())
-        {
-            return 1;
-        }
-        else 
-        {
-            return 0;
-        }
+        return $stmt->execute() ? 1 : 0;
     } 
     catch(Error $e) 
     {
@@ -579,46 +669,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     $result;
     
-    if($_POST['func'] == 'POPULATE_TABLE_BRGY_OFFICIALS')
-    {
-        $query = $_POST['q'];
-
-        $result = json_encode(queryTable('barangay_officials', $query));
-    }
-    else if($_POST['func'] == 'POPULATE_TABLE_RESIDENCE')
-    {
-        $query = $_POST['q'];
-
-        $result = json_encode(queryTable('v_residence', $query));
-    }
-    else if($_POST['func'] == 'POPULATE_TABLE_BRGY_STAFFS')
-    {
-        $query = $_POST['q'];
-
-        $result = json_encode(queryTable('barangay_staff', $query));
-    }
-    else if($_POST['func'] == 'POPULATE_TABLE_PENDINGS')
-    {
-        $query = $_POST['q'];
-
-        $result = json_encode(queryTable('v_pending_residence', $query));
-    }
-    else if($_POST['func'] == 'GET_STATISTIC_GENDER')
+    if($_POST['func'] == 'GET_STATISTIC_GENDER')
     {
         $result = json_encode(getGenderStatistic());
     }
     else if($_POST['func'] == 'GET_STATISTIC_PUROK_POPULATION')
     {
         $result = json_encode(getPurokPopulationStatistic());
-    }
-    else if($_POST['func'] == 'GET_PRIVILEGE')
-    {
-        $priv = isset($_SESSION['PRIVILEGE'])
-            ? $_SESSION['PRIVILEGE']
-            : 'NOT FOUND';
-
-        echo $priv;
-        exit;
     }
     
     header('Content-Type: application/json');

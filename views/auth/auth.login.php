@@ -4,6 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Login | Barangay San Nicolas</title>
+    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
     <link rel='stylesheet' href=<?= getStyle('admin.login'); ?>>
 </head>
 <body>

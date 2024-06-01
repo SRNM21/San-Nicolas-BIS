@@ -53,15 +53,15 @@ if (isset($_GET['confirm-delete']))
 
     if ($role == 'FMH')
     {
-        $delete    = deleteRecordWithLog($id, 'familyhead', 'family_head_id');
+        $delete    = deletRecord($id, 'familyhead', 'family_head_id');
     }
     else if ($role == 'FMM')
     {
-        $delete    = deleteRecordWithLog($id, 'familymember', 'family_member_id');
+        $delete    = deletRecord($id, 'familymember', 'family_member_id');
     }
     else if ($role == 'SPS')
     {
-        $delete    = deleteRecordWithLog($id, 'spouse', 'spouse_ID');
+        $delete    = deletRecord($id, 'spouse', 'spouse_ID');
     }
 
     if ($delete)

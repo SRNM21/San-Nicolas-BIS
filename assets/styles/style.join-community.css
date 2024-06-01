@@ -33,9 +33,14 @@
 
 .logo
 {
-    height: 80px;
-    width: 80px;
-    background-color: gray;
+    height: 70px;
+    width: 70px;
+}
+
+.logo img
+{
+    height: 100%;
+    width: 100%;
 }
 
 .brgy-info-wrapper

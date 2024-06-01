@@ -13,7 +13,9 @@ $on_services        = str_starts_with($com_uri, 'services');
     <!-- HEADER CONTENT -->
     <div class='f-row header-content'>
         <div class='f-row f-center sys-info'>
-            <div class='f-center icon'>Icon</div>
+            <a href='/sannicolasbis/community/home' class='f-center icon'>
+                <img src='<?= getImage('logo_sn.jpg') ?>' alt="">
+            </a>
             <div>
                 <p class='brgy-title'>Barangay San Nicolas</p>
                 <p class='brgy-loc'>Pasig City, Metro Manila, Philippines</p>

@@ -43,7 +43,7 @@ if (isset($_GET['confirm-request']))
         $person['pending_id']   = generateID('FMH');
         unset($person['date_of_registration']);
 
-        if (addRecordWithLog($person, 'familyhead') != 0)
+        if (addRecord($person, 'familyhead') != 0)
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';
@@ -58,7 +58,7 @@ if (isset($_GET['confirm-request']))
                             You can now use this to link your family member.";
             $alt_body   = 'Congratulations! you are now part of our community, please save your Family Head Code below:';
             
-            // require getAPI('mailer');
+            // require getLibrary('mailer');
         }
         else 
         {
@@ -74,7 +74,7 @@ if (isset($_GET['confirm-request']))
         unset($person['date_of_registration']);
         $person['bu_fam_head_id'] = $person['family_head_id']; 
         
-        if (addRecordWithLog(array_values($person), 'familymember') != 0)
+        if (addRecord(array_values($person), 'familymember') != 0)
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';
@@ -87,7 +87,7 @@ if (isset($_GET['confirm-request']))
             $body       = 'Congratulations! you are now part of our community!';
             $alt_body   = 'Congratulations! you are now part of our community!';
             
-            // require getAPI('mailer');
+            // require getLibrary('mailer');
         }
         else 
         {
@@ -104,7 +104,7 @@ if (isset($_GET['confirm-request']))
         unset($person['date_of_registration']);
         $person['bu_fam_head_id'] = $person['family_head_id']; 
 
-        if (addRecordWithLog(array_values($person), 'spouse') != 0)
+        if (addRecord(array_values($person), 'spouse') != 0)
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';
@@ -117,7 +117,7 @@ if (isset($_GET['confirm-request']))
             $body       = 'Congratulations! you are now part of our community!';
             $alt_body   = 'Congratulations! you are now part of our community!';
             
-            // require getAPI('mailer');
+            // require getLibrary('mailer');
         }
         else 
         {
@@ -165,7 +165,7 @@ if (isset($_GET['confirm-delete']))
         default: break;
     }
 
-    if (deleteRecordWithLog($id,  $table, 'pending_id') != 0)
+    if (deletRecord($id,  $table, 'pending_id') != 0)
     {
         $modal_icon = 'success';
         $modal_title = 'Request Deleted Successfully!';

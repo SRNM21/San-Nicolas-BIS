@@ -1,11 +1,11 @@
 .modal-container
 {
     height: 100dvh;
-    width: 100%;
+    width: 100dvw;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 10;
     background-color: rgba(0, 0, 0, 0.4);
 }
 

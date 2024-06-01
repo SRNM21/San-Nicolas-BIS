@@ -82,30 +82,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         'folder'        => $folder
     ];
 
-    $firstname      = handleEmptyValue('',  $_POST['firstname']);
-    $middlename     = handleEmptyValue('',  $_POST['middlename']);
-    $lastname       = handleEmptyValue('',  $_POST['lastname']);
-    $fullname = "$lastname, $firstname $middlename";
+    $update = updateOfficials($barangayOfficialData);
 
-    $add = updateOfficials($barangayOfficialData);
+    if ($update == 1)
+    {    
+        $firstname      = handleEmptyValue('',  $_POST['firstname']);
+        $middlename     = handleEmptyValue('',  $_POST['middlename']);
+        $lastname       = handleEmptyValue('',  $_POST['lastname']);
+        $fullname       = "$lastname, $firstname $middlename";
 
-    if ($add == 1)
-    {
         $modal_icon     = 'success';
         $modal_title    = 'Updated Successfully!';
-        $modal_success  = "$fullname is updated";
-        $modal_neg      = 'barangay-officials';
-        $modal_pos      = "barangay-officials/update-official?id=$id";
+        $modal_message  = "<b>$fullname</b> has been updated successfully.";
+        $modal_pos      = "barangay-officials";
     }
     else 
     {
         $modal_icon     = 'error';
-        $modal_title    = 'An error occured';
-        $modal_success  = 'Update failed';
-        $modal_neg      = 'barangay-officials';
+        $modal_title    = 'Updated Failed!';
+        $modal_message  = "An error occured while updating <b>$fullname</b>.";
         $modal_pos      = "barangay-officials/update-official?id=$id";
     }
-    
-    require getPartial('admin.modal');
 
+    require getPartial('admin.confirm-modal');
 }

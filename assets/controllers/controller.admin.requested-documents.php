@@ -160,10 +160,50 @@ if (isset($_GET['confirm-restore']))
     require getPartial('admin.confirm-modal');
 }
 
+if (isset($_GET['delete-forever']))
+{
+    $id             = $_GET['delete-forever'];
+
+    $modal_icon     = 'error';
+    $modal_title    = 'Confirm Delete Forever';
+    $modal_message  = 'Are you sure to delete this request forever? This process cannot be undone';
+    $scn_href       = 'requested-documents';
+    $prm_href       = "requested-documents?confirm-delete-forever=$id";
+    $scn_txt        = 'Cancel';
+    $prm_txt        = 'Delete';
+
+    require getPartial('admin.modal');
+}
+
+if (isset($_GET['confirm-delete-forever']))
+{
+    $id             = $_GET['confirm-delete-forever'];
+    $person         = getRecord($id, 'request_document', 'docs_id');
+
+    $delete         = deletRecord($id, 'request_document', 'docs_id');
+
+    if ($delete == 1)
+    {
+        $modal_icon = 'success';
+        $modal_title = 'Request Deleted Successfully!';
+        $modal_message = 'Request has been deleted forever.';
+    }
+    else 
+    {
+        $modal_icon = 'error';
+        $modal_title = 'Deleted Request Failed!';
+        $modal_message = 'An error occured while deleting request.';
+    }
+
+    $modal_pos = '-';
+    $path = 'requested-documents?filter=archive';
+    require getPartial('admin.confirm-modal');
+}
+
 if (isset($_GET['print']))
 {
     $data = getRecord($_GET['print'], 'request_document', 'docs_id');
-    require getAPI('pdf-maker');
+    require getLibrary('pdf-maker');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

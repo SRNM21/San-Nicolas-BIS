@@ -57,7 +57,7 @@ section
     margin-bottom: var(--ws-5);
 }
 
-.goto-about-btn
+.join-com-btn
 {
     background-color: var(--white);
     text-decoration: none;
@@ -69,9 +69,14 @@ section
     gap: var(--ws-1);
 }
 
-.goto-about-btn:hover
+.join-com-btn:hover
 {
     background-color: var(--gray-gr-3);
+}
+
+.join-com-btn svg, .join-com-btn svg path
+{
+    fill: var(--black);
 }
 
 /** ABOUT SECTION */

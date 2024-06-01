@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff Accounts</title>
+    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
     <link rel='stylesheet' href=<?= getStyle('admin.staff-acc'); ?>>
 </head>
 <body>
@@ -42,7 +43,7 @@
                                     <td><?= $row['email'] ?></td>
                                     <td><?= $row['username'] ?></td>
                                     <td class='action-cell'>
-                                        <a href="staff-accounts/update-staff-account?id=<?= $row['staff_id'] ?>" class="data-util-btn black-details-btn">Details</a>
+                                        <a href="staff-accounts/update-staff-account?id=<?= $row['staff_id'] ?>" class="data-util-btn blue-details-btn">Update</a>
                                         <a href="staff-accounts?delete-staff-id=<?= $row['staff_id'] ?>&delete-staff-username=<?= $row['username'] ?>" class="data-util-btn red-details-btn">Delete</a>
                                     </td>
                                 </tr>
@@ -58,7 +59,6 @@
     </div>
 
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
-    <script type='module' src=<?=  getScript('partial.side-menu'); ?>></script>
     <script type='module' src=<?=  getScript('admin.staff-acc'); ?>></script>
 </body>
 </html>

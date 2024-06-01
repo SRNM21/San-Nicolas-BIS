@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_POST['email']
     ];
 
-    $add = addRecordWithLog($staffDetails, 'barangay_staff');
+    $add = addRecord($staffDetails, 'barangay_staff');
 
     if ($add != 0)
     {

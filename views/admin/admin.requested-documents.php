@@ -5,6 +5,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Pending Documents</title>
+    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
     <link rel='stylesheet' href=<?= getStyle('admin.requested-documents'); ?>>
 </head>
 
@@ -43,7 +44,7 @@
                                 <tbody class='pend-doc-tbl-body'>
 
                                 <?php foreach ($data as $row) { 
-                                    if ($row['status'] == 'request') {?>
+                                    if ($row['status'] == 'Request') {?>
 
                                     <tr>
                                         <td><?= $row['last_name'] . ', ' . (handleEmptyValue('', $row['suffix']) == '' ? '' : $row['suffix'] . ', ') . $row['first_name'] . ' ' . $row['middle_name']?></td>
@@ -78,7 +79,7 @@
                                 <tbody class='pend-doc-tbl-body'>
 
                                 <?php foreach ($data as $row) { 
-                                    if (in_array($row['status'], ['pending', 'ongoing', 'ready'])) {?>
+                                    if ($row['status'] == 'Pending') {?>
 
                                     <tr>
                                         <td><?= $row['last_name'] . ', ' . (handleEmptyValue('', $row['suffix']) == '' ? '' : $row['suffix'] . ', ') . $row['first_name'] . ' ' . $row['middle_name']?></td>
@@ -106,6 +107,7 @@
                                         <th>Contact Number</th>
                                         <th>Email</th>
                                         <th>Date Requested</th>
+                                        <th>Date Claimed</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -113,7 +115,7 @@
                                 <tbody class='pend-doc-tbl-body'>
 
                                 <?php foreach ($data as $row) { 
-                                    if (in_array($row['status'], ['declined', 'removed', 'claimed'])) {?>
+                                    if (in_array($row['status'], ['Dclined', 'Removed', 'Claimed'])) {?>
 
                                     <tr>
                                         <td><?= $row['last_name'] . ', ' . (handleEmptyValue('', $row['suffix']) == '' ? '' : $row['suffix'] . ', ') . $row['first_name'] . ' ' . $row['middle_name']?></td>
@@ -121,9 +123,11 @@
                                         <td><?= $row['contact_number'] ?></td>
                                         <td><?= $row['email'] ?></td>
                                         <td><?= $row['request_date_time'] ?></td>
+                                        <td><?= handleEmptyValue('N/A', $row['date_claimed']) ?></td>
                                         <td><?= $row['status'] ?></td>
                                         <td>
-                                            <a href="requested-documents?filter=archive&restore=<?= $row['docs_id'] ?>" class="data-util-btn orange-details-btn" data-id='<?= $row['docs_id'] ?>>'>Restore</a>
+                                            <a href="requested-documents?filter=archive&restore=<?= $row['docs_id'] ?>" class="data-util-btn green-details-btn" data-id='<?= $row['docs_id'] ?>>'>Restore</a>
+                                            <a href="requested-documents?filter=archive&delete-forever=<?= $row['docs_id'] ?>" class="data-util-btn red-details-btn" data-id='<?= $row['docs_id'] ?>>'>Delete forever</a>
                                         </td>
                                     </tr>
 

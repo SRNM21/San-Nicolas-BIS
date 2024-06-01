@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update | <?= $fullname ?></title>
+    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
     <link rel='stylesheet' href=<?= getStyle('admin.update-residence'); ?>>
 </head>
 <body>
@@ -360,7 +361,6 @@
     </div>
     
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
-    <script type='module' src=<?=  getScript('partial.side-menu'); ?>></script>
     <script type='module' src=<?=  getScript('admin.update-residence'); ?>></script>
 </body>
 </html>

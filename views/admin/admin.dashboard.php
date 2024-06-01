@@ -4,6 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Dashboard</title>
+    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
     <link rel='stylesheet' href=<?= getStyle('admin.dashboard'); ?>>
 </head>
 <body>
@@ -39,7 +40,7 @@
                         </div>
                         <div class='f-col info-holder'>
                             <h1>Complaints</h1>
-                            <h2 class=''>123123</h2>
+                            <h2 class=''><?= $total_blotter ?></h2>
                         </div>
                     </a>
                 </div>
