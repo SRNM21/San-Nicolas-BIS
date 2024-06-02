@@ -16,6 +16,7 @@
                 <div class='f-col choice-panel'>
                     <a href='#event' class='f-center setting-btn'><?= getSVG('event'); ?><p>Manage Event</p></a>
                     <a href='#sys-log' class='f-center setting-btn'><?= getSVG('log'); ?><p>System Log</p></a>
+                    <a href='#feedback' class='f-center setting-btn'><?= getSVG('feedback'); ?><p>Feedback</p></a>
 
                     <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') { ?>
 
@@ -124,6 +125,43 @@
                                                 <td><?= $row['involved_table'] ?></td>
                                                 <td><?= $row['involved_id'] ?></td>
                                                 <td><?= $row['time_stamp'] ?></td>
+                                            </tr>
+
+                                        <?php 
+                                            } 
+                                        ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </main>
+                    </section>
+                    <hr>
+                    <section id='feedback' class='f-col setting-sec feedback-section'>
+                        <div class='f-center f-row header-sec'>
+                            <h3>Feedback</h3>
+                            <button class='toggles show-fb-toggle' data-text='Feedback'>Show Feedback</button>
+                        </div>
+                        <main class='f-col fb-content'>
+                            <div class='f-col table-limiter'>
+                                <div class='table-wrapper'>
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Feedback</th>
+                                                <th>Date and Time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <?php foreach ($fb as $row) { ?>
+
+                                            <tr>
+                                                <td><?= $row['name'] ?></td>
+                                                <td><?= $row['feedback'] ?></td>
+                                                <td><?= $row['date_and_time'] ?></td>
                                             </tr>
 
                                         <?php 

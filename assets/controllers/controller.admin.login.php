@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         if ($_POST['otp'] == $_SESSION['OTP'])
         {
+            logEvent('N/A', 'N/A', 'LOG IN');
             $_SESSION['LOGGED_IN'] = 1;
             header('Location: administrator/dashboard');
             exit;

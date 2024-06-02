@@ -12,6 +12,8 @@ const eventToggle = $('.show-events-toggle')
 const eventContent = $('.events-content')
 const createEventToggle = $('.add-event-btn')
 const createEventContent = $('.new-events-content')
+const feedbackToggle = $('.show-fb-toggle')
+const feedbackContent = $('.fb-content')
 
 const editAccBtn = $('.edit-account')
 const resetPassBtn = $('.reset-pass')
@@ -27,6 +29,7 @@ const newEventBtn = $('.sbmt-new-event')
 toggleDisplay(logToggle, logContent)
 toggleDisplay(eventToggle, eventContent)
 toggleDisplay(createEventToggle, createEventContent)
+toggleDisplay(feedbackToggle, feedbackContent)
 
 function toggleDisplay(toggleBtn, display) 
 {  

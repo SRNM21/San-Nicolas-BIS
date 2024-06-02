@@ -209,7 +209,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.events-content
+.events-content, .fb-content
 {
     display: none;
     max-height: 500px;
@@ -360,10 +360,15 @@
     }
 }
 
-@media screen and (max-width: 500px) 
+@media screen and (max-width: 650px) 
 {
     .setting-btn p
     {
         display: none;
+    }
+
+    .choice-panel
+    {
+        flex-wrap: wrap;
     }
 }

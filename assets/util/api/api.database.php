@@ -193,6 +193,30 @@ function queryEvents()
     return $arr;
 }
 
+
+function queryFeedback()
+{
+    global $cursor;
+
+    $sql = "SELECT * FROM feedback order by date_and_time desc";
+
+    $stmt = $cursor->prepare($sql);
+    $stmt->execute();
+
+    $result = mysqli_stmt_get_result($stmt);
+    $arr = [];
+
+    while ($row = mysqli_fetch_assoc($result)) 
+    {
+        $arr[] = $row;
+    }
+    
+    $stmt->close();
+    mysqli_free_result($result);
+
+    return $arr;
+}
+
 function getRecord($id, $table, $column)
 {
     global $cursor;

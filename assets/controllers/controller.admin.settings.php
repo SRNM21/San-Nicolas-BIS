@@ -4,6 +4,7 @@ $header_name = 'Settings';
 
 $logs = queryLogs();   
 $events = queryEvents();   
+$fb = queryFeedback();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
