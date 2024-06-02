@@ -2,8 +2,14 @@
 
 $header_name = 'Residence';
 
+$filter = 'all';
 $q = '';
 $data = queryTable('v_residence', null);
+
+if (isset($_GET['filter']))
+{
+    $filter = $_GET['filter'];
+}
 
 if (isset($_GET['details']))
 {
@@ -40,7 +46,7 @@ if (isset($_GET['delete']))
     $prm_txt        = 'Delete';
     $scn_txt        = 'Cancel';
     $prm_href       = "residence?confirm-delete=$id";
-    $scn_href       = 'residence';
+    $scn_href       = 'residence?filter=' . $filter;
 
     require getPartial('admin.modal');
 }
@@ -78,8 +84,32 @@ if (isset($_GET['confirm-delete']))
     }
 
     $modal_pos = '-';
-    $path = 'residence';
+    $path = 'residence?filter=' . $filter;
     require getPartial('admin.confirm-modal');
+}
+
+if (isset($_GET['export-all']))
+{
+    $export_list = queryTable('v_residence', null);
+    require getLibrary('fpdf-residence');
+}
+
+if (isset($_GET['export-family-head']))
+{
+    $export_list = queryTable('familyhead', null);
+    require getLibrary('fpdf-fam-head');
+}
+
+if (isset($_GET['export-family-member']))
+{
+    $export_list = queryTable('familymember', null);
+    require getLibrary('fpdf-fam-member');
+}
+
+if (isset($_GET['export-spouse']))
+{
+    $export_list = queryTable('spouse', null);
+    require getLibrary('fpdf-spouse');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

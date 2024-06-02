@@ -174,7 +174,7 @@ if (isset($_GET['delete-forever']))
     $modal_title    = 'Confirm Delete Forever';
     $modal_message  = 'Are you sure to delete this request forever? This process cannot be undone';
     $scn_href       = 'requested-documents';
-    $prm_href       = "requested-documents?confirm-delete-forever=$id";
+    $prm_href       = "requested-documents?filter=archive&confirm-delete-forever=$id";
     $scn_txt        = 'Cancel';
     $prm_txt        = 'Delete';
 
@@ -216,7 +216,7 @@ if (isset($_GET['print']))
 
     $data = getRecord($id, 'request_document', 'docs_id');
     
-    require getLibrary('pdf-maker');
+    require getLibrary('fpdf-docs');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

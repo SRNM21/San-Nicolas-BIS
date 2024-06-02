@@ -23,9 +23,8 @@
 
 .icon
 {
-    height: 60px;
-    width: 60px;
-    cursor: pointer;
+    height: 70px;
+    width: 70px;
 }
 
 .icon img
@@ -167,9 +166,9 @@
     position: fixed;
     z-index: 4;
     top: 0;
-    right: -250px;
+    right: -300px;
     height: 100%;
-    width: 250px;
+    width: 300px;
     background-color: var(--white);
     padding: var(--ws-4);
     transition: all 0.15s ease-in-out;
@@ -196,6 +195,7 @@
 .brgy-container
 {
     gap: var(--ws-2);
+    color: var(--black);
 }
 
 .nav-link-wrapper
@@ -343,32 +343,15 @@
 
 @media screen and (max-width: 550px) 
 {
-    .header-content
-    {
-        justify-content: center;
-    }
-
-    .sys-info
-    {
-        flex-direction: column;
-        gap: var(--ws-m);
-    }
-
     .sys-info
     {
         gap: var(--ws-2);    
     }
 
-    .sys-info div
-    {
-        flex-direction: column;
-        text-align: center;
-    }
-
     .icon
     {
-        height: 70px;
-        width: 70px;
+        height: 60px;
+        width: 60px;
     }
 
     .brgy-title
@@ -378,7 +361,7 @@
 
     .brgy-loc
     {
-        font-size: var(--body-medium);
+        font-size: var(--body-small);
     }
 
     .map-wrapper
@@ -387,13 +370,17 @@
         justify-content: center;
     }
 
-    .tablet-nav
-    {
-        display: none;
-    }
-
     .sb-title
     {
         font-size: var(--header-h5);
+    }
+}
+
+@media screen and (max-width: 425px) 
+{
+    .side-menu-container
+    {
+        width: 100dvw;
+        right: -100dvw;
     }
 }

@@ -125,20 +125,12 @@ section
     justify-content: flex-end;
 }
 
-.image-wrapper
-{
-    flex: 1;
-    max-height: 500px;
-    max-width: 500px;
-    gap: var(--ws-4);
-    border: 5px solid var(--error);
-}
-
-.image-wrapper img
+.about-image-wrapper img
 {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border: 5px solid var(--error);
 }
 
 .image
@@ -179,7 +171,10 @@ section
 {
     height: 700px;
     width: 100%;
+    border-radius: var(--ws-3);
+    overflow: hidden;
     background-color: var(--plt-red-2);
+    border: 3px solid var(--error);
 }
 
 .brgy-cap-wrapper
@@ -225,6 +220,41 @@ section
     width: 400px;
     aspect-ratio: 1/1.2;
     border: 3px solid var(--error);
+    background-color: var(--error);
+    position: relative;
+    border-radius: var(--ws-3);
+    overflow: hidden;
+    align-items: flex-end;
+}
+
+.brgy-card-wrapper:hover
+{
+    & .hover-bg
+    {
+        height: 15%;
+    }
+}
+
+.hover-bg
+{
+    height: 0;
+    width: 100%;
+    background-color: var(--error);
+    opacity: 1;
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.15s ease-in-out;
+}
+
+.hover-bg h3
+{
+    color: var(--white);
+    font-size: var(--header-h6);
+}
+
+.hover-bg p
+{
+    color: var(--white);
 }
 
 .brgy-card-wrapper img

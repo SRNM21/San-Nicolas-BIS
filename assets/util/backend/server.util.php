@@ -338,7 +338,7 @@ function ordinal($number)
     if ((($number % 100) >= 11) && (($number%100) <= 13))
         return $number. 'th';
     else
-        return $number. $ends[$number % 10];
+        return intval($number). $ends[$number % 10];
 }
 
 function formatDate($date)

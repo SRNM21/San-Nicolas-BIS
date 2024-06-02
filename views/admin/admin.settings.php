@@ -14,12 +14,12 @@
             <?php include getPartial('admin.side-menu'); ?>
             <main class='f-row settings-content'>
                 <div class='f-col choice-panel'>
-                    <a href='#event' class='f-center setting-btn'><?= getSVG('event'); ?>Manage Event</a>
-                    <a href='#sys-log' class='f-center setting-btn'><?= getSVG('log'); ?>System Log</a>
+                    <a href='#event' class='f-center setting-btn'><?= getSVG('event'); ?><p>Manage Event</p></a>
+                    <a href='#sys-log' class='f-center setting-btn'><?= getSVG('log'); ?><p>System Log</p></a>
 
                     <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') { ?>
 
-                    <a href='#account' class='f-center setting-btn'><?= getSVG('account'); ?>Account</a>
+                    <a href='#account' class='f-center setting-btn'><?= getSVG('account'); ?><p>Account</p></a>
                     
                     <?php } ?>
 

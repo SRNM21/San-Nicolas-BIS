@@ -27,6 +27,31 @@
     justify-content: space-between !important; 
 }
 
+.util-btn-wrapper
+{
+    gap: var(--ws-2);
+}
+
+.export-official-btn
+{
+    text-decoration: none;
+    background-color: var(--info);
+    color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    gap: var(--ws-2);
+}
+
+.export-official-btn svg
+{
+    fill: var(--white);
+}
+
+.export-official-btn:hover
+{
+    background-color: var(--info-dark);
+}
+
 .new-official-btn
 {
     text-decoration: none;
@@ -47,9 +72,14 @@
     fill: var(--white);
 }
 
-@media screen and (max-width: 500px) 
+@media screen and (max-width: 768px) 
 {
     .new-official-btn p
+    {
+        display: none;
+    }
+
+    .export-official-btn p
     {
         display: none;
     }

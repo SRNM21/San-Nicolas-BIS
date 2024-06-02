@@ -87,7 +87,7 @@
         </div>
 
         <div class='f-row pending-util-btn-wrapper'>
-            <a href='residence' class='pending-close-btn'>Close</a>
+            <a href='residence?filter=<?= $filter ?>' class='pending-close-btn'>Close</a>
         </div>
         <?php
     } 
@@ -186,7 +186,7 @@
         </div>
 
         <div class='f-row pending-util-btn-wrapper'>
-            <a href='residence' class='pending-close-btn'>Close</a>
+            <a href='residence?filter=<?= $filter ?>' class='pending-close-btn'>Close</a>
         </div>
 
     <?php
@@ -278,7 +278,7 @@
         </div>
 
         <div class='f-row pending-util-btn-wrapper'>
-            <a href='residence' class='pending-close-btn'>Close</a>
+            <a href='residence?filter=<?= $filter ?>' class='pending-close-btn'>Close</a>
         </div>
 
     <?php

@@ -69,6 +69,7 @@ class PDF extends FPDF {
 }
 
 $pdf = new PDF();
+$pdf->SetTitle(" ");
 
 if ($data['document_type'] == 'Barangay Clearance')
 {
@@ -126,7 +127,7 @@ if ($data['document_type'] == 'Barangay Clearance')
     $pdf->Write(5, "Signed this ");
 
     $pdf->SetFont('times', 'BU', 14);
-    $pdf->Write(5, $day);
+    $pdf->Write(5, ordinal($day));
 
     $pdf->SetFont('times', '', 14);
     $pdf->Write(5, " day of ");
@@ -160,6 +161,7 @@ if ($data['document_type'] == 'Barangay Clearance')
 }
 else if ($data['document_type'] == 'Barangay Indigency')
 {
+    $pdf->SetTitle("CERTIFICATE OF INDIGENCY");
     $pdf->SetMargins(25, 30, 30);
     $pdf->AliasNbPages();
     $pdf->AddPage();
@@ -212,7 +214,7 @@ else if ($data['document_type'] == 'Barangay Indigency')
     $pdf->Write(5, "Signed this ");
 
     $pdf->SetFont('times', 'BU', 14);
-    $pdf->Write(5, $day);
+    $pdf->Write(5, ordinal($day));
 
     $pdf->SetFont('times', '', 14);
     $pdf->Write(5, " day of ");
@@ -297,7 +299,7 @@ if ($data['document_type'] == 'Barangay Residency')
     $pdf->Write(5, "Signed this ");
 
     $pdf->SetFont('times', 'BU', 14);
-    $pdf->Write(5, $day);
+    $pdf->Write(5, ordinal($day));
 
     $pdf->SetFont('times', '', 14);
     $pdf->Write(5, " day of ");
@@ -330,7 +332,7 @@ if ($data['document_type'] == 'Barangay Residency')
     $pdf->Line(6, 239, 205, 239);
 }
 
-$pdf->Output();
+$pdf->Output('I', $data['first_name'] . '_' . $data['last_name']. '_' .$data['date_claimed'].'.pdf');
 $stmt->close();
 $conn->close();
 ?>

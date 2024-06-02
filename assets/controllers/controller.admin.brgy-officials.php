@@ -67,7 +67,7 @@ if (isset($_GET['delete-confirm']))
         {        
             unlink("assets/uploads/$id.png");
         }
-        
+
         $modal_icon     = 'success';
         $modal_title    = 'Deleted Successfully';
         $modal_message  = 'Barangay official is successfully deleted!';
@@ -81,6 +81,12 @@ if (isset($_GET['delete-confirm']))
 
     $modal_pos      = 'barangay-officials';
     require getPartial('admin.confirm-modal');
+}
+
+if (isset($_GET['export']))
+{
+    $export_list = $data;
+    require getLibrary('fpdf-officials');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

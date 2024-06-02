@@ -21,9 +21,14 @@ section
 
 .online-docu-req-wrapper
 {
-    height: 100dvh;
+    height: fit-content;
     padding: 0;
     padding-top: 110px;
+}
+
+.services-title
+{
+    font-size: var(--header-h5);
 }
 
 .online-docu-req
@@ -37,10 +42,12 @@ section
 {
     width: 100%;
     gap: var(--ws-8);
+    flex-wrap: wrap;
 }
 
 .docu-cards
 {
+    max-width: 400px;
     height: fit-content;
     width: fit-content;
     padding: var(--ws-6);
@@ -50,17 +57,30 @@ section
     box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.2);
 }
 
-.docu-icon
+.img-wrapper
 {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 100%;
+    border: 2px solid var(--black);
 }
 
-.docu-icon svg
+.img-wrapper img
 {
     height: 100%;
     width: 100%;
-    fill: var(--black);
+    object-fit: cover;
+    animation: updown 10s ease-in-out infinite alternate;
+}
+
+@keyframes updown {
+    from 
+    {
+        object-position: 0 0%;
+    }
+    to 
+    {
+        object-position: 0 100%;
+    }
 }
 
 .docu-details
@@ -124,4 +144,44 @@ section
 {
     text-align: center;
     gap: var(--ws-1);
+}
+
+.hotline-wrapper
+{
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--ws-5);
+}
+
+.hotline-num-card
+{
+    min-width: 400px;
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+    padding: var(--ws-4);
+    box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.2);
+    gap: var(--ws-4);
+}
+
+.logo-wrapper
+{
+    height: 100px;
+    aspect-ratio: 1/1;
+}
+
+.logo-wrapper img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.hotline-num-wrapper
+{
+    gap: var(--ws-2);
+    align-items: start;
+}
+
+@media screen and (max-width: 1020px)
+{
 }

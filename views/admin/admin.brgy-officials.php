@@ -18,11 +18,16 @@
                 <div class='f-col'>
                     <div class='f-center f-row utility'>   
                         <?php require getPartial('search-bar'); ?>
+                        <div class='f-row util-btn-wrapper'>
+                            <a href='barangay-officials?export=1' class='f-center f-row export-official-btn'><?= getSVG('export'); ?><p>Export</p></a>
+
                         <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') {?>
-                            <div class='util-btn-wrapper'>
-                                <a href='barangay-officials/new-official' class='f-center f-row new-official-btn'><?= getSVG('add-person'); ?><p>New official</p></a>
-                            </div>
+                            
+                            <a href='barangay-officials/new-official' class='f-center f-row new-official-btn'><?= getSVG('add-person'); ?><p>New official</p></a>
+                            
                         <?php } ?>
+
+                        </div>
                     </div>
                 </div>
                 <div class='f-col table-limiter'>

@@ -43,9 +43,7 @@
                     </div>
                 </div>
                 <div class='flex about-image-wrapper'>
-                    <div class='image-wrapper'>
-                        <img src='<?= getImage('home_1.jpg') ?>' alt=''>
-                    </div>
+                    <img src='<?= getImage('home_1.jpg') ?>' alt=''>
                 </div>
             </div>
         </section>
@@ -77,10 +75,20 @@
                     <?php  
                         foreach ($officials as $official) 
                         { 
+                            $lastname       = $official['last_name'];
+                            $firstname      = $official['first_name'];
+                            $middlename     = $official['middle_name'];
+                    
+                            $fullname = "$firstname $middlename[0]. $lastname";
+
                             if ($official['position'] != 'Barangay Captain')
                             {  
                     ?>
-                            <div class='brgy-card-wrapper'>
+                            <div class='f-center brgy-card-wrapper'>
+                                <div class='f-center f-col hover-bg'>
+                                    <h3><?= $fullname ?></h3>
+                                    <p><?= $official['position'] ?></p>
+                                </div>
                                 <img src='../assets/uploads/<?= $official['profile'] ?>' alt="">
                             </div>
 
@@ -189,7 +197,6 @@
         </div>
     </div>
 
-    <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
     <script type='module' src=<?=  getScript('home-page'); ?>></script>
 </body>
 </html>

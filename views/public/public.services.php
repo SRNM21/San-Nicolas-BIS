@@ -12,45 +12,39 @@
     <main>
         <section class='f-center online-docu-req-wrapper'>
             <div class='f-center f-col container online-docu-req'>
-                <div class='f-center f-col online-docu-req-title'>
-                    <h1>ONLINE BARANGAY DOCUMENT REQUEST</h1>
+                <div class='f-center f-col services-title'>
+                    <h1 class='online-docu-steps-title'>ONLINE BARANGAY DOCUMENT REQUEST</h1>
                 </div>
                 <div class='f-center f-row docu-cards-wrapper'>
                     <div class='f-center f-col docu-cards brgy-clr-card'>
-                        <div class='icon-wrapper'>
-                            <div class='docu-icon'>
-                                <?= getSVG('document') ?>
-                            </div>
+                        <div class='img-wrapper'>
+                            <img src='<?= getImage('CLEARANCE.png') ?>' alt="">
                         </div>
                         <div class='f-center f-col docu-details'>
                             <h2>Barangay Clearance</h2>
                             <p>A document issued by the barangay confirming that the individual or entity has complied with local requirements</p>
                         </div>
-                        <a href='services/barangay-clearance' class='f-center proceed-btn'><?= getSVG('proceed') ?> Proceed</a>
+                        <a href='services/barangay-clearance' class='f-center proceed-btn scale-anim'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
                     <div class='f-center f-col docu-cards brgy-cert-card'>
-                        <div class='icon-wrapper'>
-                            <div class='docu-icon'>
-                                <?= getSVG('document') ?>
-                            </div>
+                        <div class='img-wrapper'>
+                            <img src='<?= getImage('INDIGENCY.png') ?>' alt="">
                         </div>
                         <div class='f-center f-col docu-details'>
                             <h2>Barangay Indigency</h2>
                             <p>A document issued by the barangay confirming that the individual or entity has complied with local requirements</p>
                         </div>
-                        <a href='services/barangay-indigency' class='f-center proceed-btn'><?= getSVG('proceed') ?> Proceed</a>
+                        <a href='services/barangay-indigency' class='f-center proceed-btn scale-anim'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
                     <div class='f-center f-col docu-cards ind-cert-card'>
-                        <div class='docu-wrapper'>
-                            <div class='docu-icon'>
-                                <?= getSVG('document') ?>
-                            </div>
+                        <div class='img-wrapper'>
+                            <img src='<?= getImage('RESIDENCY.png') ?>' alt="">
                         </div>
                         <div class='f-center f-col docu-details'>
                             <h2>Barangay Residency</h2>
                             <p>A document issued by the barangay confirming that the individual or entity has complied with local requirements</p>
                         </div>
-                        <a href='services/barangay-residency' class='f-center proceed-btn'><?= getSVG('proceed') ?> Proceed</a>
+                        <a href='services/barangay-residency' class='f-center proceed-btn scale-anim'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
                 </div>
             </div>
@@ -58,7 +52,7 @@
 
         <section class='f-center online-docu-req-steps-wrapper'>
             <div class='f-center f-col container online-docu-steps'>
-                <h1 class='online-docu-steps-title'>Steps in Requesting Barangay Documents</h1>
+                <h1 class='services-title'>STEPS IN REQUESTING BARANGAY DOCUMENTS</h1>
                 <div class='f-center f-row steps-wrapper'>
                     <div class='f-center f-col step1-container steps-cont'>
                         <div class='icon-wrapper'>
@@ -96,6 +90,29 @@
                             <p>Go to Barangay Hall during operating hours, presenting a valid ID, and collect your requested document once it's ready.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class='f-center online-docu-req-steps-wrapper'>
+            <div class='f-center f-col container online-docu-steps'>
+                <h1 class='services-title'>EMERGENCY CONTACT HOTLINES</h1>
+                <div class='f-center f-row hotline-wrapper'>
+
+                    <?php for($i = 0; $i < count($hotline_names); $i++) { ?>
+
+                    <div class='f-row hotline-num-card'>
+                        <div class='logo-wrapper'>
+                            <img src='<?= $hotline_images[$i] ?>' alt="">
+                        </div>
+                        <div class='f-center f-col hotline-num-wrapper'>
+                            <h3><?= $hotline_names[$i] ?></h3>
+                            <p>#<?= $hotline_number[$i] ?></p>
+                        </div>
+                    </div>
+
+                    <?php } ?>
+
                 </div>
             </div>
         </section>

@@ -132,7 +132,7 @@
                                             
                                             <?php } ?>
 
-                                            <a href="requested-documents?filter=archive&delete-forever=<?= $row['docs_id'] ?>" class="data-util-btn red-details-btn" data-id='<?= $row['docs_id'] ?>>'>Delete forever</a>
+                                            <a href="requested-documents?filter=archive&delete-forever=<?= $row['docs_id'] ?>" class="data-util-btn red-details-btn" data-id='<?= $row['docs_id'] ?>>'>Delete</a>
                                         </td>
                                     </tr>
 

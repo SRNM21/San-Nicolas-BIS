@@ -102,7 +102,7 @@
 
                             </div>
                             <div class='f-row inp-row brgy-document-btn-wrapper'>
-                                <button type='submit' class='brgy-document-btn' id='sbm-btn'>Submit</button>
+                                <button type='submit' class='brgy-document-btn scale-anim' id='sbm-btn'>Submit</button>
                             </div>
                         </form>
                     </div>

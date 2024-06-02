@@ -26,6 +26,7 @@
 {
     height: 100%;
     width: fit-content;
+    background-color: var(--white);
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -327,4 +328,42 @@
     color: var(--white);
     font-size: var(--body-large);
     cursor: pointer;
+}
+
+@media screen and (max-width: 700px) 
+{
+    .seperator
+    {
+        display: none;
+    }
+    .settings-content
+    {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0;
+        padding: 0;
+    }
+
+    .choice-panel
+    {
+        height: fit-content;
+        width: 100%;
+        justify-content: center;
+        gap: var(--ws-2);
+        flex-direction: row;
+    }
+
+    .gen-setting-content
+    {
+        width: 100%;
+        padding-inline: var(--ws-4);
+    }
+}
+
+@media screen and (max-width: 500px) 
+{
+    .setting-btn p
+    {
+        display: none;
+    }
 }

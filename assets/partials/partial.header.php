@@ -52,7 +52,9 @@ $on_events          = str_starts_with($com_uri, 'events');
         <header class='f-col upper-container'>
             <div class='f-row out-nav'><?= getSVG('close'); ?></div>
             <div class='f-center f-col brgy-container'>
-                <div class='icon'></div>
+                <div class='icon'>
+                    <img src='<?= getImage('logo_sn.jpg') ?>' alt="">
+                </div>
                 <h3>Barangay San Nicolas</h3>
             </div>
         </header>
@@ -62,19 +64,19 @@ $on_events          = str_starts_with($com_uri, 'events');
         <div class='nav-link-wrapper'>
             <ul class='f-col overlay-nav-list'>
                 <li>
-                    <a href='#about' class='out-nav'>About</a>
+                    <a href='home' class='out-nav'>Home</a>
                 </li>
                 <li>
-                    <a href='#officials' class='out-nav'>Barangay Officials</a>
+                    <a href='home#officials' class='out-nav'>Barangay Officials</a>
                 </li>
                 <li>
-                    <a href='#mission-vision' class='out-nav'>Mission and Vision</a>
+                    <a href='home#mission-vision' class='out-nav'>Mission and Vision</a>
                 </li>
                 <li>
-                    <a href='' class='out-nav'>Services</a>
+                    <a href='services' class='out-nav'>Services</a>
                 </li>
                 <li>
-                    <a href='' class='out-nav'>Emergency Hotlines</a>
+                    <a href='events' class='out-nav'>Events</a>
                 </li>
             </ul>
         </div>
@@ -102,3 +104,5 @@ $on_events          = str_starts_with($com_uri, 'events');
         
     </div>
 </header>
+<script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
+<script type='module' src=<?=  getScript('partial.header'); ?>></script>

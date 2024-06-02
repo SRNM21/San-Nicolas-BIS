@@ -27,22 +27,58 @@
     justify-content: space-between !important; 
 }
 
-.new-residence-btn
+.export-residence-btn
 {
     text-decoration: none;
-    background-color: var(--success);
+    background-color: var(--info);
     color: var(--white);
     border-radius: var(--ws-1);
     padding: var(--ws-2);
     gap: var(--ws-2);
 }
 
-.new-residence-btn:hover
-{
-    background-color: var(--success-dark);
-}
-
-.new-residence-btn svg, .new-residence-btn svg path
+.export-residence-btn svg
 {
     fill: var(--white);
+}
+
+.export-residence-btn:hover
+{
+    background-color: var(--info-dark);
+}
+
+.filter-btn
+{
+    border: none;
+    outline: none;
+    background-color: var(--dark-gr-8);
+    color: var(--dark-gr-1);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.query-filter-wrapper
+{
+    gap: var(--ws-3);
+}
+
+.filter-btn.active
+{
+    background-color: var(--dark-gr-1);
+    color: var(--white);
+}
+
+@media screen and (max-width: 768px) 
+{
+    .new-residence-btn p
+    {
+        display: none;
+    }
+
+    .export-residence-btn p
+    {
+        display: none;
+    }
 }
