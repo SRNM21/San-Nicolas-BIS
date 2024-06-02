@@ -11,5 +11,4 @@ togglePass.click(function ()
     {
         password.prop('type', 'password')
     }
-
 })

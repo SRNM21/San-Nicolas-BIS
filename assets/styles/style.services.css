@@ -95,13 +95,6 @@ section
     font-size: var(--header-h4);
 }
 
-.online-docu-req-title p
-{
-    color: var(--error);
-    font-size: var(--body-large);
-    font-weight: bold
-}
-
 .steps-wrapper
 {
     height: fit-content;

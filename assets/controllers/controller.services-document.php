@@ -17,7 +17,7 @@ $doctype;
 
 if ($curr_uri == 'barangay-clearance')
 {
-    $doctype = 'Barangay Clearance';
+    $doctype = 'Barangay clearance';
 
     $requirements = [
         "Government issued ID addressed in Barangay San Nicolas, Pasig City (e.g. Passport, Driver's License, SSS/GSIS ID, PRC ID, Postal ID)", 
@@ -26,9 +26,9 @@ if ($curr_uri == 'barangay-clearance')
         "Certificate of Residency from the Building Administrator or Lessor (if tenant)"
     ];
 }
-else if ($curr_uri == 'barangay-certificate')
+else if ($curr_uri == 'barangay-indigency')
 {
-    $doctype = 'Barangay Certificate';
+    $doctype = 'Barangay Indigency';
 
     $requirements = [
         "Government issued ID addressed in Barangay San Nicolas, Pasig City (e.g. Passport, Driver's License, SSS/GSIS ID, PRC ID, Postal ID)
@@ -36,9 +36,9 @@ else if ($curr_uri == 'barangay-certificate')
         If No Government ID, Birthcertificate can be presented"
     ];
 }
-else if ($curr_uri == 'indigency-certificate')
+else if ($curr_uri == 'barangay-residency')
 {
-    $doctype = 'Indigency Certificate';
+    $doctype = 'Barangay Residency';
     $has_annual = true;
     
     $requirements = [
@@ -68,10 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_POST['cont-num'],
         $_POST['email'],
         'request',
-        date('Y-m-d h:i:s A')
+        date('Y-m-d h:i:s A'),
+        null
     ];
 
-    $add = addBarangayClearance($data);
+    $add = addDocumentRequest($data);
 
     if ($add != 0)
     {

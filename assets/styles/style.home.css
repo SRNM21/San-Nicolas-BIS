@@ -128,18 +128,17 @@ section
 .image-wrapper
 {
     flex: 1;
-    height: 50vh;
-    width: 50vw;
     max-height: 500px;
     max-width: 500px;
     gap: var(--ws-4);
-    background-color: gray;
+    border: 5px solid var(--error);
 }
 
-.image-wrapper div
+.image-wrapper img
 {
-    flex: 1;
-    gap: var(--ws-4);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .image
@@ -224,7 +223,8 @@ section
 .brgy-card-wrapper
 {
     width: 400px;
-    aspect-ratio: 1/1.3;
+    aspect-ratio: 1/1.2;
+    border: 3px solid var(--error);
 }
 
 .brgy-card-wrapper img

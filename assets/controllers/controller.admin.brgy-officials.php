@@ -58,6 +58,16 @@ if (isset($_GET['delete-confirm']))
     
     if ($delete != 0)
     {
+        if (file_exists("assets/uploads/$id.jpg")) 
+        {        
+            unlink("assets/uploads/$id.jpg");
+        }   
+
+        if (file_exists("assets/uploads/$id.png")) 
+        {        
+            unlink("assets/uploads/$id.png");
+        }
+        
         $modal_icon     = 'success';
         $modal_title    = 'Deleted Successfully';
         $modal_message  = 'Barangay official is successfully deleted!';

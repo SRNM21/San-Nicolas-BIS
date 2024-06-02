@@ -44,13 +44,7 @@
                 </div>
                 <div class='flex about-image-wrapper'>
                     <div class='image-wrapper'>
-                        <div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                        <div>
-
-                        </div>
+                        <img src='<?= getImage('home_1.jpg') ?>' alt=''>
                     </div>
                 </div>
             </div>
@@ -140,15 +134,15 @@
                         <div class='f-col contact-link-wrapper'>
                             <span class='f-row'>
                                 <?= getSVG('facebook'); ?>
-                                <a href='https://www.facebook.com/groups/394605741237735/' title='Barangay San Nicolas Facebook Group'>Brgy. San Nicolas Pasig (Official)</a>
+                                <a href='https://www.facebook.com/groups/394605741237735/' target='_blank' title='Barangay San Nicolas Facebook Group'>Brgy. San Nicolas Pasig (Official)</a>
                             </span>
                             <span class='f-row'>
                                 <?= getSVG('mail'); ?>
-                                <a href='mailto:brgysannicolas.pasig@gmail.com' title='Barangay San Nicolas Email'>Brgy. San Nics Email</a>
+                                <a href='mailto:brgysannicolas.pasig@gmail.com' target='_blank' title='Barangay San Nicolas Email'>Brgy. San Nics Email</a>
                             </span>    
                             <span class='f-row'>
                                 <?= getSVG('phone'); ?>
-                                <a href='' title='Barangay San Nicolas Phone number'>09123456789</a>
+                                <a href='tel:8 643000' title='Barangay San Nicolas Phone number'>8 643000</a>
                             </span>
                         </div>  
                     </div>

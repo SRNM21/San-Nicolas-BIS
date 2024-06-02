@@ -20,7 +20,7 @@ function logEvent($table, $id, $event)
         $event, 
         $table, 
         $id, 
-        date('Y-m-d h:i:s A')
+        date('Y-m-d h:i:s')
     ];
 
     $count  = count($data_set);
@@ -61,6 +61,29 @@ function getAccount($username, $password, $table)
     }
     
     mysqli_free_result($result);
+}
+
+function hasDuplicateResident($last_name, $first_name, $middle_name)
+{
+    global $cursor;
+
+    $sql = "SELECT * FROM v_residence";
+
+        $sql .= " 
+        WHERE last_name LIKE '$last_name'
+        OR first_name LIKE '$first_name'
+        OR middle_name LIKE '$middle_name'";
+
+    $stmt = $cursor->prepare($sql);
+    $stmt->execute();
+
+    $result = mysqli_stmt_get_result($stmt);
+    $row = mysqli_num_rows($result); 
+    
+    $stmt->close();
+    mysqli_free_result($result);
+
+    return $row > 0;
 }
 
 function queryTable($table, $q)
@@ -106,6 +129,52 @@ function queryBlotter($q)
         WHERE complainant LIKE '%$q%'
         OR respondent LIKE '%$q%'";
     }
+
+    $stmt = $cursor->prepare($sql);
+    $stmt->execute();
+
+    $result = mysqli_stmt_get_result($stmt);
+    $arr = [];
+
+    while ($row = mysqli_fetch_assoc($result)) 
+    {
+        $arr[] = $row;
+    }
+    
+    $stmt->close();
+    mysqli_free_result($result);
+
+    return $arr;
+}
+
+function queryLogs()
+{
+    global $cursor;
+
+    $sql = "SELECT * FROM log order by time_stamp desc";
+
+    $stmt = $cursor->prepare($sql);
+    $stmt->execute();
+
+    $result = mysqli_stmt_get_result($stmt);
+    $arr = [];
+
+    while ($row = mysqli_fetch_assoc($result)) 
+    {
+        $arr[] = $row;
+    }
+    
+    $stmt->close();
+    mysqli_free_result($result);
+
+    return $arr;
+}
+
+function queryEvents()
+{
+    global $cursor;
+
+    $sql = "SELECT * FROM events order by date desc";
 
     $stmt = $cursor->prepare($sql);
     $stmt->execute();
@@ -223,7 +292,7 @@ function addOfficials($data)
 
         if ($stmt->execute() && move_uploaded_file($data['temp_prof'], $data['folder']))
         {
-            logEvent('barangay_officials', $data['id'], 'ADD');
+            logEvent('barangay_officials', $data['id'], 'CREATE');
             return 1;
         }
 
@@ -236,7 +305,7 @@ function addOfficials($data)
     }
 }
 
-function addBarangayClearance($data)
+function addDocumentRequest($data)
 {
     global $cursor;
     $count = count($data);
@@ -246,7 +315,7 @@ function addBarangayClearance($data)
     try 
     {
         $stmt = $cursor->prepare($sql);
-        $stmt->bind_param('sssssssiissssss', ...$data);
+        $stmt->bind_param('sssssssiisssssss', ...$data);
 
         return $stmt->execute() ? $data[0] : 0;
     } 
@@ -317,6 +386,60 @@ function updateOfficials($data)
     }
 }
 
+function updateAdmin($data)
+{
+    global $cursor;
+    $inp = str_repeat('s', count($data));
+
+    $admin = getRecord($data[0], 'barangay_admin', 'username');
+    $inject = count($data) > 3 ? ', password = ?' : '';
+
+    $sql = "UPDATE barangay_admin SET 
+                username = ?,
+                email = ?
+                $inject
+            WHERE admin_id = ?";
+                    
+    try 
+    {
+        $stmt = $cursor->prepare($sql);
+
+        if (count($data) > 3)
+        {
+            $stmt->bind_param(
+                $inp, 
+                $data[1],
+                $data[2],
+                $data[3],
+                $admin['admin_id'],
+            );
+        }
+        else 
+        {
+            $stmt->bind_param(
+                $inp, 
+                $data[1],
+                $data[2],
+                $admin['admin_id'],
+            );
+        }
+        
+        if ($stmt->execute())
+        {
+            logEvent('barangay_admin', $admin['admin_id'], 'UPDATE');
+            $_SESSION['USERNAME'] = $data[1];
+            $_SESSION['EMAIL'] = $data[2];
+            return 1;
+        }
+
+        return 0;
+    } 
+    catch(Error $e) 
+    {
+        return 0;
+    }
+}
+
 function updateFamilyHead($data)
 {
     global $cursor;
@@ -375,8 +498,7 @@ function updateFamilyMember($data)
                 place_of_birth = ?,
                 in_school = ?,
                 occupation = ?,
-                medical_history = ?,
-                bu_fam_head_id = ?
+                medical_history = ?
             WHERE family_member_id = ?';
                         
     try 
@@ -416,8 +538,7 @@ function updateSpouse($data)
                 occupation = ?,
                 educational = ?,
                 birthdate = ?,
-                civil_status = ?,
-                bu_fam_head_id = ?
+                civil_status = ?
             WHERE spouse_id = ?';
                         
     try 
@@ -488,6 +609,34 @@ function updateRequestDocumentStatus($id, $status)
     {
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param('ss', $status, $id);
+
+        if ($stmt->execute())
+        {
+            logEvent('request_document', end($data), 'UPDATE');
+            return 1;
+        }
+
+        return 0;
+    } 
+    catch(Error $e) 
+    {
+        return -1;
+    }
+}
+
+function claimRequestDocument($id)
+{
+    global $cursor;
+    $time_stamp = date('Y-m-d h:i:s A');
+
+    $sql = "UPDATE request_document SET 
+                date_claimed = ?
+            WHERE docs_id = ?";
+                    
+    try 
+    {
+        $stmt = $cursor->prepare($sql);
+        $stmt->bind_param('ss', $time_stamp, $id);
 
         if ($stmt->execute())
         {

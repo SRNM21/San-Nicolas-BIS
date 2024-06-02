@@ -69,12 +69,15 @@ function getRoute(String $uri)
         "/$folder/community/services/barangay-clearance" => 
         getController('services-document'),
 
-        "/$folder/community/services/barangay-certificate" => 
+        "/$folder/community/services/barangay-indigency" => 
         getController('services-document'),
 
-        "/$folder/community/services/indigency-certificate" => 
+        "/$folder/community/services/barangay-residency" => 
         getController('services-document'),
 
+        "/$folder/community/events" => 
+        getController('events'),
+        
         "/$folder/administrator" => 
         getController('admin.login'),
         
@@ -326,4 +329,23 @@ function isValidImage($file)
     $ext                    = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
     return in_array($file['type'], $allowed_mimes) && in_array($ext, $allowed_extensions);
+}
+
+function ordinal($number) 
+{
+    $ends = array('th','st','nd','rd','th','th','th','th','th','th');
+
+    if ((($number % 100) >= 11) && (($number%100) <= 13))
+        return $number. 'th';
+    else
+        return $number. $ends[$number % 10];
+}
+
+function formatDate($date)
+{
+    $temp   = explode('-', $date);
+    $year   = $temp[0];
+    $day    = $temp[2];
+
+    return date('l', strtotime($date)) . ', ' . date('F', strtotime($date)) . ' ' . $day . ', ' . $year;
 }

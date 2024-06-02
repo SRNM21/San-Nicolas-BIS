@@ -1,0 +1,72 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.event-sec-header
+{
+    margin-top: var(--ws-10);
+}
+
+.event-content-wrapper
+{
+    padding-top: 110px;
+}
+
+.events-wrapper
+{
+    width: 100%;
+    padding: var(--ws-4);
+    gap: var(--ws-4);
+    flex-wrap: wrap;
+}
+
+.event-card
+{
+    height: fit-content;
+    width: 100%;
+    max-width: var(--bp-laptop-l);
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.events-content
+{
+    display: none;
+    max-height: 500px;
+}
+
+.events-wrapper
+{
+    padding: var(--ws-4);
+    gap: var(--ws-4);
+}
+
+.event-header
+{
+    background-color: var(--black);
+    padding: var(--ws-4);
+}
+
+.event-header p
+{
+    color: var(--white);
+    font-size: var(--body-large);
+}
+
+.event-info
+{
+    padding: var(--ws-4);
+}
+
+.event-img-wrapper
+{
+    height: 500px;
+    width: 100%;
+}
+
+.event-img-wrapper img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

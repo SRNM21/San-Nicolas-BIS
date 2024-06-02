@@ -1,6 +1,6 @@
 <?php $origin = '/'. strtolower(getProjectFolder()) . '/administrator/'; ?>
 
-<link rel='stylesheet' href=<?= getStyle('partial.admin.pending-details-modal'); ?>>
+<link rel='stylesheet' href=<?= getStyle('partial.pending-details-modal'); ?>>
 <div class='f-center modal-container'>
     <main class='f-col modal'>
 

@@ -168,7 +168,7 @@
                                                     </div>
                                                     <div class='inp-group f-col'>
                                                         <label for='fam-member-fam-head'>Family Head Code</label>
-                                                        <input type='text' name='fam-member-fam-head' id='fam-member-fam-head' class='info-inp fam-member-fam-head' placeholder='Enter Family Head Code' value='<?= $resident['bu_fam_head_id'] ?>'>
+                                                        <input type='text' name='fam-member-fam-head' id='fam-member-fam-head' class='info-inp fam-member-fam-head' placeholder='Enter Family Head Code' value='<?= $resident['family_head_id'] ?>'>
                                                         <p class='error-info fm-mn-err'></p>
                                                     </div>
                                                     <div class='inp-group f-col'>
@@ -279,7 +279,7 @@
                                                 <div class='inp-row f-row'>
                                                     <div class='inp-group f-col'>
                                                         <label for='spouse-fam-head'>Family Head Code</label>
-                                                        <input type='text' name='spouse-fam-head' id='spouse-fam-head' class='info-inp spouse-fam-head' placeholder='Enter Family Head Code' value='<?= $resident['bu_fam_head_id'] ?>'>
+                                                        <input type='text' name='spouse-fam-head' id='spouse-fam-head' class='info-inp spouse-fam-head' placeholder='Enter Family Head Code' value='<?= $resident['family_head_id'] ?>'>
                                                         <p class='error-info fm-mn-err'></p>
                                                     </div>
                                                     <div class='inp-group f-col'>

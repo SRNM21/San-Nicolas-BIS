@@ -26,7 +26,7 @@
                     <form id='new-blotter-from' action='' method='post'>
                         <div class='f-col form-content-wrapper'>
                             <section class='f-col personal-info-container active'>
-                                <div class='f-row'>
+                                <div class='f-row t-row'>
                                     <div class='f-col inf-group'>
                                         <label class='b-form-label req' for='dat-date'>Date</label>
                                         <input class='b-form-input' type='date' data-input='Date' name='dat-date' id='dat-date'>
@@ -38,7 +38,7 @@
                                         <p class='error-info t-err'></p>
                                     </div>
                                 </div>
-                                <div class='f-row'>
+                                <div class='f-row g-row'>
                                     <div class='f-col inf-group'>
                                         <label class='b-form-label req' for='complainant'>Complainant</label>
                                         <input class='b-form-input' type='text' data-input='Complainant' name='complainant' id='complainant' placeholder='Enter Complainant'>
@@ -50,7 +50,7 @@
                                         <p class='error-info re-err'></p>
                                     </div>
                                 </div>
-                                <div class='f-row'>
+                                <div class='f-row g-row'>
                                     <div class='f-col inf-group'>
                                         <label class='b-form-label req' for='complainant-add'>Complainant's Address</label>
                                         <input class='b-form-input' type='text' data-input="Complainant's Address" name='complainant-add' id='complainant-add' placeholder="Enter Complainant's Address">
@@ -70,11 +70,12 @@
                                 <div class='f-col inf-group'>
                                     <label class='b-form-label req' for='status'>Status</label>
                                     <select class='b-form-input' type='text' data-input="Status" name='status' id='status'>
+                                        <option value='' disabled selected>Select Choices</option>
                                         <option value='Pending'>Pending</option>
                                         <option value='Active'>Active</option>
                                         <option value='Settled'>Settled</option>
                                     </select>
-                                    <p class='error-info ra-err'></p>
+                                    <p class='error-info st-err'></p>
                                 </div>
                                 <div class='f-row btn-wrapper'>
                                     <button class='util-btn submit-new-blotter-btn'>Submit</button>
@@ -89,5 +90,6 @@
     
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
     <script type='module' src=<?=  getScript('partial.side-menu'); ?>></script>
+    <script type='module' src=<?=  getScript('admin.new-blotter'); ?>></script>
 </body>
 </html>

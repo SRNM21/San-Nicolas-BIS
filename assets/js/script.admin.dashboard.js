@@ -10,7 +10,6 @@ doc.ready(function()
 {
     queryGenderStatistic()
     queryPurokPopulationStatistic()
-    queryBlotterStatistics()
 })
 
 function queryGenderStatistic()
@@ -21,7 +20,6 @@ function queryGenderStatistic()
         data: { func: 'GET_STATISTIC_GENDER' },
         success: function (response) 
         {
-            console.log(response)
             setGenderChart(response)
         },
         error: function (error) 
@@ -64,7 +62,6 @@ function queryPurokPopulationStatistic()
         data: { func: 'GET_STATISTIC_PUROK_POPULATION' },
         success: function (response) 
         {
-            console.log(response)
             setPurokPopulationChart(response)
         },
         error: function (error) 

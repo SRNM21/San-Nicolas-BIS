@@ -58,7 +58,7 @@ if (isset($_GET['confirm-request']))
                             You can now use this to link your family member.";
             $alt_body   = 'Congratulations! you are now part of our community, please save your Family Head Code below:';
             
-            // require getLibrary('mailer');
+            require getLibrary('mailer');
         }
         else 
         {
@@ -72,7 +72,6 @@ if (isset($_GET['confirm-request']))
         $person                 = getRecord($id, 'pending_familymember', 'pending_id');
         $person['pending_id']   = generateID('FMM');
         unset($person['date_of_registration']);
-        $person['bu_fam_head_id'] = $person['family_head_id']; 
         
         if (addRecord(array_values($person), 'familymember') != 0)
         {
@@ -87,7 +86,7 @@ if (isset($_GET['confirm-request']))
             $body       = 'Congratulations! you are now part of our community!';
             $alt_body   = 'Congratulations! you are now part of our community!';
             
-            // require getLibrary('mailer');
+            require getLibrary('mailer');
         }
         else 
         {
@@ -102,7 +101,6 @@ if (isset($_GET['confirm-request']))
         $person['pending_id']   = generateID('SPS');
 
         unset($person['date_of_registration']);
-        $person['bu_fam_head_id'] = $person['family_head_id']; 
 
         if (addRecord(array_values($person), 'spouse') != 0)
         {
@@ -117,7 +115,7 @@ if (isset($_GET['confirm-request']))
             $body       = 'Congratulations! you are now part of our community!';
             $alt_body   = 'Congratulations! you are now part of our community!';
             
-            // require getLibrary('mailer');
+            require getLibrary('mailer');
         }
         else 
         {

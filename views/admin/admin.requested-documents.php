@@ -89,7 +89,7 @@
                                         <td><?= $row['request_date_time'] ?></td>
                                         <td><?= $row['status'] ?></td>
                                         <td>
-                                            <a href="requested-documents?print=<?= $row['docs_id'] ?>" class="data-util-btn green-details-btn" data-id='<?= $row['docs_id'] ?>>'>Claim</a>
+                                            <a href="requested-documents?print=<?= $row['docs_id'] ?>&document-type=<?= $row['document_type'] ?>" class="data-util-btn green-details-btn" data-id='<?= $row['docs_id'] ?>>'>Claim</a>
                                             <a href="requested-documents?filter=pending&remove=<?= $row['docs_id'] ?>" class="data-util-btn red-details-btn" data-id='<?= $row['docs_id'] ?>>'>Remove</a>
                                         </td>
                                     </tr>
@@ -126,7 +126,12 @@
                                         <td><?= handleEmptyValue('N/A', $row['date_claimed']) ?></td>
                                         <td><?= $row['status'] ?></td>
                                         <td>
+                                            <?php if ($row['status'] != 'Claimed') { ?>
+                                            
                                             <a href="requested-documents?filter=archive&restore=<?= $row['docs_id'] ?>" class="data-util-btn green-details-btn" data-id='<?= $row['docs_id'] ?>>'>Restore</a>
+                                            
+                                            <?php } ?>
+
                                             <a href="requested-documents?filter=archive&delete-forever=<?= $row['docs_id'] ?>" class="data-util-btn red-details-btn" data-id='<?= $row['docs_id'] ?>>'>Delete forever</a>
                                         </td>
                                     </tr>

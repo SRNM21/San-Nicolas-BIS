@@ -12,6 +12,12 @@ if (isset($_GET['filter']))
     $filter = $_GET['filter'];
 }
 
+if (isset($_GET['details']))
+{
+    $complaint = getRecord($_GET['details'], 'request_document', 'docs_id');
+    require getPartial('admin.request-document-details');
+}
+
 if (isset($_GET['approve']))
 {
     $req_id = $_GET['approve'];
@@ -202,7 +208,14 @@ if (isset($_GET['confirm-delete-forever']))
 
 if (isset($_GET['print']))
 {
-    $data = getRecord($_GET['print'], 'request_document', 'docs_id');
+    $id         = $_GET['print'];
+    $doc_type   = $_GET['document-type'];
+
+    updateRequestDocumentStatus($id, 'claimed');
+    claimRequestDocument($id);
+
+    $data = getRecord($id, 'request_document', 'docs_id');
+    
     require getLibrary('pdf-maker');
 }
 

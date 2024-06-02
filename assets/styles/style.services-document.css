@@ -1,6 +1,6 @@
 @import url('/sannicolasbis/assets/styles/style.root.css');
 
-.brgy-clearance-wrapper
+.brgy-document-wrapper
 {
     height: 100dvh;
     width: 100dvw;
@@ -8,7 +8,7 @@
     align-items: flex-start;
 }
 
-.brgy-clearance
+.brgy-document
 {
     height: 100%;
     width: 100%;
@@ -16,7 +16,7 @@
     gap: var(--ws-8);
 }
 
-.brgy-clearance-content-wrapper, .req-modal
+.brgy-document-content-wrapper, .req-modal
 {
     flex: 1;
     height: fit-content;
@@ -25,13 +25,13 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.brgy-clearance-content
+.brgy-document-content
 {
     height: 100%;
     width: 100%;
 }
 
-.brgy-clearance-content-header, .req-modal-header
+.brgy-document-content-header, .req-modal-header
 {
     padding: var(--ws-4);
     background-color: var(--black);
@@ -39,17 +39,17 @@
     align-items: center;
 }
 
-.brgy-clearance-content-header svg
+.brgy-document-content-header svg
 {
     fill: var(--white);
 }
 
-.brgy-clearance-form-wrapper, .req-mmodal-content
+.brgy-document-form-wrapper, .req-mmodal-content
 {
     padding: var(--ws-4);
 }
 
-.brgy-clearance-form
+.brgy-document-form
 {
     gap: var(--ws-4);
 }
@@ -74,12 +74,19 @@
     flex: 1;
 }
 
-.brgy-clearance-btn-wrapper
+.back-btn
+{
+    color: var(--white);
+    text-decoration: none;
+    font-size: var(--body-large);
+}
+
+.brgy-document-btn-wrapper
 {
     justify-content: flex-end;
 }
 
-.brgy-clearance-btn
+.brgy-document-btn
 {
     width: 100px;
     background-color: var(--black);
@@ -108,4 +115,53 @@
 .req-row
 {
     gap: var(--ws-4);
+}
+
+@media screen and (max-width: 1440px) 
+{
+    .brgy-document
+    {
+        flex-direction: column;
+        padding: var(--ws-4);
+    }
+
+}
+
+@media screen and (max-width: 1100px) 
+{
+    .name-row
+    {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+
+@media screen and (max-width: 700px) 
+{
+    .brgy-document-form > div
+    {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) 
+{
+    .brgy-document
+    {
+        padding: 0;
+        height: fit-content;
+    } 
+
+    .brgy-document-content-wrapper
+    {
+        height: 100%;
+        width: 100%;
+    }
+
+    .req-modal
+    {
+        max-width: 100%;
+        width: 100%;
+    }
 }

@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $subject    = 'Login Verification';
             $body       = "your OTP: <h2>$otp_message</h2>";
             $alt_body   = 'TEST OTP!';
+            $action     = 'administrator';
 
             require getLibrary('mailer');
             require getPartial('admin.otp-modal');
@@ -73,6 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $_SESSION['USERNAME'] = $username;
             $_SESSION['PASSWORD'] = $password;
             $_SESSION['PRIVILEGE'] = 'STAFF';
+
+            $subject    = 'Login Verification';
+            $body       = "your OTP: <h2>$otp_message</h2>";
+            $alt_body   = 'TEST OTP!';
+            $action     = 'administrator';
             
             require getLibrary('mailer');
             require getPartial('admin.otp-modal');

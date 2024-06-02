@@ -45,7 +45,7 @@ export function validateName(input, errorProvider)
     let elemName = input.data('input')
     let value = input.val().trim()
 
-    let alphaRegex = /^[a-zA-Z\s-']+$/
+    let alphaRegex = /^[\p{L}\s]*$/u
     
     if (elemName === 'Middlename' && value === '')
     {
@@ -97,35 +97,28 @@ export function validatePhonenum(input, errorProvider)
 export function validateBirthdate(input, errorProvider) 
 {
     let value = input.val().trim()
-    
+    let elemName = input.data('input')
+
     let birthDate = new Date(value)
     let currentDate = new Date()
 
+    birthDate.setHours(0, 0, 0, 0)
+    currentDate.setHours(0, 0, 0, 0)
+
     let maxYearOld = new Date(currentDate.getFullYear() - 150, currentDate.getMonth(), currentDate.getDate())
+    let twentyYearsAgo = new Date(currentDate.getFullYear() - 20, currentDate.getMonth(), currentDate.getDate());
 
     if (value == '') 
     {
-        return setInvalid(input, errorProvider, 'Birthdate must not be empty')
+        return setInvalid(input, errorProvider, 'Birthdate is required')
     }
     else if (birthDate <= maxYearOld || birthDate >= currentDate)
     {
         return setInvalid(input, errorProvider, 'Invalid Birthdate')
     }
-
-    return setNormal(input, errorProvider)
-}
-
-export function validateGender(input, errorProvider)
-{
-    let value = input.val()
-
-    if (value == '' || value === null) 
+    else if (elemName === 'FamBDY' && birthDate > twentyYearsAgo)
     {
-        return setInvalid(input, errorProvider, 'Gender must not be empty')
-    }
-    else if (value != 'Male' && value != 'Female')
-    {
-        return setInvalid(input, errorProvider, 'Invalid Gender')
+        return setInvalid(input, errorProvider, 'Family Head must be 20 years old or older')
     }
 
     return setNormal(input, errorProvider)
@@ -141,9 +134,33 @@ export function validateUpload(input, errorProvider)
     return setNormal(input, errorProvider)
 }
 
+export function validateInput(input, errorProvider) 
+{  
+    let value = input.val().trim()
+
+    if(value === '')
+    {
+        return setInvalid(input, errorProvider, 'This field must not be empty')
+    }
+
+    return setNormal(input, errorProvider)
+}
+
+export function validateSelect(input, errorProvider) 
+{  
+    let value = input.find(":selected").val()
+
+    if(value === '')
+    {
+        return setInvalid(input, errorProvider, 'This field must not be empty')
+    }
+
+    return setNormal(input, errorProvider)
+}
+
 export function validateEmail(input, errorProvider) 
 {  
-    let value = input.val()
+    let value = input.val().trim()
 
     let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
@@ -233,7 +250,7 @@ export function validatePassword(input, errorProvider, confirm)
     return setNormal(input, errorProvider)
 }
 
-function setNormal(input, errorProvider) 
+export function setNormal(input, errorProvider) 
 {  
     if (input.hasClass('invalid'))
     {

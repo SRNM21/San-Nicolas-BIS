@@ -4,7 +4,7 @@ $origin             = '/'. strtolower(getProjectFolder()) . '/community/';
 $com_uri            = substr($uri, 25); 
 $on_home            = str_starts_with($com_uri, 'home');
 $on_services        = str_starts_with($com_uri, 'services');
-
+$on_events          = str_starts_with($com_uri, 'events');
 ?>
 
 <link rel='stylesheet' href=<?= getStyle('partial.header-com') ?>>
@@ -30,7 +30,9 @@ $on_services        = str_starts_with($com_uri, 'services');
                 </li>
                 <li>
                     <a href='<?= $origin ?>services' class='f-col <?= $on_services ? 'active' : '' ?>'>Services</a>
-                   
+                </li>
+                <li>
+                    <a href='<?= $origin ?>events' class='f-col <?= $on_events ? 'active' : '' ?>'>Events</a>
                 </li>
             </ul>
         </nav>

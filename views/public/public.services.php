@@ -13,7 +13,6 @@
         <section class='f-center online-docu-req-wrapper'>
             <div class='f-center f-col container online-docu-req'>
                 <div class='f-center f-col online-docu-req-title'>
-                    <p><b>Documents</b></p>
                     <h1>ONLINE BARANGAY DOCUMENT REQUEST</h1>
                 </div>
                 <div class='f-center f-row docu-cards-wrapper'>
@@ -36,10 +35,10 @@
                             </div>
                         </div>
                         <div class='f-center f-col docu-details'>
-                            <h2>Barangay Certificate</h2>
+                            <h2>Barangay Indigency</h2>
                             <p>A document issued by the barangay confirming that the individual or entity has complied with local requirements</p>
                         </div>
-                        <a href='services/barangay-certificate' class='f-center proceed-btn'><?= getSVG('proceed') ?> Proceed</a>
+                        <a href='services/barangay-indigency' class='f-center proceed-btn'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
                     <div class='f-center f-col docu-cards ind-cert-card'>
                         <div class='docu-wrapper'>
@@ -48,10 +47,10 @@
                             </div>
                         </div>
                         <div class='f-center f-col docu-details'>
-                            <h2>Indigency Certificate</h2>
+                            <h2>Barangay Residency</h2>
                             <p>A document issued by the barangay confirming that the individual or entity has complied with local requirements</p>
                         </div>
-                        <a href='services/indigency-certificate' class='f-center proceed-btn'><?= getSVG('proceed') ?> Proceed</a>
+                        <a href='services/barangay-residency' class='f-center proceed-btn'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
                 </div>
             </div>

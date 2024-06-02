@@ -22,19 +22,28 @@ if (isset($_GET['role']))
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-    $role   = $_GET['role'];
-    $id     = generateID('PEN');
-    $date   = date('Y-m-d h:i:s A');
-    $add    = 0;
+    $role           = $_GET['role'];
+    $id             = generateID('PEN');
+    $date           = date('Y-m-d h:i:s A');
+    $add            = 0;
+    $table          = '';
+    $last_name      = '';
+    $first_name     = '';
+    $middle_name    = '';
+    $fam_head       = null;
 
     if ($role == 'family-head') 
     {
-        $pendingFamHead = [
+        $last_name = $_POST['fam-head-lastname'];
+        $first_name = $_POST['fam-head-firstname'];
+        $middle_name = $_POST['fam-head-middlename'];
+
+        $data = [
             $id,
             $_POST['fam-head-purok'],
-            $_POST['fam-head-lastname'],
-            $_POST['fam-head-firstname'],
-            $_POST['fam-head-middlename'],
+            $last_name,
+            $first_name,
+            $middle_name,
             $_POST['fam-head-address'],
             $_POST['fam-head-occupation'],
             $_POST['fam-head-educ-stat'],
@@ -46,16 +55,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $date
         ];
 
-        $add = addRecord($pendingFamHead, 'pending_familyhead');
+        $table = 'pending_familyhead';
     }
     else if ($role == 'family-member')
     {
-        $pendingFamMember  = [
+        $last_name      = $_POST['fam-member-lastname'];
+        $first_name     = $_POST['fam-member-firstname'];
+        $middle_name    = $_POST['fam-member-middlename'];
+        $fam_head       = $_POST['fam-member-fam-head'];
+
+        $data  = [
             $id,
-            $_POST['fam-member-fam-head'],
-            $_POST['fam-member-lastname'],
-            $_POST['fam-member-firstname'],
-            $_POST['fam-member-middlename'],
+            $fam_head,
+            $last_name,
+            $first_name,
+            $middle_name,
             $_POST['fam-member-sex'],
             $_POST['fam-member-relationship'],
             $_POST['fam-member-birthdate'],
@@ -69,16 +83,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $date
         ];
 
-        $add = addRecord($pendingFamMember, 'pending_familymember');
+        $table = 'pending_familymember';
     }
     else if ($role == 'spouse')
     {
-        $pendingSpouse = [
+        $last_name      = $_POST['spouse-lastname'];
+        $first_name     = $_POST['spouse-firstname'];
+        $middle_name    = $_POST['spouse-middlename'];
+        $fam_head       = $_POST['spouse-fam-head'];
+
+        $data = [
             $id,
-            $_POST['spouse-fam-head'],
-            $_POST['spouse-lastname'],
-            $_POST['spouse-firstname'],
-            $_POST['spouse-middlename'],
+            $fam_head,
+            $last_name,
+            $first_name,
+            $middle_name,
             $_POST['spouse-address'],
             $_POST['spouse-purok'],
             $_POST['spouse-email'],
@@ -89,20 +108,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $date
         ];
 
-        $add = addRecord($pendingSpouse, 'pending_spouse');
+        $table = 'pending_spouse';
     }
 
-    if ($add != 0)
+    if ((!empty($fam_head) || $fam_head != null) && getRecord($fam_head, 'familyhead', 'family_head_id') == null)
     {
-        $modal_icon     = 'success';
-        $modal_title    = 'Registration Sent!';
-        $modal_message  = 'Your registration form has been sent.';
-    }
-    else 
+        $modal_icon     = 'error';
+        $modal_title    = 'Not Found!';
+        $modal_message  = 'Invalid Family Head code. Family Head not found.';
+    } 
+    else if (hasDuplicateResident($last_name, $first_name, $middle_name))
     {
         $modal_icon     = 'error';
         $modal_title    = 'Registration Failed!';
-        $modal_message  = 'An error occured while submitting your form.';
+        $modal_message  = 'This person is already registered.';
+    }
+    else 
+    {
+        $add = addRecord($data, $table);
+
+        if ($add != 0)
+        {
+            $modal_icon     = 'success';
+            $modal_title    = 'Registration Sent!';
+            $modal_message  = 'Your registration form has been sent.';
+        }
+        else 
+        {
+            $modal_icon     = 'error';
+            $modal_title    = 'Registration Failed!';
+            $modal_message  = 'An error occured while submitting your form.';
+        }
     }
 
     $modal_pos = '-';
@@ -111,4 +147,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 
 require getPublicView('join-community');
-

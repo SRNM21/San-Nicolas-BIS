@@ -1,0 +1,65 @@
+.modal-container
+{
+    height: 100dvh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal
+{
+    max-width: 500px;
+    padding: var(--ws-4);
+    border-radius: var(--ws-1);
+    background-color: var(--white);
+    gap: var(--ws-4);
+}
+
+.modal-header
+{
+    justify-content: space-between;
+}
+
+.modal-content-wrapper
+{
+    gap: var(--ws-4);
+}
+
+
+.modal-subtitle
+{
+    font-weight: bold;
+}
+
+.modal-group
+{
+    flex: 1;
+    gap: var(--ws-1);
+}
+
+.g-row
+{
+    gap: var(--ws-4);
+}
+
+.complainant-details, .respondent-details
+{
+    gap: var(--ws-4);
+}
+
+.modal-btn-wrapper
+{
+    justify-content: flex-end;
+}
+
+.modal-close-btn
+{
+    padding: var(--ws-2);
+    text-decoration: none;
+    background-color: var(--black);
+    border-radius: var(--ws-1);
+    color: var(--white);
+}

@@ -35,7 +35,10 @@
                             </thead>
                             <tbody class='pendings-tbl-body'>
 
-                            <?php foreach ($data as $row) { ?>
+                            <?php 
+                                foreach ($data as $row) { 
+                                    $role = strtolower(str_replace(' ', '-', $row['role']));
+                            ?>
 
                                 <tr>
                                     <td><?= $row['last_name'] ?></td>
@@ -44,9 +47,9 @@
                                     <td><?= $row['role'] ?></td>
                                     <td><?= $row['date_of_registration'] ?></td>
                                     <td class='action-cell'>
-                                        <a href="pendings?details=<?= $row['pending_id'] ?>&<?= $row['role'] ?>" class='data-util-btn black-details-btn'>Details</a>
-                                        <a href="pendings?confirm=<?= $row['pending_id'] ?>&<?= $row['role'] ?>" class='data-util-btn blue-details-btn'>Edit</a>
-                                        <a href="pendings?delete=<?= $row['pending_id'] ?>&<?= $row['role'] ?>" class='data-util-btn red-details-btn'>Delete</a>
+                                        <a href="pendings?details=<?= $row['pending_id'] ?>&role=<?= $role ?>" class='data-util-btn black-details-btn'>Details</a>
+                                        <a href="pendings?confirm=<?= $row['pending_id'] ?>&role=<?= $role ?>" class='data-util-btn green-details-btn'>Confirm</a>
+                                        <a href="pendings?delete=<?= $row['pending_id'] ?>&role=<?= $role ?>" class='data-util-btn red-details-btn'>Delete</a>
                                     </td>
                                 </tr>
 

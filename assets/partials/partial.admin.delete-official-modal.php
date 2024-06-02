@@ -1,3 +1,5 @@
+
+<link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
 <link rel='stylesheet' href=<?= getStyle('partial.delete-official-modal'); ?>>
 <div class='f-center modal-container'>
     <main class='f-center f-col modal'>

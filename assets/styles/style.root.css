@@ -223,6 +223,13 @@ p
     margin-left: var(--ws-1);
 }
 
+.invalid, .invalid:focus
+{
+    outline: none;
+    border: 2px solid var(--error) !important;
+    border-radius: var(--ws-1) !important;
+}
+
 .error-info
 {
     color: var(--error);
