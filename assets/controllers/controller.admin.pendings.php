@@ -56,7 +56,7 @@ if (isset($_GET['confirm-request']))
             $email      = $person['email'];
             $subject    = 'Welcome to Barangay San Nicolas';
             $body       = "Congratulations! you are now part of our community, please save your <b>Family Head Code</b> below: <br><br>
-                            Family Head Code: <h3>$new_id</h3><br>
+                            Family Head Code: <h3>$add</h3><br>
                             You can now use this to link your family member.";
             $alt_body   = 'Congratulations! you are now part of our community, please save your Family Head Code below:';
             

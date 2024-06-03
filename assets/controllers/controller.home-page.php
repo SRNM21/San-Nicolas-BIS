@@ -15,6 +15,7 @@ $about_details_2    = 'The barangay prioritizes economic growth that creates opp
 $brgy_off_into      = 'Introducing the team behind Barangay San Nicolas';
 
 $officials = queryTable('barangay_officials', '');
+$fullname = 'No Barangay Captain';
 $brgy_cap_img = 'default.jpg';
 $brgy_cap_name = ' ';
 $brgy_cap_position = ' ';

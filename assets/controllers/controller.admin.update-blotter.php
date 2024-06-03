@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $modal_title    = 'Updated Successfully';
         $modal_message  = 'Your changes have been applied.';
         $modal_pos      = 'blotter';
-        logEvent('Blotter', $delete, 'UPDATE');
+        logEvent('Blotter', $id, 'UPDATE');
     }
     else 
     {

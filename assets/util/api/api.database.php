@@ -70,9 +70,7 @@ function hasDuplicateResident($last_name, $first_name, $middle_name)
     $sql = "SELECT * FROM v_residence";
 
         $sql .= " 
-        WHERE last_name LIKE '$last_name'
-        OR first_name LIKE '$first_name'
-        OR middle_name LIKE '$middle_name'";
+        WHERE CONCAT(first_name, ' ', middle_name, ' ', last_name) LIKE '$first_name $middle_name $last_name'";
 
     $stmt = $cursor->prepare($sql);
     $stmt->execute();

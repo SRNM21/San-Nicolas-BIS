@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $modal_title    = 'Updated Successfully!';
         $modal_message  = "Your changes to <b>$fullname</b> have been applied.";
         $modal_pos      = "residence";
-        logEvent('Residence', $update, 'UPDATE');
+        logEvent('Residence', $id, 'UPDATE');
     }
     else 
     {
