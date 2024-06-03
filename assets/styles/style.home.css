@@ -21,6 +21,11 @@ section
     padding-top: 110px;
 }
 
+.landing-title
+{
+    font-size: var(--header-h4);
+}
+
 .landing-text
 {
     max-width: var(--bp-tablet);
@@ -382,6 +387,11 @@ section
     gap: var(--ws-6);
 }
 
+.contact-section
+{
+    min-width: 300px;
+}
+
 .txt-wrapper
 {
     gap: var(--ws-2);
@@ -409,6 +419,11 @@ section
 .contact-link, .contact-link path
 {
     fill: var(--white);
+}
+
+.feedback-section
+{
+    min-width: 400px;
 }
 
 .map-wrapper
@@ -527,5 +542,23 @@ section
     {
         display: flex;
         justify-content: center;
+    }
+
+    .content-section
+    {
+        min-width: 300px !important;
+    }
+
+    .feedback-section
+    {
+        min-width: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) 
+{
+    .mivis-row
+    {
+        flex-direction: column;
     }
 }

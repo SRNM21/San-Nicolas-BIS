@@ -43,7 +43,7 @@ $acc_email          = $_SESSION['EMAIL'];
                 </a>
                 <a href='<?= $origin; ?>requested-documents' class='f-row admin-nav-link  <?= $on_request ? 'active' : '' ?>' data-nav='requested-documents'>
                     <span class='f-center'><?= getSVG('document-fill'); ?></span>
-                    <p>Requested Documents</p>
+                    <p>Document Request</p>
                 </a>
             </div>
 

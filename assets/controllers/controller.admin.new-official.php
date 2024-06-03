@@ -78,11 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
     $add = addOfficials($barangayOfficialData);
 
-    if ($add != 0)
+    if ($add == 1)
     {
         $modal_icon     = 'success';
         $modal_title    = 'Added Successfully!';
         $modal_message  = 'New barangay official is added';
+        logEvent('Barangay Officilas', $id, 'CREATE');
     }
     else 
     {

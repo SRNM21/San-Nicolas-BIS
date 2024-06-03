@@ -30,7 +30,7 @@
                         <section class='f-col selection-page'>
                             <div class='f-col role-selection-wrapper'>
                                 <div class='f-row menu-wrapper'>
-                                    <a href='/sannicolasbis/community' class='f-center f-row back-btn'><?= getSVG('back') ?>Back</a>
+                                    <a href='/sannicolasbis/community' draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
                                 </div>
                                 <label for='role'>Register in Community as</label>
                                 <select name='role' id='role-selection' class='role-selection info-inp'>
@@ -40,7 +40,7 @@
                                 </select>
                             </div>
                             <div class='btn-wrapper f-row'>
-                                <a id='select-link' href='join-community?role=family-head' class='scale-anim'>Next</a>
+                                <a href='join-community?role=family-head' draggable='false' id='select-link' class='scale-anim'>Next</a>
                             </div>
                         </section>
                     </form>
@@ -52,8 +52,9 @@
 
                     <form action='' method='post' id='fam-head-form'>
                         <section class='f-col fam-head-page'>
-                            <div class='f-row menu-wrapper'>
-                                <a href='join-community' class='f-center f-row back-btn'><?= getSVG('back') ?>Register as Family Head</a>
+                            <div class='f-col menu-wrapper'>
+                                <a href='join-community' draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
+                                <h3>Register as Family Head</h3>
                             </div>
                             <div class='f-row info-wrapper'>
                                 <div class='f-col'>
@@ -85,20 +86,26 @@
                                                 <label for='fam-head-civil-status' class='req'>Civil Status</label>
                                                 <select name='fam-head-civil-status' id='fam-head-civil-status' class='fam-head-civil-status info-inp'>
                                                     <option value='' disabled selected>Select Choices</option>
-                                                    <option value='single'>Single</option>
-                                                    <option value='married'>Married</option>
-                                                    <option value='divorced'>Divorced</option>
-                                                    <option value='widowed'>Widowed</option>
+                                                    <option value='Single'>Single</option>
+                                                    <option value='Married'>Married</option>
+                                                    <option value='Divorced'>Divorced</option>
+                                                    <option value='Widowed'>Widowed</option>
                                                 </select>
                                                 <p class='error-info fh-cs-err'></p>
                                             </div>
                                         </div>
                                         <div class='inp-row f-row'>
                                             <div class='inp-group f-col'>
-                                                <label for='fam-head-educ-stat'>Educational Status</label>
-                                                <input type='text' name='fam-head-educ-stat' id='fam-head-educ-stat' class='info-inp fam-head-educ-stat' placeholder='Enter Educational Status'>
+                                                <label for='fam-head-educ-stat' class='req'>Educational Status</label>
+                                                <select name='fam-head-educ-stat' id='fam-head-educ-stat' class='fam-head-educ-stat info-inp'>
+                                                    <option value='' disabled selected>Select Choices</option>
+                                                    <option value='Elementary'>Elementary</option>
+                                                    <option value='High School'>High School</option>
+                                                    <option value='College'>College</option>
+                                                </select>
                                                 <p class='error-info fh-es-err'></p>
                                             </div>
+                                            
                                             <div class='inp-group f-col'>
                                                 <label for='fam-head-occupation'>Occupation</label>
                                                 <input type='text' name='fam-head-occupation' id='fam-head-occupation' class='info-inp fam-head-occupation' placeholder='Enter Occupation'>
@@ -167,8 +174,9 @@
 
                     <form action='' method='post' id='fam-member-form'>
                         <section class='f-col fam-member-page'>
-                            <div class='f-row menu-wrapper'>
-                                <a href='join-community' class='f-center f-row back-btn'><?= getSVG('back') ?>Register as Family Member</a>
+                            <div class='f-col menu-wrapper'>
+                                <a href='join-community' draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
+                                <h3>Register as Family Member</h3>
                             </div>
                             <div class='f-row info-wrapper'>
                                 <div class='f-col'>
@@ -295,8 +303,9 @@
 
                     <form action='' method='post' id='spouse-form'>
                         <section class='f-col spouse-page'>
-                            <div class='f-row menu-wrapper'>
-                                <a href='join-community' class='f-center f-row back-btn'><?= getSVG('back') ?>Register as Spouse</a>
+                            <div class='f-col menu-wrapper'>
+                                <a href='join-community'  draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
+                                <h3>Register as Spouse</h3>
                             </div>
                             <div class='f-row info-wrapper'>
                                 <div class='f-col'>
@@ -343,8 +352,13 @@
                                                 <p class='error-info sp-bd-err'></p>
                                             </div>
                                             <div class='inp-group f-col'>
-                                                <label for='spouse-educ-stat'>Educational Status</label>
-                                                <input type='text' name='spouse-educ-stat' id='spouse-educ-stat' class='info-inp spouse-educ-stat' placeholder='Enter Educational Status'>
+                                                <label for='spouse-educ-stat' class='req'>Educational Status</label>
+                                                <select name='spouse-educ-stat' id='spouse-educ-stat' class='spouse-educ-stat info-inp'>
+                                                    <option value='' disabled selected>Select Choices</option>
+                                                    <option value='Elementary'>Elementary</option>
+                                                    <option value='High School'>High School</option>
+                                                    <option value='College'>College</option>
+                                                </select>
                                                 <p class='error-info sp-es-err'></p>
                                             </div>
                                         </div>

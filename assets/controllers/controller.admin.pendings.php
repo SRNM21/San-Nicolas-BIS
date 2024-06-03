@@ -43,7 +43,9 @@ if (isset($_GET['confirm-request']))
         $person['pending_id']   = generateID('FMH');
         unset($person['date_of_registration']);
 
-        if (addRecord($person, 'familyhead') != 0)
+        $add = addRecord(array_values($person), 'familyhead');
+
+        if ($add != 0)
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';
@@ -58,6 +60,7 @@ if (isset($_GET['confirm-request']))
                             You can now use this to link your family member.";
             $alt_body   = 'Congratulations! you are now part of our community, please save your Family Head Code below:';
             
+            logEvent('Pendings', $add, 'CONFIRM');
             require getLibrary('mailer');
         }
         else 
@@ -72,8 +75,10 @@ if (isset($_GET['confirm-request']))
         $person                 = getRecord($id, 'pending_familymember', 'pending_id');
         $person['pending_id']   = generateID('FMM');
         unset($person['date_of_registration']);
-        
-        if (addRecord(array_values($person), 'familymember') != 0)
+
+        $add = addRecord(array_values($person), 'familymember');
+
+        if ($add != 0)
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';
@@ -86,6 +91,7 @@ if (isset($_GET['confirm-request']))
             $body       = 'Congratulations! you are now part of our community!';
             $alt_body   = 'Congratulations! you are now part of our community!';
             
+            logEvent('Pendings', $add, 'CONFIRM');
             require getLibrary('mailer');
         }
         else 
@@ -102,7 +108,9 @@ if (isset($_GET['confirm-request']))
 
         unset($person['date_of_registration']);
 
-        if (addRecord(array_values($person), 'spouse') != 0)
+        $add = addRecord(array_values($person), 'spouse');
+
+        if ($add != 0)
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';
@@ -115,6 +123,7 @@ if (isset($_GET['confirm-request']))
             $body       = 'Congratulations! you are now part of our community!';
             $alt_body   = 'Congratulations! you are now part of our community!';
             
+            logEvent('Pendings', $add, 'CONFIRM');
             require getLibrary('mailer');
         }
         else 
@@ -163,11 +172,14 @@ if (isset($_GET['confirm-delete']))
         default: break;
     }
 
-    if (deletRecord($id,  $table, 'pending_id') != 0)
+    $delete = deletRecord($id,  $table, 'pending_id');
+
+    if ($delete != 0)
     {
         $modal_icon = 'success';
         $modal_title = 'Request Deleted Successfully!';
         $modal_message = 'Request has been deleted.';
+        logEvent('Pendings', $delete, 'CREATE');
     }
     else 
     {

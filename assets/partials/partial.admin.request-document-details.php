@@ -34,7 +34,7 @@
                     <p><?= $complaint['birthdate'] ?></p>
                 </div>
                 <div class='f-col nat-of-comp-wrapper modal-group'>
-                    <p class='modal-subtitle'>Addres</p>
+                    <p class='modal-subtitle'>Address</p>
                     <p><?= $complaint['address'] ?></p>
                 </div>
             </div>

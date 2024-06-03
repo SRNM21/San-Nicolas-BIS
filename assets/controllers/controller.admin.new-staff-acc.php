@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $modal_icon     = 'success';
         $modal_title    = 'Added Successfully!';
         $modal_message  = 'New barangay staff is added.';
+        logEvent('Barangay Staffs', $add, 'CREATE');
     }
     else 
     {
@@ -32,11 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $modal_message  = 'An Error occured while adding new Barangay staff.';
     }
 
-    $scn_txt        = 'Back';
-    $prm_txt        = 'Ok';
-    $scn_href       = 'staff-accounts';
-    $prm_href       = 'staff-accounts/new-staff-acc';
-    require getPartial('admin.modal');
+    $modal_pos = 'staff-accounts';
+    require getPartial('admin.confirm-modal');
 }
 
 require getAdminView('new-staff-acc');

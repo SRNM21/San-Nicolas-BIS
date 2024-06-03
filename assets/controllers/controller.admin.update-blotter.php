@@ -29,8 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $modal_icon     = 'success';
         $modal_title    = 'Updated Successfully';
-        $modal_message  = 'Blotter has been updated!';
+        $modal_message  = 'Your changes have been applied.';
         $modal_pos      = 'blotter';
+        logEvent('Blotter', $delete, 'UPDATE');
     }
     else 
     {

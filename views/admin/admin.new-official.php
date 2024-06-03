@@ -53,6 +53,7 @@
                                     <div class='f-col'>
                                         <label class='no-form-label req' for='gender'>Gender</label>
                                         <select class='no-form-input' name='gender' id='gender'>
+                                            <option value='' disabled selected>Select Choices</option>
                                             <option value='Male'>Male</option>
                                             <option value='Female'>Female</option>
                                         </select>
@@ -75,6 +76,7 @@
                                 <div class='f-col'>
                                     <label class='no-form-label req' for='position'>Position</label>
                                     <select class='no-form-input' name='position' id='position'>
+                                        <option value='' disabled selected>Select Choices</option>
                                         
                                         <?php foreach ($position_choices as $pos) { ?>
 
@@ -91,8 +93,9 @@
                                         <p class='error-info han-err'></p>
                                 </div>
                                 <div class='f-col'>
-                                    <label class='no-form-label' for='status'>Status</label>
+                                    <label class='no-form-label req' for='status'>Status</label>
                                     <select class='no-form-input' name='status' id='status'>
+                                        <option value='' disabled selected>Select Choices</option>
                                         <option value='Active'>Active</option>
                                         <option value='Dismissed'>Dismissed</option>
                                     </select>

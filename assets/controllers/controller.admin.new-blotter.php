@@ -28,8 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     if ($add != 0)
     {
         $modal_icon     = 'success';
-        $modal_title    = 'Blotter Created Successfully';
-        $modal_message  = 'New blotter record has been created!';
+        $modal_title    = 'Blotter Created!';
+        $modal_message  = 'A new record has been added.';
+        logEvent('Blotter', $add, 'CREATE');
     }
     else 
     {

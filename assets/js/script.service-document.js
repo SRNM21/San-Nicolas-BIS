@@ -22,13 +22,6 @@ submitBtn.click(function(e)
     let validEmail = validateEmail($('.email'), $('.em-err'))
     let validPurpose = validateSelect($('#purpose'), $('.pp-err'))
     let validAddress = validateInput($('.address'), $('.ad-err'))
-    let validAnnual = true
-
-    if ($('#annual').length)
-    {
-        validAnnual = validateInput($('#annual'), $('.ai-err'))
-    }
-
 
     if (validLName &&  validFName && validMName && validBDay && validYOR && validPnum && validEmail && validPurpose && validAddress)
     {

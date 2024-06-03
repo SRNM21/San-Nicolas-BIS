@@ -10,16 +10,7 @@ doc.on('scroll', function ()
 
     const scrolled = (winScroll / height) * 100
 
-    console.log(scrolled) //! FOR DEBUGGING
-
-    if (scrolled > 20)
-    {
-        scrollTop.show()
-    }
-    else 
-    {
-        scrollTop.hide()
-    }
+    scrolled > 20 ? scrollTop.show() : scrollTop.hide()
 })
 
 scrollTop.click(function () 

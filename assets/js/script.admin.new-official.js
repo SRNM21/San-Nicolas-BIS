@@ -1,27 +1,30 @@
-import {
+import 
+{
     validateName,
     validatePhonenum,
-    validateGender,
     validateEmail,
-    validateUpload
-} from '/SanNicolasBIS/assets/util/frontend/client.util.js'
+    validateSelect,
+    validateUpload,
+} 
+from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
-const submitBtn = $('.submit-new-official-btn')
+const submit = $('.submit-new-official-btn')
 
-submitBtn.click(function(e)
-{
-    e.preventDefault()
+submit.click(function (e) 
+{ 
+    e.preventDefault();
+    
+    let validLName = validateName($('#lastname'), $('.ln-err'))
+    let validFName = validateName($('#firstname'), $('.fn-err'))
+    let validMName = validateName($('#middlename'), $('.mn-err'))
+    let validPnum = validatePhonenum($('#phonenum'), $('.pn-err'))
+    let validGen = validateSelect($('#gender'), $('.gen-err'))
+    let validEmail = validateEmail($('#email'), $('.em-err'))
+    let file = validateUpload($('#profile'), $('.pro-err'))
+    let validPos = validateSelect($('#position'), $('.pos-err'))
+    let validStat = validateSelect($('#status'), $('.sta-err'))
 
-    if (
-        validateName($('#lastname'), $('.ln-err')) && 
-        validateName($('#firstname'), $('.fn-err')) && 
-        validateName($('#middlename'), $('.mn-err')) && 
-        validatePhonenum($('#phonenum'), $('.pn-err')) && 
-        validateGender($('#gender'), $('.gen-err')) && 
-        validateEmail($('#email'), $('.em-err')) && 
-        validateUpload($('#profile'), $('.pro-err')) &&
-        validateUpload($('#profile'), $('.pro-err')) 
-    )
+    if (validLName && validFName && validMName && validPnum && validGen && validEmail && file && validPos && validStat)
     {
         $('#new-off-from').submit()
     }

@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
             $modal_icon     = 'error';
             $modal_title    = 'Invalid Account';
-            $modal_message  = 'Your provided account has not been registered for this application';
+            $modal_message  = 'The account you provided has not yet been registered.';
             $modal_pos      = '';
 
             require getPartial('admin.confirm-modal');

@@ -22,9 +22,9 @@
                         </div>
                         <div class='f-center f-col docu-details'>
                             <h2>Barangay Clearance</h2>
-                            <p>A document issued by the barangay confirming that the individual or entity has complied with local requirements</p>
+                            <p>An official document issued by a barangay certifying that a person is a resident of the barangay and has no pending issues or complaints within the community.</p>
                         </div>
-                        <a href='services/barangay-clearance' class='f-center proceed-btn scale-anim'><?= getSVG('proceed') ?> Proceed</a>
+                        <a href='services/barangay-clearance' class='f-center proceed-btn scale-anim' draggable='false'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
                     <div class='f-center f-col docu-cards brgy-cert-card'>
                         <div class='img-wrapper'>
@@ -32,9 +32,9 @@
                         </div>
                         <div class='f-center f-col docu-details'>
                             <h2>Barangay Indigency</h2>
-                            <p>A document issued by the barangay confirming that the individual or entity has complied with local requirements</p>
+                            <p>An official document issued by a barangay confirming that a person or family resides in the barangay and qualifies as low-income or financially disadvantaged.</p>
                         </div>
-                        <a href='services/barangay-indigency' class='f-center proceed-btn scale-anim'><?= getSVG('proceed') ?> Proceed</a>
+                        <a href='services/barangay-indigency' class='f-center proceed-btn scale-anim' draggable='false'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
                     <div class='f-center f-col docu-cards ind-cert-card'>
                         <div class='img-wrapper'>
@@ -42,9 +42,9 @@
                         </div>
                         <div class='f-center f-col docu-details'>
                             <h2>Barangay Residency</h2>
-                            <p>A document issued by the barangay confirming that the individual or entity has complied with local requirements</p>
+                            <p>An official document issued by a barangay that verifies an individual's residence within the barangay for a specified period.</p>
                         </div>
-                        <a href='services/barangay-residency' class='f-center proceed-btn scale-anim'><?= getSVG('proceed') ?> Proceed</a>
+                        <a href='services/barangay-residency' class='f-center proceed-btn scale-anim' draggable='false'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,9 @@
                 <div class='f-center f-row steps-wrapper'>
                     <div class='f-center f-col step1-container steps-cont'>
                         <div class='icon-wrapper'>
-                            <div class='step-icon'></div>
+                            <div class='step-icon'>
+                                <img src='<?= getImage('doc-step-1-choose.png') ?>' alt='Step 1: Choose'>
+                            </div>
                         </div>
                         <div class='f-center f-col details-wrapper'>
                             <h3>Step 1: Choose Document</h3>
@@ -65,7 +67,9 @@
                     </div>
                     <div class='f-center f-col step2-container steps-cont'>
                         <div class='icon-wrapper'>
-                            <div class='step-icon'></div>
+                            <div class='step-icon'>
+                                <img src='<?= getImage('doc-step-2-complete.png') ?>' alt='Step 2: Complete'>
+                            </div>
                         </div>
                         <div class='f-center f-col details-wrapper'>
                             <h3>Step 2: Complete Details</h3>
@@ -74,7 +78,9 @@
                     </div>
                     <div class='f-center f-col step3-container steps-cont'>
                         <div class='icon-wrapper'>
-                            <div class='step-icon'></div>
+                            <div class='step-icon'>
+                                <img src='<?= getImage('doc-step-3-gather.png') ?>' alt='Step 3: Gather'>
+                            </div>
                         </div>
                         <div class='f-center f-col details-wrapper'>
                             <h3>Step 3: Gather Supporting Docs</h3>
@@ -83,7 +89,9 @@
                     </div>
                     <div class='f-center f-col step4-container steps-cont'>
                         <div class='icon-wrapper'>
-                            <div class='step-icon'></div>
+                            <div class='step-icon'>
+                                <img src='<?= getImage('doc-step-4-pickup.png') ?>' alt='Step 4: Pick Up'>
+                            </div>
                         </div>
                         <div class='f-center f-col details-wrapper'>
                             <h3>Step 4: Pick up</h3>
@@ -116,6 +124,18 @@
                 </div>
             </div>
         </section>
+        <footer class='f-row services-footer'>
+            <p>&copy 2024 Pamantasan ng Lungsod ng Pasig, BSIT 2A - Group 3. All rights reserved.</p>
+        </footer>
     </main>
+    
+    <div class='scroll-on-top-wrapper' title='Scroll on top'>
+        <div class='scale-anim f-center scroll-on-top'>
+            <?= getSVG('scroll_up'); ?>
+        </div>
+    </div>
+
+    <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
+    <script type='module' src=<?=  getScript('home-page'); ?>></script>
 </body>
 </html>

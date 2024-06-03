@@ -10,6 +10,9 @@
 <body>
     <?php require getPartial('header') ?>
     <main>
+        <section class=''>
+
+        </section>
         <div class='event-content-wrapper'>
             <div class='f-center f-col event-sec-header'>
                 <h2>BARANGAY SAN NICOLAS' EVENTS</h2>
@@ -37,6 +40,9 @@
 
         </div>
         </div>
+        <footer class='f-row events-footer'>
+            <p>&copy 2024 Pamantasan ng Lungsod ng Pasig, BSIT 2A - Group 3. All rights reserved.</p>
+        </footer>
     </main>
 </body>
 </html>

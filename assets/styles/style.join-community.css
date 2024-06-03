@@ -59,6 +59,11 @@ form section
     gap: var(--ws-4);
 }
 
+.menu-wrapper
+{
+    align-items: flex-start;
+}
+
 .menu-wrapper svg
 {
     fill: var(--black);
@@ -68,10 +73,23 @@ form section
 
 .back-btn
 {
-    color: var(--black);
-    text-decoration: none;
-    font-size: var(--body-large);
+    height: 40px;
+    padding: var(--ws-2);
+    padding-right: var(--ws-3);
+    background-color: var(--black);
     margin-bottom: var(--ws-4);
+    border-radius: var(--ws-1);
+    color: var(--white);
+    font-size: var(--body-medium);
+    gap: var(--ws-1);
+    text-decoration: none;
+    text-align: center;
+}
+
+.back-btn svg
+{
+    height: var(--ws-4);
+    fill: var(--white);
 }
 
 .btn-wrapper

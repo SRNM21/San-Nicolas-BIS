@@ -21,7 +21,7 @@
                     <h1 class='landing-title'>BARANGAY SAN NICOLAS</h1>
                     <p class='landing-text'>Barangay San Nicolas beckons with friendly faces and helping hands. Feel welcome to this active community where neighbors become friends. </p>
                 </div>
-                <a href='join-community' class='f-center f-row join-com-btn scale-anim' title='Join our community'><?= getSVG('join'); ?>Join our community</a>
+                <a href='join-community' draggable='false' class='f-center f-row join-com-btn scale-anim' title='Join our community'><?= getSVG('join'); ?>Join our community</a>
             </div>
         </section>
         
@@ -103,7 +103,7 @@
         <!-- MISSION AND VISION -->
         <section id='mission-vision' class='f-center f-col mivis-section'>
             <div class='f-row section-content mivis-section-content'>
-                <div class='f-col mivis-row'>
+                <div class='f-row mivis-row'>
                     <div class='f-col mivis-eng'>
                         <h3 class='mivis-lang'>English</h3>
                         <div>
@@ -134,7 +134,7 @@
         <footer class='f-center main-footer'>
             <div class='footer-content-wrapper'>
                 <div class='f-row content'>
-                    <div class='f-col content-section'>
+                    <div class='f-col content-section contact-section'>
                         <div class='f-col txt-wrapper'>
                             <h4>Contact us</h4>
                             <p>For inquiries, feedback, concerns, or suggestions, feel free to reach out to us via the following:</p>
@@ -146,7 +146,7 @@
                             </span>
                             <span class='f-row'>
                                 <?= getSVG('mail'); ?>
-                                <a href='mailto:brgysannicolas.pasig@gmail.com' target='_blank' title='Barangay San Nicolas Email'>Brgy. San Nics Email</a>
+                                <a href='mailto:brgysannicolas.pasig@gmail.com' target='_blank' title='Barangay San Nicolas Email'>Brgy. San Nicolas Email</a>
                             </span>    
                             <span class='f-row'>
                                 <?= getSVG('phone'); ?>
@@ -168,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class='f-col content-section'>
+                    <div class='f-col content-section feedback-section'>
                         <div class='f-col txt-wrapper'>
                             <h4>We value your suggestions</h4>
                             <div class='feedback-form-wrapper'>

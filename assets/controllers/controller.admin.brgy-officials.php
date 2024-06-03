@@ -71,6 +71,8 @@ if (isset($_GET['delete-confirm']))
         $modal_icon     = 'success';
         $modal_title    = 'Deleted Successfully';
         $modal_message  = 'Barangay official is successfully deleted!';
+
+        logEvent('Barangay Officials', $delete, 'DELETE');
     }
     else 
     {
@@ -85,6 +87,7 @@ if (isset($_GET['delete-confirm']))
 
 if (isset($_GET['export']))
 {
+    logEvent('Barangay Officials', 'N/A', 'EXPORT');
     $export_list = $data;
     require getLibrary('fpdf-officials');
 }

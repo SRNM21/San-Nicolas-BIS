@@ -64,3 +64,14 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+.group-title::after
+{
+    content: ' ';
+    height: 3px;
+    width: 100%;
+    margin: auto;
+    display: block;
+    margin-top: var(--ws-1);
+    background-color: var(--black);
+}

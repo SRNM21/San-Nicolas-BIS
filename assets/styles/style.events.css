@@ -70,3 +70,17 @@
     width: 100%;
     object-fit: contain;
 }
+
+.events-footer
+{
+    height: fit-content;
+    padding: var(--ws-8);
+    background-color: var(--plt-red-2);
+    justify-content: space-between;
+}
+
+.events-footer p
+{
+    color: var(--white);
+    font-size: var(--body-small);
+}

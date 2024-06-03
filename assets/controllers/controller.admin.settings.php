@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $modal_icon     = 'success';
                 $modal_title    = 'Updaeted Successfully!';
                 $modal_message  = 'Admin acccount is successfullt updated.';
+                logEvent('Admin', $update, 'UPDATE');
             }
             else 
             {
@@ -82,10 +83,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 
                 if ($add != 0)
                 {
-                    logEvent('events', $id, 'CREATE');
                     $modal_icon     = 'success';
                     $modal_title    = 'Added Successfully!';
                     $modal_message  = 'New Event is added';
+                    logEvent('Events', $add, 'CREATE');
                 }
                 else 
                 {
@@ -179,6 +180,7 @@ if (isset($_GET['confirm-delete']))
         $modal_icon = 'success';
         $modal_title = 'Event Deleted Successfully!';
         $modal_message = 'Event has been deleted.';
+        logEvent('Events', $add, 'DELETE');
     }
     else 
     {

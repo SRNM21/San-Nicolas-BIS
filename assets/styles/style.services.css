@@ -28,6 +28,7 @@ section
 
 .services-title
 {
+    text-align: center;
     font-size: var(--header-h5);
 }
 
@@ -88,6 +89,18 @@ section
     gap: var(--ws-2);
 }
 
+.docu-details p
+{
+    font-size: var(--body-medium);
+    text-align: center;
+}
+
+.docu-details h2
+{
+    text-align: center;
+    font-size: var(--header-h5);
+}
+
 .proceed-btn
 {
     background-color: var(--black);
@@ -102,6 +115,7 @@ section
 .online-docu-req-steps-wrapper
 {
     height: fit-content;
+    margin-top: var(--ws-10);
     padding: var(--ws-8);
 }
 
@@ -126,7 +140,7 @@ section
 
 .steps-cont
 {
-    width: 20%;
+    width: 25%;
     min-width: 200px;
     max-width: 320px;
     padding: var(--ws-2);
@@ -137,7 +151,13 @@ section
 {
     height: 100px;
     width: 100px;
-    background-color: gray;
+}
+
+.step-icon img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .details-wrapper
@@ -155,7 +175,7 @@ section
 
 .hotline-num-card
 {
-    min-width: 400px;
+    min-width: 320px;
     background-color: var(--white);
     border-radius: var(--ws-1);
     padding: var(--ws-4);
@@ -182,6 +202,48 @@ section
     align-items: start;
 }
 
-@media screen and (max-width: 1020px)
+.scroll-on-top-wrapper 
 {
+    display: none;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: var(--ws-5);
+    right: var(--ws-5);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.scroll-on-top
+{
+    height: 100%;
+    width: 100%;
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+}
+
+.scroll-on-top:hover
+{
+    background-color: var(--gray-gr-2);
+}
+
+.su-icon
+{
+    width: 70%;
+    height: 70%;
+    fill: var(--dark-gr-6);
+}
+
+.services-footer
+{
+    height: fit-content;
+    padding: var(--ws-8);
+    background-color: var(--plt-red-2);
+    justify-content: space-between;
+}
+
+.services-footer p
+{
+    color: var(--white);
+    font-size: var(--body-small);
 }

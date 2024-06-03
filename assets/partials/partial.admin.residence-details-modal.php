@@ -12,7 +12,7 @@
     ?>
         <div class='f-row info-row'>
             <div class='f-col info-col'>
-                <h3>Personal Info</h3>
+                <h3 class='group-title'>Personal Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Lastname</p>
@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <h3>Contact Info</h3>
+                <h3 class='group-title'>Contact Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Contact Number</p>
@@ -64,7 +64,7 @@
             </div>
             
             <div class='f-col info-col'>
-                <h3>Location Info</h3>
+                <h3 class='group-title'>Location Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Purok</p>
@@ -106,7 +106,7 @@
 
         <div class='f-row info-row'>
             <div class='f-col info-col'>
-                <h3>Person Info</h3>
+                <h3 class='group-title'>Person Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Lastname</p>
@@ -159,7 +159,7 @@
                     </div>
                 </div>
 
-                <h3>Contact Info</h3>
+                <h3 class='group-title'>Contact Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Email</p>
@@ -169,7 +169,7 @@
             </div>
             
             <div class='f-col info-col'>
-                <h3>Location Info</h3>
+                <h3 class='group-title'>Location Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Purok</p>
@@ -206,7 +206,7 @@
 
         <div class='f-row info-row'>
             <div class='f-col info-col'>
-                <h3>Person Info</h3>
+                <h3 class='group-title'>Person Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Lastname</p>
@@ -251,7 +251,7 @@
                     </div>
                 </div>
 
-                <h3>Contact Info</h3>
+                <h3 class='group-title'>Contact Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Email</p>
@@ -261,7 +261,7 @@
             </div>
             
             <div class='f-col info-col'>
-                <h3>Location Info</h3>
+                <h3 class='group-title'>Location Info</h3>
                 <div class='f-row info-row'>
                     <div class='f-col info-grp'>
                         <p class='info-lbl'>Purok</p>

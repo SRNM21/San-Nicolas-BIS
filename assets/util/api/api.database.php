@@ -254,13 +254,7 @@ function addRecord($data, $table)
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 
-        if ($stmt->execute())
-        {
-            logEvent($table, $data[0], 'CREATE');
-            return $data[0];
-        }
-        
-        return 0;
+        return $stmt->execute() ? $data[0] : 0;
     } 
     catch(Error $e) 
     {
@@ -277,13 +271,7 @@ function deletRecord($id, $table, $column)
     $stmt = $cursor->prepare($sql);
     $stmt->bind_param('s', $id);
     
-    if ($stmt->execute())
-    {
-        logEvent($table, $id, 'DELETE');
-        return true;
-    }
-
-    return false;
+    return $stmt->execute() ? $id : 0;
 }
 
 function addOfficials($data)
@@ -316,7 +304,6 @@ function addOfficials($data)
 
         if ($stmt->execute() && move_uploaded_file($data['temp_prof'], $data['folder']))
         {
-            logEvent('barangay_officials', $data['id'], 'CREATE');
             return 1;
         }
 
@@ -339,7 +326,7 @@ function addDocumentRequest($data)
     try 
     {
         $stmt = $cursor->prepare($sql);
-        $stmt->bind_param('sssssssiisssssss', ...$data);
+        $stmt->bind_param('sssssssisssssss', ...$data);
 
         return $stmt->execute() ? $data[0] : 0;
     } 
@@ -395,7 +382,6 @@ function updateOfficials($data)
                 if (!move_uploaded_file($data['temp_prof'], $data['folder'])) return 0;
             }
 
-            logEvent('barangay_officials', $id, 'UPDATE');
             return 1;
         }
         else 
@@ -405,7 +391,6 @@ function updateOfficials($data)
     } 
     catch(Error $e) 
     {
-        echo $e;
         return -1;
     }
 }
@@ -549,8 +534,6 @@ function updateSpouse($data)
     global $cursor;
     $inp = str_repeat('s', count($data));
 
-    echo print_r($data);
-
     $sql = 'UPDATE spouse SET 
                 family_head_id = ?,
                 last_name = ?,
@@ -636,7 +619,6 @@ function updateRequestDocumentStatus($id, $status)
 
         if ($stmt->execute())
         {
-            logEvent('request_document', end($data), 'UPDATE');
             return 1;
         }
 
@@ -664,7 +646,6 @@ function claimRequestDocument($id)
 
         if ($stmt->execute())
         {
-            logEvent('request_document', end($data), 'UPDATE');
             return 1;
         }
 
@@ -698,7 +679,6 @@ function updateBlotter($data)
 
         if ($stmt->execute())
         {
-            logEvent('blotter', end($data), 'UPDATE');
             return 1;
         }
 
@@ -706,7 +686,6 @@ function updateBlotter($data)
     } 
     catch(Error $e) 
     {
-        echo $e;
         return -1;
     }
 }

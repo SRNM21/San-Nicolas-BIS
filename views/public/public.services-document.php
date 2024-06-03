@@ -89,17 +89,6 @@
                                     <input type='mail' name='email' id='email' class='info-inp email' placeholder='Enter Email'>
                                     <p class='error-info em-err'></p>
                                 </div>                            
-
-                            <?php if ($has_annual) { ?>
-
-                                <div class='f-col inp-col'>
-                                    <label for='annual' class='req'>Annual Income</label>
-                                    <input type='number' name='annual' id='annual' class='info-inp annual' placeholder='Enter Annual Income'>
-                                    <p class='error-info ai-err'></p>
-                                </div>
-
-                            <?php } ?>
-
                             </div>
                             <div class='f-row inp-row brgy-document-btn-wrapper'>
                                 <button type='submit' class='brgy-document-btn scale-anim' id='sbm-btn'>Submit</button>

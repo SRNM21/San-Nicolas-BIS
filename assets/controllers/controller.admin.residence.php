@@ -75,6 +75,7 @@ if (isset($_GET['confirm-delete']))
         $modal_icon = 'success';
         $modal_title = 'Resident Deleted Successfully!';
         $modal_message = 'Resident has been deleted.';
+        logEvent('Residents', $delete, 'DELETE');
     }
     else 
     {
@@ -91,24 +92,28 @@ if (isset($_GET['confirm-delete']))
 if (isset($_GET['export-all']))
 {
     $export_list = queryTable('v_residence', null);
+    logEvent('Residents', 'N/A', 'EXPORT');
     require getLibrary('fpdf-residence');
 }
 
 if (isset($_GET['export-family-head']))
 {
     $export_list = queryTable('familyhead', null);
+    logEvent('Residents', 'N/A', 'EXPORT');
     require getLibrary('fpdf-fam-head');
 }
 
 if (isset($_GET['export-family-member']))
 {
     $export_list = queryTable('familymember', null);
+    logEvent('Residents', 'N/A', 'EXPORT');
     require getLibrary('fpdf-fam-member');
 }
 
 if (isset($_GET['export-spouse']))
 {
     $export_list = queryTable('spouse', null);
+    logEvent('Residents', 'N/A', 'EXPORT');
     require getLibrary('fpdf-spouse');
 }
 

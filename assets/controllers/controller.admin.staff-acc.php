@@ -22,14 +22,25 @@ if (isset($_GET['delete-staff-id']))
 
 if (isset($_GET['confirm-delete-staff']))
 {
-    if (deletRecord($_GET['confirm-delete-staff'], 'barangay_staff', 'staff_id'))
+    $delete = deletRecord($_GET['confirm-delete-staff'], 'barangay_staff', 'staff_id');
+    
+    if ($delete != 0)
     {
         $modal_icon     = 'success';
         $modal_title    = 'Deleted Successfully!';
         $modal_message  = 'One of the Barangay Staff has been deleted';
         $modal_pos      = "staff-accounts";
-        require getPartial('admin.confirm-modal');
+        logEvent('Barangay Staff', $delete, 'DELETE');
     }
+    else 
+    {
+        $modal_icon     = 'error';
+        $modal_title    = 'Delete Failed!';
+        $modal_message  = 'An error occured while deleting Barangay Staff';
+        $modal_pos      = "staff-accounts";
+    }
+
+    require getPartial('admin.confirm-modal');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

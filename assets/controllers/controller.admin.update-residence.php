@@ -63,7 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $_POST['fam-member-inschool'],
             $_POST['fam-member-occupation'],
             $_POST['fam-member-med-hist'],
-            $_POST['fam-member-fam-head'],
             $id
         ];
         
@@ -83,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $_POST['spouse-educ-stat'],
             $_POST['spouse-birthdate'],
             $_POST['spouse-civil-status'],
-            $_POST['spouse-fam-head'],
             $id
         ];
         
@@ -94,14 +92,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $modal_icon     = 'success';
         $modal_title    = 'Updated Successfully!';
-        $modal_message  = "<b>$fullname</b> has been updated successfully.";
+        $modal_message  = "Your changes to <b>$fullname</b> have been applied.";
         $modal_pos      = "residence";
+        logEvent('Residence', $update, 'UPDATE');
     }
     else 
     {
         $modal_icon     = 'error';
         $modal_title    = 'Updated Failed!';
-        $modal_message  = "An error occured while updating <b>$fullname</b>.";
+        $modal_message  = "An unexpected problem occurred during the update of <b>$fullname</b>.";
         $modal_pos      = "residence/update-resident?id=$id";
     }
 

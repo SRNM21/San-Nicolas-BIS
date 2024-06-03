@@ -26,8 +26,8 @@ if (isset($_GET['delete']))
     $nat_of_comp    = $blotter['nature_of_complaint'];
 
     $modal_icon     = 'error';
-    $modal_title    = 'Confirm Delete';
-    $modal_message  = "Are you sure to delete this blotter? This proccess cannot be undone.<br><br> 
+    $modal_title    = 'Confirm Deletion';
+    $modal_message  = "Deleting this is permanent and cannot be undone.<br><br> 
                         <b>Complainant:</b>
                         $complainant<br> 
                         <b>Respondent:</b>
@@ -44,14 +44,25 @@ if (isset($_GET['delete']))
 
 if (isset($_GET['confirm-delete']))
 {
-    if (deletRecord($_GET['confirm-delete'], 'blotter', 'complaint_id'))
+    $delete = deletRecord($_GET['confirm-delete'], 'blotter', 'complaint_id');
+    
+    if ($delete != 0)
     {
         $modal_icon     = 'success';
         $modal_title    = 'Deleted Successfully';
         $modal_message  = 'Blotter has been deleted!';
         $modal_pos      = 'blotter';
-        require getPartial('admin.confirm-modal');
+        logEvent('Blotter', $delete, 'DELETE');
     }
+    else 
+    {
+        $modal_icon     = 'error';
+        $modal_title    = 'Delete Failed';
+        $modal_message  = 'An error occured while deleting blotter';
+        $modal_pos      = "blotter";
+    }
+
+    require getPartial('admin.confirm-modal');
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

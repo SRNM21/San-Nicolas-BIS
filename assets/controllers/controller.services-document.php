@@ -12,7 +12,6 @@ $parsedUrl      = parse_url($uri, PHP_URL_PATH);
 $trimmedPath    = rtrim($parsedUrl, '/');
 $parts          = explode('/', $trimmedPath);
 $curr_uri       = end($parts);
-$has_annual     = false;
 $doctype;
 
 if ($curr_uri == 'barangay-clearance')
@@ -39,7 +38,6 @@ else if ($curr_uri == 'barangay-indigency')
 else if ($curr_uri == 'barangay-residency')
 {
     $doctype = 'Barangay Residency';
-    $has_annual = true;
     
     $requirements = [
         "Government issued ID addressed in Barangay San Nicolas, Pasig City (e.g. Passport, Driver's License, SSS/GSIS ID, PRC ID, Postal ID)
@@ -62,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_POST['birthdate'],
         $_POST['address'],
         $_POST['y-of-res'],
-        $has_annual ? $_POST['annual'] : 0,
         $doctype,
         $_POST['purpose'],
         $_POST['cont-num'],
@@ -77,8 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     if ($add != 0)
     {
         $modal_icon     = 'success';
-        $modal_title    = 'Request Successfully!';
-        $modal_message  = 'Your request has been sent to our office.';
+        $modal_title    = 'Request Completed!';
+        $modal_message  = 'Your request is being processed.';
     }
     else 
     {

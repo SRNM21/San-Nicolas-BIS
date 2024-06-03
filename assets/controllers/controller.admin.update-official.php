@@ -46,7 +46,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             require getPartial('admin.modal');
             exit;
         }
-        
 
         if (file_exists("assets/uploads/$id.jpg")) 
         {        
@@ -95,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $modal_title    = 'Updated Successfully!';
         $modal_message  = "<b>$fullname</b> has been updated successfully.";
         $modal_pos      = "barangay-officials";
+        logEvent('Barangay Official', $id, 'UPDATE');
     }
     else 
     {

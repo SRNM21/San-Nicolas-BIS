@@ -117,14 +117,6 @@
     width: 200px;
 }
 
-.error-info
-{
-    color: var(--error);
-    line-height: 1.5;
-    font-size: var(--body-medium);
-    width: 200px;
-}
-
 .submit-btn-wrapper
 {
     flex: 1;

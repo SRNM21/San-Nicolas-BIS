@@ -20,14 +20,33 @@ if (isset($_GET['details']))
 
 if (isset($_GET['approve']))
 {
-    $req_id = $_GET['approve'];
+    $req_id         = $_GET['approve'];
+    $req_rec        = getRecord($req_id, 'request_document', 'docs_id');
+    $fullname       = $req_rec['last_name'] . ', ' . $req_rec['first_name'] . ' ' . $req_rec['middle_name'];
+
+    $modal_icon     = 'question';
+    $modal_title    = 'Confirm Request';
+    $modal_message  = "Are you sure to confirm request of <b>$fullname</b>?";
+
+    $prm_txt        = 'Confirm';
+    $scn_txt        = 'Cancel';
+    $prm_href       = "requested-documents?confirm-approve=$req_id";
+    $scn_href       = 'requested-documents';
+
+    require getPartial('admin.modal');
+}
+
+if (isset($_GET['confirm-approve']))
+{
+    $req_id = $_GET['confirm-approve'];
     $approved = updateRequestDocumentStatus($req_id, 'pending');
 
     if ($approved != 0)
     {
         $modal_icon     = 'success';
-        $modal_title    = 'Request Approval';
-        $modal_message  = 'The document request was approved.';
+        $modal_title    = 'Document Approved!';
+        $modal_message  = 'The document request is approved.';
+        logEvent('Document Request', $approved, 'APPROVE');
     }
     else 
     {
@@ -47,8 +66,8 @@ if (isset($_GET['decline']))
     $fullname       = $person['last_name'] . ', ' . (handleEmptyValue('', $person['suffix']) == '' ? '' : $person['suffix'] . ', ') . $person['first_name'] . ' ' . $person['middle_name'];
 
     $modal_icon     = 'error';
-    $modal_title    = 'Confirm Decline';
-    $modal_message  = "Are you sure to decline <b>$fullname's</b> Request?";
+    $modal_title    = 'Confirm Deletion';
+    $modal_message  = "Confirm decline for <b>$fullname's</b> request?";
     $scn_href       = 'requested-documents';
     $prm_href       = "requested-documents?filter=request&confirm-decline=$req_id";
     $scn_txt        = 'Cancel';
@@ -70,6 +89,7 @@ if (isset($_GET['confirm-decline']))
         $modal_icon = 'success';
         $modal_title = 'Request Declined Successfully!';
         $modal_message = 'Request has been declined.';
+        logEvent('Document Request', $declined, 'DECLINE');
     }
     else 
     {
@@ -90,8 +110,8 @@ if (isset($_GET['remove']))
     $fullname       = $person['last_name'] . ', ' . (handleEmptyValue('', $person['suffix']) == '' ? '' : $person['suffix'] . ', ') . $person['first_name'] . ' ' . $person['middle_name'];
 
     $modal_icon     = 'error';
-    $modal_title    = 'Confirm Remove';
-    $modal_message  = "Are you sure to remove <b>$fullname's</b> document?";
+    $modal_title    = 'Confirm Removal';
+    $modal_message  = "Are you absolutely sure you want to remove <b>$fullname's</b> document?";
     $scn_href       = 'requested-documents';
     $prm_href       = "requested-documents?filter=pending&confirm-remove=$req_id";
     $scn_txt        = 'Cancel';
@@ -113,6 +133,7 @@ if (isset($_GET['confirm-remove']))
         $modal_icon = 'success';
         $modal_title = 'Document Removed Successfully!';
         $modal_message = 'Documnet has been removed.';
+        logEvent('Document Request', $declined, 'REMOVE');
     }
     else 
     {
@@ -153,6 +174,7 @@ if (isset($_GET['confirm-restore']))
         $modal_icon = 'success';
         $modal_title = 'Request Restored Successfully!';
         $modal_message = 'Request has been restored.';
+        logEvent('Document Request', $restore, 'RESTORE');
     }
     else 
     {
@@ -193,6 +215,7 @@ if (isset($_GET['confirm-delete-forever']))
         $modal_icon = 'success';
         $modal_title = 'Request Deleted Successfully!';
         $modal_message = 'Request has been deleted forever.';
+        logEvent('Document Request', $delete, 'DELETE');
     }
     else 
     {
@@ -216,6 +239,7 @@ if (isset($_GET['print']))
 
     $data = getRecord($id, 'request_document', 'docs_id');
     
+    logEvent('Document Request', $id, 'PRINT');
     require getLibrary('fpdf-docs');
 }
 

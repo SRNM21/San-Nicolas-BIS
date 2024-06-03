@@ -1,4 +1,3 @@
-
 <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
 <link rel='stylesheet' href=<?= getStyle('partial.delete-official-modal'); ?>>
 <div class='f-center modal-container'>
@@ -10,8 +9,8 @@
                 </div>
             </header>
             <div class='f-col mess-container'>
-                <h2>Are you sure?</h2>
-                <p>Do you really want to delete <b><?= $fullname ?></b>. This process can not be undone</p>
+                <h2>Confirm Deletion</h2>
+                <p>Deleting <b><?= $fullname ?></b>, is permanent and cannot be undone.</p>
             </div>
         </div>
         <div class='f-row btn-wrapper'>

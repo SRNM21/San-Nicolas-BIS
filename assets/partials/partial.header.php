@@ -26,13 +26,13 @@ $on_events          = str_starts_with($com_uri, 'events');
         <nav class='desktop-nav'>
             <ul class='f-row desktop-nav-list'>
                 <li>
-                    <a href='<?= $origin ?>home' class='f-col <?= $on_home ? 'active' : '' ?>'>Home</a>
+                    <a href='<?= $origin ?>home' draggable='false' class='f-col <?= $on_home ? 'active' : '' ?>'>Home</a>
                 </li>
                 <li>
-                    <a href='<?= $origin ?>services' class='f-col <?= $on_services ? 'active' : '' ?>'>Services</a>
+                    <a href='<?= $origin ?>services' draggable='false' class='f-col <?= $on_services ? 'active' : '' ?>'>Services</a>
                 </li>
                 <li>
-                    <a href='<?= $origin ?>events' class='f-col <?= $on_events ? 'active' : '' ?>'>Events</a>
+                    <a href='<?= $origin ?>events' draggable='false' class='f-col <?= $on_events ? 'active' : '' ?>'>Events</a>
                 </li>
             </ul>
         </nav>
@@ -67,16 +67,16 @@ $on_events          = str_starts_with($com_uri, 'events');
                     <a href='home' class='out-nav'>Home</a>
                 </li>
                 <li>
-                    <a href='home#officials' class='out-nav'>Barangay Officials</a>
+                    <a href='home#officials' draggable='false' class='out-nav'>Barangay Officials</a>
                 </li>
                 <li>
-                    <a href='home#mission-vision' class='out-nav'>Mission and Vision</a>
+                    <a href='home#mission-vision' draggable='false' class='out-nav'>Mission and Vision</a>
                 </li>
                 <li>
-                    <a href='services' class='out-nav'>Services</a>
+                    <a href='services' draggable='false' class='out-nav'>Services</a>
                 </li>
                 <li>
-                    <a href='events' class='out-nav'>Events</a>
+                    <a href='events' draggable='false' class='out-nav'>Events</a>
                 </li>
             </ul>
         </div>
@@ -84,13 +84,13 @@ $on_events          = str_starts_with($com_uri, 'events');
         <footer class='f-center f-col lower-container'>
             <div class='f-row on-contacts-wrapper'>
                 <span class='f-center on-contacts'>
-                    <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('facebook'); ?></a>
+                    <a href='https://www.facebook.com/groups/394605741237735/' draggable='false' target='_blank' class='out-nav' title='Barangay San Nicolas Facebook Group' class='f-center'><?= getSVG('facebook'); ?></a>
                 </span>
                 <span class='f-center on-contacts'>
-                    <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('mail'); ?></a>
+                    <a href='mailto:brgysannicolas.pasig@gmail.com' draggable='false' target='_blank' class='out-nav' title='Barangay San Nicolas Facebook Group' class='f-center'><?= getSVG('mail'); ?></a>
                 </span> 
                 <span class='f-center on-contacts'>
-                    <a href='' class='out-nav' title='Barangay San Nicolas' Facebook Group' class='f-center'><?= getSVG('phone'); ?></a>
+                    <a href='tel:8 643000' draggable='false' class='out-nav' target='_blank' title='Barangay San Nicolas Facebook Group' class='f-center'><?= getSVG('phone'); ?></a>
                 </span>
             </div>
             <div>
