@@ -77,9 +77,8 @@
                         { 
                             $lastname       = $official['last_name'];
                             $firstname      = $official['first_name'];
-                            $middlename     = $official['middle_name'];
                     
-                            $fullname = "$firstname $middlename[0]. $lastname";
+                            $fullname = "$firstname $lastname";
 
                             if ($official['position'] != 'Barangay Captain')
                             {  

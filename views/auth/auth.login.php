@@ -22,8 +22,8 @@
                     <main class='login-form-wrapper'>
                         <form action='administrator' method='POST' class='f-col login-form'>
                             <div class='f-col login-input-wrapper'>
-                                <input value="Gengar" class='login-input username' placeholder='Username' type='text' id='username' name='username'>
-                                <input value="659_Gengar_$$" class='login-input password' placeholder='Password' type='password' id='password' name='password'>
+                                <input class='login-input username' placeholder='Username' type='text' id='username' name='username'>
+                                <input class='login-input password' placeholder='Password' type='password' id='password' name='password'>
                                 <div class='f-center f-row toggle-pass-wrapper'>
                                     <input type='checkbox' name='toggle-pass' id='toggle-pass' class='toggle-pass'>
                                     <p class='toggle-pass-hint'>Show password</p>
