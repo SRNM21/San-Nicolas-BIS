@@ -52,8 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $modal_icon     = 'success';
         $modal_title    = 'Feedback Sent';
-        $modal_success  = 'Your feedback has been sent to our office';
+        $modal_message  = 'Your feedback has been sent to our office';
         $modal_pos      = '-';
+        $path           = 'home';
 
         require getPartial('admin.confirm-modal');
     }

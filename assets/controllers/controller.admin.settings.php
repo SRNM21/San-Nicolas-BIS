@@ -59,44 +59,45 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $modal_pos = '-';
             $path = 'settings';
             require getPartial('admin.confirm-modal');
-            exit;
         }
-
-        $filename       = $up_file['name'];
-        $tempname       = $up_file['tmp_name'];
-        $filetype       = $up_file['type'];
-        $filename       = $id . '.' . pathinfo($filename, PATHINFO_EXTENSION);
-        $folder         = './assets/uploads/' . $filename;
-
-        $event_details = [
-            $id,
-            $_POST['title'],
-            $_POST['details'],
-            $filename,
-            $_POST['date']
-        ];
-
-        if (move_uploaded_file($tempname, $folder))
+        else
         {
-            $add = addRecord($event_details, 'events');
+            $filename       = $up_file['name'];
+            $tempname       = $up_file['tmp_name'];
+            $filetype       = $up_file['type'];
+            $filename       = $id . '.' . pathinfo($filename, PATHINFO_EXTENSION);
+            $folder         = './assets/uploads/' . $filename;
 
-            if ($add != 0)
-            {
-                logEvent('events', $id, 'CREATE');
-                $modal_icon     = 'success';
-                $modal_title    = 'Added Successfully!';
-                $modal_message  = 'New Event is added';
-            }
-            else 
-            {
-                $modal_icon     = 'error';
-                $modal_title    = 'Add Failed!';
-                $modal_message  = 'An Error occured while adding new Event.';
-            }
+            $event_details = [
+                $id,
+                $_POST['title'],
+                $_POST['details'],
+                $filename,
+                $_POST['date']
+            ];
 
-            $modal_pos = '-';
-            $path = 'settings';
-            require getPartial('admin.confirm-modal');
+            if (move_uploaded_file($tempname, $folder))
+            {
+                $add = addRecord($event_details, 'events');
+
+                if ($add != 0)
+                {
+                    logEvent('events', $id, 'CREATE');
+                    $modal_icon     = 'success';
+                    $modal_title    = 'Added Successfully!';
+                    $modal_message  = 'New Event is added';
+                }
+                else 
+                {
+                    $modal_icon     = 'error';
+                    $modal_title    = 'Add Failed!';
+                    $modal_message  = 'An Error occured while adding new Event.';
+                }
+
+                $modal_pos = '-';
+                $path = 'settings';
+                require getPartial('admin.confirm-modal');
+            }
         }
     }
     else if (isset($_POST['old-user']))

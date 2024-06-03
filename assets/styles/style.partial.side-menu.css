@@ -54,6 +54,7 @@
 {
     flex: 1;
     margin-bottom: var(--ws-4);
+    padding-right: var(--ws-1);
     overflow-y: scroll;
     overflow-x: hidden;
     justify-content: space-between;
@@ -61,7 +62,7 @@
 
 .admin-nav-link-wrapper::-webkit-scrollbar 
 {
-    width: 5px;
+    width: 2px;
 }
   
 .admin-nav-link-wrapper::-webkit-scrollbar-track
