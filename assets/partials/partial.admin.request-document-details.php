@@ -43,16 +43,6 @@
                     <p class='modal-subtitle'>Years of Residency</p>
                     <p><?= $complaint['years_of_residence'] ?></p>
                 </div>
-
-                <?php if ($complaint['annual_income'] != 0) { ?>
-
-                <div class='f-col modal-group'>
-                    <p class='modal-subtitle'>Annual Income</p>
-                    <p><?= $complaint['annual_income']; ?></p>
-                </div>
-
-                <?php } ?>
-
             </div>
             <div class='f-row g-row'>
                 <div class='f-col nat-of-comp-wrapper modal-group'>
