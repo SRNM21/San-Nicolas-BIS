@@ -22,9 +22,9 @@ function queryGenderStatistic()
         {
             setGenderChart(response)
         },
-        error: function (error) 
+        error: function (req, err) 
         {  
-            console.log(error)
+            console.log(err)
         }
     });
 }
@@ -64,9 +64,9 @@ function queryPurokPopulationStatistic()
         {
             setPurokPopulationChart(response)
         },
-        error: function (error) 
+        error: function (req, err) 
         {  
-            console.log(error)
+            console.log(req)
         }
     });
 }

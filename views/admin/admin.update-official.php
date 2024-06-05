@@ -38,8 +38,8 @@
                                         <input class='no-form-input' type='text' data-input='Firstname' name='firstname' id='firstname' placeholder='Enter Firstname' value='<?= $firstname ?>'>
                                         <p class='error-info fn-err'></p>
                                     </div>
-                                    <div class='f-col'>
-                                        <label class='no-form-label req' for='middlename'>Middlename</label>
+                                    <div class='f-col'>         
+                                        <label class='no-form-label' for='middlename'>Middlename</label>
                                         <input class='no-form-input' type='text' data-input='Middlename' name='middlename' id='middlename' placeholder='Enter Middlename' value='<?= $middlename ?>'>
                                         <p class='error-info mn-err'></p>
                                     </div>
@@ -52,9 +52,9 @@
                                     </div>
                                     <div class='f-col'>
                                         <label class='no-form-label req' for='gender'>Gender</label>
-                                        <select class='no-form-input' name='gender' id='gender' value='<?= $gender ?>'>
-                                            <option value='Male'>Male</option>
-                                            <option value='Female'>Female</option>
+                                        <select class='no-form-input' name='gender' id='gender' selected='selected'>
+                                            <option value='Male'<?= $gender == 'Male' ? ' selected="selected"' : '' ?>>Male</option>
+                                            <option value='Female'<?= $gender == 'Female' ? ' selected="selected"' : '' ?>>Female</option>
                                         </select>
                                         <p class='error-info gen-err'></p>
                                     </div>
@@ -65,7 +65,7 @@
                                         <p class='error-info em-err'></p>
                                 </div>
                                 <div class='f-col'>
-                                    <label class='no-form-label req' for='email'>Profile</label>
+                                    <label class='no-form-label' for='email'>Profile</label>
                                     <input class='no-form-input' type='file' name='profile' id='profile' value='' />
                                         <p class='error-info pro-err'></p>
                                 </div>
@@ -75,18 +75,28 @@
                                 <div class='f-col'>
                                     <label class='no-form-label req' for='position'>Position</label>
                                     <select class='no-form-input' name='position' id='position' selected='selected'>
-                                        <option value='Barangay Captain' <?= $position == 'Barangay Captain' ? ' selected="selected"' : '';?>>Barangay Captain</option>
-                                        <option value='Barangay Kagawad' <?= $position == 'Barangay Kagawad' ? ' selected="selected"' : '';?>>Barangay Kagawad</option>
-                                        <option value='SK Chairperson' <?= $position == 'SK Chairperson' ? ' selected="selected"' : '';?>>SK Chairperson</option>
-                                        <option value='Barangay Secretary' <?= $position == 'Barangay Secretary' ? ' selected="selected"' : '';?>>Barangay Secretary</option>
-                                        <option value='Barangay Tresurer' <?= $position == 'Barangay Tresurer' ? ' selected="selected"' : '';?>>Barangay Tresurer</option>
+                                    
+                                    <?php foreach ($position_choices as $pos) { ?>
+
+                                        <option value='<?= $pos ?>'><?= $pos ?></option>
+
+                                    <?php } ?>
+
                                     </select>
                                     <p class='error-info pos-err'></p>
                                 </div>
                                 <div class='f-col'>
-                                    <label class='no-form-label req' for='handle'>Handle</label>
-                                    <input class='no-form-input'  type='text' name='handle' id='handle' placeholder='Enter Handle' value='<?= $handle ?>'>
-                                        <p class='error-info han-err'></p>
+                                    <label class='no-form-label' for='comittee'>Comittee Title</label>
+                                    <select class='no-form-input' name='comittee' id='comittee'>
+
+                                    <?php foreach ($comittee_title as $com) { ?>
+
+                                        <option value='<?= $com ?>'<?= $comittee == $com ? ' selected="selected"' : '' ?>><?= $com ?></option>
+
+                                    <?php } ?>
+
+                                    </select>
+                                    <p class='error-info com-err'></p>
                                 </div>
                                 <div class='f-col'>
                                     <label class='no-form-label req' for='status' selected='selected'>Status</label>
@@ -108,6 +118,6 @@
     </div>
     
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
-    <script type='module' src=<?=  getScript('admin.update-official'); ?>></script>
+    <script type='module' src=<?=  getScript('admin.new-official'); ?>></script>
 </body>
 </html>

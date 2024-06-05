@@ -20,7 +20,7 @@ function logEvent($table, $id, $event)
         $event, 
         $table, 
         $id, 
-        date('Y-m-d h:i:s')
+        date('Y-m-d H:i:s')
     ];
 
     $count  = count($data_set);
@@ -33,11 +33,11 @@ function logEvent($table, $id, $event)
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data_set);
 
-        return $stmt->execute() ? 1 : 0;
+        return $stmt->execute() ? STATUS_SUCCESS : STATUS_FAILED;
     } 
     catch(Error $e) 
     {
-        return 0;
+        return STATUS_DB_ERROR;
     }
 }
 
@@ -67,10 +67,10 @@ function hasDuplicateResident($last_name, $first_name, $middle_name)
 {
     global $cursor;
 
-    $sql = "SELECT * FROM v_residence";
-
-        $sql .= " 
-        WHERE CONCAT(first_name, ' ', middle_name, ' ', last_name) LIKE '$first_name $middle_name $last_name'";
+    $sql = "SELECT * 
+            FROM v_residence 
+            WHERE CONCAT(first_name, ' ', middle_name, ' ', last_name) 
+            LIKE '$first_name $middle_name $last_name'";
 
     $stmt = $cursor->prepare($sql);
     $stmt->execute();
@@ -172,7 +172,7 @@ function queryEvents()
 {
     global $cursor;
 
-    $sql = "SELECT * FROM events order by date desc";
+    $sql = "SELECT * FROM events order by event_when asc";
 
     $stmt = $cursor->prepare($sql);
     $stmt->execute();
@@ -246,72 +246,30 @@ function addRecord($data, $table)
     $inp    = str_repeat('s', $count);
 
     $sql    = "INSERT INTO $table VALUES (" . generatePlaceholders($count) .")";
-    
+
     try 
     {
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 
-        return $stmt->execute() ? $data[0] : 0;
+        return $stmt->execute() ? $data[0] : STATUS_FAILED;
     } 
     catch(Error $e) 
     {
-        return 0;
+        return STATUS_DB_ERROR;
     }
 }
 
-function deletRecord($id, $table, $column)
+function deletRecord($id, $table, $id_column)
 {
     global $cursor;
 
-    $sql = "DELETE FROM $table WHERE $column=?";
+    $sql = "DELETE FROM $table WHERE $id_column=?";
 
     $stmt = $cursor->prepare($sql);
     $stmt->bind_param('s', $id);
     
-    return $stmt->execute() ? $id : 0;
-}
-
-function addOfficials($data)
-{
-    global $cursor;
-    $count = count($data) - 2;
-    $inp = str_repeat('s', $count);
-
-    $sql = 'INSERT INTO barangay_officials VALUES (' . generatePlaceholders($count) .')';
-                        
-    try 
-    {
-        $stmt = $cursor->prepare($sql);
-        
-        $stmt->bind_param(
-            $inp, 
-            $data['id'],
-            $data['lastname'],    
-            $data['firstname'],   
-            $data['middlename'],    
-            $data['gender'],  
-            $data['phonenum'],   
-            $data['email'],      
-            $data['position'],   
-            $data['handle'],
-            $data['status'],
-            $data['date_added'],
-            $data['profile']
-        );
-
-        if ($stmt->execute() && move_uploaded_file($data['temp_prof'], $data['folder']))
-        {
-            return 1;
-        }
-
-        return 0;
-    } 
-    catch(Error $e) 
-    {
-        echo $e;
-        return 0;
-    }
+    return $stmt->execute() ? $id : STATUS_FAILED;
 }
 
 function addDocumentRequest($data)
@@ -339,7 +297,6 @@ function updateOfficials($data)
     global $cursor;
     $count = count($data) - 4;
     $inp = str_repeat('s', $count);
-    $id = $data['id'];
 
     $sql = 'UPDATE barangay_officials SET 
                 last_name = ?,
@@ -349,7 +306,7 @@ function updateOfficials($data)
                 phone_number = ?,
                 email = ?,
                 position = ?,
-                handle = ?,
+                comittee_title = ?,
                 status = ?
             WHERE brgy_official_id = ?';
                        
@@ -368,19 +325,18 @@ function updateOfficials($data)
             $data['position'],   
             $data['handle'],
             $data['status'],
-            $id,
+            $data['id'],
         );
 
-        echo $cursor->error;
 
         if ($stmt->execute())
         {   
             if ($data['temp_prof'] != null && $data['folder'] != null)
             {
-                if (!move_uploaded_file($data['temp_prof'], $data['folder'])) return 0;
+                if (move_uploaded_file($data['temp_prof'], $data['folder'])) return 1;
             }
 
-            return 1;
+            return 0;
         }
         else 
         {
@@ -390,6 +346,8 @@ function updateOfficials($data)
     catch(Error $e) 
     {
         return -1;
+        echo $e;
+
     }
 }
 
@@ -721,11 +679,11 @@ function queryGender($table, $col_name)
 
 function getGenderStatistic()
 {
-    $fam_heads = count(queryTable('familyhead', null));
-    $spouse = count(queryTable('spouse', null));
+    $fam_heads = count(queryTable(T_FAMILY_HEAD, null));
+    $spouse = count(queryTable(T_SPOUSE, null));
 
-    $fam_member = queryGender('familymember', 'sex');
-    $barangay_off = queryGender('barangay_officials', 'gender');
+    $fam_member = queryGender(T_FAMILY_MEMBER, 'sex');
+    $barangay_off = queryGender(T_BARANGAY_OFFICIALS, 'gender');
 
     $gender = [
         'female'    => ($spouse + $fam_member['female'] + $barangay_off['female']),

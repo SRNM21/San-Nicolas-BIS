@@ -59,17 +59,22 @@
                                                     <div class='inp-group f-col'>
                                                         <label for='fam-head-civil-status' class='req' >Civil Status</label>
                                                         <select name='fam-head-civil-status' id='fam-head-civil-status' class='fam-head-civil-status info-inp' selected='selected'>
-                                                            <option value='single' <?= $resident['civil_status'] == 'Single' ? ' selected="selected"' : '';?>>Single</option>
-                                                            <option value='married' <?= $resident['civil_status'] == 'Married' ? ' selected="selected"' : '';?>>Married</option>
-                                                            <option value='divorced' <?= $resident['civil_status'] == 'Divorced' ? ' selected="selected"' : '';?>>Divorced</option>
-                                                            <option value='widowed' <?= $resident['civil_status'] == 'Widowed' ? ' selected="selected"' : '';?>>Widowed</option>
+                                                            <option value='' disabled selected>Select Choices</option>
+                                                            <option value='Single' <?= $resident['civil_status'] == 'Single' ? ' selected="selected"' : '' ?>>Single</option>
+                                                            <option value='Married' <?= $resident['civil_status'] == 'Married' ? ' selected="selected"' : '' ?>>Married</option>
+                                                            <option value='Widowed' <?= $resident['civil_status'] == 'Widowed' ? ' selected="selected"' : '' ?>>Widowed</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class='inp-row f-row flexible'>
                                                     <div class='inp-group f-col'>
                                                         <label for='fam-head-educ-stat'>Educational Status</label>
-                                                        <input type='text' name='fam-head-educ-stat' id='fam-head-educ-stat' class='info-inp fam-head-educ-stat' placeholder='Enter Educational Status' value='<?= $resident['educational'] ?>'>
+                                                        <select name='fam-head-educ-stat' id='fam-head-educ-stat' class='fam-head-educ-stat info-inp' selected='selected'>
+                                                            <option value='' disabled selected>Select Choices</option>
+                                                            <option value='Elementary' <?= $resident['educational'] == 'Elementary' ? ' selected="selected"' : '' ?>>Elementary</option>
+                                                            <option value='High School' <?= $resident['educational'] == 'High School' ? ' selected="selected"' : '' ?>>High School</option>
+                                                            <option value='College' <?= $resident['educational'] == 'College' ? ' selected="selected"' : '' ?>>College</option>
+                                                        </select>
                                                         <p class='error-info fh-es-err'></p>
                                                     </div>
                                                     <div class='inp-group f-col'>
@@ -85,8 +90,8 @@
                                                         <p class='error-info fh-cn-err'></p>
                                                     </div>
                                                     <div class='inp-group f-col'>
-                                                        <label for='fam-head-email'>Email</label>
-                                                        <input type='fam-head-email' name='fam-head-email' id='fam-head-email' class='info-inp email' placeholder='Enter Email' value='<?= $resident['email'] ?>'>
+                                                        <label for='fam-head-email' class='req'>Email</label>
+                                                        <input type='fam-head-email' name='fam-head-email' id='fam-head-email' class='info-inp fam-head-email' placeholder='Enter Email' value='<?= $resident['email'] ?>'>
                                                         <p class='error-info fh-em-err'></p>
                                                     </div>
                                                 </div>
@@ -105,12 +110,12 @@
                                                             <?php } ?>
 
                                                             </select>
-                                                            <p class='error-info fh-ad-err'></p>
+                                                            <p class='error-info fh-pk-err'></p>
                                                         </div>
                                                     </div>
                                                     <div class='inp-row f-row'>
                                                         <div class='inp-group f-col'>
-                                                            <label for='fam-head-address' class='req'>Address</label>
+                                                            <label for='fam-head-address req' class='req'>Address</label>
                                                             <input type='text' name='fam-head-address' id='fam-head-address' class='info-inp fam-head-address' placeholder='Enter Address' value='<?= $resident['address'] ?>'>
                                                             <p class='error-info fh-ad-err'></p>
                                                         </div>
@@ -285,9 +290,9 @@
                                                     <div class='inp-group f-col'>
                                                         <label for='spouse-civil-status' class='req'>Civil Status</label>
                                                         <select name='spouse-civil-status' id='spouse-civil-status' class='spouse-civil-status info-inp' selected='selected'>
+                                                            <option value='' disabled selected>Select Choices</option>
                                                             <option value='single' <?= $resident['civil_status'] == 'Single' ? ' selected="selected"' : '';?>>Single</option>
                                                             <option value='married' <?= $resident['civil_status'] == 'Married' ? ' selected="selected"' : '';?>>Married</option>
-                                                            <option value='divorced' <?= $resident['civil_status'] == 'Divorced' ? ' selected="selected"' : '';?>>Divorced</option>
                                                             <option value='widowed' <?= $resident['civil_status'] == 'Widowed' ? ' selected="selected"' : '';?>>Widowed</option>
                                                         </select>
                                                     </div>

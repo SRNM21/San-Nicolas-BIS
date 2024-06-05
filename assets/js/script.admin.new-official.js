@@ -14,17 +14,23 @@ submit.click(function (e)
 { 
     e.preventDefault();
     
-    let validLName = validateName($('#lastname'), $('.ln-err'))
-    let validFName = validateName($('#firstname'), $('.fn-err'))
-    let validMName = validateName($('#middlename'), $('.mn-err'))
-    let validPnum = validatePhonenum($('#phonenum'), $('.pn-err'))
-    let validGen = validateSelect($('#gender'), $('.gen-err'))
-    let validEmail = validateEmail($('#email'), $('.em-err'))
-    let file = validateUpload($('#profile'), $('.pro-err'))
-    let validPos = validateSelect($('#position'), $('.pos-err'))
-    let validStat = validateSelect($('#status'), $('.sta-err'))
+    let validLName  = validateName($('#lastname'), $('.ln-err'))
+    let validFName  = validateName($('#firstname'), $('.fn-err'))
+    let validMName  = validateName($('#middlename'), $('.mn-err'))
+    let validPnum   = validatePhonenum($('#phonenum'), $('.pn-err'))
+    let validGen    = validateSelect($('#gender'), $('.gen-err'))
+    let validEmail  = validateEmail($('#email'), $('.em-err'))
+    let file        = validateUpload($('#profile'), $('.pro-err'))
+    let validPos    = validateSelect($('#position'), $('.pos-err'))
+    let validCom    = validateSelect($('#comittee'), $('.com-err'))
+    let validStat   = validateSelect($('#status'), $('.sta-err'))
 
-    if (validLName && validFName && validMName && validPnum && validGen && validEmail && file && validPos && validStat)
+    if 
+    (
+        validLName  && validFName && validMName && validPnum    && 
+        validGen    && validEmail && file       && validPos     && 
+        validStat   && validCom
+    )
     {
         $('#new-off-from').submit()
     }

@@ -3,6 +3,7 @@ import {
     validatePassword,
     validateUpload,
     validateInput,
+    validateFutureDate,
     validateEmail
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
@@ -64,12 +65,14 @@ newEventBtn.click(function (e)
 {
     e.preventDefault()
 
-    let file = validateUpload($('#event-img'), $('.img-err'))
-    let title = validateInput($('#title'), $('.ttl-err')) 
-    let desc = validateInput($('#details'), $('.det-err'))
-    let date = validateInput($('#date'), $('.dt-err'))
+    let what    = validateInput($('#what'), $('.wht-err')) 
+    let date    = validateFutureDate($('#date'), $('.dtd-err'))
+    let time    = validateInput($('#time'), $('.dtt-err'))
+    let where   = validateInput($('#where'), $('.whr-err'))
+    let who     = validateInput($('#who'), $('.wh-err'))
+    let desc    = validateInput($('#details'), $('.det-err'))
 
-    if (file && title && desc && date)
+    if (what && date && time && where && who && desc)
     {
         $('.new-event-card').submit()
     }

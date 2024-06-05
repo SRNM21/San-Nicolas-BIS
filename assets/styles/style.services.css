@@ -3,6 +3,7 @@
 main
 {
     height: fit-content;
+    gap: calc(var(--ws-10) * 3);
 }
 
 section
@@ -115,7 +116,6 @@ section
 .online-docu-req-steps-wrapper
 {
     height: fit-content;
-    margin-top: var(--ws-10);
     padding: var(--ws-8);
 }
 
@@ -166,11 +166,22 @@ section
     gap: var(--ws-1);
 }
 
+.hotline-section
+{
+    height: fit-content;
+    padding: var(--ws-8);
+}
 .hotline-wrapper
 {
+    gap: var(--ws-6);
+}
+
+.hotline-content
+{
     width: 100%;
+    max-width: var(--bp-laptop-l);
     flex-wrap: wrap;
-    gap: var(--ws-5);
+    gap: var(--ws-10);
 }
 
 .hotline-num-card

@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php require getPartial('header') ?>
-    <main>
+    <main class='f-col'>
         <section class='f-center online-docu-req-wrapper'>
             <div class='f-center f-col container online-docu-req'>
                 <div class='f-center f-col services-title'>
@@ -102,10 +102,10 @@
             </div>
         </section>
 
-        <section class='f-center online-docu-req-steps-wrapper'>
-            <div class='f-center f-col container online-docu-steps'>
+        <section class='f-center hotline-section'>
+            <div class='f-center f-col hotline-wrapper'>
                 <h1 class='services-title'>EMERGENCY CONTACT HOTLINES</h1>
-                <div class='f-center f-row hotline-wrapper'>
+                <div class='f-center f-row hotline-content'>
 
                     <?php for($i = 0; $i < count($hotline_names); $i++) { ?>
 

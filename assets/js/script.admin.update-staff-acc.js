@@ -78,12 +78,12 @@ nextBtn.click(function (e)
 { 
     e.preventDefault()
     
-    if (
-        validateName($('#lastname'), $('.ln-err')) && 
-        validateName($('#firstname'), $('.fn-err')) && 
-        validateName($('#middlename'), $('.mn-err')) && 
-        validateEmail($('#email'), $('.em-err')) 
-    )
+    let validLname = validateName($('#lastname'), $('.ln-err'))
+    let validFname = validateName($('#firstname'), $('.fn-err')) 
+    let validMname = validateName($('#middlename'), $('.mn-err')) 
+    let validEmail = validateEmail($('#email'), $('.em-err')) 
+
+    if (validLname && validFname && validMname && validEmail)
     {
         personalContainer.removeClass('active')
         accountContainer.addClass('active')

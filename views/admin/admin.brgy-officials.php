@@ -79,7 +79,5 @@
     </div>
 
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
-    <script type='module' src=<?=  getScript('admin.brgy-officials'); ?>></script>
-
 </body>
 </html>

@@ -10,11 +10,11 @@ require getAPI('database');
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $route = getRoute($uri);
 
-if ($route == '404')
+if ($route == STATUS_NOT_FOUND)
 {
     exit;
 }
-else if ($route == 'NOT LOGGED IN')
+else if ($route == STATUS_SYS_ERROR)
 {
     header('Location: /sannicolasbis/administrator');
 }
@@ -22,4 +22,3 @@ else
 {
     require $route;
 }
-

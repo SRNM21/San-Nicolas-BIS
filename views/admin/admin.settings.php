@@ -45,22 +45,41 @@
                                         <input type='file' name='event-img' id='event-img' class='new-event-inp new-event-img' value=''/>
                                         <p class='error-info img-err'></p>
                                     </div>
-                                    <div class='f-col event-date-wrapper'>
-                                        <label for='event-date'>Enter Date</label>
-                                        <input name='date' id='date' type='date' placeholder='Enter Date' class='new-event-inp new-event-details'></input>
-                                        <p class='error-info dt-err'></p>
-                                    </div>
-                                    <div class='f-col new-event-inp-wrapper'>
-                                        <div>
-                                            <input name='title' id='title' type='text' placeholder='Enter Title' class='new-event-inp new-event-title'>
-                                            <p class='error-info ttl-err'></p>
+                                    <div class='f-row event-detail-row'>
+                                        <div class='f-col'>
+                                            <label for='event-what' class='req'>What</label>
+                                            <input name='what' id='what' type='text' placeholder='Enter Title' class='new-event-inp new-event-details'></input>
+                                            <p class='error-info wht-err'></p>
                                         </div>
-
-                                        <div>
-                                            <textarea name='details' id='details' type='text' placeholder='Enter Details' class='new-event-inp new-event-details'></textarea>
+                                        <div class='f-col'>
+                                            <label for='event-date' class='req'>When (Date)</label>
+                                            <input name='date' id='date' type='date' class='new-event-inp new-event-details'></input>
+                                            <p class='error-info dtd-err'></p>
+                                        </div>
+                                        <div class='f-col'>
+                                            <label for='event-time' class='req'>When (Time)</label>
+                                            <input name='time' id='time' type='time' class='new-event-inp new-event-details'></input>
+                                            <p class='error-info dtt-err'></p>
+                                        </div>
+                                    </div>
+                                    <div class='f-row event-detail-row'>
+                                        <div class='f-col'>
+                                            <label for='event-where' class='req'>Where</label>
+                                            <input name='where' id='where' type='text' placeholder='Enter Place' class='new-event-inp new-event-details'></input>
+                                            <p class='error-info whr-err'></p>
+                                        </div>
+                                        <div class='f-col'>
+                                            <label for='event-who' class='req'>Who</label>
+                                            <input name='who' id='who' type='text' placeholder='Enter Attendees' class='new-event-inp new-event-details'></input>
+                                            <p class='error-info wh-err'></p>
+                                        </div>
+                                    </div>
+                                    <div class='f-row event-detail-row'>
+                                        <div class='f-col'>
+                                            <label for='details' class='req'>Details</label>
+                                            <textarea name='details' id='details' type='text' placeholder='Enter Details' class='new-event-inp new-event-details details-txt-area'></textarea>
                                             <p class='error-info det-err'></p>
                                         </div>
-
                                     </div>
                                     <button class='sbmt-new-event' name='event-sbmt' type='submit'>Add Event</button>
                                 </div>
@@ -74,16 +93,16 @@
 
                                         <div class='event-card'>
                                             <header class='f-row event-header'>
-                                                <p><?= formatDate($row['date']) ?></p>
+                                                <p><?= formatDate(explode(' ', $row['event_when'])[0]) ?></p>
                                                 <a href='?delete-event=<?= $row['event_id'] ?>' class='f-center f-row'><?= getSVG('close'); ?>Remove</a>
                                             </header>
                                             <div class='event-info'>
                                                 <div class='event-img-wrapper'>
-                                                    <img src='/sannicolasbis/assets/uploads/<?= $row['image'] ?>' alt="">
+                                                    <img src='/sannicolasbis/assets/uploads/<?= $row['event_image'] ?>' alt="">
                                                 </div>
-                                                <div>
-                                                    <h3 class='event-title'><?= $row['title'] ?></h3>
-                                                    <p class='event-details'><?= $row['details'] ?></p>
+                                                <div class='f-col'>
+                                                    <h3 class='event-title'><?= $row['event_what'] ?></h3>
+                                                    <p class='event-details'><?= $row['event_details'] ?></p>
                                                 </div>
                                             </div>
                                         </div>

@@ -124,6 +124,33 @@ export function validateBirthdate(input, errorProvider)
     return setNormal(input, errorProvider)
 }
 
+export function validateFutureDate(input, errorProvider) 
+{
+    let value = input.val().trim()
+
+    let date = new Date(value)
+    let currentDate = new Date()
+
+    date.setHours(0, 0, 0, 0)
+    currentDate.setHours(0, 0, 0, 0)
+
+    let maxAdvance = new Date(currentDate.getFullYear() + 5, currentDate.getMonth(), currentDate.getDate())
+
+    if (value == '') 
+    {
+        return setInvalid(input, errorProvider, 'Date is required')
+    }
+    else if (date < currentDate || date > maxAdvance)
+    {
+        console.log((date < currentDate) + "less than");
+        console.log((date > maxAdvance) + "Greater than");
+
+        return setInvalid(input, errorProvider, 'Date must be now or within 5 years')
+    }
+
+    return setNormal(input, errorProvider)
+}
+
 export function validateUpload(input, errorProvider) 
 {  
     if(input.get(0).files.length === 0 )

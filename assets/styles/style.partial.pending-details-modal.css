@@ -33,6 +33,7 @@
 
 .info-grp
 {
+    flex: 1;
     gap: var(--ws-1);
 }
 

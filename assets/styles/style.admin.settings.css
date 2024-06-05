@@ -295,14 +295,27 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.new-event-inp-wrapper, .event-date-wrapper
+.new-event-inp-wrapper
+{
+    flex: 1;
+    gap: var(--ws-2);
+}
+
+.event-detail-row
+{
+    flex: 1;
+    gap: var(--ws-4);
+}
+
+.event-detail-row > div
 {
     gap: var(--ws-2);
+    flex: 1;
 }
 
 .new-event-inp 
 {
-    height: fit-content;
+    height: 50px;
     min-width: 50%;
     max-width: 100%;
     width: 100%;
@@ -318,6 +331,17 @@
 .new-event-inp:focus
 {
     border: 2px solid var(--black);
+}
+
+.details-txt-area
+{
+    max-height: 200px;
+    resize: vertical;
+}
+
+label
+{
+    font-size: var(--body-large);
 }
 
 .sbmt-new-event

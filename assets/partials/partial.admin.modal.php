@@ -13,8 +13,8 @@
                 <p><?= $modal_message ?></p>
             </div>
             <div class='f-row modal-btn-wrapper'>
-                <a href='<?= $origin?><?= $scn_href?>' class='f-center modal-btn modal-scn-btn'><?= $scn_txt ?></a>
-                <a href='<?= $origin?><?= $prm_href?>' class='f-center modal-btn modal-prm-btn'><?= $prm_txt ?></a>
+                <a href='<?= $origin?><?= $scn_href?>' class='f-center modal-btn modal-scn-btn' draggable='false'><?= $scn_txt ?></a>
+                <a href='<?= $origin?><?= $prm_href?>' class='f-center modal-btn modal-prm-btn' draggable='false'><?= $prm_txt ?></a>
             </div>
         </div>
     </main>

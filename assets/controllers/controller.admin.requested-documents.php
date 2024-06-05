@@ -46,7 +46,7 @@ if (isset($_GET['confirm-approve']))
         $modal_icon     = 'success';
         $modal_title    = 'Document Approved!';
         $modal_message  = 'The document request is approved.';
-        logEvent('Document Request', $approved, 'APPROVE');
+        logEvent('Document Request', $req_id, 'APPROVE');
     }
     else 
     {
@@ -82,14 +82,14 @@ if (isset($_GET['confirm-decline']))
     $person         = getRecord($id, 'request_document', 'docs_id');
     $fullname       = $person['last_name'] . ', ' . (handleEmptyValue('', $person['suffix']) == '' ? '' : $person['suffix'] . ', ') . $person['first_name'] . ' ' . $person['middle_name'];
 
-    $declined       = updateRequestDocumentStatus($id, 'declined');
+    $declined       = updateRequestDocumentStatus($id, 'Declined');
 
     if ($declined == 1)
     {
         $modal_icon = 'success';
         $modal_title = 'Request Declined Successfully!';
         $modal_message = 'Request has been declined.';
-        logEvent('Document Request', $declined, 'DECLINE');
+        logEvent('Document Request', $id, 'DECLINE');
     }
     else 
     {
@@ -126,14 +126,14 @@ if (isset($_GET['confirm-remove']))
     $person         = getRecord($id, 'request_document', 'docs_id');
     $fullname       = $person['last_name'] . ', ' . (handleEmptyValue('', $person['suffix']) == '' ? '' : $person['suffix'] . ', ') . $person['first_name'] . ' ' . $person['middle_name'];
 
-    $declined       = updateRequestDocumentStatus($id, 'removed');
+    $declined       = updateRequestDocumentStatus($id, 'Removed');
 
     if ($declined == 1)
     {
         $modal_icon = 'success';
         $modal_title = 'Document Removed Successfully!';
         $modal_message = 'Documnet has been removed.';
-        logEvent('Document Request', $declined, 'REMOVE');
+        logEvent('Document Request', $id, 'REMOVE');
     }
     else 
     {
@@ -167,14 +167,14 @@ if (isset($_GET['confirm-restore']))
     $id             = $_GET['confirm-restore'];
     $person         = getRecord($id, 'request_document', 'docs_id');
 
-    $restore       = updateRequestDocumentStatus($id,  $person['status'] == 'declined' ? 'request' : 'pending');
+    $restore       = updateRequestDocumentStatus($id,  $person['status'] == 'Declined' ? 'Request' : 'Pending');
 
     if ($restore == 1)
     {
         $modal_icon = 'success';
         $modal_title = 'Request Restored Successfully!';
         $modal_message = 'Request has been restored.';
-        logEvent('Document Request', $restore, 'RESTORE');
+        logEvent('Document Request', $id, 'RESTORE');
     }
     else 
     {
@@ -215,7 +215,7 @@ if (isset($_GET['confirm-delete-forever']))
         $modal_icon = 'success';
         $modal_title = 'Request Deleted Successfully!';
         $modal_message = 'Request has been deleted forever.';
-        logEvent('Document Request', $delete, 'DELETE');
+        logEvent('Document Request', $id, 'DELETE');
     }
     else 
     {

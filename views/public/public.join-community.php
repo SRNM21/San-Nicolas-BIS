@@ -88,7 +88,6 @@
                                                     <option value='' disabled selected>Select Choices</option>
                                                     <option value='Single'>Single</option>
                                                     <option value='Married'>Married</option>
-                                                    <option value='Divorced'>Divorced</option>
                                                     <option value='Widowed'>Widowed</option>
                                                 </select>
                                                 <p class='error-info fh-cs-err'></p>
@@ -339,7 +338,6 @@
                                                     <option value='' disabled selected>Select Choices</option>
                                                     <option value='single'>Single</option>
                                                     <option value='married'>Married</option>
-                                                    <option value='divorced'>Divorced</option>
                                                     <option value='widowed'>Widowed</option>
                                                 </select>
                                                 <p class='error-info sp-cs-err'></p>

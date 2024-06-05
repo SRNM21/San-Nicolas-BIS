@@ -76,9 +76,9 @@ if (isset($_GET['confirm-request']))
         $person['pending_id']   = generateID('FMM');
         unset($person['date_of_registration']);
 
-        $add = addRecord(array_values($person), 'familymember');
+        $add = addRecord(array_values($person), T_FAMILY_MEMBER);
 
-        if ($add != 0)
+        if ($add == $id)
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';

@@ -24,6 +24,45 @@ const FAVICONS_PATH         = '/assets/src/favicon/';
 const IMAGES_PATH           = '/assets/src/images/';
 const VECTOR_PATH           = '/assets/src/svg/';
 
+/*
+ * TABLE CONST
+ */
+
+const T_BARANGAY_ADMIN          = 'barangay_admin';
+const T_BARANGAY_OFFICIALS      = 'barangay_officials';
+const T_BARANGAY_STAFF          = 'barangay_staff';
+const T_BLOTTER                 = 'blotter';
+const T_EVENTS                  = 'events';
+const T_FAMILY_HEAD             = 'familyhead';
+const T_FAMILY_MEMBER           = 'familymember';
+const T_FEEDBACK                = 'feedback';
+const T_LOG                     = 'log';
+const T_PENDING_FAMILYHEAD      = 'pending_familyhead';
+const T_PENDING_FAMILYMEMBER    = 'pending_familymember';
+const T_PENDING_SPOUSE          = 'pending_spouse';
+const T_REQUEST_DOCUMENT        = 'request_document';
+const T_SPOUSE                  = 'spouse';
+const V_PENDING_RESIDENCE       = 'v_pending_residence';
+const V_RESIDENCE               = 'v_residence';
+
+/*
+ * DIALOG ICONS 
+ */
+
+const DIALOG_ICON_SUCCESS   = 'success';
+const DIALOG_ICON_ERROR     = 'error';
+const DIALOG_ICON_QUESTION  = 'question';
+
+/*
+ *  ERROR STATUS CODES
+ */
+
+const STATUS_SUCCESS        = 1;
+const STATUS_FAILED         = 0;
+const STATUS_DB_ERROR       = -1;
+const STATUS_NOT_FOUND      = -2;
+const STATUS_SYS_ERROR      = -3;
+
 /** 
  * System helper that returns the route and view of the given URI. '404' view if not found.
  * 
@@ -42,8 +81,7 @@ function getRoute(String $uri)
     {
         if (!$exempted)
         {
-            var_dump('hello');
-            return 'NOT LOGGED IN'; 
+            return STATUS_SYS_ERROR; 
         }
     }
 
@@ -135,7 +173,7 @@ function getRoute(String $uri)
 
     return array_key_exists($uri, $routes) 
     ? $routes[$uri] 
-    : "404";
+    : STATUS_NOT_FOUND;
 }
 
 /** 
@@ -292,7 +330,6 @@ function getIllustration($svg)
 {
     require '.' . VECTOR_PATH . "$svg.svg";
 }
-
 
 /* SERVER FUNCTIONS */
 

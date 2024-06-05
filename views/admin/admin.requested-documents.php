@@ -115,7 +115,7 @@
                                 <tbody class='pend-doc-tbl-body'>
 
                                 <?php foreach ($data as $row) { 
-                                    if (in_array($row['status'], ['Dclined', 'Removed', 'Claimed'])) {?>
+                                    if (in_array($row['status'], ['Declined', 'Removed', 'Claimed'])) {?>
 
                                     <tr>
                                         <td><?= $row['last_name'] . ', ' . (handleEmptyValue('', $row['suffix']) == '' ? '' : $row['suffix'] . ', ') . $row['first_name'] . ' ' . $row['middle_name']?></td>
@@ -126,12 +126,7 @@
                                         <td><?= handleEmptyValue('N/A', $row['date_claimed']) ?></td>
                                         <td><?= $row['status'] ?></td>
                                         <td>
-                                            <?php if ($row['status'] != 'Claimed') { ?>
-                                            
                                             <a href="requested-documents?filter=archive&restore=<?= $row['docs_id'] ?>" class="data-util-btn green-details-btn" data-id='<?= $row['docs_id'] ?>>'>Restore</a>
-                                            
-                                            <?php } ?>
-
                                             <a href="requested-documents?filter=archive&delete-forever=<?= $row['docs_id'] ?>" class="data-util-btn red-details-btn" data-id='<?= $row['docs_id'] ?>>'>Delete</a>
                                         </td>
                                     </tr>

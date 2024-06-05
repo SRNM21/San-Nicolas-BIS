@@ -19,7 +19,7 @@ if (isset($_GET['details']))
         $phone_num      = $official['phone_number'];
         $email          = $official['email'];
         $position       = $official['position'];
-        $handle         = $official['handle'];
+        $comittee       = $official['comittee_title'];
         $status         = $official['status'];
         $date_added     = $official['date_added'];  
         $profile        = $official['profile'];

@@ -88,18 +88,18 @@
                                     <p class='error-info pos-err'></p>
                                 </div>
                                 <div class='f-col'>
-                                    <label class='no-form-label' for='handle'>Handle</label>
-                                    <input class='no-form-input'  type='text' name='handle' id='handle' placeholder='Enter Handle'>
-                                        <p class='error-info han-err'></p>
-                                </div>
-                                <div class='f-col'>
-                                    <label class='no-form-label req' for='status'>Status</label>
-                                    <select class='no-form-input' name='status' id='status'>
-                                        <option value='' disabled selected>Select Choices</option>
-                                        <option value='Active'>Active</option>
-                                        <option value='Dismissed'>Dismissed</option>
+                                    <label class='no-form-label' for='comittee'>Comittee Title</label>
+                                    <select class='no-form-input' name='comittee' id='comittee'>
+                                    <option value='' disabled selected>Select Choices</option>
+
+                                    <?php foreach ($comittee_title as $com) { ?>
+
+                                        <option value='<?= $com ?>'><?= $com ?></option>
+
+                                    <?php } ?>
+
                                     </select>
-                                    <p class='error-info sta-err'></p>
+                                    <p class='error-info com-err'></p>
                                 </div>
                                 <div class='f-col submit-btn-wrapper'>
                                     <button class='submit-new-official-btn'>Submit</button>

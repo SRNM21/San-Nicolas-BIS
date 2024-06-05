@@ -19,14 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         
             if ($update != 0)
             {
-                $modal_icon     = 'success';
+                $modal_icon     = DIALOG_ICON_SUCCESS;
                 $modal_title    = 'Updaeted Successfully!';
                 $modal_message  = 'Admin acccount is successfullt updated.';
                 logEvent('Admin', $update, 'UPDATE');
             }
             else 
             {
-                $modal_icon     = 'error';
+                $modal_icon     = DIALOG_ICON_ERROR;
                 $modal_title    = 'Add Failed!';
                 $modal_message  = 'An Error occured while updating admin account.';
             }
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         }
         else 
         {
-            $modal_icon     = 'error';
+            $modal_icon     = DIALOG_ICON_ERROR;
             $modal_title    = 'Invalid OTP';
             $modal_message  = 'Your provided OTP does not match';
             $modal_pos      = '';
@@ -45,61 +45,68 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             require getPartial('admin.confirm-modal');
         }
     }
-    else if (isset($_POST['date']))
+    else if (isset($_POST['what']))
     {
         $id = generateID('EVT');
         
         $up_file = $_FILES['event-img'];
 
-        if (!isValidImage($up_file))
-        {        
-            $modal_icon = 'error';
-            $modal_title    = 'Invalid File Type!';
-            $modal_message  = 'Please upload \'jpg\' or \'png\' image files only.';
-
-            $modal_pos = '-';
-            $path = 'settings';
-            require getPartial('admin.confirm-modal');
-        }
-        else
+        $date_now = null;
+        $filename = 'default-event.png';
+        $tempname = null;
+        $folder = './assets/uploads/' . $filename;
+    
+        if (!($up_file['error'] == 4 || ($up_file['size'] == 0 && $up_file['error'] == 0)))
         {
+            if (!isValidImage($up_file))
+            {        
+                $modal_icon     = DIALOG_ICON_ERROR;
+                $modal_title    = 'Invalid File Type!';
+                $modal_message  = 'Please upload \'jpg\' or \'png\' image files only.';
+    
+                $modal_pos = '-';
+                $path = 'settings';
+                require getPartial('admin.confirm-modal');
+                exit;
+            }
+    
             $filename       = $up_file['name'];
             $tempname       = $up_file['tmp_name'];
             $filetype       = $up_file['type'];
             $filename       = $id . '.' . pathinfo($filename, PATHINFO_EXTENSION);
             $folder         = './assets/uploads/' . $filename;
-
-            $event_details = [
-                $id,
-                $_POST['title'],
-                $_POST['details'],
-                $filename,
-                $_POST['date']
-            ];
-
-            if (move_uploaded_file($tempname, $folder))
-            {
-                $add = addRecord($event_details, 'events');
-
-                if ($add != 0)
-                {
-                    $modal_icon     = 'success';
-                    $modal_title    = 'Added Successfully!';
-                    $modal_message  = 'New Event is added';
-                    logEvent('Events', $add, 'CREATE');
-                }
-                else 
-                {
-                    $modal_icon     = 'error';
-                    $modal_title    = 'Add Failed!';
-                    $modal_message  = 'An Error occured while adding new Event.';
-                }
-
-                $modal_pos = '-';
-                $path = 'settings';
-                require getPartial('admin.confirm-modal');
-            }
         }
+
+        $event_details = [
+            $id,
+            $filename,
+            $_POST['what'],
+            $_POST['date'] . ' ' . $_POST['time'],
+            $_POST['where'],
+            $_POST['who'],
+            $_POST['details']
+        ];
+
+        $add = addRecord($event_details, 'events');
+        
+        if ($add == $id)
+        {
+            $modal_icon     = DIALOG_ICON_SUCCESS;
+            $modal_title    = 'Added Successfully!';
+            $modal_message  = 'New Event is added';
+            logEvent('Events', $add, 'CREATE');
+            move_uploaded_file($tempname, $folder);
+        }
+        else 
+        {
+            $modal_icon     = DIALOG_ICON_ERROR;
+            $modal_title    = 'Add Failed!';
+            $modal_message  = 'An Error occured while adding new Event.';
+        }
+
+        $modal_pos = '-';
+        $path = 'settings';
+        require getPartial('admin.confirm-modal');
     }
     else if (isset($_POST['old-user']))
     {
@@ -140,19 +147,25 @@ if (isset($_GET['delete-event']))
 {
     $id             = $_GET['delete-event'];
     $event          = getRecord($id, 'events', 'event_id');
-    $event_title    = $event['title'];
-    $event_details  = $event['details'];
-    $event_date     = $event['date'];
+    $event_title    = $event['event_what'];
+    $event_date     = $event['event_when'];
+    $event_where    = $event['event_where'];
+    $event_who      = $event['event_who'];
+    $event_details  = $event['event_details'];
 
-    $modal_icon     = 'error';
+    $modal_icon     = DIALOG_ICON_ERROR;
     $modal_title    = 'Confirm Delete';
-    $modal_message  = "Are you sure to delete this event? This proccess cannot be undone.<br><br> 
-                        <b>Event Title:</b>
+    $modal_message  = "Are you sure to delete this event? This proccess cannot be undone.<br><br>  
+                        <b>What:</b>
+                        $event_title<br> 
+                        <b>When:</b>
+                        $event_date<br> 
+                        <b>Where:</b>
+                        $event_title<br> 
+                        <b>Who:</b>
                         $event_title<br> 
                         <b>Details:</b>
-                        $event_details<br> 
-                        <b>Date:</b>
-                        $event_date";
+                        $event_details<br>";
     $scn_href       = 'settings';
     $prm_href       = "settings?confirm-delete=$id";
     $scn_txt        = 'Cancel';
@@ -166,7 +179,7 @@ if (isset($_GET['confirm-delete']))
     $id             = $_GET['confirm-delete'];
     $delete         = deletRecord($id, 'events', 'event_id');
 
-    if ($delete == 1)
+    if ($delete != 0)
     {
         if (file_exists("assets/uploads/$id.jpg")) 
         {        
@@ -177,14 +190,15 @@ if (isset($_GET['confirm-delete']))
         {        
             unlink("assets/uploads/$id.png");
         }
-        $modal_icon = 'success';
+        
+        $modal_icon = DIALOG_ICON_SUCCESS;
         $modal_title = 'Event Deleted Successfully!';
         $modal_message = 'Event has been deleted.';
-        logEvent('Events', $add, 'DELETE');
+        logEvent('Events', $id, 'DELETE');
     }
     else 
     {
-        $modal_icon = 'error';
+        $modal_icon = DIALOG_ICON_ERROR;
         $modal_title = 'Deleted Event Failed!';
         $modal_message = 'An error occured while deleting event.';
     }

@@ -1,21 +1,102 @@
 @import url('/sannicolasbis/assets/styles/style.root.css');
 
+.event-section
+{
+    height: 100%;
+    width: 100%;
+}
+
 .event-sec-header
 {
     margin-top: var(--ws-10);
+    text-align: center;
+}
+
+.event-sec-header h2
+{
+    font-size: var(--header-h5)
 }
 
 .event-content-wrapper
 {
+    height: 100%;
+    width: 100%;
+    max-width: var(--bp-laptop-l);
+    align-items: center;
+    flex: 1;
     padding-top: 110px;
 }
 
 .events-wrapper
 {
-    width: 100%;
+    width: var(--bp-laptop);
     padding: var(--ws-4);
+    margin-top: var(--ws-4);
     gap: var(--ws-4);
     flex-wrap: wrap;
+}
+
+.events-wrapper hr
+{
+    width: 100%;
+}
+
+.events
+{
+    max-height: 50dvh;
+    padding-right: var(--ws-2);
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.events::-webkit-scrollbar 
+{
+    width: 2px;
+}
+  
+.events::-webkit-scrollbar-track
+{
+    background-color: var(--white); 
+}
+   
+.events::-webkit-scrollbar-thumb 
+{
+    background: var(--dark-gr-6); 
+    border-radius: var(--ws-2);
+}
+
+.filter-wrapper
+{
+    width: fit-content;
+    justify-content: space-around;
+    gap: var(--ws-4);
+}
+
+.seperator
+{
+    height: 30px;
+    width: 2px;
+    background-color: var(--black);
+}
+
+.event-filter
+{
+    text-decoration: none;
+    color: var(--black);
+    font-size: var(--header-h6);
+}
+
+.event-filter.active
+{
+    font-weight: bold;
+}
+
+.event-filter.active::after
+{
+    content: ' ';
+    display: block;
+    height: 3px;
+    background-color: var(--plt-red-2);
 }
 
 .event-card
@@ -23,22 +104,44 @@
     height: fit-content;
     width: 100%;
     max-width: var(--bp-laptop-l);
+    padding: var(--ws-4);
     background-color: var(--white);
     border-radius: var(--ws-1);
     overflow: hidden;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+}
+
+.details-wrapper
+{
+    flex: 2;
+    align-items: start;
+    margin-inline: var(--ws-10);
+}
+
+.action-wrapper
+{
+    padding: var(--ws-4);
+}
+
+.details-btn
+{
+    padding: var(--ws-2);
+    border-radius: var(--ws-1);
+    background-color: var(--black);
+    color: var(--white);
+    font-size: var(--body-large);
+    text-decoration: none;
+}
+
+.event-title
+{
+    font-size: var(--header-h6);
 }
 
 .events-content
 {
     display: none;
     max-height: 500px;
-}
-
-.events-wrapper
-{
-    padding: var(--ws-4);
-    gap: var(--ws-4);
 }
 
 .event-header
@@ -58,21 +161,9 @@
     padding: var(--ws-4);
 }
 
-.event-img-wrapper
-{
-    height: 500px;
-    width: 100%;
-}
-
-.event-img-wrapper img
-{
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-}
-
 .events-footer
 {
+    width: 100%;
     height: fit-content;
     padding: var(--ws-8);
     background-color: var(--plt-red-2);

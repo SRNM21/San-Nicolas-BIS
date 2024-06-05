@@ -14,9 +14,9 @@
             </div>
             <div class='f-row modal-btn-wrapper'>
             <?php if ($modal_pos == '-') { ?>
-                <a href='<?= $path ?>' class='f-center modal-btn modal-prm-btn'>OK</a>
+                <a href='<?= $path ?>' class='f-center modal-btn modal-prm-btn' draggable='false'>OK</a>
             <?php } else {  ?>
-                <a href='<?= $origin ?><?= $modal_pos?>' class='f-center modal-btn modal-prm-btn'>OK</a>
+                <a href='<?= $origin ?><?= $modal_pos?>' class='f-center modal-btn modal-prm-btn' draggable='false'>OK</a>
             <?php } ?>
             </div>
         </div>

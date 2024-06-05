@@ -1,3 +1,4 @@
+<link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
 <link rel='stylesheet' href=<?= getStyle('partial.details-official'); ?>>
 <div class='f-center modal-container'>
     <main class='f-center f-col modal'>
@@ -32,8 +33,8 @@
                 </div>
                 <div class='f-row handle-container'>
                     <span>
-                        <p class='card-hint'>Handle</p>
-                        <p class='card-value'><?= $handle ?></p>
+                        <p class='card-hint'>Comittee Title</p>
+                        <p class='card-value'><?= $comittee ?></p>
                     </span>
                     <span>
                         <p class='card-hint'>Date Addded</p>

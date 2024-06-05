@@ -5,15 +5,15 @@ import {
     validatePassword
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
-const nextBtn = $('.next-btn')
-const backBtn = $('.staff-acc-back-btn')
-const submitBtn = $('.submit-new-staff-acc-btn')
+const nextBtn           = $('.next-btn')
+const backBtn           = $('.staff-acc-back-btn')
+const submitBtn         = $('.submit-new-staff-acc-btn')
 const personalContainer = $('.personal-info-container')
-const accountContainer = $('.account-info-container')
-const togglePass = $('.toggle-pass')
-const password = $('#password')
-const confirmPassword = $('#conf-password')
-const passReq = $('.pass-req')
+const accountContainer  = $('.account-info-container')
+const togglePass        = $('.toggle-pass')
+const password          = $('#password')
+const confirmPassword   = $('#conf-password')
+const passReq           = $('.pass-req')
 
 password.on('propertychange input', function () 
 { 
@@ -67,13 +67,13 @@ togglePass.click(function ()
 nextBtn.click(function (e) 
 { 
     e.preventDefault()
-    
-    if (
-        validateName($('#lastname'), $('.ln-err')) && 
-        validateName($('#firstname'), $('.fn-err')) && 
-        validateName($('#middlename'), $('.mn-err')) && 
-        validateEmail($('#email'), $('.em-err')) 
-    )
+
+    let validLname = validateName($('#lastname'), $('.ln-err'))
+    let validFname = validateName($('#firstname'), $('.fn-err')) 
+    let validMname = validateName($('#middlename'), $('.mn-err')) 
+    let validEmail = validateEmail($('#email'), $('.em-err')) 
+
+    if (validLname && validFname && validMname && validEmail)
     {
         personalContainer.removeClass('active')
         accountContainer.addClass('active')
@@ -92,10 +92,10 @@ submitBtn.click(function (e)
 {  
     e.preventDefault()
 
-    if (
-        validateUsername($('#username'), $('.un-err')) && 
-        validatePassword($('#password'), $('.cps-err'), $('#conf-password'))
-    )
+    let validUser = validateUsername($('#username'), $('.un-err')) 
+    let validCPass = validatePassword($('#password'), $('.cps-err'), $('#conf-password'))
+
+    if (validUser && validCPass)
     {
         $('#new-staff-acc-from').submit()
     }

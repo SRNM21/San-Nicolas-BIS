@@ -45,7 +45,7 @@ if (isset($_GET['delete']))
 
     $prm_txt        = 'Delete';
     $scn_txt        = 'Cancel';
-    $prm_href       = "residence?confirm-delete=$id";
+    $prm_href       = "residence?filter=' . $filter&confirm-delete=$id";
     $scn_href       = 'residence?filter=' . $filter;
 
     require getPartial('admin.modal');

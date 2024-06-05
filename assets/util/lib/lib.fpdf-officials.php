@@ -83,7 +83,7 @@ class PDF extends FPDF
             $this->Cell($w[2],6,$row['phone_number'],'LR',0,'C',$fill); 
             $this->Cell($w[3],6,$row['email'],'LR',0,'C',$fill); 
             $this->Cell($w[4],6,$row['position'],'LR',0,'C',$fill); 
-            $this->Cell($w[5],6,$row['handle'],'LR',0,'C',$fill); 
+            $this->Cell($w[5],6,$row['comittee_title'],'LR',0,'C',$fill); 
             $this->Cell($w[6],6,$row['status'],'LR',0,'C',$fill); 
             $this->Cell($w[7],6,$row['date_added'],'LR',0,'C',$fill); 
             $this->Ln();
@@ -101,7 +101,7 @@ $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->Watermark();
 
-$header = array('Fullname', 'Gender', 'Contact Number', 'Email', 'Position', 'Handle', 'Status', 'Date Added');
+$header = array('Fullname', 'Gender', 'Contact Number', 'Email', 'Position', 'Comitte Title', 'Status', 'Date Added');
 $data = array();
 
 foreach ($export_list as $row)
