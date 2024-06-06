@@ -12,19 +12,15 @@
 .modal
 {
     max-width: 500px;
-    padding: var(--ws-4);
     border-radius: var(--ws-1);
     background-color: var(--white);
-    gap: var(--ws-4);
-}
-
-.modal > div
-{
+    overflow: hidden;
     gap: var(--ws-4);
 }
 
 .event-desc-wrapper
 {
+    padding: var(--ws-4);
     gap: var(--ws-4);
 }
 
@@ -37,8 +33,7 @@
 .event-img-wrapper
 {
     height: 250px;
-    width: 300px;
-    border-radius: var(--ws-1);
+    width: 100%;
     overflow: hidden;
 }
 

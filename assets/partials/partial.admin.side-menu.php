@@ -9,7 +9,7 @@ $on_pendings        = str_starts_with($admin_uri, 'pendings');
 $on_blotter         = str_starts_with($admin_uri, 'blotter');
 $on_request         = str_starts_with($admin_uri, 'requested-documents');
 $on_staff_accs      = str_starts_with($admin_uri, 'staff-accounts');
-$on_sys_log         = str_starts_with($admin_uri, 'system-logs');
+$on_aud_trail       = str_starts_with($admin_uri, 'audit-trail');
 $on_settings        = str_starts_with($admin_uri, 'settings');
 
 $acc_username       = $_SESSION['USERNAME'];
@@ -56,6 +56,11 @@ $acc_email          = $_SESSION['EMAIL'];
                 </a>
 
                 <?php } ?>
+                
+                <a href='<?= $origin; ?>audit-trail' class='f-row admin-nav-link  <?= $$on_aud_trail ? 'active' : '' ?>' data-nav='audit-trail'>
+                    <span class='f-center'><?= getSVG('log'); ?></span>
+                    <p>Audit Trail</p>
+                </a>
 
                 <a href='<?= $origin; ?>settings' class='f-row admin-nav-link  <?= $on_settings ? 'active' : '' ?>' data-nav='settings'>
                     <span class='f-center'><?= getSVG('settings'); ?></span>

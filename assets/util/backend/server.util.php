@@ -158,6 +158,9 @@ function getRoute(String $uri)
         "/$folder/administrator/requested-documents" => 
         getController('admin.requested-documents'),
 
+        "/$folder/administrator/audit-trail" => 
+        getController('admin.audit-trail'),
+
         "/$folder/administrator/staff-accounts" => 
         getController('admin.staff-acc'),
 

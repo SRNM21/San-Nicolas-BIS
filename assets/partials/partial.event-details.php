@@ -34,7 +34,7 @@
                     <p class='info-event-val'><?= $e['event_details'] ?></p>
                 </div>
             </div>
+            <a href='events?filter=<?= $filter ?>' class='f-center modal-btn scale-anim' draggable='false'>Close</a>
         </div>
-        <a href='events?filter=<?= $filter ?>' class='f-center modal-btn scale-anim' draggable='false'>Close</a>
     </main>
 </div>

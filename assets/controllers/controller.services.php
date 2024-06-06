@@ -4,4 +4,5 @@ $hotline_images = [getImage('pasigc3.png'), getImage('polays.png'), getImage('fi
 $hotline_names  = ['Pasig City C3', 'Police Assistance', 'Fire Department', 'PCGH', 'DSWD (NCR)', 'DILG', 'NBI'];
 $hotline_number = ['8-643000', '166', '8-64311839', '6427379', '7348635', '8-6431116', '8-64281734'];
 
+$hotlines = queryTable('hotlines', null);
 require getPublicView('services');

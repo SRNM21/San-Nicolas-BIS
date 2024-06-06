@@ -2,9 +2,9 @@
 
 $header_name = 'Settings';
 
-$logs = queryLogs();   
 $events = queryEvents();   
-$fb = queryFeedback();
+$hotlines = queryTable('hotlines', null);  
+$fb = queryFeedback(); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -51,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         
         $up_file = $_FILES['event-img'];
 
-        $date_now = null;
         $filename = 'default-event.png';
         $tempname = null;
         $folder = './assets/uploads/' . $filename;
@@ -102,6 +101,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $modal_icon     = DIALOG_ICON_ERROR;
             $modal_title    = 'Add Failed!';
             $modal_message  = 'An Error occured while adding new Event.';
+        }
+
+        $modal_pos = '-';
+        $path = 'settings';
+        require getPartial('admin.confirm-modal');
+    }
+    else if (isset($_POST['h-name']))
+    {
+        $id = generateID('HTL');
+        
+        $up_file = $_FILES['h-image'];
+
+        $filename = 'default-hotline.png';
+        $tempname = null;
+        $folder = './assets/uploads/' . $filename;
+    
+        if (!($up_file['error'] == 4 || ($up_file['size'] == 0 && $up_file['error'] == 0)))
+        {
+            if (!isValidImage($up_file))
+            {        
+                $modal_icon     = DIALOG_ICON_ERROR;
+                $modal_title    = 'Invalid File Type!';
+                $modal_message  = 'Please upload \'jpg\' or \'png\' image files only.';
+    
+                $modal_pos = '-';
+                $path = 'settings';
+                require getPartial('admin.confirm-modal');
+                exit;
+            }
+    
+            $filename       = $up_file['name'];
+            $tempname       = $up_file['tmp_name'];
+            $filetype       = $up_file['type'];
+            $filename       = $id . '.' . pathinfo($filename, PATHINFO_EXTENSION);
+            $folder         = './assets/uploads/' . $filename;
+        }
+
+        $event_details = [
+            $id,
+            $_POST['h-name'],
+            $_POST['h-num'],
+            $filename
+        ];
+
+        $add = addRecord($event_details, 'hotlines');
+        
+        if ($add == $id)
+        {
+            $modal_icon     = DIALOG_ICON_SUCCESS;
+            $modal_title    = 'Added Successfully!';
+            $modal_message  = 'New Hotline is added';
+            logEvent('Hotlines', $add, 'CREATE');
+            move_uploaded_file($tempname, $folder);
+        }
+        else 
+        {
+            $modal_icon     = DIALOG_ICON_ERROR;
+            $modal_title    = 'Add Failed!';
+            $modal_message  = 'An Error occured while adding new Hotline.';
         }
 
         $modal_pos = '-';
@@ -167,16 +225,16 @@ if (isset($_GET['delete-event']))
                         <b>Details:</b>
                         $event_details<br>";
     $scn_href       = 'settings';
-    $prm_href       = "settings?confirm-delete=$id";
+    $prm_href       = "settings?confirm-delete-event=$id";
     $scn_txt        = 'Cancel';
     $prm_txt        = 'Delete';
 
     require getPartial('admin.modal');
 }
 
-if (isset($_GET['confirm-delete']))
+if (isset($_GET['confirm-delete-event']))
 {
-    $id             = $_GET['confirm-delete'];
+    $id             = $_GET['confirm-delete-event'];
     $delete         = deletRecord($id, 'events', 'event_id');
 
     if ($delete != 0)
@@ -199,8 +257,63 @@ if (isset($_GET['confirm-delete']))
     else 
     {
         $modal_icon = DIALOG_ICON_ERROR;
-        $modal_title = 'Deleted Event Failed!';
+        $modal_title = 'Delete Event Failed!';
         $modal_message = 'An error occured while deleting event.';
+    }
+
+    $modal_pos = 'settings';
+    require getPartial('admin.confirm-modal');
+}
+
+if (isset($_GET['delete-hotline']))
+{
+    $id             = $_GET['delete-hotline'];
+    $hotline        = getRecord($id, 'hotlines', 'hotline_id');
+    $name           = $hotline['hotline_name'];
+    $num            = $hotline['hotline_num'];
+
+    $modal_icon     = DIALOG_ICON_ERROR;
+    $modal_title    = 'Confirm Delete';
+    $modal_message  = "Are you sure to delete this hotline? This proccess cannot be undone.<br><br>
+                        <b>Hotline Name:</b>
+                        $name<br>
+                        <b>Hotline Number:</b>
+                        $num <br>"; 
+    $scn_href       = 'settings';
+    $prm_href       = "settings?confirm-delete-hotline=$id";
+    $scn_txt        = 'Cancel';
+    $prm_txt        = 'Delete';
+
+    require getPartial('admin.modal');
+}
+
+if (isset($_GET['confirm-delete-hotline']))
+{
+    $id             = $_GET['confirm-delete-hotline'];
+    $delete        = deletRecord($id, 'hotlines', 'hotline_id');
+
+    if ($delete == $id)
+    {
+        if (file_exists("assets/uploads/$id.jpg")) 
+        {        
+            unlink("assets/uploads/$id.jpg");
+        }   
+
+        if (file_exists("assets/uploads/$id.png")) 
+        {        
+            unlink("assets/uploads/$id.png");
+        }
+        
+        $modal_icon = DIALOG_ICON_SUCCESS;
+        $modal_title = 'Hotline Deleted Successfully!';
+        $modal_message = 'Hotline has been deleted.';
+        logEvent('Events', $id, 'DELETE');
+    }
+    else 
+    {
+        $modal_icon = DIALOG_ICON_ERROR;
+        $modal_title = 'Delete Hotline Failed!';
+        $modal_message = 'An error occured while deleting hotline.';
     }
 
     $modal_pos = 'settings';

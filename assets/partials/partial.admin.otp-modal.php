@@ -6,7 +6,7 @@
             <h3>Verify your account</h3>
             <p>The OTP password was sent to <?= $censored_email ?></p>
             <div class='f-row otp-input-wrapper'>
-                <input class='otp-input' type='text' name='otp'>
+                <input value='<?= $_SESSION['OTP'] ?>' class='otp-input' type='text' name='otp'>
                 <button class='f-center verify-otp-btn' type='submit'>Verify OTP</button>
             </div>
         </form>

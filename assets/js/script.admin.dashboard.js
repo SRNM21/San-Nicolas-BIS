@@ -62,6 +62,7 @@ function queryPurokPopulationStatistic()
         data: { func: 'GET_STATISTIC_PUROK_POPULATION' },
         success: function (response) 
         {
+            console.log(response);
             setPurokPopulationChart(response)
         },
         error: function (req, err) 

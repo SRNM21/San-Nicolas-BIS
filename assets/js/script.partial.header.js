@@ -7,8 +7,6 @@ tabletMenu.click(function ()
 { 
     sidemenu.css('right', 0)
     outsideOverlay.show()
-    console.log(-(sidemenu.outerWidth()));
-
 })
 
 outsideNav.click(function(event)
@@ -18,6 +16,4 @@ outsideNav.click(function(event)
 
     sidemenu.css('right', -(sidemenu.outerWidth()))
     outsideOverlay.hide()
-
-    console.log(-(sidemenu.outerWidth()));
 })

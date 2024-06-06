@@ -1,0 +1,71 @@
+@import url('/sannicolasbis/assets/styles/style.root.css');
+
+.audit-trail-wrapper
+{
+    height: 100dvh;
+    width: 100dvw;
+}
+
+.audit-trail-container
+{
+    height: 100%;
+    width: 100%;
+}
+
+.audit-trail-content
+{
+    height: calc(100dvh - 90px);
+    width: calc(100dvw - 90px);
+    padding: var(--ws-4);
+    overflow: hidden;
+    gap: var(--ws-4);
+    flex: 1;
+}
+
+.utility
+{
+    justify-content: space-between !important; 
+}
+
+.export-wrapper
+{
+    position: relative;
+}
+
+.export-log-hover-dd
+{
+    font-size: var(--body-large);
+    gap: var(--ws-2);
+    background-color: var(--info);
+}
+
+.export-log-hover-dd svg
+{
+    fill: var(--white);
+}
+
+.export-log-dd
+{
+    width: 150px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 2;
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+    padding-top: var(--ws-2);
+    padding-bottom: var(--ws-2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.export-log-dd a
+{
+    padding: var(--ws-3);
+    text-decoration: none;
+    color: var(--black);
+}
+
+.export-log-dd a:hover
+{
+    background-color: var(--gray-gr-3);
+}

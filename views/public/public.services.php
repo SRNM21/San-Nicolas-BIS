@@ -107,15 +107,20 @@
                 <h1 class='services-title'>EMERGENCY CONTACT HOTLINES</h1>
                 <div class='f-center f-row hotline-content'>
 
-                    <?php for($i = 0; $i < count($hotline_names); $i++) { ?>
+                    <?php 
+                    
+                    // for($i = 0; $i < count($hotline_names); $i++) { 
+                    foreach ($hotlines as $h) { 
+
+                    ?>
 
                     <div class='f-row hotline-num-card'>
                         <div class='logo-wrapper'>
-                            <img src='<?= $hotline_images[$i] ?>' alt="">
+                            <img src='/sannicolasbis/assets/uploads/<?= $h['hotline_img'] ?>' alt="">
                         </div>
                         <div class='f-center f-col hotline-num-wrapper'>
-                            <h3><?= $hotline_names[$i] ?></h3>
-                            <p>#<?= $hotline_number[$i] ?></p>
+                            <h3><?= $h['hotline_name'] ?></h3>
+                            <p>#<?= $h['hotline_num'] ?></p>
                         </div>
                     </div>
 

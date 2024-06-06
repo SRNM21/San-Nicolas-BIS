@@ -7,10 +7,7 @@ foreach ($events as $e)
 {
     if ($e['event_when'] < date('Y-m-d h:i:sa'))
     {
-        if (deletRecord($e['event_id'], 'events', 'event_id'))    
-        {
-            logEvent('Events', $e['event_id'], 'EXPIRED');
-        }    
+        deletRecord($e['event_id'], 'events', 'event_id');
     }   
 }
 

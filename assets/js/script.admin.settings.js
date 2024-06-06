@@ -1,18 +1,22 @@
 import {
     validateUsername,
     validatePassword,
-    validateUpload,
     validateInput,
     validateFutureDate,
-    validateEmail
+    validateEmail,
+    dropdown
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
-const logToggle = $('.show-log-toggle')
-const logContent = $('.logs-content')
 const eventToggle = $('.show-events-toggle')
 const eventContent = $('.events-content')
 const createEventToggle = $('.add-event-btn')
 const createEventContent = $('.new-events-content')
+const hotlineToggle = $('.show-hotline-toggle')
+const hotlineContent = $('.hotline-content')
+const createHotlineToggle = $('.add-hotline-btn')
+const createHotlineContent = $('.new-hotline-content')
+const logToggle = $('.show-log-toggle')
+const logContent = $('.logs-content')
 const feedbackToggle = $('.show-fb-toggle')
 const feedbackContent = $('.fb-content')
 
@@ -26,11 +30,15 @@ const confirmPassword = $('.setting-acc-cpass')
 const passReq = $('.pass-req')
 
 const newEventBtn = $('.sbmt-new-event')
+const newHotlineBtn = $('.sbmt-new-hotline')
 
-toggleDisplay(logToggle, logContent)
 toggleDisplay(eventToggle, eventContent)
 toggleDisplay(createEventToggle, createEventContent)
+toggleDisplay(hotlineToggle, hotlineContent)
+toggleDisplay(createHotlineToggle, createHotlineContent)
+toggleDisplay(logToggle, logContent)
 toggleDisplay(feedbackToggle, feedbackContent)
+dropdown($('.export-log-dd'), $('.export-log-hover-dd'))
 
 function toggleDisplay(toggleBtn, display) 
 {  
@@ -75,6 +83,19 @@ newEventBtn.click(function (e)
     if (what && date && time && where && who && desc)
     {
         $('.new-event-card').submit()
+    }
+})
+
+newHotlineBtn.click(function (e) 
+{
+    e.preventDefault()
+
+    let name    = validateInput($('#h-name'), $('.hna-err'))
+    let number   = validateInput($('#h-num'), $('.hnu-err'))
+
+    if (name && number)
+    {
+        $('.new-hotline-card').submit()
     }
 })
 

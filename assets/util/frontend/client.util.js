@@ -295,3 +295,36 @@ function setInvalid(input, errorProvider, message)
     errorProvider.text(message)
     return false
 }
+
+export function dropdown(list, button)
+{
+    list.hide()
+
+    button.click(function()
+    {
+        if (list.is(":hidden"))
+        {
+            list.slideDown('fast')
+            
+            $(document).mouseup(function (e) 
+            { 
+                if (button.is(e.target))
+                {
+                    $(document).off('mouseup');
+                    list.slideDown('fast')
+                }
+                else if (!list.is(e.target) && list.has(e.target).length === 0) 
+                {
+                    $(document).off('mouseup')
+                    list.slideUp('fast');
+                }
+                
+            })
+        }
+        else
+        {
+            $(document).removeAttr('click')
+            list.slideUp('fast');
+        }
+    })
+}

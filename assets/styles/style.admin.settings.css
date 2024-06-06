@@ -64,9 +64,14 @@
     background-color: var(--gray-gr-3);
 }
 
-.setting-btn svg
+.setting-btn svg, .setting-btn svg path
 {
     fill: var(--black);
+}
+
+.hotline-setting svg
+{
+    height: 20px;
 }
 
 .setting-sec
@@ -90,6 +95,8 @@
 
 .toggles
 {
+    height: 40px;
+    width: fit-content;
     border-radius: var(--ws-1);
     padding: var(--ws-2);
     background-color: var(--white);
@@ -184,7 +191,6 @@
     cursor: pointer;
 }
 
-
 .pass-req::before
 {
     content: '✖';
@@ -209,7 +215,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.events-content, .fb-content
+.events-content, .fb-content, .hotline-content, .new-hotline-content
 {
     display: none;
     max-height: 500px;
@@ -226,7 +232,7 @@
     gap: var(--ws-4);
 }
 
-.event-header
+.event-header, .hotline-header
 {
     background-color: var(--black);
     padding: var(--ws-4);
@@ -268,7 +274,7 @@
     gap: var(--ws-2);
 }
 
-.add-event-btn
+.add-event-btn, .add-hotline-btn
 {
     background-color: var(--black);
     color:  var(--white);
@@ -286,7 +292,7 @@
     gap: var(--ws-2);
 }
 
-.new-event-card
+.new-event-card, .new-hotline-card
 {
     height: fit-content;
     background-color: var(--white);
@@ -313,7 +319,37 @@
     flex: 1;
 }
 
-.new-event-inp 
+.hotline-wrapper
+{
+    padding: var(--ws-4);
+    gap: var(--ws-4);
+}
+
+.hotline-detail-row
+{
+    gap: var(--ws-4);
+}
+
+.hotline-detail-row > div
+{
+    gap: var(--ws-2);
+    flex: 1;
+}
+
+.hl-img-wrapper
+{
+    height: 30px;
+    width: 30px;
+    aspect-ratio: 1/1;
+}
+
+.hl-img-wrapper img
+{
+    width: 100%;
+    object-fit: cover;
+}
+
+.new-inp 
 {
     height: 50px;
     min-width: 50%;
@@ -328,11 +364,6 @@
     color: var(--black);
 }
 
-.new-event-inp:focus
-{
-    border: 2px solid var(--black);
-}
-
 .details-txt-area
 {
     max-height: 200px;
@@ -344,7 +375,7 @@ label
     font-size: var(--body-large);
 }
 
-.sbmt-new-event
+.sbmt-new-event, .sbmt-new-hotline
 {
     background-color: var(--black);
     padding: var(--ws-2);

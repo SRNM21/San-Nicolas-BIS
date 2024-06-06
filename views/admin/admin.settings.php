@@ -15,7 +15,7 @@
             <main class='f-row settings-content'>
                 <div class='f-col choice-panel'>
                     <a href='#event' class='f-center setting-btn'><?= getSVG('event'); ?><p>Manage Event</p></a>
-                    <a href='#sys-log' class='f-center setting-btn'><?= getSVG('log'); ?><p>System Log</p></a>
+                    <a href='#hotline' class='f-center setting-btn hotline-setting'><?= getSVG('phone'); ?><p>Hotlines</p></a>
                     <a href='#feedback' class='f-center setting-btn'><?= getSVG('feedback'); ?><p>Feedback</p></a>
 
                     <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') { ?>
@@ -37,47 +37,46 @@
                         </div>
                         <main class='f-col new-events-content'>
                             <form action='' method='post' class='new-event-card' enctype='multipart/form-data'>
-                                <header class='event-header'>
-                                </header>
+                                <header class='event-header'></header>
                                 <div class='f-col event-info new-event-info'>
                                     <div class='f-col event-img-wrapper new-event-img-wrapper'>
                                         <label for='event-img'>Enter Image</label>
-                                        <input type='file' name='event-img' id='event-img' class='new-event-inp new-event-img' value=''/>
+                                        <input type='file' name='event-img' id='event-img' class='new-inp new-event-img' value=''/>
                                         <p class='error-info img-err'></p>
                                     </div>
                                     <div class='f-row event-detail-row'>
                                         <div class='f-col'>
-                                            <label for='event-what' class='req'>What</label>
-                                            <input name='what' id='what' type='text' placeholder='Enter Title' class='new-event-inp new-event-details'></input>
+                                            <label for='what' class='req'>What</label>
+                                            <input name='what' id='what' type='text' placeholder='Enter Title' class='new-inp new-event-details'></input>
                                             <p class='error-info wht-err'></p>
                                         </div>
                                         <div class='f-col'>
-                                            <label for='event-date' class='req'>When (Date)</label>
-                                            <input name='date' id='date' type='date' class='new-event-inp new-event-details'></input>
+                                            <label for='date' class='req'>When (Date)</label>
+                                            <input name='date' id='date' type='date' class='new-inp new-event-details'></input>
                                             <p class='error-info dtd-err'></p>
                                         </div>
                                         <div class='f-col'>
-                                            <label for='event-time' class='req'>When (Time)</label>
-                                            <input name='time' id='time' type='time' class='new-event-inp new-event-details'></input>
+                                            <label for='time' class='req'>When (Time)</label>
+                                            <input name='time' id='time' type='time' class='new-inp new-event-details'></input>
                                             <p class='error-info dtt-err'></p>
                                         </div>
                                     </div>
                                     <div class='f-row event-detail-row'>
                                         <div class='f-col'>
-                                            <label for='event-where' class='req'>Where</label>
-                                            <input name='where' id='where' type='text' placeholder='Enter Place' class='new-event-inp new-event-details'></input>
+                                            <label for='where' class='req'>Where</label>
+                                            <input name='where' id='where' type='text' placeholder='Enter Place' class='new-inp new-event-details'></input>
                                             <p class='error-info whr-err'></p>
                                         </div>
                                         <div class='f-col'>
-                                            <label for='event-who' class='req'>Who</label>
-                                            <input name='who' id='who' type='text' placeholder='Enter Attendees' class='new-event-inp new-event-details'></input>
+                                            <label for='who' class='req'>Who</label>
+                                            <input name='who' id='who' type='text' placeholder='Enter Attendees' class='new-inp new-event-details'></input>
                                             <p class='error-info wh-err'></p>
                                         </div>
                                     </div>
                                     <div class='f-row event-detail-row'>
                                         <div class='f-col'>
                                             <label for='details' class='req'>Details</label>
-                                            <textarea name='details' id='details' type='text' placeholder='Enter Details' class='new-event-inp new-event-details details-txt-area'></textarea>
+                                            <textarea name='details' id='details' type='text' placeholder='Enter Details' class='new-inp new-event-details details-txt-area'></textarea>
                                             <p class='error-info det-err'></p>
                                         </div>
                                     </div>
@@ -114,36 +113,61 @@
                         </main>
                     </section>
                     <hr>
-                    <section id='sys-log' class='f-col setting-sec sys-log-section'>
+                    <section id='hotline' class='f-col setting-sec hotline-section'>
                         <div class='f-center f-row header-sec'>
-                            <h3>System logs</h3>
-                            <button class='toggles show-log-toggle' data-text='Logs'>Show Logs</button>
+                            <h3>Hotlines</h3>
+                            <div class='f-row event-btn-wrapper'>
+                                <button class='toggles show-hotline-toggle' data-text='Hotlines'>Show Hotlines</button>
+                                <button class='toggles add-hotline-btn' data-text='Add Hotline'>Show Add Hotline</button>
+                            </div>
                         </div>
-                        <main class='f-col logs-content'>
+                        <main class='f-col new-hotline-content'>
+                            <form action='' method='post' class='new-hotline-card' enctype='multipart/form-data'>
+                                <header class='hotline-header'></header>
+                                <div class='f-col hotline-wrapper'>
+                                    <div class='f-row hotline-detail-row'>
+                                        <div class='f-col'>
+                                            <label for='h-image'>Hotline Image</label>
+                                            <input name='h-image' id='h-image' type='file' class='new-inp new-hotline-details' value=''></input>
+                                        </div>
+                                        <div class='f-col'>
+                                            <label for='h-name' class='req'>Hotline Name</label>
+                                            <input name='h-name' id='h-name' type='text' placeholder='Enter Hotline Name' class='new-inp new-hotline-details'></input>
+                                            <p class='error-info hna-err'></p>
+                                        </div>
+                                        <div class='f-col'>
+                                            <label for='h-num' class='req'>Hotline Number</label>
+                                            <input name='h-num' id='h-num' type='text' placeholder='Enter Hotline Number' class='new-inp new-hotline-details'></input>
+                                            <p class='error-info hnu-err'></p>
+                                        </div>
+                                    </div>
+                                    <button class='sbmt-new-hotline' name='hotline-sbmt' type='submit'>Add Hotline</button>
+                                </div>
+                            </form>
+                        </main>
+                        <main class='f-col hotline-content'>
                             <div class='f-col table-limiter'>
                                 <div class='table-wrapper'>
                                     <table class='table'>
                                         <thead>
                                             <tr>
-                                                <th>Privilege</th>
-                                                <th>User</th>
-                                                <th>Event</th>
-                                                <th>Involved Table</th>
-                                                <th>Involved ID</th>
-                                                <th>Time Stamp</th>
+                                                <th>Image</th>
+                                                <th>Hotline</th>
+                                                <th>Number</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                        <?php foreach ($logs as $row) { ?>
+                                        <?php foreach ($hotlines as $row) { ?>
 
                                             <tr>
-                                                <td><?= $row['privilege'] ?></td>
-                                                <td><?= $row['user'] ?></td>
-                                                <td><?= $row['event'] ?></td>
-                                                <td><?= $row['involved_table'] ?></td>
-                                                <td><?= $row['involved_id'] ?></td>
-                                                <td><?= $row['time_stamp'] ?></td>
+                                                <td class='hl-img-wrapper'><img src='/sannicolasbis/assets/uploads/<?= $row['hotline_img'] ?>' alt=""></td>
+                                                <td><?= $row['hotline_name'] ?></td>
+                                                <td><?= $row['hotline_num'] ?></td>
+                                                <td>
+                                                    <a href="settings?delete-hotline=<?= $row['hotline_id'] ?>" class='data-util-btn red-details-btn'>Delete</a>
+                                                </td>
                                             </tr>
 
                                         <?php 
@@ -155,7 +179,7 @@
                                 </div>
                             </div>
                         </main>
-                    </section>
+                    </section>  
                     <hr>
                     <section id='feedback' class='f-col setting-sec feedback-section'>
                         <div class='f-center f-row header-sec'>
@@ -225,12 +249,12 @@
 
                                         <div class='f-col pass-wrapper'>
                                             <div class='f-col'>   
-                                                <label for='acc-password'>Password</label>
+                                                <label for='acc-pass'>Password</label>
                                                 <input type='password' id='acc-pass' name='acc-pass' class='acc-inp setting-acc-pass' placeholder='Enter Password'>
                                             </div>
 
                                             <div class='f-col'>   
-                                                <label for='acc-cpassword'>Confirm Password</label>
+                                                <label for='acc-cpass'>Confirm Password</label>
                                                 <input type='password' id='acc-cpass' name='acc-cpass' class='acc-inp setting-acc-cpass' placeholder='Enter Confirm Password'>
                                                 <p class='error-info cp-err'></p>
                                             </div>
