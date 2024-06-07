@@ -116,6 +116,9 @@ function getRoute(String $uri)
         "/$folder/community/events" => 
         getController('events'),
         
+        "/$folder/community/landmarks" => 
+        getController('landmarks'),
+        
         "/$folder/administrator" => 
         getController('admin.login'),
         

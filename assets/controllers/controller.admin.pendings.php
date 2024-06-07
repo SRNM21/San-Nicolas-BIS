@@ -45,7 +45,7 @@ if (isset($_GET['confirm-request']))
 
         $add = addRecord(array_values($person), 'familyhead');
 
-        if ($add != 0)
+        if ($add == $person['pending_id'])
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';
@@ -78,7 +78,7 @@ if (isset($_GET['confirm-request']))
 
         $add = addRecord(array_values($person), T_FAMILY_MEMBER);
 
-        if ($add == $id)
+        if ($add == $person['pending_id'])
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';
@@ -110,7 +110,7 @@ if (isset($_GET['confirm-request']))
 
         $add = addRecord(array_values($person), 'spouse');
 
-        if ($add != 0)
+        if ($add == $person['pending_id'])
         {
             $modal_icon = 'success';
             $modal_title = 'Confirm Request Successfully!';

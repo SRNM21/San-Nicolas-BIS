@@ -5,6 +5,8 @@ $com_uri            = substr($uri, 25);
 $on_home            = str_starts_with($com_uri, 'home');
 $on_services        = str_starts_with($com_uri, 'services');
 $on_events          = str_starts_with($com_uri, 'events');
+$on_lmarks          = str_starts_with($com_uri, 'landmarks');
+
 ?>
 
 <link rel='stylesheet' href=<?= getStyle('partial.header-com') ?>>
@@ -33,6 +35,9 @@ $on_events          = str_starts_with($com_uri, 'events');
                 </li>
                 <li>
                     <a href='<?= $origin ?>events' draggable='false' class='f-col <?= $on_events ? 'active' : '' ?>'>Events</a>
+                </li>
+                <li>
+                    <a href='<?= $origin ?>landmarks' draggable='false' class='f-col <?= $on_lmarks ? 'active' : '' ?>'>Landmarks</a>
                 </li>
             </ul>
         </nav>
@@ -77,6 +82,9 @@ $on_events          = str_starts_with($com_uri, 'events');
                 </li>
                 <li>
                     <a href='events' draggable='false' class='out-nav'>Events</a>
+                </li>
+                <li>
+                    <a href='landmarks' draggable='false' class='out-nav'>Landmarks</a>
                 </li>
             </ul>
         </div>

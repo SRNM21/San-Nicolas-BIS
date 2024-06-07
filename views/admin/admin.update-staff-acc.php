@@ -19,7 +19,7 @@
                             <div class='f-row back-btn-wrapper'>
                                 <a href='<?= $origin ?>staff-accounts' class='back-btn'><?= getSVG('back'); ?></a>
                             </div>
-                            <h4>Update Staff Account | <?= $staff['username'] ?></h4>
+                            <h3>Update Staff Account | <?= $staff['username'] ?></h3>
                         </div>
                         <p><?= date('Y') ?></p>
                     </header>

@@ -19,7 +19,7 @@
                             <div class='f-row back-btn-wrapper'>
                                 <a href='<?= $origin ?>residence' class='back-btn'><?= getSVG('back'); ?></a>
                             </div>
-                            <h4>Update Resident | <?= $fullname ?></h4>
+                            <h3>Update Resident | <?= $fullname ?></h3>
                         </div>
                         <p><?= $role ?></p>
                     </header>
@@ -179,7 +179,7 @@
                                                     <div class='inp-group f-col'>
                                                         <label for='fam-member-relationship'>Relationship</label>
                                                         <input type='text' name='fam-member-relationship' id='fam-member-relationship' class='info-inp fam-member-relationship' placeholder='Enter Relationship' value='<?= $resident['relationship'] ?>'>
-                                                        <p class='error-info fm-mn-err'></p>
+                                                        <p class='error-info fm-rs-err'></p>
                                                     </div>
                                                 </div>
                                                 <div class='inp-row f-row'>
@@ -312,7 +312,7 @@
                                                 <div class='inp-row f-row'>
                                                     <div class='inp-group f-col'>
                                                         <label for='spouse-email'>Email</label>
-                                                        <input type='spouse-email' name='spouse-email' id='spouse-email' class='info-inp email' placeholder='Enter Email' value='<?= $resident['email'] ?>'>
+                                                        <input type='spouse-email' name='spouse-email' id='spouse-email' class='info-inp spouse-email' placeholder='Enter Email' value='<?= $resident['email'] ?>'>
                                                         <p class='error-info fm-em-err'></p>
                                                     </div>
                                                     <div class='inp-group f-col'>

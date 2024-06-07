@@ -19,7 +19,7 @@
                             <div class='f-row back-btn-wrapper'>
                                 <a href='<?= $origin ?>barangay-officials' class='back-btn'><?= getSVG('back'); ?></a>
                             </div>
-                            <h4>Update Official Form | <?= $fullname ?></h4>
+                            <h3>Update Official Form | <?= $fullname ?></h3>
                         </div>
                         <p><?= date('Y') ?></p>
                     </header>

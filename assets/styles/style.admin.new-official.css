@@ -30,10 +30,10 @@
 
 .back-btn
 {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
+    margin-right: var(--ws-2);
     background-color: var(--black);
-    color: var(--white);
     border-radius: var(--ws-1);
     text-decoration: none;
 }

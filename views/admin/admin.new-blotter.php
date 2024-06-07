@@ -19,7 +19,7 @@
                             <div class='f-row back-btn-wrapper'>
                                 <a href='<?= $origin ?>blotter' class='back-btn'><?= getSVG('back'); ?></a>
                             </div>
-                            <h4>New Blotter Form</h4>
+                            <h3>New Blotter Form</h3>
                         </div>
                         <p><?= date('Y') ?></p>
                     </header>

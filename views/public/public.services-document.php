@@ -16,7 +16,7 @@
                 <div class='brgy-document-content'>
                     <header class='f-row brgy-document-content-header'>
                         <div class='f-row back-btn-wrapper'>
-                            <a href='/sannicolasbis/community/services' class='f-center f-row back-btn'><?= getSVG('back'); ?>Barangay document</a>
+                            <h3>Barangay Document</h3>
                         </div>
                     </header>
                     <div class='brgy-document-form-wrapper'>
@@ -91,6 +91,7 @@
                                 </div>                            
                             </div>
                             <div class='f-row inp-row brgy-document-btn-wrapper'>
+                                <a href='/sannicolasbis/community/services' class='f-center f-row back-btn'>Back</a>
                                 <button type='submit' class='brgy-document-btn scale-anim' id='sbm-btn'>Submit</button>
                             </div>
                         </form>

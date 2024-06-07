@@ -36,6 +36,7 @@
     padding: var(--ws-4);
     background-color: var(--black);
     color: var(--white);
+    border-radius: var(--ws-1) var(--ws-1) 0 0;
     align-items: center;
 }
 
@@ -76,9 +77,12 @@
 
 .back-btn
 {
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
     font-size: var(--body-large);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    border: 2px solid var(--black);
 }
 
 .brgy-document-btn-wrapper
@@ -93,6 +97,7 @@
     color: var(--white);
     padding: var(--ws-2);
     border-radius: var(--ws-1);
+    border: none;
     font-size: var(--body-medium);
     cursor: pointer;
 }

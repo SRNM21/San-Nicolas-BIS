@@ -30,8 +30,8 @@
 
 .back-btn
 {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     background-color: var(--black);
     color: var(--white);
     border-radius: var(--ws-1);

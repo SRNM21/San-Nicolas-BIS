@@ -104,37 +104,37 @@
                         <div class='f-row info-row'>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Lastname</p>
-                                <p class='info-val'><?=  handleEmptyValue('N/A', $spouse['last_name']) ?></p>
+                                <p class='info-val'><?=  $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['last_name']) ?></p>
                             </div>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Firstname</p>
-                                <p class='info-val'><?=  handleEmptyValue('N/A', $spouse['first_name']) ?></p>
+                                <p class='info-val'><?=  $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['first_name']) ?></p>
                             </div>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Middlename</p>
-                                <p class='info-val'><?= handleEmptyValue('N/A', $spouse['middle_name']) ?></p>
+                                <p class='info-val'><?= $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['middle_name']) ?></p>
                             </div>
                         </div>
 
                         <div class='f-row info-row'>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Birthdate</p>
-                                <p class='info-val'><?=  handleEmptyValue('N/A', $spouse['birthdate']) ?></p>
+                                <p class='info-val'><?=  $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['birthdate']) ?></p>
                             </div>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Civil Status</p>
-                                <p class='info-val'><?=  handleEmptyValue('N/A', $spouse['civil_status']) ?></p>
+                                <p class='info-val'><?=  $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['civil_status']) ?></p>
                             </div>
                         </div>
 
                         <div class='f-row info-row'>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Occupation</p>
-                                <p class='info-val'><?= handleEmptyValue('N/A', $spouse['occupation']) ?></p>
+                                <p class='info-val'><?= $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['occupation']) ?></p>
                             </div>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Educational Attainment</p>
-                                <p class='info-val'><?= handleEmptyValue('N/A', $spouse['educational']) ?></p>
+                                <p class='info-val'><?= $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['educational']) ?></p>
                             </div>
                         </div>
 
@@ -142,7 +142,7 @@
                         <div class='f-row info-row'>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Email</p>
-                                <p class='info-val'><?= handleEmptyValue('N/A', $spouse['email']) ?></p>
+                                <p class='info-val'><?= $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['email']) ?></p>
                             </div>
                         </div>
                     </div>
@@ -152,13 +152,13 @@
                         <div class='f-row info-row'>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Purok</p>
-                                <p class='info-val'><?=  handleEmptyValue('N/A', $spouse['purok']) ?></p>
+                                <p class='info-val'><?=  $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['purok']) ?></p>
                             </div>
                         </div>
                         <div class='f-row info-row'>
                             <div class='f-col info-grp'>
                                 <p class='info-lbl'>Address</p>
-                                <p class='info-val'><?=  handleEmptyValue('N/A', $spouse['address']) ?></p>
+                                <p class='info-val'><?=  $spouse == null ? 'N/A' : handleEmptyValue('N/A', $spouse['address']) ?></p>
                             </div>
                         </div>
                     </div>

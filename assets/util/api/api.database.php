@@ -270,6 +270,11 @@ function addRecord($data, $table)
 
     $sql    = "INSERT INTO $table VALUES (" . generatePlaceholders($count) .")";
 
+    foreach ($data as &$d) 
+    {
+        $d = !$d ? NULL : $d;
+    }
+
     try 
     {
         $stmt = $cursor->prepare($sql);
@@ -279,8 +284,10 @@ function addRecord($data, $table)
     } 
     catch(Error $e) 
     {
+        echo $e;
         return STATUS_DB_ERROR;
     }
+  
 }
 
 function deletRecord($id, $table, $id_column)
@@ -455,7 +462,7 @@ function updateFamilyHead($data)
 
         if ($stmt->execute())
         {
-            logEvent('familyhead', end($data), 'UPDATE');
+            logEvent('Residence', end($data), 'UPDATE');
             return 1;
         }
 
@@ -491,12 +498,17 @@ function updateFamilyMember($data)
                         
     try 
     {
+        foreach ($data as &$d) 
+        {
+            $d = !$d ? NULL : $d;
+        }
+
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 
         if ($stmt->execute())
         {
-            logEvent('familymember', end($data), 'UPDATE');
+            logEvent('Residence', end($data), 'UPDATE');
             return 1;
         }
 
@@ -529,12 +541,17 @@ function updateSpouse($data)
                         
     try 
     {
+        foreach ($data as &$d) 
+        {
+            $d = !$d ? NULL : $d;
+        }
+        
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 
         if ($stmt->execute())
         {
-            logEvent('spouse', end($data), 'UPDATE');
+            logEvent('Residence', end($data), 'UPDATE');
             return 1;
         }
 
@@ -571,7 +588,7 @@ function updateStaff($data)
 
         if ($stmt->execute())
         {
-            logEvent('barangay_staff', end($data), 'UPDATE');
+            logEvent('Barangay Staff', end($data), 'UPDATE');
             return 1;
         }
 

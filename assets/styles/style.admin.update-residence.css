@@ -31,6 +31,23 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.back-btn
+{
+    height: 30px;
+    width: 30px;
+    margin-right: var(--ws-2);
+    background-color: var(--black);
+    border-radius: var(--ws-1);
+    text-decoration: none;
+}
+
+.back-btn svg
+{
+    height: 100%;
+    width: 100%;
+    fill: var(--white);
+}
+
 .form-header
 {
     border-radius: var(--ws-1) var(--ws-1) 0 0 ;
