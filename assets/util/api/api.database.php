@@ -270,11 +270,6 @@ function addRecord($data, $table)
 
     $sql    = "INSERT INTO $table VALUES (" . generatePlaceholders($count) .")";
 
-    foreach ($data as &$d) 
-    {
-        $d = !$d ? NULL : $d;
-    }
-
     try 
     {
         $stmt = $cursor->prepare($sql);
@@ -284,7 +279,6 @@ function addRecord($data, $table)
     } 
     catch(Error $e) 
     {
-        echo $e;
         return STATUS_DB_ERROR;
     }
   
@@ -545,7 +539,7 @@ function updateSpouse($data)
         {
             $d = !$d ? NULL : $d;
         }
-        
+
         $stmt = $cursor->prepare($sql);
         $stmt->bind_param($inp, ...$data);
 

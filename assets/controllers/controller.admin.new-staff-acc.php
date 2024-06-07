@@ -17,20 +17,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_POST['email']
     ];
 
-    $add = addRecord($staffDetails, 'barangay_staff');
+    $add = addRecord($staffDetails, T_BARANGAY_STAFF);
 
-    if ($add != 0)
+    if ($add == $id)
     {
-        $modal_icon     = 'success';
+        $modal_icon     = DIALOG_ICON_SUCCESS;
         $modal_title    = 'Added Successfully!';
         $modal_message  = 'New barangay staff is added.';
         logEvent('Barangay Staffs', $add, 'CREATE');
     }
     else 
     {
-        $modal_icon     = 'error';
+        $modal_icon     = DIALOG_ICON_ERROR;
         $modal_title    = 'Add Failed!';
-        $modal_message  = 'An Error occured while adding new Barangay staff.';
+        $modal_message  = 'An Error occured while adding Barangay staff.';
     }
 
     $modal_pos = 'staff-accounts';

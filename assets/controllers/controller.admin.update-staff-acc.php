@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $modal_title    = 'Updated Successfully!';
         $modal_message  = '<b>' . $_POST['username'] . '</b> has been updated.';
         $modal_pos      = 'staff-accounts';
-        logEvent('Barangay Staff', $update, 'UPDATE');
+        logEvent('Barangay Staff', $add, 'UPDATE');
     }
     else 
     {

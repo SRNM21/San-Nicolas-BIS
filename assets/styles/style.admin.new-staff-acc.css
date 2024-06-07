@@ -57,6 +57,7 @@
 .form-header
 {
     padding: var(--ws-4);
+    border-radius: var(--ws-1) var(--ws-1) 0 0;
     background-color: var(--black);
     color: var(--white);
     justify-content: space-between;

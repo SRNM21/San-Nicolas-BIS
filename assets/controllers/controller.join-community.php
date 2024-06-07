@@ -125,6 +125,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     }
     else 
     {
+        foreach ($data as &$d) $d = !$d ? NULL : $d;
+
         $add = addRecord($data, $table);
 
         if ($add != 0)
