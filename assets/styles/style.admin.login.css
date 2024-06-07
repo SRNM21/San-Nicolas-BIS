@@ -7,11 +7,31 @@
     position: relative;
 }
 
-.side-content
+.vector-panel
 {
     height: 100%;
-    width: 30%;
-    padding: var(--ws-6);
+    width: 60%;
+    padding: var(--ws-8);
+    background-color: var(--plt-red-2);
+}
+
+.vector-panel header
+{
+    gap: var(--ws-2);
+    align-items: center;
+    color: var(--white);
+}
+
+.vector-wrapper
+{
+    height: 400px;
+}
+
+.vector-wrapper svg
+{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 
 .side-content-header
@@ -45,26 +65,11 @@
 
 .adm-modal
 {
-    height: fit-content;
-    max-width: 800px;
-    gap: var(--ws-6);
+    width: 1200px;
     border-radius: var(--ws-2);
     background-color: var(--white);
     overflow: hidden;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.copyright
-{
-    position: absolute;
-    bottom: 20px;
-}
-
-.copyright p 
-{
-    color: var(--white);
-    font-size: var(--body-small);
-    text-align: center;
 }
 
 .contact-link-wrapper
@@ -108,27 +113,21 @@
     background-size: cover;
     background-position: center;
     background-image: url('/sannicolasbis/assets/src/images/sannics_home.png');
-    animation: updown 20s ease-in-out infinite alternate;
-}
-
-@keyframes updown 
-{
-    from 
-    {
-      background-position-y: 0;
-    }
-    to 
-    {
-      background-position-y:100%;
-    }
+    background-position-y: 30%;
 }
 
 .login-content
 {
-    width: 400px;
+    width: 40%;
+    padding: var(--ws-8);
     border-radius: var(--ws-1);
     background-color: var(--white);
     gap: var(--ws-2);
+}
+
+.welcome-mess
+{
+    color: var(--plt-red-2);
 }
 
 .brgy-container
@@ -215,18 +214,36 @@
     background-color: var(--plt-red-2-d-tint);
 }
 
-@media screen and (max-width: 1024px) 
+@media screen and (max-width: 1300px) 
 {
-    .side-content
+    .vector-panel
     {
         display: none;
     }
+
+    .adm-modal
+    {
+        width: fit-content;
+    }
+
+    .login-content
+    {
+        width: 100%;
+    }
 }
 
-@media screen and (max-width: 500px) 
+@media screen and (max-width: 600px) 
 {
     .login-content
     {
-        width: 90%;
+        padding: var(--ws-4);
+    }
+}
+
+@media screen and (max-width: 400px) 
+{
+    .login-content
+    {
+        padding: var(--ws-2);
     }
 }
