@@ -7,6 +7,7 @@ import {
     toggleDisplay
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
+const sysConfig = $('.save-config-btn')
 const eventToggle = $('.show-events-toggle')
 const eventContent = $('.events-content')
 const createEventToggle = $('.add-event-btn')
@@ -38,6 +39,21 @@ toggleDisplay(hotlineToggle, hotlineContent)
 toggleDisplay(createHotlineToggle, createHotlineContent)
 toggleDisplay(logToggle, logContent)
 toggleDisplay(feedbackToggle, feedbackContent)
+
+$('#logo').change(function () 
+{
+    $(".save-config-btn").prop('disabled', false)
+})
+
+$('#favicon').change(function () 
+{
+    $(".save-config-btn").prop('disabled', false)
+})
+
+$(".save-config-btn").click(function ()
+{
+    $('.system-config-card').submit()
+})
 
 newEventBtn.click(function (e)
 {

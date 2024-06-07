@@ -16,7 +16,7 @@ $on_lmarks          = str_starts_with($com_uri, 'landmarks');
     <div class='f-row header-content'>
         <div class='f-row f-center sys-info'>
             <a href='/sannicolasbis/community/home' class='f-center icon'>
-                <img src='<?= getImage('logo_sn.jpg') ?>' alt="">
+                <img src='<?= getLogo() ?>' alt="">
             </a>
             <div>
                 <p class='brgy-title'>Barangay San Nicolas</p>

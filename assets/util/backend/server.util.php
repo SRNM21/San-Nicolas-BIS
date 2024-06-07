@@ -318,6 +318,14 @@ function getImage($image)
 }
 
 /** 
+ * View helper that returns logo path of the passed image name.
+ */
+function getLogo()
+{
+    return '/' . getProjectFolder() . IMAGES_PATH . 'SYS_LOGO' . (file_exists('assets/src/images/SYS_LOGO.jpg') ? '.jpg' : '.png');
+}
+
+/** 
  * View helper that returns favicon path of the passed favicon name.
  * 
  * @param String $ico The Favicon's name.

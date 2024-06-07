@@ -4,7 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Join Community</title>
-    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
+    <link rel='icon' type='image/x-icon' href=<?= getLogo(); ?>>
     <link rel='stylesheet' href=<?= getStyle('join-community'); ?>>
 </head>
 <body>
@@ -20,7 +20,7 @@
                         <?php if ($form != 0) { ?>
                             
                         <div class='logo'>
-                            <img src='<?= getImage('logo_sn.jpg') ?>' alt="">
+                            <img src='<?= getImage('SYS_LOGO.jpg') ?>' alt="">
                         </div>
 
                         <?php } ?>

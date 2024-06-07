@@ -205,6 +205,42 @@
     margin-right: var(--ws-2);
 }
 
+.save-config-btn:disabled, .save-config-btn:disabled:active
+{
+    background-color: var(--gray-gr-5);
+    color: var(--dark-gr-4);
+    border: none;
+    cursor: not-allowed;
+}
+
+.system-config-card
+{
+    gap: var(--ws-5);
+}
+
+.sys-group
+{
+    gap: var(--ws-1);
+}
+
+.system-config-inp
+{
+    font-size: var(--body-medium);
+}
+
+.logo-preview
+{
+    height: 80px;
+    width: 80px;
+}
+
+.logo-preview img
+{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
 .event-card
 {
     height: fit-content;

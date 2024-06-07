@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings</title>
-    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
+    <link rel='icon' type='image/x-icon' href=<?= getLogo(); ?>>
     <link rel='stylesheet' href=<?= getStyle('admin.settings'); ?>>
 </head>
 <body>
@@ -14,6 +14,7 @@
             <?php include getPartial('admin.side-menu'); ?>
             <main class='f-row settings-content'>
                 <div class='f-col choice-panel'>
+                    <a href='#system' draggable='false' class='f-center setting-btn scale-anim'><?= getSVG('settings'); ?><p>System Configuration</p></a>
                     <a href='#event' draggable='false' class='f-center setting-btn scale-anim'><?= getSVG('event'); ?><p>Manage Event</p></a>
                     <a href='#hotline' draggable='false' class='f-center setting-btn hotline-setting scale-anim'><?= getSVG('phone'); ?><p>Hotlines</p></a>
                     <a href='#feedback' draggable='false' class='f-center setting-btn scale-anim'><?= getSVG('feedback'); ?><p>Feedback</p></a>
@@ -27,6 +28,56 @@
                 </div>
                 <div class='seperator'></div>
                 <div class='gen-setting-content'>
+                    <section id='event' class='f-col setting-sec event-section'>
+                        <div class='f-center f-row header-sec'>
+                            <h3>System Configuration</h3>
+                            <div class='f-row event-btn-wrapper'>
+                                <button class='toggles save-config-btn scale-anim' disabled='true'>Save Changes</button>
+                            </div>
+                        </div>
+                        <main class='f-col system-config-content'>
+                            <form action='' method='post' class='f-col system-config-card' enctype='multipart/form-data'>
+                                <input type='hidden' name='system-config' value='change'>
+                                <div class='f-col sys-group'>
+                                    <h4>Logo</h4>
+                                    <div class='f-col'>
+                                        <div class='logo-preview'>
+                                            <img src='<?= getLogo() ?>' alt="">
+                                        </div>
+                                        <input class='system-config-inp' type='file' name='logo' id='logo' value='' />
+                                    </div>
+                                </div>
+                            </form>
+                        </main>
+                        <main class='f-col events-content'>
+                            <div class='f-col table-limiter'>
+                                <div class='f-col events-wrapper'>
+
+                                    <?php foreach($events as $row) { ?>
+
+                                        <div class='event-card'>
+                                            <header class='f-row event-header'>
+                                                <p><?= formatDate(explode(' ', $row['event_when'])[0]) ?></p>
+                                                <a href='?delete-event=<?= $row['event_id'] ?>' class='f-center f-row'><?= getSVG('close'); ?>Remove</a>
+                                            </header>
+                                            <div class='event-info'>
+                                                <div class='event-img-wrapper'>
+                                                    <img src='/sannicolasbis/assets/uploads/<?= $row['event_image'] ?>' alt="">
+                                                </div>
+                                                <div class='f-col'>
+                                                    <h3 class='event-title'><?= $row['event_what'] ?></h3>
+                                                    <p class='event-details'><?= $row['event_details'] ?></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <?php } ?>
+
+                                </div>
+                            </div>
+                        </main>
+                    </section>
+                    <hr>
                     <section id='event' class='f-col setting-sec event-section'>
                         <div class='f-center f-row header-sec'>
                             <h3>Manage Event</h3>

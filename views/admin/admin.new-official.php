@@ -4,7 +4,7 @@
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>New Official</title>
-    <link rel='icon' type='image/x-icon' href=<?= getFavicon('favicon'); ?>>
+    <link rel='icon' type='image/x-icon' href=<?= getLogo(); ?>>
     <link rel='stylesheet' href=<?= getStyle('admin.new-official'); ?>>
 </head>
 <body>
@@ -63,12 +63,12 @@
                                 <div class='f-col'>
                                     <label class='no-form-label req' for='email'>Email</label>
                                     <input class='no-form-input'  type='text' name='email' id='email' placeholder='Enter Email'>
-                                        <p class='error-info em-err'></p>
+                                    <p class='error-info em-err'></p>
                                 </div>
                                 <div class='f-col'>
                                     <label class='no-form-label req' for='email'>Profile</label>
                                     <input class='no-form-input' type='file' name='profile' id='profile' value='' />
-                                        <p class='error-info pro-err'></p>
+                                    <p class='error-info pro-err'></p>
                                 </div>
                             </div>
                             <div class='f-col barangay-position-container'>

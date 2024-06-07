@@ -45,6 +45,66 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             require getPartial('admin.confirm-modal');
         }
     }
+    else if (isset($_POST['system-config']))
+    {
+        $logo = $_FILES['logo'];
+
+        $filename = null;
+        $tempname = null;
+        $folder = '/sannicolas/assets/src/images/' . $filename;
+        $valid = false;
+
+        if (!($logo['error'] == 4 || ($logo['size'] == 0 && $logo['error'] == 0)))
+        {
+            if (!isValidImage($logo))
+            {        
+                $modal_icon     = DIALOG_ICON_ERROR;
+                $modal_title    = 'Invalid File Type!';
+                $modal_message  = 'Please upload \'jpg\' or \'png\' image files only.';
+
+                $modal_pos = '-';
+                $path = 'settings';
+                require getPartial('admin.confirm-modal');
+            }
+            else 
+            {
+                $valid          = true;
+                $filename       = $logo['name'];
+                $tempname       = $logo['tmp_name'];
+                $filetype       = $logo['type'];
+                $filename       = 'SYS_LOGO.' . pathinfo($filename, PATHINFO_EXTENSION);
+                $folder         = './assets/src/images/' . $filename;
+            }
+
+            if ($valid)
+            {
+                if (file_exists('assets/src/images/SYS_LOGO.jpg')) 
+                {        
+                    unlink('assets/src/images/SYS_LOGO.jpg');
+                }   
+
+                if (file_exists('assets/src/images/SYS_LOGO.png')) 
+                {        
+                    unlink('assets/src/images/SYS_LOGO.png');
+                }   
+            
+                if (move_uploaded_file($tempname, $folder))
+                {
+                    $modal_icon     = DIALOG_ICON_SUCCESS;
+                    $modal_title    = 'Logo Changed Successfully!';
+                    $modal_message  = 'Logo is changed.';
+                    logEvent('N/A', 'N/A', 'CONFIG');
+                }
+                else 
+                {
+                    $modal_icon     = DIALOG_ICON_ERROR;
+                    $modal_title    = 'Change Logo Failed!';
+                    $modal_message  = 'An Error occured while changing logo.';
+                }
+            }
+        }
+
+    }
     else if (isset($_POST['what']))
     {
         $id = generateID('EVT');
