@@ -27,7 +27,7 @@
             <div class='f-col login-content'>
                 <header class='f-row brgy-container'>
                     <div class='icon-wrapper'>
-                        <img src='<?= getImage('logo_sn.jpg')?>' alt="">
+                        <img src='<?= getLogo() ?>' alt="">
                     </div>
                     <div class='f-col title-wrapper'>
                         <h2 class='welcome-mess'>Login</h2>
