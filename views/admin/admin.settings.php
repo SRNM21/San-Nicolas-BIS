@@ -49,33 +49,6 @@
                                 </div>
                             </form>
                         </main>
-                        <main class='f-col events-content'>
-                            <div class='f-col table-limiter'>
-                                <div class='f-col events-wrapper'>
-
-                                    <?php foreach($events as $row) { ?>
-
-                                        <div class='event-card'>
-                                            <header class='f-row event-header'>
-                                                <p><?= formatDate(explode(' ', $row['event_when'])[0]) ?></p>
-                                                <a href='?delete-event=<?= $row['event_id'] ?>' class='f-center f-row'><?= getSVG('close'); ?>Remove</a>
-                                            </header>
-                                            <div class='event-info'>
-                                                <div class='event-img-wrapper'>
-                                                    <img src='/sannicolasbis/assets/uploads/<?= $row['event_image'] ?>' alt="">
-                                                </div>
-                                                <div class='f-col'>
-                                                    <h3 class='event-title'><?= $row['event_what'] ?></h3>
-                                                    <p class='event-details'><?= $row['event_details'] ?></p>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    <?php } ?>
-
-                                </div>
-                            </div>
-                        </main>
                     </section>
                     <hr>
                     <section id='event' class='f-col setting-sec event-section'>
