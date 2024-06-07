@@ -49,7 +49,7 @@
                                 </div>
                                 <div class='f-row btn-wrapper'>
                                     <p>1/2</p>
-                                    <button class='util-btn next-btn'>Next</button>
+                                    <button class='util-btn next-btn scale-anim'>Next</button>
                                 </div>
                             </section>
 
@@ -86,8 +86,8 @@
                                 <div class='f-row btn-wrapper'>
                                     <p>2/2</p>
                                     <div class='f-row'>
-                                        <button class='util-btn staff-acc-back-btn'>Back</button>
-                                        <button class='util-btn submit-new-staff-acc-btn'>Submit</button>
+                                        <button class='util-btn staff-acc-back-btn scale-anim'>Back</button>
+                                        <button class='util-btn submit-new-staff-acc-btn scale-anim'>Submit</button>
                                     </div>
                                 </div>
                             </section>

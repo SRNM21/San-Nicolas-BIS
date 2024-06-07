@@ -14,13 +14,13 @@
             <?php include getPartial('admin.side-menu'); ?>
             <main class='f-row settings-content'>
                 <div class='f-col choice-panel'>
-                    <a href='#event' class='f-center setting-btn'><?= getSVG('event'); ?><p>Manage Event</p></a>
-                    <a href='#hotline' class='f-center setting-btn hotline-setting'><?= getSVG('phone'); ?><p>Hotlines</p></a>
-                    <a href='#feedback' class='f-center setting-btn'><?= getSVG('feedback'); ?><p>Feedback</p></a>
+                    <a href='#event' draggable='false' class='f-center setting-btn scale-anim'><?= getSVG('event'); ?><p>Manage Event</p></a>
+                    <a href='#hotline' draggable='false' class='f-center setting-btn hotline-setting scale-anim'><?= getSVG('phone'); ?><p>Hotlines</p></a>
+                    <a href='#feedback' draggable='false' class='f-center setting-btn scale-anim'><?= getSVG('feedback'); ?><p>Feedback</p></a>
 
                     <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') { ?>
 
-                    <a href='#account' class='f-center setting-btn'><?= getSVG('account'); ?><p>Account</p></a>
+                    <a href='#account' draggable='false' class='f-center setting-btn'><?= getSVG('account'); ?><p>Account</p></a>
                     
                     <?php } ?>
 
@@ -31,8 +31,8 @@
                         <div class='f-center f-row header-sec'>
                             <h3>Manage Event</h3>
                             <div class='f-row event-btn-wrapper'>
-                                <button class='toggles show-events-toggle'data-text='Event'>Show Events</button>
-                                <button class='toggles add-event-btn' data-text='Add Event'>Show Add Event</button>
+                                <button class='toggles show-events-toggle scale-anim'data-text='Event'>Show Events</button>
+                                <button class='toggles add-event-btn scale-anim' data-text='Add Event'>Show Add Event</button>
                             </div>
                         </div>
                         <main class='f-col new-events-content'>
@@ -80,7 +80,7 @@
                                             <p class='error-info det-err'></p>
                                         </div>
                                     </div>
-                                    <button class='sbmt-new-event' name='event-sbmt' type='submit'>Add Event</button>
+                                    <button class='sbmt-new-event scale-anim' name='event-sbmt' type='submit'>Add Event</button>
                                 </div>
                             </form>
                         </main>
@@ -117,8 +117,8 @@
                         <div class='f-center f-row header-sec'>
                             <h3>Hotlines</h3>
                             <div class='f-row event-btn-wrapper'>
-                                <button class='toggles show-hotline-toggle' data-text='Hotlines'>Show Hotlines</button>
-                                <button class='toggles add-hotline-btn' data-text='Add Hotline'>Show Add Hotline</button>
+                                <button class='toggles show-hotline-toggle scale-anim' data-text='Hotlines'>Show Hotlines</button>
+                                <button class='toggles add-hotline-btn scale-anim' data-text='Add Hotline'>Show Add Hotline</button>
                             </div>
                         </div>
                         <main class='f-col new-hotline-content'>
@@ -141,7 +141,7 @@
                                             <p class='error-info hnu-err'></p>
                                         </div>
                                     </div>
-                                    <button class='sbmt-new-hotline' name='hotline-sbmt' type='submit'>Add Hotline</button>
+                                    <button class='sbmt-new-hotline scale-anim' name='hotline-sbmt' type='submit'>Add Hotline</button>
                                 </div>
                             </form>
                         </main>
@@ -166,7 +166,7 @@
                                                 <td><?= $row['hotline_name'] ?></td>
                                                 <td><?= $row['hotline_num'] ?></td>
                                                 <td>
-                                                    <a href="settings?delete-hotline=<?= $row['hotline_id'] ?>" class='data-util-btn red-details-btn'>Delete</a>
+                                                    <a href="settings?delete-hotline=<?= $row['hotline_id'] ?>" draggable='false' class='data-util-btn red-details-btn'>Delete</a>
                                                 </td>
                                             </tr>
 
@@ -184,7 +184,7 @@
                     <section id='feedback' class='f-col setting-sec feedback-section'>
                         <div class='f-center f-row header-sec'>
                             <h3>Feedback</h3>
-                            <button class='toggles show-fb-toggle' data-text='Feedback'>Show Feedback</button>
+                            <button class='toggles show-fb-toggle scale-anim' data-text='Feedback'>Show Feedback</button>
                         </div>
                         <main class='f-col fb-content'>
                             <div class='f-col table-limiter'>
@@ -224,63 +224,61 @@
                     <section id='account' class='f-col setting-sec account-section'>
                         <div class='f-center f-row header-sec'>
                             <h3>Account</h3>
-                            <button class='toggles edit-account'>Edit Account</button>
+                            <button class='toggles edit-account scale-anim'>Edit Account</button>
                         </div>
                         <main class='setting-acc-info-wrapper f-col'>
+                            <form action='' method='post' class='f-col upd-account-admin-form'>
+                                <div class='f-col'>   
+                                    <input type='hidden' name='old-user' value='<?= $_SESSION['USERNAME'] ?>'>
+                                    <label for='acc-username'>Username</label>
+                                    <input type='text' id='acc-username' name='acc-username' class='acc-inp setting-acc-username' placeholder='Enter Username' value='<?= $_SESSION['USERNAME'] ?>' data-default='<?= $_SESSION['USERNAME'] ?>' disabled='true'>
+                                    <p class='error-info us-err'></p>
+                                </div>
 
-                                <form action='' method='post' class='f-col upd-account-admin-form'>
-                                    <div class='f-col'>   
-                                        <input type='hidden' name='old-user' value='<?= $_SESSION['USERNAME'] ?>'>
-                                        <label for='acc-username'>Username</label>
-                                        <input type='text' id='acc-username' name='acc-username' class='acc-inp setting-acc-username' placeholder='Enter Username' value='<?= $_SESSION['USERNAME'] ?>' data-default='<?= $_SESSION['USERNAME'] ?>' disabled='true'>
-                                        <p class='error-info us-err'></p>
+                                <div class='f-col'>   
+                                    <label for='acc-email'>Email</label>
+                                    <input type='mail' id='acc-email' name='acc-email' class='acc-inp setting-acc-email' placeholder='Enter Email' value='<?= $_SESSION['EMAIL'] ?>' data-default='<?= $_SESSION['EMAIL'] ?>' disabled='true'>
+                                    <p class='error-info em-err'></p>
+                                </div>
+
+                                <div class='f-col more-acc-details'>
+                                    <div class='f-col setting-acc-util-btn-wrapper'>
+                                        <button class='f-center acc-inp reset-pass scale-anim'>Reset Password</button>
                                     </div>
 
-                                    <div class='f-col'>   
-                                        <label for='acc-email'>Email</label>
-                                        <input type='mail' id='acc-email' name='acc-email' class='acc-inp setting-acc-email' placeholder='Enter Email' value='<?= $_SESSION['EMAIL'] ?>' data-default='<?= $_SESSION['EMAIL'] ?>' disabled='true'>
-                                        <p class='error-info em-err'></p>
-                                    </div>
-
-                                    <div class='f-col more-acc-details'>
-                                        <div class='f-col setting-acc-util-btn-wrapper'>
-                                            <button class='f-center acc-inp reset-pass'>Reset Password</button>
+                                    <div class='f-col pass-wrapper'>
+                                        <div class='f-col'>   
+                                            <label for='acc-pass'>Password</label>
+                                            <input type='password' id='acc-pass' name='acc-pass' class='acc-inp setting-acc-pass' placeholder='Enter Password'>
                                         </div>
 
-                                        <div class='f-col pass-wrapper'>
-                                            <div class='f-col'>   
-                                                <label for='acc-pass'>Password</label>
-                                                <input type='password' id='acc-pass' name='acc-pass' class='acc-inp setting-acc-pass' placeholder='Enter Password'>
-                                            </div>
-
-                                            <div class='f-col'>   
-                                                <label for='acc-cpass'>Confirm Password</label>
-                                                <input type='password' id='acc-cpass' name='acc-cpass' class='acc-inp setting-acc-cpass' placeholder='Enter Confirm Password'>
-                                                <p class='error-info cp-err'></p>
-                                            </div>
-
-                                            <div class='f-col'>
-                                                <div class='f-row toggle-pass-wrapper'>
-                                                    <input type='checkbox' name='toggle-pass' id='toggle-pass' class='toggle-pass'>
-                                                    <p class='toggle-pass-hint'>Show password</p>
-                                                </div>    
-                                            </div>
-                                            <div class='f-col'>
-                                                <p>Your Password must:</p> 
-                                                <p class='pass-req'>Be at least 8 characters</p>
-                                                <p class='pass-req'>Include at least one lowercase letter</p>
-                                                <p class='pass-req'>Include at least one uppercase letter</p>
-                                                <p class='pass-req'>Include at least one number</p>
-                                                <p class='pass-req'>Include at least one symbol</p>
-                                            </div>
+                                        <div class='f-col'>   
+                                            <label for='acc-cpass'>Confirm Password</label>
+                                            <input type='password' id='acc-cpass' name='acc-cpass' class='acc-inp setting-acc-cpass' placeholder='Enter Confirm Password'>
+                                            <p class='error-info cp-err'></p>
                                         </div>
 
-                                        <div class='f-col setting-acc-util-btn-wrapper'>
-                                            <button name='acc-sbmt' class='f-center acc-inp save-changes-btn' id='save-changes-btn'>Save Changes</button>
+                                        <div class='f-col'>
+                                            <div class='f-row toggle-pass-wrapper'>
+                                                <input type='checkbox' name='toggle-pass' id='toggle-pass' class='toggle-pass'>
+                                                <p class='toggle-pass-hint'>Show password</p>
+                                            </div>    
+                                        </div>
+                                        <div class='f-col'>
+                                            <p>Your Password must:</p> 
+                                            <p class='pass-req'>Be at least 8 characters</p>
+                                            <p class='pass-req'>Include at least one lowercase letter</p>
+                                            <p class='pass-req'>Include at least one uppercase letter</p>
+                                            <p class='pass-req'>Include at least one number</p>
+                                            <p class='pass-req'>Include at least one symbol</p>
                                         </div>
                                     </div>
-                                </form>
 
+                                    <div class='f-col setting-acc-util-btn-wrapper'>
+                                        <button name='acc-sbmt' class='f-center acc-inp save-changes-btn scale-anim' id='save-changes-btn'>Save Changes</button>
+                                    </div>
+                                </div>
+                            </form>
                         </main>
                     </section>
 

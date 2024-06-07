@@ -14,7 +14,7 @@
             <?php include getPartial('admin.side-menu'); ?>
             <main class='f-col dashboard-content'>
                 <div class='f-row dashboard-cards-wrapper'>
-                    <a href='residence' class='f-row card population-card'>
+                    <a href='residence' draggable='false' class='f-row card population-card scale-anim'>
                         <div class='card-svg-wrapper'>
                             <?= getSVG('residence'); ?>
                         </div>
@@ -23,7 +23,7 @@
                             <h2 class=''><?= $total_population ?></h2>
                         </div>
                     </a>
-                    <a href='barangay-officials' class='f-row card officials-card'>
+                    <a href='barangay-officials' draggable='false' class='f-row card officials-card scale-anim'>
                         <div class='card-svg-wrapper'>
                             <?= getSVG('brgy_officials'); ?>
                         </div>
@@ -32,7 +32,7 @@
                             <h2 class=''><?= $total_barangay_officials ?></h2>
                         </div>
                     </a>
-                    <a href='blotter' class='f-row card blotter-card'>
+                    <a href='blotter' draggable='false' class='f-row card blotter-card scale-anim'>
                         <div class='card-svg-wrapper'>
                             <div class='card-svg-wrapper'>
                                 <?= getSVG('blotter1'); ?>

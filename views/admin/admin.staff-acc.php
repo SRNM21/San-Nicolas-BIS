@@ -16,8 +16,13 @@
                 <div class='f-col'>
                     <div class='f-center f-row utility'>   
                         <?php require getPartial('search-bar'); ?>
-                        <div class='util-btn-wrapper'>
-                            <a href='staff-accounts/new-staff-account' class='f-center f-row new-staff-acc-btn'><?= getSVG('add-person'); ?><p>New Staff Account</p></a>
+                        <div class='f-row util-btn-wrapper'>
+                            <?php 
+                                $export_title = 'Staff Accounts';
+                                $add_href = null;
+                                require getPartial('admin.dropdown-export'); 
+                            ?>
+                            <a href='staff-accounts/new-staff-account' draggable='false' class='f-center f-row new-staff-acc-btn scale-anim'><?= getSVG('add-person'); ?><p>New Staff Account</p></a>
                         </div>
                     </div>
                 </div>
@@ -59,6 +64,6 @@
     </div>
 
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
-    <script type='module' src=<?=  getScript('admin.staff-acc'); ?>></script>
+    <script type='module' src=<?=  getScript('admin.dropdown'); ?>></script>
 </body>
 </html>

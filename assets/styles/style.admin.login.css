@@ -5,7 +5,42 @@
     height: 100dvh;
     width: 100dvw;
     position: relative;
-    gap: var(--ws-4);
+}
+
+.side-content
+{
+    height: 100%;
+    width: 30%;
+    padding: var(--ws-6);
+}
+
+.side-content-header
+{
+    margin-left: var(--ws-8);
+    width: 100%;
+    color: var(--plt-red-2);
+}
+
+.side-content-header h1
+{
+    font-size: var(--header-h3);
+}
+
+.side-content-header h2
+{
+    font-size: var(--header-h5);
+}
+
+.anim-wrapper
+{
+    height: auto;
+    width: 90%;
+}
+
+.anim-wrapper img
+{
+    height: 100%;
+    width: 100%;
 }
 
 .adm-modal
@@ -19,29 +54,50 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.svg-wrapper
+.copyright
 {
-    width: 500px;
-    padding: var(--ws-8);
+    position: absolute;
+    bottom: 20px;
 }
 
-.svg-content
+.copyright p 
 {
-    height: fit-content;
-    width: fit-content;
+    color: var(--white);
+    font-size: var(--body-small);
+    text-align: center;
 }
 
-.svg-content svg
+.contact-link-wrapper
 {
-    height: 100%;
-    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    gap: var(--ws-2);
 }
 
-.icon
+.contact-link-wrapper a
 {
-    height: 80px;
-    width: 80px;
-    background-color: gray;
+    aspect-ratio: 1/1;
+    background-color: var(--white);
+    border: 2px solid var(--dark-gr-6);
+    border-radius: var(--ws-1);
+    padding: var(--ws-2);
+    transition: all 0.15s ease-in-out;
+} 
+
+.contact-link-wrapper a svg path
+{
+    fill: var(--dark-gr-6);
+    transition: all 0.15s ease-in-out;
+} 
+
+.contact-link-wrapper a:hover
+{
+    border: 2px solid var(--black);
+
+    & > svg path
+    {
+        fill: var(--black);
+    } 
 }
 
 .login-content-wrapper
@@ -49,18 +105,57 @@
     flex: 1;
     padding: var(--ws-8);
     background-color: var(--plt-red-2);
+    background-size: cover;
+    background-position: center;
+    background-image: url('/sannicolasbis/assets/src/images/sannics_home.png');
+    animation: updown 20s ease-in-out infinite alternate;
+}
+
+@keyframes updown 
+{
+    from 
+    {
+      background-position-y: 0;
+    }
+    to 
+    {
+      background-position-y:100%;
+    }
 }
 
 .login-content
 {
+    width: 400px;
+    border-radius: var(--ws-1);
+    background-color: var(--white);
     gap: var(--ws-2);
-    min-width: 300px;
 }
 
 .brgy-container
 {
     gap: var(--ws-2);
-    color: var(--white);
+    padding: var(--ws-4);
+    color: var(--black);
+    align-items: center;
+}
+
+.icon-wrapper
+{
+    height: 60px;
+    width: 60px;
+}
+
+.icon-wrapper img 
+{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.login-form-wrapper
+{
+    padding: var(--ws-4);
+    gap: var(--ws-2);
 }
 
 .login-input-wrapper
@@ -86,7 +181,7 @@
 
 .toggle-pass-hint
 {
-    color: var(--white);
+    color: var(--black);
     font-size: var(--body-medium);
 }
 
@@ -95,10 +190,9 @@
     width: 100%;
     padding: var(--ws-3);
     outline: none;
-    border: none;
+    border: 1px solid var(--black);
     border-radius: var(--ws-1);
     color: var(--black);
-    background-color: var(--error-light-5);
     font-size: var(--body-large);
 }
 
@@ -109,8 +203,8 @@
     border: none;
     padding: var(--ws-3);
     border-radius: var(--ws-1);
-    background-color: var(--white);
-    color: var(--plt-red-2);
+    background-color: var(--plt-red-2);
+    color: var(--white);
     font-weight: bold;
     font-size: var(--body-medium);
     cursor: pointer;
@@ -118,5 +212,21 @@
 
 .login_btn:hover
 {
-    background-color: var(--error-light-5);
+    background-color: var(--plt-red-2-d-tint);
+}
+
+@media screen and (max-width: 1024px) 
+{
+    .side-content
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) 
+{
+    .login-content
+    {
+        width: 90%;
+    }
 }

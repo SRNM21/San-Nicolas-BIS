@@ -13,12 +13,14 @@
 
 .modal
 {
+    max-height: 100%;
     height: fit-content;
     width: fit-content;
     padding: var(--ws-4);
     border-radius: var(--ws-1);
     background-color: var(--white);
     gap: var(--ws-4);
+    overflow-y: scroll;
 }
 
 .info-row
@@ -53,6 +55,7 @@
 .pending-util-btn-wrapper
 {
     justify-content: flex-end;
+    gap: var(--ws-2);
 }
 
 .pending-close-btn
@@ -75,4 +78,58 @@
     display: block;
     margin-top: var(--ws-1);
     background-color: var(--black);
+}
+
+.group
+{
+    border-radius: var(--ws-1);
+    padding: var(--ws-4);
+    border: 2px solid var(--black);
+}
+
+.fam-members-content
+{
+    max-height: 250px;
+    gap: var(--ws-2);
+}
+
+.show-fam-members-btn
+{
+    padding: var(--ws-2);
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: var(--ws-1);
+    font-size: var(--body-medium);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1450px) 
+{
+    .fam-info-seperator
+    {
+        flex-direction: column !important;
+    }
+}
+
+@media screen and (max-width: 900px) 
+{
+    .group
+    {
+        flex-direction: column !important;
+    }
+}
+
+@media screen and (max-width: 500px) 
+{
+    .info-row
+    {
+        flex-direction: column !important;
+    }
+
+    .info-grp p
+    {
+        text-wrap: wrap;
+
+    }
 }

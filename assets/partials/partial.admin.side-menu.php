@@ -21,27 +21,27 @@ $acc_email          = $_SESSION['EMAIL'];
     <main class='f-col side-menu-content side-menu-content-hide'>
         <div class='f-col admin-nav-link-wrapper'>
             <div class='f-col admin-nac-link-seperator'>
-                <a href='<?= $origin; ?>dashboard' class='f-row admin-nav-link <?= $on_dashboard ? 'active' : '' ?>' data-nav='dashboard'>
+                <a href='<?= $origin; ?>dashboard' draggable='false' class='f-row admin-nav-link <?= $on_dashboard ? 'active' : '' ?> scale-anim' data-nav='dashboard'>
                     <span class='f-center'><?= getSVG('dashboard'); ?></span>
                     <p>Dashboard</p>
                 </a>
-                <a href='<?= $origin; ?>barangay-officials' class='f-row admin-nav-link <?= $on_brgy_officials ? 'active' : '' ?>' data-nav='brgy-officials'>
+                <a href='<?= $origin; ?>barangay-officials' draggable='false' class='f-row admin-nav-link <?= $on_brgy_officials ? 'active' : '' ?> scale-anim' data-nav='brgy-officials'>
                     <span class='f-center'><?= getSVG('brgy_officials'); ?></span>
                     <p>Barangay Officials</p>
                 </a>
-                <a href='<?= $origin; ?>residence' class='f-row admin-nav-link <?= $on_residence ? 'active' : '' ?>' data-nav='residence'>
+                <a href='<?= $origin; ?>residence' draggable='false' class='f-row admin-nav-link <?= $on_residence ? 'active' : '' ?> scale-anim' data-nav='residence'>
                     <span class='f-center'><?= getSVG('residence'); ?></span>
                     <p>Residence</p>
                 </a>
-                <a href='<?= $origin; ?>pendings' class='f-row admin-nav-link <?= $on_pendings ? 'active' : '' ?>' data-nav='pendings'>
+                <a href='<?= $origin; ?>pendings' draggable='false' class='f-row admin-nav-link <?= $on_pendings ? 'active' : '' ?> scale-anim' data-nav='pendings'>
                     <span class='f-center'><?= getSVG('pending'); ?></span>
                     <p>Pendings</p>
                 </a>
-                <a href='<?= $origin; ?>blotter' class='f-row admin-nav-link  <?= $on_blotter ? 'active' : '' ?>' data-nav='blotter'>
+                <a href='<?= $origin; ?>blotter' draggable='false' class='f-row admin-nav-link  <?= $on_blotter ? 'active' : '' ?> scale-anim' data-nav='blotter'>
                     <span class='f-center'><?= getSVG('blotter1'); ?></span>
                     <p>Blotter</p>
                 </a>
-                <a href='<?= $origin; ?>requested-documents' class='f-row admin-nav-link  <?= $on_request ? 'active' : '' ?>' data-nav='requested-documents'>
+                <a href='<?= $origin; ?>requested-documents' draggable='false' class='f-row admin-nav-link  <?= $on_request ? 'active' : '' ?> scale-anim' data-nav='requested-documents'>
                     <span class='f-center'><?= getSVG('document-fill'); ?></span>
                     <p>Document Request</p>
                 </a>
@@ -50,19 +50,19 @@ $acc_email          = $_SESSION['EMAIL'];
             <div class='f-col admin-nac-link-seperator'>
                 <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') {?>
 
-                <a href='<?= $origin; ?>staff-accounts' class='f-row admin-nav-link  <?= $on_staff_accs ? 'active' : '' ?>' data-nav='staff-accounts'>
+                <a href='<?= $origin; ?>staff-accounts' draggable='false' class='f-row admin-nav-link  <?= $on_staff_accs ? 'active' : '' ?> scale-anim' data-nav='staff-accounts'>
                     <span class='f-center'><?= getSVG('staff'); ?></span>
                     <p>Staff Accounts</p>
                 </a>
 
                 <?php } ?>
                 
-                <a href='<?= $origin; ?>audit-trail' class='f-row admin-nav-link  <?= $$on_aud_trail ? 'active' : '' ?>' data-nav='audit-trail'>
+                <a href='<?= $origin; ?>audit-trail' draggable='false' class='f-row admin-nav-link  <?= $$on_aud_trail ? 'active' : '' ?> scale-anim' data-nav='audit-trail'>
                     <span class='f-center'><?= getSVG('log'); ?></span>
                     <p>Audit Trail</p>
                 </a>
 
-                <a href='<?= $origin; ?>settings' class='f-row admin-nav-link  <?= $on_settings ? 'active' : '' ?>' data-nav='settings'>
+                <a href='<?= $origin; ?>settings' draggable='false' class='f-row admin-nav-link  <?= $on_settings ? 'active' : '' ?> scale-anim' data-nav='settings'>
                     <span class='f-center'><?= getSVG('settings'); ?></span>
                     <p>Settings</p>
                 </a>

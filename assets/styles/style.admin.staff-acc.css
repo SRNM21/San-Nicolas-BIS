@@ -47,6 +47,11 @@
     fill: var(--white);
 }
 
+.util-btn-wrapper
+{
+    gap: var(--ws-2);
+}
+
 @media screen and (max-width: 600px) 
 {
     .new-staff-acc-btn p

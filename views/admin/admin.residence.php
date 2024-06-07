@@ -20,31 +20,32 @@
                         <?php require getPartial('search-bar'); ?>
 
                         <div class='f-row util-btn-wrapper'>
-                        <?php if ($filter == 'all') { ?>
-                            
-                            <a href='residence?export-all=1' class='f-center f-row export-residence-btn'><?= getSVG('export'); ?><p>Export All</p></a>
-                            
-                        <?php }else if ($filter == 'family-head') { ?>
-                            
-                            <a href='residence?export-family-head=1' class='f-center f-row export-residence-btn'><?= getSVG('export'); ?><p>Export Family Head</p></a>
-                            
-                        <?php }else if ($filter == 'family-member') { ?>
-                            
-                            <a href='residence?export-family-member=1' class='f-center f-row export-residence-btn'><?= getSVG('export'); ?><p>Export Family Member</p></a>
-                            
-                        <?php }else if ($filter == 'spouse') { ?>
-                            
-                            <a href='residence?export-spouse=1' class='f-center f-row export-residence-btn'><?= getSVG('export'); ?><p>Export Spouse</p></a>
 
-                        <?php } ?>
+                        <?php 
+
+                        $add_href = 'filter=' . $filter;
+
+                        switch ($filter) 
+                        {
+                            case 'all':             $export_title = 'All';              break;
+                            case 'family-head':     $export_title = 'Family Head';      break;
+                            case 'family-member':   $export_title = 'Family Member';    break;
+                            case 'spouse':          $export_title = 'Spouse';           break;
+                            default: break;
+                        }
+
+                        require getPartial('admin.dropdown-export'); 
+
+                        ?>
+                        
                         </div>
                     </div>
                 </div>
                 <div class='f-row query-filter-wrapper'>
-                    <a href='residence?filter=all' class='filter-btn filter-all <?= $filter == 'all' ? 'active' : '' ?>'>All</a>
-                    <a href='residence?filter=family-head' class='filter-btn filter-family-head <?= $filter == 'family-head' ? 'active' : '' ?>'>Family Head</a>
-                    <a href='residence?filter=family-member' class='filter-btn filter-family-member <?= $filter == 'family-member' ? 'active' : '' ?>'>Family Member</a>
-                    <a href='residence?filter=spouse' class='filter-btn filter-spouse <?= $filter == 'spouse' ? 'active' : '' ?>'>Spouse</a>
+                    <a href='residence?filter=all' draggable='false' class='filter-btn filter-all <?= $filter == 'all' ? 'active' : '' ?> scale-anim'>All</a>
+                    <a href='residence?filter=family-head' draggable='false' class='filter-btn filter-family-head <?= $filter == 'family-head' ? 'active' : '' ?> scale-anim'>Family Head</a>
+                    <a href='residence?filter=family-member' draggable='false' class='filter-btn filter-family-member <?= $filter == 'family-member' ? 'active' : '' ?> scale-anim'>Family Member</a>
+                    <a href='residence?filter=spouse' draggable='false' class='filter-btn filter-spouse <?= $filter == 'spouse' ? 'active' : '' ?> scale-anim'>Spouse</a>
                 </div>
                 <div class='f-col table-limiter'>
                     <div class='table-wrapper'>
@@ -96,5 +97,7 @@
     </div>
 
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
+    <script type='module' src=<?=  getScript('admin.dropdown'); ?>></script>
+
 </body>
 </html>

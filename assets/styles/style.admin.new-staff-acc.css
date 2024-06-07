@@ -158,7 +158,6 @@
 .util-btn
 {
     width: 100px;
-
     padding: var(--ws-2);
     background-color: var(--black);
     color: var(--white);

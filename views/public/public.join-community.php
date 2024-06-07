@@ -12,12 +12,24 @@
         <div class='f-col form-modal'>
             <header class='f-row'>
                 <div class='f-row brgy-info-wrapper'>
-                    <div class='logo'>
-                        <img src='<?= getImage('logo_sn.jpg') ?>' alt="">
+                    <div class='f-row menu-wrapper'>
+                        <a href='/sannicolasbis/community' draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
                     </div>
-                    <div class='f-col'>
-                        <h2>Barangay San Nicolas</h2>
-                        <p>Pasig City, Metro Manila, Philippines</p>
+                    <div class='f-center f-row'>
+
+                        <?php if ($form != 0) { ?>
+                            
+                        <div class='logo'>
+                            <img src='<?= getImage('logo_sn.jpg') ?>' alt="">
+                        </div>
+
+                        <?php } ?>
+
+                        <div class='f-col'>
+
+                            <h2>Barangay San Nicolas</h2>
+                            <p>Pasig City, Metro Manila</p>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -29,9 +41,6 @@
                     <form action='' method='post' class='f-col'>
                         <section class='f-col selection-page'>
                             <div class='f-col role-selection-wrapper'>
-                                <div class='f-row menu-wrapper'>
-                                    <a href='/sannicolasbis/community' draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
-                                </div>
                                 <label for='role'>Register in Community as</label>
                                 <select name='role' id='role-selection' class='role-selection info-inp'>
                                     <option value='family-head'>Family Head</option>
@@ -53,7 +62,6 @@
                     <form action='' method='post' id='fam-head-form'>
                         <section class='f-col fam-head-page'>
                             <div class='f-col menu-wrapper'>
-                                <a href='join-community' draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
                                 <h3>Register as Family Head</h3>
                             </div>
                             <div class='f-row info-wrapper'>
@@ -174,7 +182,6 @@
                     <form action='' method='post' id='fam-member-form'>
                         <section class='f-col fam-member-page'>
                             <div class='f-col menu-wrapper'>
-                                <a href='join-community' draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
                                 <h3>Register as Family Member</h3>
                             </div>
                             <div class='f-row info-wrapper'>
@@ -303,7 +310,6 @@
                     <form action='' method='post' id='spouse-form'>
                         <section class='f-col spouse-page'>
                             <div class='f-col menu-wrapper'>
-                                <a href='join-community'  draggable='false' class='f-center f-row back-btn scale-anim'><?= getSVG('back') ?>Back</a>
                                 <h3>Register as Spouse</h3>
                             </div>
                             <div class='f-row info-wrapper'>

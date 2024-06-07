@@ -115,6 +115,29 @@ function queryTable($table, $q)
     return $arr;
 }
 
+function queryFamilyMembers($fam_head_id)
+{
+    global $cursor;
+
+    $sql = "SELECT * FROM familymember WHERE family_head_id = '$fam_head_id'";
+
+    $stmt = $cursor->prepare($sql);
+    $stmt->execute();
+
+    $result = mysqli_stmt_get_result($stmt);
+    $arr = [];
+
+    while ($row = mysqli_fetch_assoc($result)) 
+    {
+        $arr[] = $row;
+    }
+    
+    $stmt->close();
+    mysqli_free_result($result);
+
+    return $arr;
+}
+
 function queryBlotter($q)
 {
     global $cursor;
@@ -323,7 +346,7 @@ function updateOfficials($data)
             $data['phonenum'],   
             $data['email'],      
             $data['position'],   
-            $data['handle'],
+            $data['comittee'],
             $data['status'],
             $data['id'],
         );
@@ -333,10 +356,10 @@ function updateOfficials($data)
         {   
             if ($data['temp_prof'] != null && $data['folder'] != null)
             {
-                if (move_uploaded_file($data['temp_prof'], $data['folder'])) return 1;
+                if (!move_uploaded_file($data['temp_prof'], $data['folder'])) return 0;
             }
 
-            return 0;
+            return 1;
         }
         else 
         {

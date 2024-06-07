@@ -411,3 +411,52 @@ p
 {
     min-width: 300px;
 }
+
+.export-wrapper
+{
+    position: relative;
+}
+
+.export-hover-dd
+{
+    font-size: var(--body-large);
+    gap: var(--ws-2);
+    background-color: var(--info);
+}
+
+.export-hover-dd:hover
+{
+    background-color: var(--info-dark);
+}
+
+.export-hover-dd svg
+{
+    fill: var(--white);
+}
+
+.export-dd
+{
+    display: none;
+    width: 150px;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 2;
+    background-color: var(--white);
+    border-radius: var(--ws-1);
+    padding-top: var(--ws-2);
+    padding-bottom: var(--ws-2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.export-dd a
+{
+    padding: var(--ws-3);
+    text-decoration: none;
+    color: var(--black);
+}
+
+.export-dd a:hover
+{
+    background-color: var(--gray-gr-3);
+}

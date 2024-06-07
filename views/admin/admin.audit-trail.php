@@ -18,13 +18,11 @@
                 <div class='f-col'>
                     <div class='f-center f-row utility'>   
                         <div></div>
-                        <div class='f-row util-btn-wrapper export-wrapper'>
-                            <button class='f-center f-row export-log-hover-dd data-util-btn'><?= getSVG('export')?>Export Logs <?= getSVG('dropdown')?></button>
-                            <div class='f-col export-log-dd'>
-                                <a href='?export=excel'>Export as Excel</a>
-                                <a href='?export=pdf'>Export as PDF</a>
-                            </div>
-                        </div>
+                        <?php 
+                            $export_title = 'Logs';
+                            $add_href = null;
+                            require getPartial('admin.dropdown-export'); 
+                        ?>
                     </div>
                 </div>
                 <div class='f-col table-limiter'>
@@ -64,6 +62,6 @@
     </div>
 
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
-    <script type='module' src=<?=  getScript('admin.audit-trail'); ?>></script>
+    <script type='module' src=<?=  getScript('admin.dropdown'); ?>></script>
 </body>
 </html>

@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $filename = 'default-event.png';
         $tempname = null;
         $folder = './assets/uploads/' . $filename;
+        $valid = false;
     
         if (!($up_file['error'] == 4 || ($up_file['size'] == 0 && $up_file['error'] == 0)))
         {
@@ -66,46 +67,51 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $modal_pos = '-';
                 $path = 'settings';
                 require getPartial('admin.confirm-modal');
-                exit;
             }
-    
-            $filename       = $up_file['name'];
-            $tempname       = $up_file['tmp_name'];
-            $filetype       = $up_file['type'];
-            $filename       = $id . '.' . pathinfo($filename, PATHINFO_EXTENSION);
-            $folder         = './assets/uploads/' . $filename;
+            else 
+            {
+                $valid          = true;
+                $filename       = $up_file['name'];
+                $tempname       = $up_file['tmp_name'];
+                $filetype       = $up_file['type'];
+                $filename       = $id . '.' . pathinfo($filename, PATHINFO_EXTENSION);
+                $folder         = './assets/uploads/' . $filename;
+            }
         }
 
-        $event_details = [
-            $id,
-            $filename,
-            $_POST['what'],
-            $_POST['date'] . ' ' . $_POST['time'],
-            $_POST['where'],
-            $_POST['who'],
-            $_POST['details']
-        ];
-
-        $add = addRecord($event_details, 'events');
-        
-        if ($add == $id)
+        if ($valid)
         {
-            $modal_icon     = DIALOG_ICON_SUCCESS;
-            $modal_title    = 'Added Successfully!';
-            $modal_message  = 'New Event is added';
-            logEvent('Events', $add, 'CREATE');
-            move_uploaded_file($tempname, $folder);
-        }
-        else 
-        {
-            $modal_icon     = DIALOG_ICON_ERROR;
-            $modal_title    = 'Add Failed!';
-            $modal_message  = 'An Error occured while adding new Event.';
-        }
+            $event_details = [
+                $id,
+                $filename,
+                $_POST['what'],
+                $_POST['date'] . ' ' . $_POST['time'],
+                $_POST['where'],
+                $_POST['who'],
+                $_POST['details']
+            ];
 
-        $modal_pos = '-';
-        $path = 'settings';
-        require getPartial('admin.confirm-modal');
+            $add = addRecord($event_details, 'events');
+            
+            if ($add == $id)
+            {
+                $modal_icon     = DIALOG_ICON_SUCCESS;
+                $modal_title    = 'Added Successfully!';
+                $modal_message  = 'New Event is added';
+                logEvent('Events', $add, 'CREATE');
+                move_uploaded_file($tempname, $folder);
+            }
+            else 
+            {
+                $modal_icon     = DIALOG_ICON_ERROR;
+                $modal_title    = 'Add Failed!';
+                $modal_message  = 'An Error occured while adding new Event.';
+            }
+
+            $modal_pos = '-';
+            $path = 'settings';
+            require getPartial('admin.confirm-modal');
+        }
     }
     else if (isset($_POST['h-name']))
     {
@@ -113,9 +119,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         
         $up_file = $_FILES['h-image'];
 
-        $filename = 'default-hotline.png';
-        $tempname = null;
-        $folder = './assets/uploads/' . $filename;
+        $filename   = 'default-hotline.png';
+        $tempname   = null;
+        $folder     = './assets/uploads/' . $filename;
+        $valid      = false;
     
         if (!($up_file['error'] == 4 || ($up_file['size'] == 0 && $up_file['error'] == 0)))
         {
@@ -128,43 +135,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
                 $modal_pos = '-';
                 $path = 'settings';
                 require getPartial('admin.confirm-modal');
-                exit;
+            }
+            else 
+            {
+                $valid          = true;
+                $filename       = $up_file['name'];
+                $tempname       = $up_file['tmp_name'];
+                $filetype       = $up_file['type'];
+                $filename       = $id . '.' . pathinfo($filename, PATHINFO_EXTENSION);
+                $folder         = './assets/uploads/' . $filename;
             }
     
-            $filename       = $up_file['name'];
-            $tempname       = $up_file['tmp_name'];
-            $filetype       = $up_file['type'];
-            $filename       = $id . '.' . pathinfo($filename, PATHINFO_EXTENSION);
-            $folder         = './assets/uploads/' . $filename;
         }
 
-        $event_details = [
-            $id,
-            $_POST['h-name'],
-            $_POST['h-num'],
-            $filename
-        ];
-
-        $add = addRecord($event_details, 'hotlines');
-        
-        if ($add == $id)
+        if ($valid)
         {
-            $modal_icon     = DIALOG_ICON_SUCCESS;
-            $modal_title    = 'Added Successfully!';
-            $modal_message  = 'New Hotline is added';
-            logEvent('Hotlines', $add, 'CREATE');
-            move_uploaded_file($tempname, $folder);
+            $event_details = [
+                $id,
+                $_POST['h-name'],
+                $_POST['h-num'],
+                $filename
+            ];
+    
+            $add = addRecord($event_details, 'hotlines');
+            
+            if ($add == $id)
+            {
+                $modal_icon     = DIALOG_ICON_SUCCESS;
+                $modal_title    = 'Added Successfully!';
+                $modal_message  = 'New Hotline is added';
+                logEvent('Hotlines', $add, 'CREATE');
+                move_uploaded_file($tempname, $folder);
+            }
+            else 
+            {
+                $modal_icon     = DIALOG_ICON_ERROR;
+                $modal_title    = 'Add Failed!';
+                $modal_message  = 'An Error occured while adding new Hotline.';
+            }
+    
+            $modal_pos = '-';
+            $path = 'settings';
+            require getPartial('admin.confirm-modal');
         }
-        else 
-        {
-            $modal_icon     = DIALOG_ICON_ERROR;
-            $modal_title    = 'Add Failed!';
-            $modal_message  = 'An Error occured while adding new Hotline.';
-        }
-
-        $modal_pos = '-';
-        $path = 'settings';
-        require getPartial('admin.confirm-modal');
     }
     else if (isset($_POST['old-user']))
     {

@@ -19,11 +19,15 @@
                     <div class='f-center f-row utility'>   
                         <?php require getPartial('search-bar'); ?>
                         <div class='f-row util-btn-wrapper'>
-                            <a href='barangay-officials?export=1' class='f-center f-row export-official-btn'><?= getSVG('export'); ?><p>Export</p></a>
+                            <?php 
+                                $export_title = 'Officials';
+                                $add_href = null;
+                                require getPartial('admin.dropdown-export'); 
+                            ?>
 
                         <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') {?>
                             
-                            <a href='barangay-officials/new-official' class='f-center f-row new-official-btn'><?= getSVG('add-person'); ?><p>New official</p></a>
+                            <a href='barangay-officials/new-official' draggable='false' class='f-center f-row new-official-btn scale-anim'><?= getSVG('add-person'); ?><p>New official</p></a>
                             
                         <?php } ?>
 
@@ -56,12 +60,12 @@
                                     <td><?= $row['status'] ?></td>
                                     <td><?= $row['date_added'] ?></td>
                                     <td class='action-cell'>
-                                        <a href="barangay-officials?details=<?= $row['brgy_official_id'] ?>" class="data-util-btn black-details-btn">Details</a>
+                                        <a href="barangay-officials?details=<?= $row['brgy_official_id'] ?>" draggable='false' class="data-util-btn black-details-btn">Details</a>
 
                                         <?php if ($_SESSION['PRIVILEGE'] == 'ADMIN') { ?>
                                             
-                                            <a href="barangay-officials/update-official?id=<?= $row['brgy_official_id'] ?>" class="data-util-btn blue-details-btn">Edit</a>
-                                            <a href="barangay-officials?delete=<?= $row['brgy_official_id'] ?>" class="data-util-btn red-details-btn">Delete</a>
+                                            <a href="barangay-officials/update-official?id=<?= $row['brgy_official_id'] ?>" draggable='false' class="data-util-btn blue-details-btn">Edit</a>
+                                            <a href="barangay-officials?delete=<?= $row['brgy_official_id'] ?>" draggable='false' class="data-util-btn red-details-btn">Delete</a>
 
                                         <?php } ?>
                                     
@@ -79,5 +83,6 @@
     </div>
 
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
+    <script type='module' src=<?=  getScript('admin.dropdown'); ?>></script>
 </body>
 </html>

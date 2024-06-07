@@ -23,7 +23,7 @@
                         </div>
                         <p><?= date('Y') ?></p>
                     </header>
-                    <form id='new-off-from' action='' method='POST' enctype='multipart/form-data'>
+                    <form id='new-off-form' action='' method='POST' enctype='multipart/form-data'>
                         <div class='f-row form-content-wrapper'>
                             <div class='f-col personal-info-container'>
                                 <h2>Personal Information</h2>
@@ -88,7 +88,7 @@
                                     <p class='error-info pos-err'></p>
                                 </div>
                                 <div class='f-col'>
-                                    <label class='no-form-label' for='comittee'>Comittee Title</label>
+                                    <label class='no-form-label req' for='comittee'>Comittee Title</label>
                                     <select class='no-form-input' name='comittee' id='comittee'>
                                     <option value='' disabled selected>Select Choices</option>
 

@@ -89,32 +89,44 @@ if (isset($_GET['confirm-delete']))
     require getPartial('admin.confirm-modal');
 }
 
-if (isset($_GET['export-all']))
+if (isset($_GET['export']))
 {
-    $export_list = queryTable('v_residence', null);
-    logEvent('Residents', 'N/A', 'EXPORT');
-    require getLibrary('fpdf-residence');
-}
+    $filter         = $_GET['filter'];
+    $export_type    = $_GET['export'];
+    logEvent('Residence', 'N/A', 'EXPORT');
 
-if (isset($_GET['export-family-head']))
-{
-    $export_list = queryTable('familyhead', null);
-    logEvent('Residents', 'N/A', 'EXPORT');
-    require getLibrary('fpdf-fam-head');
-}
+    $file;
+    $export_list;
 
-if (isset($_GET['export-family-member']))
-{
-    $export_list = queryTable('familymember', null);
-    logEvent('Residents', 'N/A', 'EXPORT');
-    require getLibrary('fpdf-fam-member');
-}
+    switch ($filter) 
+    {
+        case 'all':             
+            $file = 'residence';    
+            $export_list = queryTable('v_residence', null);
+            break;
+        case 'family-head':     
+            $file = 'fam-head';     
+            $export_list = queryTable('familyhead', null);
+            break;
+        case 'family-member':   
+            $file = 'fam-member';   
+            $export_list = queryTable('familymember', null);
+            break;
+        case 'spouse':          
+            $file = 'spouse';     
+            $export_list = queryTable('spouse', null);  
+            break;
+        default: break;
+    }
 
-if (isset($_GET['export-spouse']))
-{
-    $export_list = queryTable('spouse', null);
-    logEvent('Residents', 'N/A', 'EXPORT');
-    require getLibrary('fpdf-spouse');
+    if ($export_type == 'excel')
+    {
+        require getLibrary("excel-$file");
+    }
+    else if ($export_type == 'pdf')
+    {
+        require getLibrary("fpdf-$file");
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

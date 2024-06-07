@@ -43,6 +43,22 @@ if (isset($_GET['confirm-delete-staff']))
     require getPartial('admin.confirm-modal');
 }
 
+if (isset($_GET['export']))
+{
+    $export_type = $_GET['export'];
+    $export_list  = $data;
+    logEvent('Barangay Staffs', 'N/A', 'EXPORT');
+
+    if ($export_type == 'excel')
+    {
+        require getLibrary('excel-staffs');
+    }
+    else if ($export_type == 'pdf')
+    {
+        require getLibrary('fpdf-staffs');
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     if (isset($_POST['refresh']))

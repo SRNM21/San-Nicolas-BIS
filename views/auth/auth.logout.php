@@ -15,8 +15,8 @@
                 <h3>Logout</h3>
                 <p>You will returned to the login screen</p>
                 <div class='f-col btn-wrapper'>
-                    <button class='f-center logout-btn prm' name='logout' type="submit">Log out</button>
-                    <button class='f-center logout-btn scn' name='cancel' type="submit">Cancel</button>
+                    <button class='f-center logout-btn prm scale-anim' name='logout' type="submit">Log out</button>
+                    <button class='f-center logout-btn scn scale-anim' name='cancel' type="submit">Cancel</button>
                 </div>
             </form>
         </div>

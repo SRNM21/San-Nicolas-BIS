@@ -2,14 +2,12 @@
 <link rel='stylesheet' href=<?= getStyle('partial.details-official'); ?>>
 <div class='f-center modal-container'>
     <main class='f-center f-col modal'>
-        <span class='chip chip-<?= strtolower($status); ?>'>
-            <?= $status ?>
-        </span>
-        <a href='/sannicolasbis/administrator/barangay-officials' class='close-btn-wrapper'>
+        <a href='/sannicolasbis/administrator/barangay-officials' draggable='false' class='close-btn-wrapper'>
             <?= getSVG('close'); ?>
         </a>
         <div class='f-center image-wrapper'>
             <img src='/sannicolasbis/assets/uploads/<?= $profile?>' alt='<?= $fullname . ' profile'?>'>
+            <span class='chip chip-<?= strtolower($status); ?>'><?= $status ?> </span>
         </div>
         <div class='f-center f-col info-wrapper'>
             <div class='f-col info-container'>
@@ -17,29 +15,30 @@
                     <h2 class='name-val'><?= $fullname ?></h2>
                     <p class='card-hint'><?= $position ?></p>
                 </span>
+                <div class='f-row handle-container'>
+                    <span>
+                        <b class='card-hint'>Comittee Title</b>
+                        <p class='card-value'><?= handleEmptyValue('N/A', $comittee) ?></p>
+                    </span>
+                    <span>
+                        <b class='card-hint'>Date Addded</b>
+                        <p class='card-value'><?= formatDate($date_added) ?></p>
+                    </span>
+                </div>
                 <div class='f-col contact-container'>
+                    <b class='card-hint'>Contacts</b>
                     <a href='tel:<?= $phone_num ?>' class='f-row contact-wrapper'>
                         <span class='svg-wrapper'>
                             <?= getSVG('phone') ?>
                         </span>
-                        <p class='card-value'><?= $phone_num ?></p>
+                        <p class='card-value'><?= handleEmptyValue('None', $phone_num) ?></p>
                     </a>
                     <a href='mailto:<?= $email ?>' class='f-row contact-wrapper'>
                         <span class='svg-wrapper'>
                             <?= getSVG('mail') ?>
                         </span>
-                        <p class='card-value'><?= $email ?></p>
+                        <p class='card-value'><?= handleEmptyValue('None', $email) ?></p>
                     </a>
-                </div>
-                <div class='f-row handle-container'>
-                    <span>
-                        <p class='card-hint'>Comittee Title</p>
-                        <p class='card-value'><?= $comittee ?></p>
-                    </span>
-                    <span>
-                        <p class='card-hint'>Date Addded</p>
-                        <p class='card-value'><?= $date_added ?></p>
-                    </span>
                 </div>
             </div>
         </div>

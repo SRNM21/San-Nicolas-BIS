@@ -33,8 +33,9 @@
 
 .logo
 {
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
+    margin-right: var(--ws-2);
 }
 
 .logo img
@@ -45,11 +46,17 @@
 
 .brgy-info-wrapper
 {
+    width: 100%;
     align-items: center;
-    gap: var(--ws-4);
+    justify-content: space-between;
 }
 
-.brgy-info-wrapper > div > p
+.brgy-info-wrapper > div > div > h2
+{
+    font-size: var(--body-large);
+}
+
+.brgy-info-wrapper > div > div > p
 {
     font-size: var(--body-medium);
 }
@@ -76,20 +83,32 @@ form section
     height: 40px;
     padding: var(--ws-2);
     padding-right: var(--ws-3);
-    background-color: var(--black);
+    background-color: var(--white);
+    margin-right: calc(var(--ws-10) * 2);
     margin-bottom: var(--ws-4);
     border-radius: var(--ws-1);
-    color: var(--white);
+    color: var(--black);
     font-size: var(--body-medium);
     gap: var(--ws-1);
     text-decoration: none;
     text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.back-btn:active
+{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0);
+}
+
+.back-btn:hover
+{
+    background-color: var(--gray-gr-2);
 }
 
 .back-btn svg
 {
     height: var(--ws-4);
-    fill: var(--white);
+    fill: var(--black);
 }
 
 .btn-wrapper

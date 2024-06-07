@@ -32,6 +32,6 @@ submit.click(function (e)
         validStat   && validCom
     )
     {
-        $('#new-off-from').submit()
+        $('#new-off-form').submit()
     }
 })

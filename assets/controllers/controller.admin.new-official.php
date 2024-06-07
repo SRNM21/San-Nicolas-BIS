@@ -6,7 +6,7 @@ $data = queryTable('barangay_officials', null);
 
 $comittee_title = [
     'None',
-    'Comittee on Health',
+    'Committe on Health',
     'Committe on Sport',
     'Comittee on Peace and Order',
     'Comittee on Solo Parents',

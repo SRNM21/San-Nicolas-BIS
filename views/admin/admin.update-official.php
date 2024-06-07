@@ -23,7 +23,7 @@
                         </div>
                         <p><?= date('Y') ?></p>
                     </header>
-                    <form id='new-off-from' action='' method='POST' enctype='multipart/form-data'>
+                    <form id='new-off-form' action='' method='POST' enctype='multipart/form-data'>
                         <div class='f-row form-content-wrapper'>
                             <div class='f-col personal-info-container'>
                                 <h2>Personal Information</h2>
@@ -118,6 +118,6 @@
     </div>
     
     <script type='text/javascript' src=<?=  getScript('jquery-3.7.1'); ?>></script>
-    <script type='module' src=<?=  getScript('admin.new-official'); ?>></script>
+    <script type='module' src=<?=  getScript('admin.update-official'); ?>></script>
 </body>
 </html>

@@ -21,9 +21,9 @@
                     </div>
                 </div>
                 <div class='f-row query-filter-wrapper'>
-                    <a href='requested-documents?filter=request' class='filter-btn filter-request <?= $filter == 'request' ? 'active' : '' ?>'>Request</a>
-                    <a href='requested-documents?filter=pending' class='filter-btn filter-pending <?= $filter == 'pending' ? 'active' : '' ?>'>Pendings</a>
-                    <a href='requested-documents?filter=archive' class='filter-btn filter-archive <?= $filter == 'archive' ? 'active' : '' ?>'>Archive</a>
+                    <a href='requested-documents?filter=request' draggable='false' class='filter-btn filter-request <?= $filter == 'request' ? 'active' : '' ?> scale-anim'>Request</a>
+                    <a href='requested-documents?filter=pending' draggable='false' class='filter-btn filter-pending <?= $filter == 'pending' ? 'active' : '' ?> scale-anim'>Pendings</a>
+                    <a href='requested-documents?filter=archive' draggable='false' class='filter-btn filter-archive <?= $filter == 'archive' ? 'active' : '' ?> scale-anim'>Archive</a>
                 </div>
                 <div class='f-col table-limiter'>
                     <div class='table-wrapper'>

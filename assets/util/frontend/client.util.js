@@ -76,19 +76,24 @@ export function validatePhonenum(input, errorProvider)
 {
     let value = input.val().trim()
 
-    let numRegex = /^09/
+    let numStartRegex = /^09/
+    let numRegex = /^09\d{9}$/
 
     if (value == '') 
     {
         return setInvalid(input, errorProvider, 'Phone number is required')
     }
-    else if (value.length != 11)
+    else if (!numStartRegex.test(value))
     {
-        return setInvalid(input, errorProvider, 'Phone number must be 11 digits')
+        return setInvalid(input, errorProvider, 'Phone number must start with \'09\'')
     }
     else if (!numRegex.test(value))
     {
-        return setInvalid(input, errorProvider, 'Phone number must start with \'09\'')
+        return setInvalid(input, errorProvider, 'Phone number must contain only numbers')
+    }
+    else if (value.length != 11)
+    {
+        return setInvalid(input, errorProvider, 'Phone number must be 11 digits')
     }
 
     return setNormal(input, errorProvider)
@@ -296,15 +301,48 @@ function setInvalid(input, errorProvider, message)
     return false
 }
 
+export function toggleDisplay(toggleBtn, display) 
+{  
+    toggleBtn.click(function (e) 
+    { 
+        e.preventDefault()
+
+        let elemName = toggleBtn.data('text')
+        
+        if (display.hasClass('shown'))
+        {
+            toggleBtn.text('Show ' + elemName)
+            display.removeClass('shown')
+            display.slideUp()
+        }
+        else 
+        {
+            toggleBtn.text('Hide ' + elemName)
+            display.addClass('shown')
+            display.slideDown({
+                start: function () {
+                    $(this).css({
+                        display: "flex"
+                    })
+                }
+            });
+        }
+    })
+}
+
 export function dropdown(list, button)
 {
-    list.hide()
-
     button.click(function()
     {
         if (list.is(":hidden"))
         {
-            list.slideDown('fast')
+            list.slideDown({
+                start: function () {
+                    $(this).css({
+                        display: "flex"
+                    })
+                }
+            });
             
             $(document).mouseup(function (e) 
             { 

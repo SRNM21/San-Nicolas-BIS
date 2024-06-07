@@ -4,7 +4,7 @@ import {
     validateInput,
     validateFutureDate,
     validateEmail,
-    dropdown
+    toggleDisplay
 } from '/SanNicolasBIS/assets/util/frontend/client.util.js'
 
 const eventToggle = $('.show-events-toggle')
@@ -38,36 +38,6 @@ toggleDisplay(hotlineToggle, hotlineContent)
 toggleDisplay(createHotlineToggle, createHotlineContent)
 toggleDisplay(logToggle, logContent)
 toggleDisplay(feedbackToggle, feedbackContent)
-dropdown($('.export-log-dd'), $('.export-log-hover-dd'))
-
-function toggleDisplay(toggleBtn, display) 
-{  
-    toggleBtn.click(function (e) 
-    { 
-        e.preventDefault()
-
-        let elemName = toggleBtn.data('text')
-        
-        if (display.hasClass('shown'))
-        {
-            toggleBtn.text('Show ' + elemName)
-            display.removeClass('shown')
-            display.slideUp()
-        }
-        else 
-        {
-            toggleBtn.text('Hide ' + elemName)
-            display.addClass('shown')
-            display.slideDown({
-                start: function () {
-                    $(this).css({
-                        display: "flex"
-                    })
-                }
-            });
-        }
-    })
-}
 
 newEventBtn.click(function (e)
 {

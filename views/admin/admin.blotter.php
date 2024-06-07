@@ -17,15 +17,15 @@
                     <div class='f-center f-row utility'>   
                         <?php require getPartial('search-bar'); ?>
                         <div class='util-btn-wrapper'>
-                            <a href='blotter/new-blotter' class='f-center f-row new-blotter-btn'><?= getSVG('add-blotter'); ?><p>New blotter</p></a>
+                            <a href='blotter/new-blotter' draggable='false' class='f-center f-row new-blotter-btn scale-anim'><?= getSVG('add-blotter'); ?><p>New blotter</p></a>
                         </div>
                     </div>
                 </div>
                 <div class='f-row query-filter-wrapper'>
-                    <a href='blotter?filter=all' class='filter-btn filter-all <?= $filter == 'all' ? 'active' : '' ?>'>All</a>
-                    <a href='blotter?filter=pending' class='filter-btn filter-pending <?= $filter == 'pending' ? 'active' : '' ?>'>Pending</a>
-                    <a href='blotter?filter=active' class='filter-btn filter-active <?= $filter == 'active' ? 'active' : '' ?>'>Active<sa>
-                    <a href='blotter?filter=settled' class='filter-btn filter-settled <?= $filter == 'settled' ? 'active' : '' ?>'>Settled</a>
+                    <a href='blotter?filter=all' draggable='false' class='filter-btn filter-all <?= $filter == 'all' ? 'active' : '' ?> scale-anim'>All</a>
+                    <a href='blotter?filter=pending' draggable='false' class='filter-btn filter-pending <?= $filter == 'pending' ? 'active' : '' ?> scale-anim'>Pending</a>
+                    <a href='blotter?filter=active' draggable='false' class='filter-btn filter-active <?= $filter == 'active' ? 'active' : '' ?> scale-anim'>Active<sa>
+                    <a href='blotter?filter=settled' draggable='false' class='filter-btn filter-settled <?= $filter == 'settled' ? 'active' : '' ?> scale-anim'>Settled</a>
                 </div>
                 <div class='f-col table-limiter'>
                     <div class='table-wrapper'>

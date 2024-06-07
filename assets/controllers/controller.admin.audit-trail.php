@@ -6,14 +6,15 @@ $logs = queryLogs();
 if (isset($_GET['export']))
 {
     $export_type = $_GET['export'];
+    $export_list  = $logs;
+    logEvent('Logs', 'N/A', 'EXPORT');
 
     if ($export_type == 'excel')
     {
-
+        require getLibrary('excel-logs');
     }
     else if ($export_type == 'pdf')
     {
-        $export_list  = $logs;
         require getLibrary('fpdf-logs');
     }
 }

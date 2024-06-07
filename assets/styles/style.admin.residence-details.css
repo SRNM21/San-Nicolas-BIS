@@ -17,23 +17,6 @@
     padding: var(--ws-4);
 }
 
-.breadcrumbs-wrapper
-{
-    gap: var(--ws-1);
-    color: var(--dark-gr-5);
-}
-
-.breadcrumbs-wrapper a
-{
-    color: var(--dark-gr-5);
-    text-decoration: none;
-}
-
-.breadcrumbs-wrapper a:hover
-{
-    text-decoration: underline;
-}
-
 .details-scroller
 {
     flex: 1;
@@ -124,3 +107,4 @@
     min-width: 200px;
     flex: 2;
 }
+

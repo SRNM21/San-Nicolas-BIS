@@ -87,9 +87,18 @@ if (isset($_GET['delete-confirm']))
 
 if (isset($_GET['export']))
 {
+    $export_type = $_GET['export'];
+    $export_list  = $data;    
     logEvent('Barangay Officials', 'N/A', 'EXPORT');
-    $export_list = $data;
-    require getLibrary('fpdf-officials');
+
+    if ($export_type == 'excel')
+    {
+        require getLibrary('excel-officials');
+    }
+    else if ($export_type == 'pdf')
+    {
+        require getLibrary('fpdf-officials');
+    }
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')

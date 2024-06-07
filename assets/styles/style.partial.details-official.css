@@ -11,10 +11,10 @@
 
 .modal
 {
+    position: relative;
     display: flex;
     align-items: center;
-    position: relative;
-    width: 400px;
+    width: 500px;
     gap: var(--ws-2);
     padding: var(--ws-6);
     border-radius: var(--ws-1);
@@ -24,21 +24,25 @@
 .chip
 {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    color: var(--white);
+    bottom: 5px;
+    right: 5px;
+    font-weight: bold;
     padding: var(--ws-2);
     border-radius: 100px;
 }
 
 .chip-active
 {
-    background-color: var(--success);
+    color: var(--success);
+    border: 3px solid var(--success);
+    background-color: var(--success-light-4);
 }
 
 .chip-dismissed
 {
-    background-color: var(--error);
+    color: var(--error);
+    border: 3px solid var(--error);
+    background-color: var(--error-light-4);
 }
 
 .close-btn-wrapper
@@ -54,7 +58,7 @@
 {
     height: 100%;
     width: 100%;
-    fill: var(--dark-gr-7);
+    fill: var(--dark-gr-6);
 }
 
 .image-wrapper
@@ -63,6 +67,7 @@
     width: 200px;
     max-height: 200px;
     max-width: 200px;
+    position: relative;
 }
 
 .image-wrapper img 
@@ -88,8 +93,7 @@
 
 .card-hint
 {
-    font-size: var(--body-medium);
-    color: var(--dark-gr-5);
+    font-size: var(--body-large);
 }
 
 .contact-container
@@ -103,6 +107,11 @@
     text-decoration: none;
     color: var(--black);
     font-size: var(--body-small);
+}
+
+.contact-wrapper p
+{
+    font-size: var(--body-medium);
 }
 
 .handle-container span
