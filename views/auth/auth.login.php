@@ -38,8 +38,8 @@
                     <p class='login-mess'>Please enter your credentials</p>
                     <form action='administrator' method='POST' class='f-col login-form'>
                         <div class='f-col login-input-wrapper'>
-                            <input value='Gengars' class='login-input username' placeholder='Username' type='text' id='username' name='username'>
-                            <input value='asdASD123!' class='login-input password' placeholder='Password' type='password' id='password' name='password'>
+                            <input class='login-input username' placeholder='Username' type='text' id='username' name='username'>
+                            <input class='login-input password' placeholder='Password' type='password' id='password' name='password'>
                             <div class='f-center f-row toggle-pass-wrapper'>
                                 <input type='checkbox' name='toggle-pass' id='toggle-pass' class='toggle-pass'>
                                 <p class='toggle-pass-hint'>Show password</p>

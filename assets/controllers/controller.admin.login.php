@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
             $alt_body   = 'TEST OTP!';
             $action     = 'administrator';
             
-            // require getLibrary('mailer');
+            require getLibrary('mailer');
             require getPartial('admin.otp-modal');
         }
         else 
