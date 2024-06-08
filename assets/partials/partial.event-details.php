@@ -11,27 +11,27 @@
             <div class='f-row'>
                 <div class='info-group'>
                     <p class='info-event-title'>What</p>
-                    <p class='info-event-val'><?= formatDate(explode(' ', $e['event_when'])[0]) ?></p>
+                    <p class='info-event-val'><?= $event['event_what'] ?></p>
                 </div>
                 <div class='info-group'>
                     <p class='info-event-title'>When</p>
-                    <p class='info-event-val'><?= formatDate(explode(' ', $e['event_when'])[0]) ?> <?= date('h:i:sa', intval(explode(' ', $e['event_when'])[1])) ?></p>
+                    <p class='info-event-val'><?= formatDate(explode(' ', $event['event_when'])[0]) ?> <?= date('h:i:sa', intval(explode(' ', $e['event_when'])[1])) ?></p>
                 </div>
             </div>
             <div class='f-row'>
                 <div class='info-group'>
                     <p class='info-event-title'>Where</p>
-                    <p class='info-event-val'><?= $e['event_where'] ?></p>
+                    <p class='info-event-val'><?= $event['event_where'] ?></p>
                 </div>
                 <div class='info-group'>
                     <p class='info-event-title'>Who</p>
-                    <p class='info-event-val'><?= $e['event_who'] ?></p>
+                    <p class='info-event-val'><?= $event['event_who'] ?></p>
                 </div>
             </div>
             <div class='f-row'>
                 <div class='info-group'>
                     <p class='info-event-title'>Details</p>
-                    <p class='info-event-val'><?= $e['event_details'] ?></p>
+                    <p class='info-event-val'><?= $event['event_details'] ?></p>
                 </div>
             </div>
             <a href='events?filter=<?= $filter ?>' class='f-center modal-btn scale-anim' draggable='false'>Close</a>
