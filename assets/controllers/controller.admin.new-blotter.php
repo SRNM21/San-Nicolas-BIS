@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_POST['respondent'],
         $_POST['respondent-add'],
         $_POST['nature-of-complaint'],
-        date('Y-m-d h:i:s A ', strtotime($date_and_time)),
+        date('Y-m-d H:i:s ', strtotime($date_and_time)),
         $_POST['status'],
-        date('Y-m-d h:i:s A')
+        date('Y-m-d H:i:s')
     ];
 
     $add = addRecord($blotter_details, 'blotter');

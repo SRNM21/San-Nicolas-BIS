@@ -623,7 +623,7 @@ function updateRequestDocumentStatus($id, $status)
 function claimRequestDocument($id)
 {
     global $cursor;
-    $time_stamp = date('Y-m-d h:i:s A');
+    $time_stamp = date('Y-m-d H:i:s');
 
     $sql = "UPDATE request_document SET 
                 date_claimed = ?
@@ -783,7 +783,7 @@ function addFeedback($data)
     try 
     {
         $stmt = $cursor->prepare($sql);
-        $date_time = date('Y-m-d h:i:s A');
+        $date_time = date('Y-m-d H:i:s');
         
         $stmt->bind_param(
             $inp, 

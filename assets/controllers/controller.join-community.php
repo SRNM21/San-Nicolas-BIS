@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $role           = $_GET['role'];
     $id             = generateID('PEN');
-    $date           = date('Y-m-d h:i:s A');
+    $date           = date('Y-m-d H:i:s');
     $add            = 0;
     $table          = '';
     $last_name      = '';

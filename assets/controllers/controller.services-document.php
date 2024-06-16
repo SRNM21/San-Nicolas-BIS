@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
         $_POST['cont-num'],
         $_POST['email'],
         'request',
-        date('Y-m-d h:i:s A'),
+        date('Y-m-d H:i:s'),
         null
     ];
 
