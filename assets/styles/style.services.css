@@ -42,15 +42,15 @@ section
 
 .docu-cards-wrapper
 {
+    height: 600px;
     width: 100%;
     gap: var(--ws-8);
-    flex-wrap: wrap;
 }
 
 .docu-cards
 {
     max-width: 400px;
-    height: fit-content;
+    height: 100%;
     width: fit-content;
     padding: var(--ws-6);
     gap: var(--ws-6);
@@ -88,6 +88,7 @@ section
 .docu-details
 {
     gap: var(--ws-2);
+    flex: 1;
 }
 
 .docu-details p

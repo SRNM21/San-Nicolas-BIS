@@ -58,7 +58,7 @@ $on_lmarks          = str_starts_with($com_uri, 'landmarks');
             <div class='f-row out-nav'><?= getSVG('close'); ?></div>
             <div class='f-center f-col brgy-container'>
                 <div class='icon'>
-                    <img src='<?= getImage('logo_sn.jpg') ?>' alt="">
+                    <img src='<?= getLogo() ?>' alt="">
                 </div>
                 <h3>Barangay San Nicolas</h3>
             </div>

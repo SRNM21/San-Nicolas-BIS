@@ -29,7 +29,7 @@
 
 .events-wrapper
 {
-    width: var(--bp-laptop);
+    width: 100%;
     padding: var(--ws-4);
     margin-top: var(--ws-4);
     gap: var(--ws-4);
@@ -164,6 +164,8 @@
 .events-footer
 {
     width: 100%;
+    position: absolute;
+    bottom: 0;
     height: fit-content;
     padding: var(--ws-8);
     background-color: var(--plt-red-2);

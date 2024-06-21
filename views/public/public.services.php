@@ -16,7 +16,7 @@
                     <h1 class='online-docu-steps-title'>ONLINE BARANGAY DOCUMENT REQUEST</h1>
                 </div>
                 <div class='f-center f-row docu-cards-wrapper'>
-                    <div class='f-center f-col docu-cards brgy-clr-card'>
+                    <div class='f-col docu-cards brgy-clr-card'>
                         <div class='img-wrapper'>
                             <img src='<?= getImage('CLEARANCE.png') ?>' alt="">
                         </div>
@@ -26,7 +26,7 @@
                         </div>
                         <a href='services/barangay-clearance' class='f-center proceed-btn scale-anim' draggable='false'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
-                    <div class='f-center f-col docu-cards brgy-cert-card'>
+                    <div class='f-col docu-cards brgy-cert-card'>
                         <div class='img-wrapper'>
                             <img src='<?= getImage('INDIGENCY.png') ?>' alt="">
                         </div>
@@ -36,7 +36,7 @@
                         </div>
                         <a href='services/barangay-indigency' class='f-center proceed-btn scale-anim' draggable='false'><?= getSVG('proceed') ?> Proceed</a>
                     </div>
-                    <div class='f-center f-col docu-cards ind-cert-card'>
+                    <div class='f-col docu-cards ind-cert-card'>
                         <div class='img-wrapper'>
                             <img src='<?= getImage('RESIDENCY.png') ?>' alt="">
                         </div>
