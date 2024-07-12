@@ -1,5 +1,3 @@
-# README
-
 # **Digital Transformation in Barangay San Nicolas Governance**
 
 ## **I. Project Description**
